@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bv5b4bj71l3is"]
+[gd_scene load_steps=3 format=3 uid="uid://bv5b4bj71l3is"]
 
 [ext_resource type="Script" path="res://Button.gd" id="1_tx608"]
+[ext_resource type="PackedScene" uid="uid://ckvleqm7iw707" path="res://player.tscn" id="2_ox1dk"]
 
 [node name="Main" type="Node2D"]
 
@@ -18,5 +19,8 @@ offset_top = 266.0
 offset_right = 762.0
 offset_bottom = 385.0
 text = "Play"
+
+[node name="Player" parent="." instance=ExtResource("2_ox1dk")]
+position = Vector2(256, 253)
 
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
