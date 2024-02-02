@@ -11,6 +11,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var velocity = Vector2.ZERO # The Player's movement vector
+	if Input.is_action_just_pressed("MENU"):
+		get_tree().quit()
 	if Input.is_action_pressed("RIGHT"):
 		velocity.x += 1
 	if Input.is_action_pressed("LEFT"):
