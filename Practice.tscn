@@ -1,24 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0g2sb4xpeawx"]
+[gd_scene load_steps=2 format=3 uid="uid://d0g2sb4xpeawx"]
 
 [ext_resource type="PackedScene" uid="uid://ckvleqm7iw707" path="res://player.tscn" id="1_wn444"]
 
-[sub_resource type="GDScript" id="GDScript_j7gmh"]
-script/source = "extends Node2D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	if Input.is_action_just_pressed(\"MENU\"):
-		get_tree().quit()
-	
-"
-
 [node name="Node2D" type="Node2D"]
-script = SubResource("GDScript_j7gmh")
 
 [node name="Player" parent="." instance=ExtResource("1_wn444")]
