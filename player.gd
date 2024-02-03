@@ -13,6 +13,8 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().quit()
 	var velocity = Vector2.ZERO # The Player's movement vector
+	if Input.is_action_just_pressed("MENU"):
+		get_tree().quit()
 	if Input.is_action_pressed("RIGHT"):
 		velocity.x += 1
 	if Input.is_action_pressed("LEFT"):
