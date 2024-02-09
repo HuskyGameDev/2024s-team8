@@ -1,7 +1,9 @@
-extends Area2D
+extends CharacterBody2D
 
 @export var playerSpeed = 350
 var screen_size
+
+var HasCrowbar = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -26,6 +28,11 @@ func _process(delta):
 		velocity = velocity.normalized() * playerSpeed
 	else:
 		pass
-
+	
 	position += velocity * delta
 	position = position.clamp(Vector2.ZERO, screen_size)
+
+	
+	
+	
+	

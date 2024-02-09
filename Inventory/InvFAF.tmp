@@ -1,0 +1,83 @@
+[gd_scene load_steps=12 format=3 uid="uid://coj1u2mipsnim"]
+
+[ext_resource type="PackedScene" uid="uid://ckvleqm7iw707" path="res://player.tscn" id="1_blpm0"]
+[ext_resource type="Script" path="res://Inventory/Crowbar.gd" id="2_13td0"]
+[ext_resource type="Texture2D" uid="uid://dlxwkt4n4n5to" path="res://Inventory/R.png" id="2_x51pv"]
+[ext_resource type="PackedScene" uid="uid://bwmuhr4im6pbt" path="res://Inventory/Interaction/InteractionArea.tscn" id="3_txqm4"]
+[ext_resource type="Texture2D" uid="uid://cbkwbxfsg6u7q" path="res://Inventory/Vent.png" id="5_2clci"]
+[ext_resource type="Script" path="res://Inventory/Vent.gd" id="5_sue18"]
+[ext_resource type="Script" path="res://Inventory/Monster.gd" id="7_ftdtg"]
+[ext_resource type="Texture2D" uid="uid://bq7i3gq5nox5k" path="res://Inventory/Helianth.png" id="8_nj4gj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0kduy"]
+radius = 653.54
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_irmx0"]
+radius = 733.38
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wa21l"]
+radius = 175.09
+
+[node name="InventoryTesting" type="Node2D"]
+
+[node name="PlayerBody" parent="." groups=["Player"] instance=ExtResource("1_blpm0")]
+position = Vector2(462, 369)
+collision_layer = 2
+
+[node name="Label" type="Label" parent="PlayerBody"]
+visible = false
+z_index = 20
+offset_right = 568.0
+offset_bottom = 100.0
+theme_override_font_sizes/font_size = 40
+text = "I need some way to open this!"
+
+[node name="Crowbar" type="Node2D" parent="."]
+position = Vector2(1500, 350)
+script = ExtResource("2_13td0")
+
+[node name="CrowbarImage" type="Sprite2D" parent="Crowbar"]
+scale = Vector2(0.28, 0.355)
+texture = ExtResource("2_x51pv")
+
+[node name="InteractionArea" parent="Crowbar" instance=ExtResource("3_txqm4")]
+position = Vector2(0, 0)
+scale = Vector2(0.28, 0.355)
+action_name = "DESTROY"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Crowbar/InteractionArea"]
+shape = SubResource("CircleShape2D_0kduy")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Vent" type="Node2D" parent="."]
+position = Vector2(1000, 750)
+scale = Vector2(0.75, 0.75)
+script = ExtResource("5_sue18")
+
+[node name="Sprite2D" type="Sprite2D" parent="Vent"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_2clci")
+
+[node name="InteractionArea" parent="Vent" instance=ExtResource("3_txqm4")]
+position = Vector2(0, 0)
+scale = Vector2(0.25, 0.25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vent/InteractionArea"]
+shape = SubResource("CircleShape2D_irmx0")
+
+[node name="Monster" type="Node2D" parent="."]
+position = Vector2(250, 700)
+
+[node name="Sprite2D" type="Sprite2D" parent="Monster"]
+scale = Vector2(4, 4)
+texture = ExtResource("8_nj4gj")
+
+[node name="Area2D" type="Area2D" parent="Monster"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("7_ftdtg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Monster/Area2D"]
+shape = SubResource("CircleShape2D_wa21l")
+
+[connection signal="body_entered" from="Monster/Area2D" to="Monster/Area2D" method="_on_body_entered"]

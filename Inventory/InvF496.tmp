@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://coj1u2mipsnim"]
+
+[ext_resource type="PackedScene" uid="uid://ckvleqm7iw707" path="res://player.tscn" id="1_blpm0"]
+[ext_resource type="Script" path="res://Inventory/Crowbar.gd" id="2_13td0"]
+[ext_resource type="Texture2D" uid="uid://dlxwkt4n4n5to" path="res://Inventory/R.png" id="2_x51pv"]
+[ext_resource type="PackedScene" uid="uid://bwmuhr4im6pbt" path="res://Inventory/Interaction/InteractionArea.tscn" id="3_txqm4"]
+[ext_resource type="Texture2D" uid="uid://cbkwbxfsg6u7q" path="res://Inventory/Vent.png" id="5_2clci"]
+[ext_resource type="Script" path="res://Inventory/Vent.gd" id="5_sue18"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0kduy"]
+radius = 653.54
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_irmx0"]
+radius = 733.38
+
+[node name="InventoryTesting" type="Node2D"]
+
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("1_blpm0")]
+position = Vector2(462, 369)
+collision_layer = 2
+
+[node name="Crowbar" type="Node2D" parent="."]
+position = Vector2(1500, 350)
+script = ExtResource("2_13td0")
+
+[node name="CrowbarImage" type="Sprite2D" parent="Crowbar"]
+scale = Vector2(0.28, 0.355)
+texture = ExtResource("2_x51pv")
+
+[node name="InteractionArea" parent="Crowbar" instance=ExtResource("3_txqm4")]
+position = Vector2(0, 0)
+scale = Vector2(0.28, 0.355)
+action_name = "DESTROY"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Crowbar/InteractionArea"]
+shape = SubResource("CircleShape2D_0kduy")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Vent" type="Node2D" parent="."]
+position = Vector2(1000, 750)
+scale = Vector2(0.75, 0.75)
+script = ExtResource("5_sue18")
+
+[node name="Sprite2D" type="Sprite2D" parent="Vent"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_2clci")
+
+[node name="InteractionArea" parent="Vent" instance=ExtResource("3_txqm4")]
+position = Vector2(0, 0)
+scale = Vector2(0.25, 0.25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vent/InteractionArea"]
+shape = SubResource("CircleShape2D_irmx0")
