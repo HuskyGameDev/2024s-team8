@@ -3,7 +3,7 @@ extends Node2D
 
 @onready var interaction_area: InteractionArea = $InteractionArea
 @onready var player = get_tree().get_first_node_in_group("Player")
-@onready var label = player.get_child(2)
+@onready var label = player.get_child(3)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
