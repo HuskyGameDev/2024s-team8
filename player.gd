@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var playerSpeed = 350
 var screen_size
+@onready var animation = get_node("AnimatedSprite2D")
 
 var HasCrowbar = false
 
@@ -17,20 +18,30 @@ func _process(delta):
 		get_tree().quit()
 	if Input.is_action_pressed("RIGHT"):
 		velocity.x += 1
+		if velocity.x == 1:
+			animation.play("Walk_Right")
 	if Input.is_action_pressed("LEFT"):
 		velocity.x -= 1
+		if velocity.x == -1:
+			animation.play("Walk_Left")
 	if Input.is_action_pressed("DOWN"):
 		velocity.y += 1
+		if velocity.y == 1:
+			animation.play("Walk_Backward")
 	if Input.is_action_pressed("UP"):
 		velocity.y -= 1
-		
+		if velocity.y == -1:
+			animation.play("Walk_Forward")
+	if velocity.y == 0 and velocity.x == 0:
+		animation.stop()
+	#print(velocity.y)
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * playerSpeed
 	else:
 		pass
 	
 	position += velocity * delta
-	position = position.clamp(Vector2.ZERO, screen_size)
+	#position = position.clamp(Vector2.ZERO, screen_size)
 
 	
 	

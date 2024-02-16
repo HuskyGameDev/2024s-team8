@@ -14,4 +14,4 @@ offset_bottom = 481.0
 script = ExtResource("1_e0g13")
 
 [node name="Player" parent="." instance=ExtResource("2_s1rca")]
-position = Vector2(-34, 113)
+position = Vector2(-520, -9)
