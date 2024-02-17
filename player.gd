@@ -17,8 +17,9 @@ func _swap_attention():
 	hasAttention = !hasAttention
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta):
 	velocity = Vector2.ZERO
+	move_and_collide(velocity)
 	if hasAttention:
 		if Input.is_action_just_pressed("MENU"):
 			pause = pauseMenu.instantiate()
@@ -44,7 +45,6 @@ func _process(delta):
 				
 	if velocity.y == 0 and velocity.x == 0:
 		animation.stop()
-	#print(velocity.y)
 
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * playerSpeed

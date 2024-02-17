@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://ca1eqme7qndxw"]
+
+[ext_resource type="Texture2D" uid="uid://dtkeb50nbdbwc" path="res://Assets/star_background.png" id="1_my2n6"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(1007, 539)
+scale = Vector2(9.27917, 7.85)
+texture = ExtResource("1_my2n6")

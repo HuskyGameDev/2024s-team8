@@ -24,7 +24,6 @@ texture_region_size = Vector2i(17, 17)
 14:0/0 = 0
 15:0/0 = 0
 16:0/0 = 0
-17:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_pne1k"]
 sources/0 = SubResource("TileSetAtlasSource_8e8f5")

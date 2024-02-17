@@ -1,7 +1,6 @@
-[gd_scene load_steps=25 format=3 uid="uid://ckvleqm7iw707"]
+[gd_scene load_steps=24 format=3 uid="uid://cq1bq3u0u02u3"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_8m3b3"]
-[ext_resource type="PackedScene" uid="uid://bba3405jkew8f" path="res://Scenes/pauseMenu.tscn" id="2_2bll6"]
 [ext_resource type="Texture2D" uid="uid://bfdqjo7cdi28q" path="res://Assets/char_walk_backward_placeholder.png" id="2_ci2mg"]
 [ext_resource type="Texture2D" uid="uid://df7sioa61r3cy" path="res://Assets/char_walk_forward_placeholder_sheet.png" id="3_lu1e3"]
 [ext_resource type="Texture2D" uid="uid://b3lg2sjsxpx1d" path="res://Assets/char_walk_left_placeholder_sheet.png" id="4_pfa0j"]
@@ -71,7 +70,7 @@ region = Rect2(32, 0, 16, 32)
 atlas = ExtResource("5_ohr8a")
 region = Rect2(48, 0, 16, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_wniiu"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_ml0eq"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -142,21 +141,19 @@ animations = [{
 "speed": 6.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dtjk7"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1errj"]
 size = Vector2(16, 32)
 
 [node name="Player" type="CharacterBody2D"]
-position = Vector2(3, 2)
 script = ExtResource("1_8m3b3")
-pauseMenu = ExtResource("2_2bll6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_wniiu")
+sprite_frames = SubResource("SpriteFrames_ml0eq")
 animation = &"Walk_Right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
-shape = SubResource("RectangleShape2D_dtjk7")
+shape = SubResource("RectangleShape2D_1errj")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
