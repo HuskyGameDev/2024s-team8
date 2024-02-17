@@ -1,3 +1,7 @@
-[gd_scene format=3 uid="uid://dry0m61no3mts"]
+[gd_scene load_steps=2 format=3 uid="uid://dry0m61no3mts"]
+
+[ext_resource type="PackedScene" uid="uid://ny55otxbs0t" path="res://Scenes/tile_map.tscn" id="1_ofowq"]
 
 [node name="Command_Deck" type="Node2D"]
+
+[node name="TileMap" parent="." instance=ExtResource("1_ofowq")]

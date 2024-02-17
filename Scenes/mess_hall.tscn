@@ -1,3 +1,7 @@
-[gd_scene format=3 uid="uid://ceo8x6t56umfj"]
+[gd_scene load_steps=2 format=3 uid="uid://ceo8x6t56umfj"]
+
+[ext_resource type="PackedScene" uid="uid://ny55otxbs0t" path="res://Scenes/tile_map.tscn" id="1_4s1ho"]
 
 [node name="Mess_Hall" type="Node2D"]
+
+[node name="TileMap" parent="." instance=ExtResource("1_4s1ho")]

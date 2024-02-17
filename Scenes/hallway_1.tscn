@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cqdd60m4t5g3o"]
+[gd_scene load_steps=3 format=3 uid="uid://cqdd60m4t5g3o"]
 
-[ext_resource type="PackedScene" uid="uid://ckvleqm7iw707" path="res://Scenes/player.tscn" id="1_ff7tc"]
+[ext_resource type="PackedScene" uid="uid://ckvleqm7iw707" path="res://Scenes/player.tscn" id="1_1qih8"]
+[ext_resource type="PackedScene" uid="uid://ny55otxbs0t" path="res://Scenes/tile_map.tscn" id="2_p43gs"]
 
 [node name="Hallway_1" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_ff7tc")]
-position = Vector2(154, 144)
+[node name="Player" parent="." instance=ExtResource("1_1qih8")]
+position = Vector2(236, 186)
+
+[node name="TileMap" parent="." instance=ExtResource("2_p43gs")]
