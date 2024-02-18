@@ -143,21 +143,25 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1errj"]
-size = Vector2(16, 32)
+size = Vector2(16, 8)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_8m3b3")
+playerSpeed = 50
 pauseMenu = ExtResource("2_li7mv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ml0eq")
 animation = &"Walk_Right"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
+[node name="World collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 12)
 shape = SubResource("RectangleShape2D_1errj")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
+zoom = Vector2(6.3, 6.3)
+limit_left = -100000000
+limit_top = 0
+limit_bottom = 160
 
 [node name="PauseLayer" type="CanvasLayer" parent="."]

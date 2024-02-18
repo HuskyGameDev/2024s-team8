@@ -33,20 +33,16 @@ func _physics_process(delta):
 	if hasAttention:
 		if Input.is_action_pressed("RIGHT"):
 			velocity.x += 1
-			if velocity.x == 1:
-				animation.play("Walk_Right")
+			animation.play("Walk_Right")
 		if Input.is_action_pressed("LEFT"):
 			velocity.x -= 1
-			if velocity.x == -1:
-				animation.play("Walk_Left")
+			animation.play("Walk_Left")
 		if Input.is_action_pressed("DOWN"):
 			velocity.y += 1
-			if velocity.y == 1:
-				animation.play("Walk_Backward")
+			animation.play("Walk_Backward")
 		if Input.is_action_pressed("UP"):
 			velocity.y -= 1
-			if velocity.y == -1:
-				animation.play("Walk_Forward")
+			animation.play("Walk_Forward")
 				
 			
 		if Input.is_action_just_released("DOWN") or Input.is_action_just_released("UP") or Input.is_action_just_released("LEFT") or Input.is_action_just_released("RIGHT"):

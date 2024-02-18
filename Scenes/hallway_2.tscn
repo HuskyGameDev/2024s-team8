@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://8ymsprlnhnvn"]
+[gd_scene load_steps=12 format=3 uid="uid://8ymsprlnhnvn"]
 
 [ext_resource type="Script" path="res://Scenes/hallway_2.gd" id="1_j34ri"]
 [ext_resource type="PackedScene" uid="uid://ny55otxbs0t" path="res://Scenes/tile_map.tscn" id="1_mouln"]
 [ext_resource type="Texture2D" uid="uid://bgflry6dq76c7" path="res://Assets/room_tilemap_basic.png" id="2_l70cr"]
 [ext_resource type="PackedScene" uid="uid://cq1bq3u0u02u3" path="res://Scenes/player.tscn" id="3_h6ss4"]
+[ext_resource type="Texture2D" uid="uid://db5cscw8pfccj" path="res://Assets/room_tilemap_modular.png" id="4_dyym4"]
 [ext_resource type="PackedScene" uid="uid://ca1eqme7qndxw" path="res://Scenes/background.tscn" id="4_le07q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q8v4c"]
@@ -73,76 +74,12 @@ texture_region_size = Vector2i(17, 16)
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_q8v4c")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uygr8"]
-texture = ExtResource("2_l70cr")
-margins = Vector2i(1, 1)
-separation = Vector2i(1, 1)
-texture_region_size = Vector2i(17, 16)
-0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
-1:0/0 = 0
-1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_0/angular_velocity = 0.0
-2:0/0 = 0
-2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:0/0/physics_layer_0/angular_velocity = 0.0
-3:0/0 = 0
-3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:0/0/physics_layer_0/angular_velocity = 0.0
-4:0/0 = 0
-4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-4:0/0/physics_layer_0/angular_velocity = 0.0
-5:0/0 = 0
-5:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-5:0/0/physics_layer_0/angular_velocity = 0.0
-6:0/0 = 0
-6:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-6:0/0/physics_layer_0/angular_velocity = 0.0
-7:0/0 = 0
-7:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-7:0/0/physics_layer_0/angular_velocity = 0.0
-8:0/0 = 0
-8:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-8:0/0/physics_layer_0/angular_velocity = 0.0
-9:0/0 = 0
-9:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-9:0/0/physics_layer_0/angular_velocity = 0.0
-10:0/0 = 0
-10:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-10:0/0/physics_layer_0/angular_velocity = 0.0
-10:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-11:0/0 = 0
-11:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-11:0/0/physics_layer_0/angular_velocity = 0.0
-11:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-12:0/0 = 0
-12:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-12:0/0/physics_layer_0/angular_velocity = 0.0
-13:0/0 = 0
-13:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-13:0/0/physics_layer_0/angular_velocity = 0.0
-13:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -6.4375, -8, -6.4375, 8, -8, 8)
-14:0/0 = 0
-14:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-14:0/0/physics_layer_0/angular_velocity = 0.0
-17:0/0 = 0
-17:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-17:0/0/physics_layer_0/angular_velocity = 0.0
-18:0/0 = 0
-18:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-18:0/0/physics_layer_0/angular_velocity = 0.0
-15:0/0 = 0
-15:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-15:0/0/physics_layer_0/angular_velocity = 0.0
-15:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(5.6875, -8, 8, -8, 8, 8, 5.875, 8)
-16:0/0 = 0
-16:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-16:0/0/physics_layer_0/angular_velocity = 0.0
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qo85a"]
+texture = ExtResource("4_dyym4")
 
 [sub_resource type="TileSet" id="TileSet_dqpda"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_uygr8")
+sources/1 = SubResource("TileSetAtlasSource_qo85a")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2amdy"]
 size = Vector2(15, 114)
