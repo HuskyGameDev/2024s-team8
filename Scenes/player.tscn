@@ -1,7 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://cq1bq3u0u02u3"]
+[gd_scene load_steps=25 format=3 uid="uid://cq1bq3u0u02u3"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_8m3b3"]
 [ext_resource type="Texture2D" uid="uid://bfdqjo7cdi28q" path="res://Assets/char_walk_backward_placeholder.png" id="2_ci2mg"]
+[ext_resource type="PackedScene" uid="uid://bba3405jkew8f" path="res://Scenes/pauseMenu.tscn" id="2_li7mv"]
 [ext_resource type="Texture2D" uid="uid://df7sioa61r3cy" path="res://Assets/char_walk_forward_placeholder_sheet.png" id="3_lu1e3"]
 [ext_resource type="Texture2D" uid="uid://b3lg2sjsxpx1d" path="res://Assets/char_walk_left_placeholder_sheet.png" id="4_pfa0j"]
 [ext_resource type="Texture2D" uid="uid://bgjfgv8gd4jrn" path="res://Assets/char_walk_right_placeholder_sheet.png" id="5_ohr8a"]
@@ -146,6 +147,7 @@ size = Vector2(16, 32)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_8m3b3")
+pauseMenu = ExtResource("2_li7mv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ml0eq")
@@ -158,4 +160,4 @@ shape = SubResource("RectangleShape2D_1errj")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="PauseLayer" type="CanvasLayer" parent="."]

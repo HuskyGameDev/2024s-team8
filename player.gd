@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var playerSpeed = 350
 @onready var animation = get_node("AnimatedSprite2D")
-@export var pauseMenu: PackedScene
+@export var pauseMenu : PackedScene
 
 var screen_size
 var hasAttention = true
@@ -20,12 +20,12 @@ func _swap_attention():
 func _physics_process(delta):
 	velocity = Vector2.ZERO
 	move_and_collide(velocity)
+	if Input.is_action_just_pressed("MENU"):
+		pause = pauseMenu.instantiate()
+		$PauseLayer.add_child(pause)
+		pause.tree_exited.connect(_swap_attention)
+		_swap_attention()
 	if hasAttention:
-		if Input.is_action_just_pressed("MENU"):
-			pause = pauseMenu.instantiate()
-			$CanvasLayer.add_child(pause)
-			pause.tree_exited.connect(_swap_attention)
-			_swap_attention()
 		if Input.is_action_pressed("RIGHT"):
 			velocity.x += 1
 			if velocity.x == 1:
@@ -43,13 +43,12 @@ func _physics_process(delta):
 			if velocity.y == -1:
 				animation.play("Walk_Forward")
 				
-	if velocity.y == 0 and velocity.x == 0:
-		animation.stop()
+			
+		if Input.is_action_just_released("DOWN") or Input.is_action_just_released("UP") or Input.is_action_just_released("LEFT") or Input.is_action_just_released("RIGHT"):
+			animation.stop()
 
-	if velocity.length() > 0:
-		velocity = velocity.normalized() * playerSpeed
-	else:
-		pass
+		if velocity.length() > 0:
+			velocity = velocity.normalized() * playerSpeed
 	
 	position += velocity * delta
 	#position = position.clamp(Vector2.ZERO, screen_size)

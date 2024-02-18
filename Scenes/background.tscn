@@ -5,8 +5,9 @@
 [node name="ParallaxBackground" type="ParallaxBackground"]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(1, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
-position = Vector2(1007, 539)
-scale = Vector2(9.27917, 7.85)
+position = Vector2(960, 540)
+scale = Vector2(8, 6.75)
 texture = ExtResource("1_my2n6")
