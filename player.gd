@@ -14,17 +14,22 @@ func _ready():
 	screen_size = get_viewport_rect().size
 
 func _swap_attention():
+	print("Before: "+str(hasAttention))
 	hasAttention = !hasAttention
+	print("Before: "+str(hasAttention))
+
+func _process(_delta):
+	if hasAttention:
+		if Input.is_action_just_pressed("MENU"):
+			pause = pauseMenu.instantiate()
+			$PauseLayer.add_child(pause)
+			pause.tree_exited.connect(_swap_attention)
+			_swap_attention()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	velocity = Vector2.ZERO
 	move_and_collide(velocity)
-	if Input.is_action_just_pressed("MENU"):
-		pause = pauseMenu.instantiate()
-		$PauseLayer.add_child(pause)
-		pause.tree_exited.connect(_swap_attention)
-		_swap_attention()
 	if hasAttention:
 		if Input.is_action_pressed("RIGHT"):
 			velocity.x += 1
