@@ -12,5 +12,5 @@ func _process(_delta):
 
 
 func _on_area_2d_body_entered(body):
-	if body == $Player:
-		get_tree().change_scene_to_file("res://Scenes/hallway_2.tscn")
+	if body.name == "Player":
+		StageManager.changeScene(StageManager.HALLWAY_2, 1294, 471)

@@ -1,7 +1,7 @@
 extends Node2D
 
 func _on_play_pressed():
-	get_tree().change_scene_to_file("res://Scenes/hallway_main.tscn")
+	StageManager.changeScene(StageManager.HALLWAY_MAIN, 442, 131)
 
 func _on_quit_pressed():
 	get_tree().quit()

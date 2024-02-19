@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 InteractionManager="*res://Inventory/Interaction/InteractionManager.tscn"
+StageManager="*res://Scenes/stage_manager.tscn"
 
 [display]
 

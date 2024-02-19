@@ -12,11 +12,12 @@ var pause
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
+	position = StageManager.player_position
 
 func _swap_attention():
-	print("Before: "+str(hasAttention))
+	#print("Before: "+str(hasAttention))
 	hasAttention = !hasAttention
-	print("Before: "+str(hasAttention))
+	#print("Before: "+str(hasAttention))
 
 func _process(_delta):
 	if hasAttention:
