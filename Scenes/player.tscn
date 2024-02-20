@@ -160,9 +160,5 @@ shape = SubResource("RectangleShape2D_1errj")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(6.3, 6.3)
-limit_left = 0
-limit_top = 0
-limit_right = 496
-limit_bottom = 160
 
 [node name="PauseLayer" type="CanvasLayer" parent="."]

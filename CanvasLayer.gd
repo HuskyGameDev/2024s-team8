@@ -2,7 +2,7 @@ extends CanvasLayer
 
 const HALLWAY_1 = preload("res://Scenes/hallway_1.tscn")
 const HALLWAY_2 = preload("res://Scenes/hallway_2.tscn")
-const HALLWAY_MAIN = preload("res://Scenes/hallway_main.tscn")
+const HALLWAY_MAIN = preload("res://Scenes/Main floor rooms/hallway_main.tscn")
 
 var player_position
 

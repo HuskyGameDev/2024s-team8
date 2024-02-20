@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://nfn4onl8do2a"]
-
-[ext_resource type="PackedScene" uid="uid://ny55otxbs0t" path="res://Scenes/tile_map.tscn" id="1_hwk40"]
-
-[node name="Bunks" type="Node2D"]
-
-[node name="TileMap" parent="." instance=ExtResource("1_hwk40")]
