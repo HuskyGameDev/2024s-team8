@@ -2,6 +2,7 @@ extends CanvasLayer
 
 
 var player_position
+var camera_limit
 
 func _ready():
 	get_node("ColorRect").hide()
@@ -22,3 +23,6 @@ func changeScene(stage_next, x, y):
 	get_node("AnimationPlayer").play("Fade_Out")
 	await get_node("AnimationPlayer").animation_finished
 	get_node("ColorRect").hide()
+	
+func changeCamera(limit):
+	camera_limit = limit
