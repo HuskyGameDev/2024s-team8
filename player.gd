@@ -13,7 +13,7 @@ var pause
 func _ready():
 	screen_size = get_viewport_rect().size
 	position = StageManager.player_position
-	get_node("Camera2D").limit_right = StageManager.camera_limit
+	get_node("Camera2D").limit_right = StageManager.right_camera_limit
 
 func _swap_attention():
 	#print("Before: "+str(hasAttention))

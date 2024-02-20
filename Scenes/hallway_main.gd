@@ -41,5 +41,5 @@ func _on_bunks_body_entered(body):
 func _on_supply_closet_body_entered(body):
 	const SUPPLY = preload("res://Scenes/Main floor rooms/supply_closet.tscn")
 	if body.name == "Player":
-		StageManager.changeScene(SUPPLY, 128, 120)
+		StageManager.changeScene(SUPPLY, 124, 116)
 		StageManager.changeCamera(304)
