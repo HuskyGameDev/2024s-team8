@@ -14,6 +14,7 @@ func _ready():
 	screen_size = get_viewport_rect().size
 	position = StageManager.player_position
 	get_node("Camera2D").limit_right = StageManager.right_camera_limit
+	get_node("Control").get_node("Door_is_locked").hide()
 
 func _swap_attention():
 	#print("Before: "+str(hasAttention))
@@ -42,6 +43,7 @@ func _physics_process(delta):
 		if Input.is_action_pressed("DOWN"):
 			velocity.y += 1
 			animation.play("Walk_Backward")
+			get_node("Control").get_node("Door_is_locked").hide()
 		if Input.is_action_pressed("UP"):
 			velocity.y -= 1
 			animation.play("Walk_Forward")

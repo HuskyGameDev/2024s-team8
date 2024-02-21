@@ -43,3 +43,13 @@ func _on_supply_closet_body_entered(body):
 	if body.name == "Player":
 		StageManager.changeScene(SUPPLY, 124, 116)
 		StageManager.changeCamera(304)
+
+
+func _on_stairs_body_entered(body):
+	const STAIRS = preload("res://Scenes/Main floor rooms/supply_closet.tscn")
+	if body.name == "Player":
+		if 0 == 1:
+			StageManager.changeScene(STAIRS, 59, 89)
+			StageManager.changeCamera(304)
+		else:
+			get_node("Player").get_node("Control").get_node("Door_is_locked").show()
