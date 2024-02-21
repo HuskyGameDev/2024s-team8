@@ -53,3 +53,8 @@ func _on_stairs_body_entered(body):
 			StageManager.changeCamera(304)
 		else:
 			get_node("Player").get_node("Control").get_node("Door_is_locked").show()
+
+
+func _on_stairs_body_exited(body):
+	if body.name == "Player":
+		get_node("Player").get_node("Control").get_node("Door_is_locked").hide()

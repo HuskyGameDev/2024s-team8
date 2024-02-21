@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://34w5h6a27u0w"]
 
 [ext_resource type="PackedScene" uid="uid://ny55otxbs0t" path="res://Scenes/tile_map.tscn" id="1_hwk40"]
-[ext_resource type="Script" path="res://Scenes/Main floor rooms/bunks.gd" id="1_uttu1"]
+[ext_resource type="Script" path="res://Scenes/bunks.gd" id="1_uttu1"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="2_0jfma"]
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="2_ppfll"]
 [ext_resource type="PackedScene" uid="uid://cq1bq3u0u02u3" path="res://Scenes/player.tscn" id="3_6cqsx"]

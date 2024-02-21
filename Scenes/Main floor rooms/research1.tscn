@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ny55otxbs0t" path="res://Scenes/tile_map.tscn" id="1_1c61v"]
 [ext_resource type="Texture2D" uid="uid://db5cscw8pfccj" path="res://Assets/room_tilemap_modular.png" id="1_6aj05"]
-[ext_resource type="Script" path="res://Scenes/Main floor rooms/research1.gd" id="1_44mdm"]
+[ext_resource type="Script" path="res://Scenes/research1.gd" id="1_44mdm"]
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="2_17khl"]
 [ext_resource type="PackedScene" uid="uid://cq1bq3u0u02u3" path="res://Scenes/player.tscn" id="3_xppy5"]
 

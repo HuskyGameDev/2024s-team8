@@ -303,3 +303,4 @@ shape = SubResource("RectangleShape2D_rryx7")
 [connection signal="body_entered" from="Door areas/Bunks" to="." method="_on_bunks_body_entered"]
 [connection signal="body_entered" from="Door areas/Supply_Closet" to="." method="_on_supply_closet_body_entered"]
 [connection signal="body_entered" from="Door areas/Stairs" to="." method="_on_stairs_body_entered"]
+[connection signal="body_exited" from="Door areas/Stairs" to="." method="_on_stairs_body_exited"]

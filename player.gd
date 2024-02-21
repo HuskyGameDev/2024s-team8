@@ -43,7 +43,6 @@ func _physics_process(delta):
 		if Input.is_action_pressed("DOWN"):
 			velocity.y += 1
 			animation.play("Walk_Backward")
-			get_node("Control").get_node("Door_is_locked").hide()
 		if Input.is_action_pressed("UP"):
 			velocity.y -= 1
 			animation.play("Walk_Forward")
