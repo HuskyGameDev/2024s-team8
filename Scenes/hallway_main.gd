@@ -19,7 +19,7 @@ func _process(delta):
 
 func _on_mess_hall_body_entered(body):
 	const MESS = preload("res://Scenes/Main floor rooms/mess_hall.tscn")
-	if body.name == "Player":
+	if body.name == "Player" && HasLeft:
 		PositionManager.PrevPosition = body.global_position
 		StageManager.changeScene(MESS, 232, 120)
 		StageManager.changeCamera(304)
