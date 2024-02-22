@@ -84,5 +84,13 @@ func _on_stairs_body_exited(body):
 
 
 func _on_bridge_body_entered(body):
-	pass # Replace with function body.
+	const COMMAND_DECK = preload("res://Scenes/Main floor rooms/command_deck.tscn")
+	if body.name == "Player" && HasLeft:
+		PositionManager.PrevPosition = body.global_position
+		StageManager.changeScene(COMMAND_DECK, 144, 128)
+		StageManager.changeCamera(304)
 
+
+
+func _on_bridge_body_exited(body):
+	HasLeft = true

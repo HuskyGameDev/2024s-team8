@@ -1,9 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://dry0m61no3mts"]
+[gd_scene load_steps=7 format=3 uid="uid://dry0m61no3mts"]
 
+[ext_resource type="Script" path="res://Scenes/Main floor rooms/command_deck.gd" id="1_4wny3"]
 [ext_resource type="PackedScene" uid="uid://ny55otxbs0t" path="res://Scenes/tile_map.tscn" id="1_ofowq"]
+[ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="2_hnavc"]
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="2_xlbxq"]
+[ext_resource type="PackedScene" uid="uid://cq1bq3u0u02u3" path="res://Scenes/player.tscn" id="5_g7xgl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_41wui"]
+radius = 16.0
 
 [node name="Command_Deck" type="Node2D"]
+script = ExtResource("1_4wny3")
+
+[node name="Collision" type="TileMap" parent="."]
+tile_set = ExtResource("2_hnavc")
+format = 2
+layer_0/tile_data = PackedInt32Array(1245195, 524289, 0, 1179660, 524289, 0, 1048589, 524289, 0, 983054, 524289, 0, 983055, 524289, 0, 917520, 1048577, 0, 917521, 1048577, 0, 917522, 1048577, 0, 917523, 1048577, 0, 851987, 262145, 0, 851988, 1048577, 0, 851989, 1048577, 0, 917524, 262145, 0, 983061, 262145, 0, 1048598, 262145, 0, 1114135, 262145, 0, 1179672, 1048577, 0, 1245208, 1048577, 0, 1245207, 1048577, 0, 1048599, 1048577, 0, 983062, 1048577, 0, 1114136, 1048577, 0, 917525, 1048577, 0, 1310743, 1048577, 0, 1310742, 1048577, 0, 1310741, 1048577, 0, 1310740, 1048577, 0, 1310739, 1048577, 0, 1310738, 1048577, 0, 1310737, 1048577, 0, 1310736, 1048577, 0, 1310735, 1048577, 0, 1310734, 1048577, 0, 1310733, 1048577, 0, 1310732, 1048577, 0, 1310731, 1048577, 0, 1310730, 1048577, 0, 1114124, 1048577, 0)
 
 [node name="background" parent="." instance=ExtResource("1_ofowq")]
 tile_set = ExtResource("2_xlbxq")
@@ -18,3 +30,15 @@ layer_2/tile_data = PackedInt32Array()
 tile_set = ExtResource("2_xlbxq")
 format = 2
 layer_0/tile_data = PackedInt32Array(851981, 786432, 0, 917517, 1048576, 0, 983053, 1048576, 0, 1048589, 1048576, 0, 1114125, 524288, 0, 786446, 786432, 0, 851982, 1048576, 0, 917518, 1048576, 0, 983054, 1048576, 0, 1048590, 524288, 0, 1179672, 1441792, 0, 1114135, 1310720, 0, 1048598, 1310720, 0, 983061, 1310720, 0, 917524, 1310720, 0, 851987, 1310720, 0, 851986, 1638400, 0, 917522, 1638400, 0, 1179673, 1441792, 0, 1179674, 1441792, 0, 1179671, 1638400, 0, 1245207, 1638400, 0, 1114138, 1310720, 0, 851990, 1310720, 0, 786451, 1572864, 0, 786452, 1572864, 0, 786453, 1572864, 0, 917528, 1310720, 0, 851991, 1572864, 0, 983063, 1310720, 0, 917526, 1638400, 0, 983065, 1507328, 0, 917527, 1310720, 0, 1048601, 1310720, 0, 983064, 1507328, 0, 1048600, 1441792, 0)
+
+[node name="Door" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
+position = Vector2(104, 120)
+shape = SubResource("CircleShape2D_41wui")
+
+[node name="Player" parent="." instance=ExtResource("5_g7xgl")]
+position = Vector2(144, 128)
+
+[connection signal="body_entered" from="Door" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Door" to="." method="_on_area_2d_body_exited"]
