@@ -145,7 +145,8 @@ position = Vector2(84, 122.5)
 shape = SubResource("RectangleShape2D_pcf5h")
 
 [node name="Player" parent="." instance=ExtResource("3_xppy5")]
-position = Vector2(57, 135)
+position = Vector2(83, 112)
 playerSpeed = 60
 
 [connection signal="body_entered" from="Door_to_Hallway" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Door_to_Hallway" to="." method="_on_door_to_hallway_body_exited"]

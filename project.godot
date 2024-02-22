@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 InteractionManager="*res://Inventory/Interaction/InteractionManager.tscn"
 StageManager="*res://Scenes/stage_manager.tscn"
+PositionManager="*res://Scripts/PositionManager.gd"
 
 [display]
 
