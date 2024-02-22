@@ -166,6 +166,14 @@ limit_bottom = 160
 
 [node name="PauseLayer" type="CanvasLayer" parent="."]
 
+[node name="Label2" type="Label" parent="."]
+visible = false
+z_index = 20
+offset_right = 568.0
+offset_bottom = 100.0
+theme_override_font_sizes/font_size = 40
+text = "I need some way to open this!"
+
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0

@@ -6,7 +6,6 @@ extends CharacterBody2D
 
 var screen_size
 var hasAttention = true
-var HasCrowbar = false
 var pause
 
 # Called when the node enters the scene tree for the first time.
