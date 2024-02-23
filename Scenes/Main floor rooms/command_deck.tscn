@@ -37,7 +37,7 @@ layer_0/tile_data = PackedInt32Array(851981, 786432, 0, 917517, 1048576, 0, 9830
 position = Vector2(110, 120)
 shape = SubResource("RectangleShape2D_t3868")
 
-[node name="Player" parent="." instance=ExtResource("5_g7xgl")]
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("5_g7xgl")]
 position = Vector2(111, 121)
 
 [connection signal="body_entered" from="Door" to="." method="_on_area_2d_body_entered"]
