@@ -7,6 +7,7 @@ extends CharacterBody2D
 var screen_size
 var hasAttention = true
 var pause
+var ValveMinigame = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,6 +28,9 @@ func _process(_delta):
 			$PauseLayer.add_child(pause)
 			pause.tree_exited.connect(_swap_attention)
 			_swap_attention()
+			if ValveMinigame == true:
+				ValveMinigame = false
+			
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -55,3 +59,5 @@ func _physics_process(delta):
 	
 	position += velocity * delta
 	#position = position.clamp(Vector2.ZERO, screen_size)
+
+
