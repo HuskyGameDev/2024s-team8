@@ -7,5 +7,5 @@ var RotatingRight = false
 var RotatingLeft = false
 var MoveRight = false
 var MoveLeft = false
-
+var HasOpenedVent = false
 

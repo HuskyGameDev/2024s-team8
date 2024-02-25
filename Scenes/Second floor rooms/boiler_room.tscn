@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c67llndhruew1"]
+
+[ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="1_m8cq8"]
+[ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="2_tjt1t"]
+
+[node name="Boiler_Room" type="Node2D"]
+
+[node name="Collision" type="TileMap" parent="."]
+tile_set = ExtResource("1_m8cq8")
+format = 2
+
+[node name="Background" type="TileMap" parent="."]
+tile_set = ExtResource("2_tjt1t")
+format = 2

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dc66p0riko4pb"]
+
+[ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="1_4v5m3"]
+[ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="2_ekstw"]
+
+[node name="Security_Room" type="Node2D"]
+
+[node name="Collision" type="TileMap" parent="."]
+tile_set = ExtResource("1_4v5m3")
+format = 2
+
+[node name="Background" type="TileMap" parent="."]
+tile_set = ExtResource("2_ekstw")
+format = 2
