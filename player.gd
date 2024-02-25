@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 @export var playerSpeed = 350
-@onready var animation = get_node("AnimatedSprite2D")
 @onready var animationPlayer = $AnimationPlayer
 @onready var animationTree = $AnimationTree
 @onready var animationState = animationTree.get("parameters/playback")
@@ -42,16 +41,16 @@ func _physics_process(delta):
 	if hasAttention:
 		if Input.is_action_pressed("RIGHT"):
 			velocity.x += 1
-			animation.play("Walk_Right")
+	
 		if Input.is_action_pressed("LEFT"):
 			velocity.x -= 1
-			animation.play("Walk_Left")
+			
 		if Input.is_action_pressed("DOWN"):
 			velocity.y += 1
-			animation.play("Walk_Backward")
+			
 		if Input.is_action_pressed("UP"):
 			velocity.y -= 1
-			animation.play("Walk_Forward")
+			
 			
 		if velocity != Vector2.ZERO:
 			animationTree.set("parameters/Idle/blend_position", velocity.normalized())
@@ -60,8 +59,6 @@ func _physics_process(delta):
 		else:
 			animationState.travel("Idle")
 			
-		if Input.is_action_just_released("DOWN") or Input.is_action_just_released("UP") or Input.is_action_just_released("LEFT") or Input.is_action_just_released("RIGHT"):
-			animation.stop()
 
 		if velocity.length() > 0:
 			velocity = velocity.normalized() * playerSpeed
