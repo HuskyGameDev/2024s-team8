@@ -1,18 +1,8 @@
-<<<<<<< Updated upstream
-[gd_scene load_steps=31 format=3 uid="uid://cq1bq3u0u02u3"]
-=======
-[gd_scene load_steps=53 format=3 uid="uid://cq1bq3u0u02u3"]
->>>>>>> Stashed changes
+[gd_scene load_steps=32 format=3 uid="uid://d3smthgcyvtgq"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_8m3b3"]
 [ext_resource type="PackedScene" uid="uid://bba3405jkew8f" path="res://Scenes/pauseMenu.tscn" id="2_li7mv"]
-<<<<<<< Updated upstream
-=======
-[ext_resource type="Texture2D" uid="uid://df7sioa61r3cy" path="res://Assets/char_walk_forward_placeholder_sheet.png" id="3_lu1e3"]
 [ext_resource type="Texture2D" uid="uid://ojw71hga2euh" path="res://Assets/Spotlight.png" id="3_nhdoc"]
-[ext_resource type="Texture2D" uid="uid://b3lg2sjsxpx1d" path="res://Assets/char_walk_left_placeholder_sheet.png" id="4_pfa0j"]
-[ext_resource type="Texture2D" uid="uid://bgjfgv8gd4jrn" path="res://Assets/char_walk_right_placeholder_sheet.png" id="5_ohr8a"]
->>>>>>> Stashed changes
 [ext_resource type="Texture2D" uid="uid://cpfwdtrr57pbr" path="res://Assets/char_walk_placeholder.png" id="7_kont8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1errj"]
