@@ -2,7 +2,7 @@ extends Control
 
 func _on_resume_pressed():
 	queue_free()
-	MiniMap.get_node("Background").hide()
+	
 	
 func _on_quit_pressed():
 	get_tree().quit()

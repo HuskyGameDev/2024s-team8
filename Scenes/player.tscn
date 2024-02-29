@@ -303,4 +303,4 @@ blend_mode = 2
 texture = ExtResource("3_nhdoc")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.6, 0, 0, 1)
+color = Color(0.247059, 0, 0, 1)
