@@ -1,26 +1,20 @@
 [gd_scene format=3 uid="uid://cpg2xebaf6ybb"]
 
-[node name="Mini_Map" type="Control"]
-layout_mode = 3
+[node name="Mini_Map" type="MarginContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -781.0
+offset_bottom = -385.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
 
-[node name="Background" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -1210.0
-offset_top = -405.0
-offset_bottom = 405.0
-grow_horizontal = 0
-grow_vertical = 2
-color = Color(0, 0, 0, 0.521569)
+[node name="Background" type="NinePatchRect" parent="."]
+layout_mode = 2
 
 [node name="Main_Hall" type="ColorRect" parent="Background"]
 layout_mode = 1
@@ -32,22 +26,25 @@ anchor_bottom = 0.5
 offset_left = -1103.0
 offset_top = -105.0
 offset_right = -617.0
-offset_bottom = 1.00003
+offset_bottom = 1.0
 grow_horizontal = 0
 grow_vertical = 2
 scale = Vector2(1.7, 1.7)
-color = Color(0.211765, 0.227451, 0.262745, 1)
+color = Color(0.270588, 0.290196, 0.333333, 1)
 
 [node name="Label" type="Label" parent="Background/Main_Hall"]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
+anchor_bottom = 0.5
 offset_left = -37.0
-offset_top = 9.99998
+offset_top = -11.5
 offset_right = 37.0
-offset_bottom = 33.0
+offset_bottom = 11.5
 grow_horizontal = 2
+grow_vertical = 2
 text = "Main Hall"
 horizontal_alignment = 1
 
@@ -57,7 +54,7 @@ offset_left = 86.6667
 offset_top = -127.0
 offset_right = 229.667
 offset_bottom = -15.0
-color = Color(0.211765, 0.227451, 0.262745, 1)
+color = Color(0.270588, 0.290196, 0.333333, 1)
 
 [node name="Door4" type="ColorRect" parent="Background/Main_Hall/Bunks"]
 layout_mode = 0
@@ -65,19 +62,22 @@ offset_left = 123.5
 offset_top = 111.5
 offset_right = 132.5
 offset_bottom = 126.5
-color = Color(0, 0, 0, 1)
+color = Color(0.247059, 0.247059, 0.454902, 1)
 
 [node name="Label" type="Label" parent="Background/Main_Hall/Bunks"]
 texture_filter = 1
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
+anchor_bottom = 0.5
 offset_left = -24.0
-offset_top = 10.0
+offset_top = -11.5
 offset_right = 24.0
-offset_bottom = 33.0
+offset_bottom = 11.5
 grow_horizontal = 2
+grow_vertical = 2
 text = "Bunks"
 horizontal_alignment = 1
 
@@ -87,7 +87,7 @@ offset_left = 431.333
 offset_top = -77.0
 offset_right = 471.333
 offset_bottom = -15.0
-color = Color(0.211765, 0.227451, 0.262745, 1)
+color = Color(0.270588, 0.290196, 0.333333, 1)
 
 [node name="Door5" type="ColorRect" parent="Background/Main_Hall/Supply"]
 layout_mode = 0
@@ -95,17 +95,21 @@ offset_left = 15.0
 offset_top = 62.0
 offset_right = 24.0
 offset_bottom = 77.0
-color = Color(0, 0, 0, 1)
+color = Color(0.247059, 0.247059, 0.454902, 1)
 
 [node name="Label" type="Label" parent="Background/Main_Hall/Supply"]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
+anchor_bottom = 0.5
 offset_left = -19.5
+offset_top = -17.5
 offset_right = 19.5
-offset_bottom = 35.0
+offset_bottom = 17.5
 grow_horizontal = 2
+grow_vertical = 2
 theme_override_font_sizes/font_size = 11
 text = "Supply 
 Closet"
@@ -117,7 +121,7 @@ offset_left = 248.0
 offset_top = -81.6667
 offset_right = 399.0
 offset_bottom = -14.6667
-color = Color(0.211765, 0.227451, 0.262745, 1)
+color = Color(0.270588, 0.290196, 0.333333, 1)
 
 [node name="Door3" type="ColorRect" parent="Background/Main_Hall/Stairs"]
 layout_mode = 0
@@ -125,18 +129,21 @@ offset_left = 13.5
 offset_top = 66.5
 offset_right = 22.5
 offset_bottom = 81.5
-color = Color(0, 0, 0, 1)
+color = Color(0.247059, 0.247059, 0.454902, 1)
 
 [node name="Label" type="Label" parent="Background/Main_Hall/Stairs"]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_top = 5.0
-offset_right = 20.0
-offset_bottom = 28.0
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -11.5
+offset_right = 22.0
+offset_bottom = 11.5
 grow_horizontal = 2
+grow_vertical = 2
 text = "Stairs"
 horizontal_alignment = 1
 
@@ -146,25 +153,28 @@ offset_left = 282.667
 offset_top = 121.0
 offset_right = 469.667
 offset_bottom = 224.0
-color = Color(0.211765, 0.227451, 0.262745, 1)
+color = Color(0.270588, 0.290196, 0.333333, 1)
 
 [node name="Door" type="ColorRect" parent="Background/Main_Hall/Research"]
 layout_mode = 0
 offset_left = 19.0
 offset_top = -15.0
 offset_right = 28.0
-color = Color(0, 0, 0, 1)
+color = Color(0.247059, 0.247059, 0.454902, 1)
 
 [node name="Label" type="Label" parent="Background/Main_Hall/Research"]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_top = 10.0
-offset_right = 20.0
-offset_bottom = 33.0
+anchor_bottom = 0.5
+offset_left = -35.5
+offset_top = -11.5
+offset_right = 35.5
+offset_bottom = 11.5
 grow_horizontal = 2
+grow_vertical = 2
 text = "Research"
 horizontal_alignment = 1
 
@@ -174,25 +184,28 @@ offset_left = 56.0
 offset_top = 121.0
 offset_right = 234.0
 offset_bottom = 226.0
-color = Color(0.211765, 0.227451, 0.262745, 1)
+color = Color(0.270588, 0.290196, 0.333333, 1)
 
 [node name="Door2" type="ColorRect" parent="Background/Main_Hall/Mess_Hall"]
 layout_mode = 0
 offset_left = 153.0
 offset_top = -15.0
 offset_right = 162.0
-color = Color(0, 0, 0, 1)
+color = Color(0.247059, 0.247059, 0.454902, 1)
 
 [node name="Label" type="Label" parent="Background/Main_Hall/Mess_Hall"]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
+anchor_bottom = 0.5
 offset_left = -37.0
-offset_top = 10.0
+offset_top = -11.5
 offset_right = 37.0
-offset_bottom = 33.0
+offset_bottom = 11.5
 grow_horizontal = 2
+grow_vertical = 2
 text = "Mess Hall"
 horizontal_alignment = 1
 
@@ -202,24 +215,28 @@ offset_left = 505.5
 offset_top = 1.5
 offset_right = 622.5
 offset_bottom = 107.5
-color = Color(0.211765, 0.227451, 0.262745, 1)
+color = Color(0.270588, 0.290196, 0.333333, 1)
 
 [node name="Door6" type="ColorRect" parent="Background/Main_Hall/Command_Deck"]
 layout_mode = 0
 offset_left = -20.0
 offset_top = 49.0
 offset_bottom = 58.0
-color = Color(0, 0, 0, 1)
+color = Color(0.247059, 0.247059, 0.454902, 1)
 
 [node name="Label" type="Label" parent="Background/Main_Hall/Command_Deck"]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
+anchor_bottom = 0.5
 offset_left = -40.0
+offset_top = -24.5
 offset_right = 40.0
-offset_bottom = 49.0
+offset_bottom = 24.5
 grow_horizontal = 2
+grow_vertical = 2
 text = "Command 
 Deck"
 horizontal_alignment = 1
@@ -230,7 +247,7 @@ offset_left = 2.353
 offset_top = -85.0
 offset_right = 72.353
 offset_bottom = -15.0
-color = Color(0.211765, 0.227451, 0.262745, 1)
+color = Color(0.270588, 0.290196, 0.333333, 1)
 
 [node name="Door7" type="ColorRect" parent="Background/Main_Hall/Pod"]
 layout_mode = 0
@@ -238,17 +255,21 @@ offset_left = 53.5293
 offset_top = 69.7059
 offset_right = 62.5293
 offset_bottom = 84.7059
-color = Color(0, 0, 0, 1)
+color = Color(0.247059, 0.247059, 0.454902, 1)
 
 [node name="Label" type="Label" parent="Background/Main_Hall/Pod"]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
+anchor_bottom = 0.5
 offset_left = -20.0
+offset_top = -11.5
 offset_right = 20.0
-offset_bottom = 23.0
+offset_bottom = 11.5
 grow_horizontal = 2
+grow_vertical = 2
 text = "Pod"
 horizontal_alignment = 1
 
@@ -385,3 +406,6 @@ offset_bottom = -81.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.247059, 0.247059, 0.454902, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
