@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/Second floor rooms/power_room.gd" id="1_8gp7i"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="1_dekh7"]
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="2_ve6tu"]
-[ext_resource type="PackedScene" uid="uid://cq1bq3u0u02u3" path="res://Scenes/player.tscn" id="3_6j74b"]
+[ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="3_6j74b"]
 
 [node name="PowerRoom" type="Node2D"]
 script = ExtResource("1_8gp7i")

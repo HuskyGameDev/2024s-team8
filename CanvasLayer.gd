@@ -18,10 +18,11 @@ func changeScene(stage_next, x, y):
 	
 	get_tree().change_scene_to_packed(stage_next)
 	
-	#print(stage.get_node("Player").position)
+	
 	get_node("AnimationPlayer").play("Fade_Out")
 	await get_node("AnimationPlayer").animation_finished
 	get_node("ColorRect").hide()
 	
 func changeCamera(limit):
 	right_camera_limit = limit
+

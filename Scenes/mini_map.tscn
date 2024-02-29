@@ -1,0 +1,390 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpg2xebaf6ybb"]
+
+[ext_resource type="Script" path="res://Scenes/mini_map.gd" id="1_si2is"]
+
+[node name="Mini_Map" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_si2is")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -1210.0
+offset_top = -405.0
+offset_bottom = 405.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0, 0, 0, 0.521569)
+
+[node name="Main_Hall" type="ColorRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -1103.0
+offset_top = -105.0
+offset_right = -617.0
+offset_bottom = 1.00003
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(1.7, 1.7)
+color = Color(0.211765, 0.227451, 0.262745, 1)
+
+[node name="Label" type="Label" parent="Background/Main_Hall"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -37.0
+offset_top = 9.99998
+offset_right = 37.0
+offset_bottom = 33.0
+grow_horizontal = 2
+text = "Main Hall"
+horizontal_alignment = 1
+
+[node name="Bunks" type="ColorRect" parent="Background/Main_Hall"]
+layout_mode = 0
+offset_left = 86.6667
+offset_top = -127.0
+offset_right = 229.667
+offset_bottom = -15.0
+color = Color(0.211765, 0.227451, 0.262745, 1)
+
+[node name="Door4" type="ColorRect" parent="Background/Main_Hall/Bunks"]
+layout_mode = 0
+offset_left = 123.5
+offset_top = 111.5
+offset_right = 132.5
+offset_bottom = 126.5
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Background/Main_Hall/Bunks"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -24.0
+offset_top = 10.0
+offset_right = 24.0
+offset_bottom = 33.0
+grow_horizontal = 2
+text = "Bunks"
+horizontal_alignment = 1
+
+[node name="Supply" type="ColorRect" parent="Background/Main_Hall"]
+layout_mode = 0
+offset_left = 431.333
+offset_top = -77.0
+offset_right = 471.333
+offset_bottom = -15.0
+color = Color(0.211765, 0.227451, 0.262745, 1)
+
+[node name="Door5" type="ColorRect" parent="Background/Main_Hall/Supply"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 62.0
+offset_right = 24.0
+offset_bottom = 77.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Background/Main_Hall/Supply"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -19.5
+offset_right = 19.5
+offset_bottom = 35.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 11
+text = "Supply 
+Closet"
+horizontal_alignment = 1
+
+[node name="Stairs" type="ColorRect" parent="Background/Main_Hall"]
+layout_mode = 0
+offset_left = 248.0
+offset_top = -81.6667
+offset_right = 399.0
+offset_bottom = -14.6667
+color = Color(0.211765, 0.227451, 0.262745, 1)
+
+[node name="Door3" type="ColorRect" parent="Background/Main_Hall/Stairs"]
+layout_mode = 0
+offset_left = 13.5
+offset_top = 66.5
+offset_right = 22.5
+offset_bottom = 81.5
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Background/Main_Hall/Stairs"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 5.0
+offset_right = 20.0
+offset_bottom = 28.0
+grow_horizontal = 2
+text = "Stairs"
+horizontal_alignment = 1
+
+[node name="Research" type="ColorRect" parent="Background/Main_Hall"]
+layout_mode = 0
+offset_left = 282.667
+offset_top = 121.0
+offset_right = 469.667
+offset_bottom = 224.0
+color = Color(0.211765, 0.227451, 0.262745, 1)
+
+[node name="Door" type="ColorRect" parent="Background/Main_Hall/Research"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = -15.0
+offset_right = 28.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Background/Main_Hall/Research"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 10.0
+offset_right = 20.0
+offset_bottom = 33.0
+grow_horizontal = 2
+text = "Research"
+horizontal_alignment = 1
+
+[node name="Mess_Hall" type="ColorRect" parent="Background/Main_Hall"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 121.0
+offset_right = 234.0
+offset_bottom = 226.0
+color = Color(0.211765, 0.227451, 0.262745, 1)
+
+[node name="Door2" type="ColorRect" parent="Background/Main_Hall/Mess_Hall"]
+layout_mode = 0
+offset_left = 153.0
+offset_top = -15.0
+offset_right = 162.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Background/Main_Hall/Mess_Hall"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -37.0
+offset_top = 10.0
+offset_right = 37.0
+offset_bottom = 33.0
+grow_horizontal = 2
+text = "Mess Hall"
+horizontal_alignment = 1
+
+[node name="Command_Deck" type="ColorRect" parent="Background/Main_Hall"]
+layout_mode = 0
+offset_left = 505.5
+offset_top = 1.5
+offset_right = 622.5
+offset_bottom = 107.5
+color = Color(0.211765, 0.227451, 0.262745, 1)
+
+[node name="Door6" type="ColorRect" parent="Background/Main_Hall/Command_Deck"]
+layout_mode = 0
+offset_left = -20.0
+offset_top = 49.0
+offset_bottom = 58.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Background/Main_Hall/Command_Deck"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -40.0
+offset_right = 40.0
+offset_bottom = 49.0
+grow_horizontal = 2
+text = "Command 
+Deck"
+horizontal_alignment = 1
+
+[node name="Pod" type="ColorRect" parent="Background/Main_Hall"]
+layout_mode = 0
+offset_left = 2.353
+offset_top = -85.0
+offset_right = 72.353
+offset_bottom = -15.0
+color = Color(0.211765, 0.227451, 0.262745, 1)
+
+[node name="Door7" type="ColorRect" parent="Background/Main_Hall/Pod"]
+layout_mode = 0
+offset_left = 53.5293
+offset_top = 69.7059
+offset_right = 62.5293
+offset_bottom = 84.7059
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Background/Main_Hall/Pod"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Pod"
+horizontal_alignment = 1
+
+[node name="Position" type="Control" parent="Background/Main_Hall"]
+anchors_preset = 0
+offset_top = 3.05176e-05
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="In_Pod" type="ColorRect" parent="Background/Main_Hall/Position"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 7.35303
+offset_top = -80.0
+offset_right = 27.353
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.247059, 0.247059, 0.454902, 1)
+
+[node name="In_Command_Deck" type="ColorRect" parent="Background/Main_Hall/Position"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.564
+anchor_right = 0.5
+anchor_bottom = 0.564
+offset_left = 533.529
+offset_top = 31.5576
+offset_right = 553.529
+offset_bottom = 51.5576
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.247059, 0.247059, 0.454902, 1)
+
+[node name="In_Mess_Hall" type="ColorRect" parent="Background/Main_Hall/Position"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 115.0
+offset_top = 143.5
+offset_right = 135.0
+offset_bottom = 163.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.247059, 0.247059, 0.454902, 1)
+
+[node name="In_Research" type="ColorRect" parent="Background/Main_Hall/Position"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 346.167
+offset_top = 142.5
+offset_right = 366.167
+offset_bottom = 162.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.247059, 0.247059, 0.454902, 1)
+
+[node name="In_Stairs" type="ColorRect" parent="Background/Main_Hall/Position"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 293.5
+offset_top = -71.6667
+offset_right = 313.5
+offset_bottom = -51.6667
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.247059, 0.247059, 0.454902, 1)
+
+[node name="In_Supply" type="ColorRect" parent="Background/Main_Hall/Position"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 426.333
+offset_top = -57.0
+offset_right = 436.333
+offset_bottom = -47.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.247059, 0.247059, 0.454902, 1)
+
+[node name="In_Main_Hall" type="ColorRect" parent="Background/Main_Hall/Position"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 213.0
+offset_top = 23.0
+offset_right = 233.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.247059, 0.247059, 0.454902, 1)
+
+[node name="In_Bunks" type="ColorRect" parent="Background/Main_Hall/Position"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 128.167
+offset_top = -101.0
+offset_right = 148.167
+offset_bottom = -81.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.247059, 0.247059, 0.454902, 1)

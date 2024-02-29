@@ -2,6 +2,7 @@ extends Control
 
 func _on_resume_pressed():
 	queue_free()
+	MiniMap.get_node("Background").hide()
 	
 func _on_quit_pressed():
 	get_tree().quit()
@@ -9,3 +10,7 @@ func _on_quit_pressed():
 func _process(_delta):
 	if Input.is_action_just_pressed("MENU"):
 		_on_resume_pressed()
+
+
+func _on_settings_pressed():
+	pass # Replace with function body.
