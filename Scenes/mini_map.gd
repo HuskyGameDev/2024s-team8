@@ -36,3 +36,4 @@ func hideAll():
 	get_node("Background/Rooms/Stairs/Outline").hide()
 	get_node("Background/Rooms/Command_Deck/Outline").hide()
 	get_node("Background/Rooms/Supply/Outline").hide()
+	get_node("Background/Rooms/Pod/Outline").hide()

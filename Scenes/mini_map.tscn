@@ -40,30 +40,29 @@ color = Color(0.270588, 0.290196, 0.333333, 1)
 
 [node name="Outline" type="CanvasLayer" parent="Background/Rooms/Pod"]
 layer = 2
-visible = false
 
 [node name="left" type="ColorRect" parent="Background/Rooms/Pod/Outline"]
 offset_left = 163.0
 offset_top = 189.0
-offset_right = 165.0
+offset_right = 169.0
 offset_bottom = 368.0
 
 [node name="top" type="ColorRect" parent="Background/Rooms/Pod/Outline"]
 offset_left = 163.0
 offset_top = 189.0
 offset_right = 342.0
-offset_bottom = 191.0
+offset_bottom = 195.0
 
 [node name="bottom" type="ColorRect" parent="Background/Rooms/Pod/Outline"]
 offset_left = 163.0
 offset_top = 367.0
-offset_right = 342.0
-offset_bottom = 369.0
+offset_right = 347.0
+offset_bottom = 373.0
 
 [node name="right" type="ColorRect" parent="Background/Rooms/Pod/Outline"]
 offset_left = 341.0
 offset_top = 189.0
-offset_right = 343.0
+offset_right = 347.0
 offset_bottom = 369.0
 
 [node name="Door7" type="ColorRect" parent="Background/Rooms/Pod"]
@@ -126,30 +125,29 @@ horizontal_alignment = 1
 
 [node name="Outline" type="CanvasLayer" parent="Background/Rooms/Bunks"]
 layer = 2
-visible = false
 
 [node name="left" type="ColorRect" parent="Background/Rooms/Bunks/Outline"]
 offset_left = 377.0
 offset_top = 83.0
-offset_right = 379.0
+offset_right = 383.0
 offset_bottom = 369.0
 
 [node name="top" type="ColorRect" parent="Background/Rooms/Bunks/Outline"]
 offset_left = 377.0
 offset_top = 83.0
 offset_right = 743.0
-offset_bottom = 85.0
+offset_bottom = 89.0
 
 [node name="bottom" type="ColorRect" parent="Background/Rooms/Bunks/Outline"]
 offset_left = 377.0
 offset_top = 368.0
-offset_right = 743.0
-offset_bottom = 370.0
+offset_right = 748.0
+offset_bottom = 374.0
 
 [node name="right" type="ColorRect" parent="Background/Rooms/Bunks/Outline"]
 offset_left = 742.0
 offset_top = 83.0
-offset_right = 744.0
+offset_right = 748.0
 offset_bottom = 370.0
 
 [node name="Command_Deck" type="ColorRect" parent="Background/Rooms"]
@@ -187,30 +185,29 @@ horizontal_alignment = 1
 
 [node name="Outline" type="CanvasLayer" parent="Background/Rooms/Command_Deck"]
 layer = 2
-visible = false
 
 [node name="left" type="ColorRect" parent="Background/Rooms/Command_Deck/Outline"]
 offset_left = 1445.0
 offset_top = 410.0
-offset_right = 1447.0
+offset_right = 1451.0
 offset_bottom = 680.0
 
 [node name="top" type="ColorRect" parent="Background/Rooms/Command_Deck/Outline"]
 offset_left = 1445.0
 offset_top = 410.0
 offset_right = 1744.0
-offset_bottom = 412.0
+offset_bottom = 416.0
 
 [node name="bottom" type="ColorRect" parent="Background/Rooms/Command_Deck/Outline"]
 offset_left = 1445.0
 offset_top = 679.0
-offset_right = 1744.0
-offset_bottom = 681.0
+offset_right = 1748.0
+offset_bottom = 685.0
 
 [node name="right" type="ColorRect" parent="Background/Rooms/Command_Deck/Outline"]
 offset_left = 1742.0
 offset_top = 410.0
-offset_right = 1744.0
+offset_right = 1748.0
 offset_bottom = 681.0
 
 [node name="Stairs" type="ColorRect" parent="Background/Rooms"]
@@ -248,30 +245,29 @@ horizontal_alignment = 1
 
 [node name="Outline" type="CanvasLayer" parent="Background/Rooms/Stairs"]
 layer = 2
-visible = false
 
 [node name="left" type="ColorRect" parent="Background/Rooms/Stairs/Outline"]
 offset_left = 790.0
 offset_top = 198.0
-offset_right = 792.0
+offset_right = 796.0
 offset_bottom = 370.0
 
 [node name="top" type="ColorRect" parent="Background/Rooms/Stairs/Outline"]
 offset_left = 790.0
 offset_top = 198.0
 offset_right = 1175.0
-offset_bottom = 200.0
+offset_bottom = 204.0
 
 [node name="bottom" type="ColorRect" parent="Background/Rooms/Stairs/Outline"]
 offset_left = 790.0
 offset_top = 368.0
-offset_right = 1175.0
-offset_bottom = 370.0
+offset_right = 1180.0
+offset_bottom = 374.0
 
 [node name="right" type="ColorRect" parent="Background/Rooms/Stairs/Outline"]
 offset_left = 1174.0
 offset_top = 198.0
-offset_right = 1176.0
+offset_right = 1180.0
 offset_bottom = 370.0
 
 [node name="Research" type="ColorRect" parent="Background/Rooms"]
@@ -308,30 +304,29 @@ horizontal_alignment = 1
 
 [node name="Outline" type="CanvasLayer" parent="Background/Rooms/Research"]
 layer = 2
-visible = false
 
 [node name="left" type="ColorRect" parent="Background/Rooms/Research/Outline"]
 offset_left = 877.0
 offset_top = 714.0
-offset_right = 879.0
+offset_right = 883.0
 offset_bottom = 977.0
 
 [node name="top" type="ColorRect" parent="Background/Rooms/Research/Outline"]
 offset_left = 877.0
 offset_top = 714.0
 offset_right = 1356.0
-offset_bottom = 716.0
+offset_bottom = 720.0
 
 [node name="bottom" type="ColorRect" parent="Background/Rooms/Research/Outline"]
 offset_left = 877.0
 offset_top = 975.0
-offset_right = 1356.0
-offset_bottom = 977.0
+offset_right = 1361.0
+offset_bottom = 981.0
 
 [node name="right" type="ColorRect" parent="Background/Rooms/Research/Outline"]
 offset_left = 1355.0
 offset_top = 714.0
-offset_right = 1357.0
+offset_right = 1361.0
 offset_bottom = 977.0
 
 [node name="Supply" type="ColorRect" parent="Background/Rooms"]
@@ -371,30 +366,29 @@ horizontal_alignment = 1
 
 [node name="Outline" type="CanvasLayer" parent="Background/Rooms/Supply"]
 layer = 2
-visible = false
 
 [node name="left" type="ColorRect" parent="Background/Rooms/Supply/Outline"]
 offset_left = 1255.0
 offset_top = 210.0
-offset_right = 1257.0
+offset_right = 1261.0
 offset_bottom = 369.0
 
 [node name="top" type="ColorRect" parent="Background/Rooms/Supply/Outline"]
 offset_left = 1255.0
 offset_top = 209.0
 offset_right = 1359.0
-offset_bottom = 211.0
+offset_bottom = 215.0
 
 [node name="bottom" type="ColorRect" parent="Background/Rooms/Supply/Outline"]
 offset_left = 1255.0
 offset_top = 368.0
-offset_right = 1359.0
-offset_bottom = 370.0
+offset_right = 1364.0
+offset_bottom = 374.0
 
 [node name="right" type="ColorRect" parent="Background/Rooms/Supply/Outline"]
 offset_left = 1358.0
 offset_top = 209.0
-offset_right = 1360.0
+offset_right = 1364.0
 offset_bottom = 370.0
 
 [node name="Main_Hall" type="ColorRect" parent="Background/Rooms"]
@@ -415,30 +409,29 @@ color = Color(0.270588, 0.290196, 0.333333, 1)
 
 [node name="Outline" type="CanvasLayer" parent="Background/Rooms/Main_Hall"]
 layer = 2
-visible = false
 
 [node name="left" type="ColorRect" parent="Background/Rooms/Main_Hall/Outline"]
 offset_left = 158.0
 offset_top = 408.0
-offset_right = 160.0
+offset_right = 164.0
 offset_bottom = 679.0
 
 [node name="top" type="ColorRect" parent="Background/Rooms/Main_Hall/Outline"]
 offset_left = 157.0
 offset_top = 408.0
 offset_right = 1397.0
-offset_bottom = 410.0
+offset_bottom = 414.0
 
 [node name="bottom" type="ColorRect" parent="Background/Rooms/Main_Hall/Outline"]
 offset_left = 157.0
 offset_top = 677.0
-offset_right = 1397.0
-offset_bottom = 679.0
+offset_right = 1401.0
+offset_bottom = 683.0
 
 [node name="right" type="ColorRect" parent="Background/Rooms/Main_Hall/Outline"]
 offset_left = 1395.0
 offset_top = 407.0
-offset_right = 1397.0
+offset_right = 1401.0
 offset_bottom = 679.0
 
 [node name="Label" type="Label" parent="Background/Rooms/Main_Hall"]
@@ -459,10 +452,14 @@ horizontal_alignment = 1
 
 [node name="Mess_Hall" type="ColorRect" parent="Background/Rooms"]
 layout_mode = 2
-offset_left = 121.0
-offset_top = 443.0
-offset_right = 424.0
-offset_bottom = 623.0
+anchor_left = -1.967
+anchor_top = -0.833
+anchor_right = -1.967
+anchor_bottom = -0.833
+offset_left = 199.68
+offset_top = 476.32
+offset_right = 499.68
+offset_bottom = 656.32
 color = Color(0.270588, 0.290196, 0.333333, 1)
 
 [node name="Door2" type="ColorRect" parent="Background/Rooms/Mess_Hall"]
@@ -479,39 +476,39 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -37.0
-offset_top = -11.5
-offset_right = 37.0
-offset_bottom = 11.5
+offset_left = -54.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.5, 1.5)
 text = "Mess Hall"
 horizontal_alignment = 1
 
 [node name="Outline" type="CanvasLayer" parent="Background/Rooms/Mess_Hall"]
 layer = 2
-visible = false
 
 [node name="left" type="ColorRect" parent="Background/Rooms/Mess_Hall/Outline"]
 offset_left = 299.0
 offset_top = 714.0
-offset_right = 301.0
+offset_right = 305.0
 offset_bottom = 985.0
 
 [node name="top" type="ColorRect" parent="Background/Rooms/Mess_Hall/Outline"]
 offset_left = 299.0
 offset_top = 714.0
 offset_right = 754.0
-offset_bottom = 716.0
+offset_bottom = 720.0
 
 [node name="bottom" type="ColorRect" parent="Background/Rooms/Mess_Hall/Outline"]
 offset_left = 299.0
 offset_top = 983.0
-offset_right = 754.0
-offset_bottom = 985.0
+offset_right = 755.0
+offset_bottom = 989.0
 
 [node name="right" type="ColorRect" parent="Background/Rooms/Mess_Hall/Outline"]
-offset_left = 754.0
+offset_left = 749.0
 offset_top = 714.0
-offset_right = 756.0
+offset_right = 755.0
 offset_bottom = 985.0
