@@ -16,6 +16,7 @@ func _on_area_2d_body_entered(body):
 	if HasLeft:
 		StageManager.changeScene(HALLWAY_MAIN, 442, 131)
 		StageManager.changeCamera(488)
+		StageManager.scene_change = true
 
 
 func _on_area_2d_body_exited(body):

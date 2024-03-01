@@ -3,9 +3,13 @@ extends CanvasLayer
 
 var player_position = Vector2.ZERO
 var right_camera_limit = 1000000000000000
-
+var scene_change = false
 func _ready():
 	get_node("ColorRect").hide()
+
+func _process(delta):
+	if scene_change == true:
+		scene_change == false
 
 func changeScene(stage_next, x, y):
 	var stage = stage_next.instantiate()

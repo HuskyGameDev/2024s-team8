@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://db5cscw8pfccj" path="res://Assets/room_tilemap_modular.png" id="1_6aj05"]
 [ext_resource type="Script" path="res://Scenes/research1.gd" id="1_44mdm"]
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="2_17khl"]
-[ext_resource type="PackedScene" uid="uid://cq1bq3u0u02u3" path="res://Scenes/player.tscn" id="3_xppy5"]
+[ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="3_xppy5"]
 [ext_resource type="Texture2D" uid="uid://bvxp1xgc5udf5" path="res://Assets/steam-valve-hi.png" id="6_4na5r"]
 [ext_resource type="Script" path="res://Inventory/Valve.gd" id="6_av778"]
 [ext_resource type="Script" path="res://Inventory/Interaction/InteractionArea.gd" id="8_4xsd5"]
