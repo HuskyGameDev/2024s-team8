@@ -91,7 +91,6 @@ func _on_bridge_body_entered(body):
 		StageManager.changeCamera(304)
 
 
-
 func _on_bridge_body_exited(body):
 	HasLeft = true
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=32 format=3 uid="uid://d3smthgcyvtgq"]
+[gd_scene load_steps=33 format=3 uid="uid://d3smthgcyvtgq"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_8m3b3"]
 [ext_resource type="PackedScene" uid="uid://bba3405jkew8f" path="res://Scenes/pauseMenu.tscn" id="2_li7mv"]
 [ext_resource type="Texture2D" uid="uid://ojw71hga2euh" path="res://Assets/Spotlight.png" id="3_nhdoc"]
+[ext_resource type="PackedScene" uid="uid://cpg2xebaf6ybb" path="res://Scenes/mini_map.tscn" id="3_si0d5"]
 [ext_resource type="Texture2D" uid="uid://cpfwdtrr57pbr" path="res://Assets/char_walk_placeholder.png" id="7_kont8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1errj"]
@@ -241,6 +242,7 @@ graph_offset = Vector2(-295.061, 53.955)
 script = ExtResource("1_8m3b3")
 playerSpeed = 50
 pauseMenu = ExtResource("2_li7mv")
+mini_map = ExtResource("3_si0d5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("7_kont8")
