@@ -29,4 +29,6 @@ func changeScene(stage_next, x, y):
 	
 func changeCamera(limit):
 	right_camera_limit = limit
+	
+
 

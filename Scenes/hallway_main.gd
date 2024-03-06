@@ -107,7 +107,7 @@ func _on_to_power_room_body_entered(body):
 		if PositionManager.HasOpenedVent == true:
 			PositionManager.PrevPosition = body.global_position
 			StageManager.changeScene(POWER_ROOM, 184, 120)
-			StageManager.changeCamera(256)
+			StageManager.changeCamera(304)
 			StageManager.scene_change = true
 
 
