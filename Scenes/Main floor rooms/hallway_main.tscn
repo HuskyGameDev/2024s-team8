@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cfl3tm624omie"]
+[gd_scene load_steps=21 format=3 uid="uid://cfl3tm624omie"]
 
 [ext_resource type="Script" path="res://Scenes/hallway_main.gd" id="1_uyxqv"]
 [ext_resource type="Texture2D" uid="uid://db5cscw8pfccj" path="res://Assets/room_tilemap_modular.png" id="2_kjoew"]
@@ -117,6 +117,8 @@ sources/0 = SubResource("TileSetAtlasSource_4fyx4")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x3u62"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a0fl2"]
+
 [sub_resource type="LabelSettings" id="LabelSettings_1i83i"]
 font_size = 10
 
@@ -193,6 +195,12 @@ script = ExtResource("7_lochg")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vent/InteractionArea"]
 position = Vector2(1, 0)
 shape = SubResource("CircleShape2D_x3u62")
+
+[node name="To_Power_Room" type="Area2D" parent="Vent"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vent/To_Power_Room"]
+position = Vector2(1, 1)
+shape = SubResource("CapsuleShape2D_a0fl2")
 
 [node name="Notes" type="Label" parent="."]
 offset_left = 7.0
@@ -331,6 +339,8 @@ shape = SubResource("CapsuleShape2D_wm2uj")
 
 [connection signal="body_entered" from="Vent/InteractionArea" to="Vent/InteractionArea" method="_on_body_entered"]
 [connection signal="body_exited" from="Vent/InteractionArea" to="Vent/InteractionArea" method="_on_body_exited"]
+[connection signal="body_entered" from="Vent/To_Power_Room" to="." method="_on_to_power_room_body_entered"]
+[connection signal="body_exited" from="Vent/To_Power_Room" to="." method="_on_to_power_room_body_exited"]
 [connection signal="body_entered" from="Door areas/Mess_Hall" to="." method="_on_mess_hall_body_entered"]
 [connection signal="body_exited" from="Door areas/Mess_Hall" to="." method="_on_mess_hall_body_exited"]
 [connection signal="body_entered" from="Door areas/Research_Room" to="." method="_on_research_room_body_entered"]
