@@ -101,14 +101,6 @@ func _on_bridge_body_exited(body):
 	HasLeft = true
 
 
-func _on_to_power_room_body_entered(body):
-	const POWER_ROOM = preload("res://Scenes/Second floor rooms/power_room.tscn")
-	if body.name == "Player" && HasLeft:
-		if PositionManager.HasOpenedVent == true:
-			PositionManager.PrevPosition = body.global_position
-			StageManager.changeScene(POWER_ROOM, 184, 120)
-			StageManager.changeCamera(304)
-			StageManager.scene_change = true
 
 
 func _on_to_power_room_body_exited(body):

@@ -411,16 +411,16 @@ color = Color(0.270588, 0.290196, 0.333333, 1)
 layer = 2
 
 [node name="left" type="ColorRect" parent="Background/Rooms/Main_Hall/Outline"]
-offset_left = 158.0
-offset_top = 408.0
-offset_right = 164.0
-offset_bottom = 679.0
+offset_left = 157.0
+offset_top = 407.0
+offset_right = 163.0
+offset_bottom = 683.0
 
 [node name="top" type="ColorRect" parent="Background/Rooms/Main_Hall/Outline"]
 offset_left = 157.0
-offset_top = 408.0
+offset_top = 407.0
 offset_right = 1397.0
-offset_bottom = 414.0
+offset_bottom = 413.0
 
 [node name="bottom" type="ColorRect" parent="Background/Rooms/Main_Hall/Outline"]
 offset_left = 157.0

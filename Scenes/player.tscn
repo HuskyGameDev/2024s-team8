@@ -300,9 +300,10 @@ offset_bottom = 23.0
 text = "Door is locked"
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(0, 6)
 blend_mode = 2
+shadow_color = Color(0, 0, 0, 1)
 texture = ExtResource("3_nhdoc")
+texture_scale = 1.2
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.247059, 0, 0, 1)
