@@ -3,7 +3,7 @@
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="1_30vsc"]
 [ext_resource type="Script" path="res://Scenes/stairs.gd" id="1_qh87w"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="2_c5c5u"]
-[ext_resource type="PackedScene" uid="uid://cq1bq3u0u02u3" path="res://Scenes/player.tscn" id="2_p6e2w"]
+[ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="2_p6e2w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_omm81"]
 size = Vector2(24, 5)

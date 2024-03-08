@@ -2,16 +2,17 @@
 
 [ext_resource type="Script" path="res://Scenes/supply_closet.gd" id="1_khmp4"]
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="1_nuyvw"]
-[ext_resource type="PackedScene" uid="uid://cq1bq3u0u02u3" path="res://Scenes/player.tscn" id="2_74axs"]
+[ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="2_74axs"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="2_ok3ji"]
-[ext_resource type="Texture2D" uid="uid://b7q2wvl50egdj" path="res://Inventory/Crowbar.png" id="5_efwmn"]
 [ext_resource type="Script" path="res://Inventory/Interaction/InteractionArea.gd" id="5_n3yns"]
 [ext_resource type="Script" path="res://Inventory/Crowbar.gd" id="5_vc7ro"]
+[ext_resource type="Texture2D" uid="uid://bfx5otn34ye1d" path="res://Assets/wrench-blue.png" id="6_gn3dj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cm6d2"]
 size = Vector2(24, 5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b6m7c"]
+radius = 6.0
 
 [node name="Supply_Closet" type="Node2D"]
 script = ExtResource("1_khmp4")
@@ -32,7 +33,7 @@ layer_2/name = "line detail"
 layer_2/tile_data = PackedInt32Array(917515, 1441792, 0, 983051, 1441792, 0, 1048587, 1441792, 0, 851980, 1441792, 0, 983052, 1441792, 0, 1048588, 1441792, 0, 786445, 1376256, 0, 917517, 1376256, 0, 983053, 1376256, 0, 1048589, 1507328, 0, 720910, 1376256, 0, 851982, 1376256, 0, 917518, 1376256, 0, 720911, 1376256, 0, 786447, 1376256, 0, 851983, 1376256, 0, 786448, 1507328, 0, 851984, 1507328, 0, 720907, 1376256, 0, 786443, 1441792, 0, 851979, 1441792, 0, 655372, 1376256, 0, 786444, 1441792, 0, 917516, 1441792, 0, 589837, 1376256, 0, 720909, 1376256, 0, 851981, 1376256, 0, 524302, 1572864, 0, 655374, 1376256, 0, 786446, 1376256, 0, 524303, 1572864, 0, 589839, 1376256, 0, 655375, 1376256, 0, 589840, 1507328, 0, 655376, 1507328, 0, 720912, 1507328, 0)
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_74axs")]
-position = Vector2(123, 128)
+position = Vector2(124, 128)
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -45,8 +46,9 @@ position = Vector2(175, 125)
 script = ExtResource("5_vc7ro")
 
 [node name="Sprite2D" type="Sprite2D" parent="Crowbar"]
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("5_efwmn")
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_gn3dj")
 
 [node name="InteractionArea" type="Area2D" parent="Crowbar"]
 script = ExtResource("5_n3yns")
