@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dry0m61no3mts"]
+[gd_scene load_steps=11 format=3 uid="uid://dry0m61no3mts"]
 
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/command_deck.gd" id="1_4wny3"]
 [ext_resource type="PackedScene" uid="uid://ny55otxbs0t" path="res://Scenes/tile_map.tscn" id="1_ofowq"]
@@ -6,6 +6,7 @@
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="2_xlbxq"]
 [ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="5_g7xgl"]
 [ext_resource type="Texture2D" uid="uid://b0wp5jn5h8v82" path="res://Assets/command_deck_tiles.png" id="5_sbqnq"]
+[ext_resource type="PackedScene" uid="uid://ca1eqme7qndxw" path="res://Scenes/background.tscn" id="7_4vhpv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hdvmr"]
 texture = ExtResource("5_sbqnq")
@@ -78,6 +79,10 @@ shape = SubResource("RectangleShape2D_t3868")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("5_g7xgl")]
 position = Vector2(111, 121)
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("7_4vhpv")]
+scale = Vector2(0.16, 0.16)
+transform = Transform2D(0.16, 0, 0, 0.16, 0, 0)
 
 [connection signal="body_entered" from="Door" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Door" to="." method="_on_area_2d_body_exited"]
