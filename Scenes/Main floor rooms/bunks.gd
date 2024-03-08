@@ -14,9 +14,10 @@ func _process(delta):
 
 func _on_area_2d_body_entered(body):
 	if HasLeft:
-		const HALLWAY_MAIN = preload("res://Scenes/hallway_main.tscn")
+		const HALLWAY_MAIN = preload("res://Scenes/Main floor rooms/hallway_main.tscn")
 		StageManager.changeScene(HALLWAY_MAIN, 442, 131)
 		StageManager.changeCamera(488)
+		StageManager.scene_change = true
 
 
 func _on_area_2d_body_exited(body):

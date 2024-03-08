@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://bhpg25aldy702"]
+
+[ext_resource type="Script" path="res://Scenes/ValveGame.gd" id="1_7cxd3"]
+[ext_resource type="Texture2D" uid="uid://bvxp1xgc5udf5" path="res://Assets/steam-valve-hi.png" id="2_arnom"]
+[ext_resource type="Texture2D" uid="uid://lejoajc15ea6" path="res://Assets/red_arrow_PNG1.png" id="3_mrkjj"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ois1y"]
+
+[node name="Valve Minigame" type="Control"]
+top_level = true
+z_index = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7cxd3")
+
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 0.431373)
+top_level = true
+layout_mode = 0
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 320.0
+offset_bottom = 183.0
+texture = SubResource("CanvasTexture_ois1y")
+
+[node name="Valve1" type="Sprite2D" parent="." groups=["Valve1"]]
+position = Vector2(58, 92)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_arnom")
+
+[node name="Valve2" type="Sprite2D" parent="." groups=["Valve2"]]
+position = Vector2(159, 92)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_arnom")
+
+[node name="Valve3" type="Sprite2D" parent="." groups=["Valve3"]]
+position = Vector2(259, 92)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_arnom")
+
+[node name="Arrow1" type="Sprite2D" parent="." groups=["Arrow1"]]
+position = Vector2(58, 38)
+rotation = 1.5708
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("3_mrkjj")
+
+[node name="Arrow2" type="Sprite2D" parent="." groups=["Arrow2"]]
+visible = false
+position = Vector2(160, 38)
+rotation = 1.5708
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("3_mrkjj")
+
+[node name="Arrow3" type="Sprite2D" parent="." groups=["Arrow3"]]
+visible = false
+position = Vector2(259, 38)
+rotation = 1.5708
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("3_mrkjj")

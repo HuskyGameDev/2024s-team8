@@ -1,0 +1,514 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpg2xebaf6ybb"]
+
+[ext_resource type="Script" path="res://Scenes/mini_map.gd" id="1_mtimf"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_7b5y6"]
+
+[node name="Mini_Map" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mtimf")
+
+[node name="Background" type="TextureRect" parent="."]
+self_modulate = Color(0.0627451, 0.0627451, 0.0627451, 0.431373)
+layout_mode = 2
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = SubResource("CanvasTexture_7b5y6")
+
+[node name="Rooms" type="Control" parent="Background"]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 118.0
+offset_top = 50.0
+offset_right = 158.0
+offset_bottom = 90.0
+scale = Vector2(1.5, 1.5)
+
+[node name="Pod" type="ColorRect" parent="Background/Rooms"]
+layout_mode = 0
+offset_left = 30.0001
+offset_top = 93.0
+offset_right = 100.0
+offset_bottom = 163.0
+scale = Vector2(1.7, 1.7)
+color = Color(0.270588, 0.290196, 0.333333, 1)
+
+[node name="Outline" type="CanvasLayer" parent="Background/Rooms/Pod"]
+layer = 2
+
+[node name="left" type="ColorRect" parent="Background/Rooms/Pod/Outline"]
+offset_left = 163.0
+offset_top = 189.0
+offset_right = 169.0
+offset_bottom = 368.0
+
+[node name="top" type="ColorRect" parent="Background/Rooms/Pod/Outline"]
+offset_left = 163.0
+offset_top = 189.0
+offset_right = 342.0
+offset_bottom = 195.0
+
+[node name="bottom" type="ColorRect" parent="Background/Rooms/Pod/Outline"]
+offset_left = 163.0
+offset_top = 367.0
+offset_right = 347.0
+offset_bottom = 373.0
+
+[node name="right" type="ColorRect" parent="Background/Rooms/Pod/Outline"]
+offset_left = 341.0
+offset_top = 189.0
+offset_right = 347.0
+offset_bottom = 369.0
+
+[node name="Door7" type="ColorRect" parent="Background/Rooms/Pod"]
+layout_mode = 0
+offset_left = 53.5293
+offset_top = 69.7059
+offset_right = 62.5293
+offset_bottom = 84.7059
+color = Color(0.247059, 0.247059, 0.454902, 1)
+
+[node name="Label" type="Label" parent="Background/Rooms/Pod"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Pod"
+horizontal_alignment = 1
+
+[node name="Bunks" type="ColorRect" parent="Background/Rooms"]
+layout_mode = 0
+offset_left = 173.333
+offset_top = 21.6
+offset_right = 316.334
+offset_bottom = 133.6
+scale = Vector2(1.7, 1.7)
+color = Color(0.270588, 0.290196, 0.333333, 1)
+
+[node name="Door4" type="ColorRect" parent="Background/Rooms/Bunks"]
+layout_mode = 0
+offset_left = 123.5
+offset_top = 111.5
+offset_right = 132.5
+offset_bottom = 126.5
+color = Color(0.247059, 0.247059, 0.454902, 1)
+
+[node name="Label" type="Label" parent="Background/Rooms/Bunks"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -11.5
+offset_right = 24.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Bunks"
+horizontal_alignment = 1
+
+[node name="Outline" type="CanvasLayer" parent="Background/Rooms/Bunks"]
+layer = 2
+
+[node name="left" type="ColorRect" parent="Background/Rooms/Bunks/Outline"]
+offset_left = 377.0
+offset_top = 83.0
+offset_right = 383.0
+offset_bottom = 369.0
+
+[node name="top" type="ColorRect" parent="Background/Rooms/Bunks/Outline"]
+offset_left = 377.0
+offset_top = 83.0
+offset_right = 743.0
+offset_bottom = 89.0
+
+[node name="bottom" type="ColorRect" parent="Background/Rooms/Bunks/Outline"]
+offset_left = 377.0
+offset_top = 368.0
+offset_right = 748.0
+offset_bottom = 374.0
+
+[node name="right" type="ColorRect" parent="Background/Rooms/Bunks/Outline"]
+offset_left = 742.0
+offset_top = 83.0
+offset_right = 748.0
+offset_bottom = 370.0
+
+[node name="Command_Deck" type="ColorRect" parent="Background/Rooms"]
+layout_mode = 0
+offset_left = 885.35
+offset_top = 240.05
+offset_right = 1002.35
+offset_bottom = 346.05
+scale = Vector2(1.7, 1.7)
+color = Color(0.270588, 0.290196, 0.333333, 1)
+
+[node name="Door6" type="ColorRect" parent="Background/Rooms/Command_Deck"]
+layout_mode = 0
+offset_left = -20.0
+offset_top = 49.0
+offset_bottom = 58.0
+color = Color(0.247059, 0.247059, 0.454902, 1)
+
+[node name="Label" type="Label" parent="Background/Rooms/Command_Deck"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -24.5
+offset_right = 40.0
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Command 
+Deck"
+horizontal_alignment = 1
+
+[node name="Outline" type="CanvasLayer" parent="Background/Rooms/Command_Deck"]
+layer = 2
+
+[node name="left" type="ColorRect" parent="Background/Rooms/Command_Deck/Outline"]
+offset_left = 1445.0
+offset_top = 410.0
+offset_right = 1451.0
+offset_bottom = 680.0
+
+[node name="top" type="ColorRect" parent="Background/Rooms/Command_Deck/Outline"]
+offset_left = 1445.0
+offset_top = 410.0
+offset_right = 1744.0
+offset_bottom = 416.0
+
+[node name="bottom" type="ColorRect" parent="Background/Rooms/Command_Deck/Outline"]
+offset_left = 1445.0
+offset_top = 679.0
+offset_right = 1748.0
+offset_bottom = 685.0
+
+[node name="right" type="ColorRect" parent="Background/Rooms/Command_Deck/Outline"]
+offset_left = 1742.0
+offset_top = 410.0
+offset_right = 1748.0
+offset_bottom = 681.0
+
+[node name="Stairs" type="ColorRect" parent="Background/Rooms"]
+layout_mode = 0
+offset_left = 447.6
+offset_top = 98.6666
+offset_right = 598.6
+offset_bottom = 165.667
+scale = Vector2(1.7, 1.7)
+color = Color(0.270588, 0.290196, 0.333333, 1)
+
+[node name="Door3" type="ColorRect" parent="Background/Rooms/Stairs"]
+layout_mode = 0
+offset_left = 13.5
+offset_top = 66.5
+offset_right = 22.5
+offset_bottom = 81.5
+color = Color(0.247059, 0.247059, 0.454902, 1)
+
+[node name="Label" type="Label" parent="Background/Rooms/Stairs"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -11.5
+offset_right = 22.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Stairs"
+horizontal_alignment = 1
+
+[node name="Outline" type="CanvasLayer" parent="Background/Rooms/Stairs"]
+layer = 2
+
+[node name="left" type="ColorRect" parent="Background/Rooms/Stairs/Outline"]
+offset_left = 790.0
+offset_top = 198.0
+offset_right = 796.0
+offset_bottom = 370.0
+
+[node name="top" type="ColorRect" parent="Background/Rooms/Stairs/Outline"]
+offset_left = 790.0
+offset_top = 198.0
+offset_right = 1175.0
+offset_bottom = 204.0
+
+[node name="bottom" type="ColorRect" parent="Background/Rooms/Stairs/Outline"]
+offset_left = 790.0
+offset_top = 368.0
+offset_right = 1180.0
+offset_bottom = 374.0
+
+[node name="right" type="ColorRect" parent="Background/Rooms/Stairs/Outline"]
+offset_left = 1174.0
+offset_top = 198.0
+offset_right = 1180.0
+offset_bottom = 370.0
+
+[node name="Research" type="ColorRect" parent="Background/Rooms"]
+layout_mode = 0
+offset_left = 506.534
+offset_top = 443.2
+offset_right = 693.534
+offset_bottom = 546.2
+scale = Vector2(1.7, 1.7)
+color = Color(0.270588, 0.290196, 0.333333, 1)
+
+[node name="Door" type="ColorRect" parent="Background/Rooms/Research"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = -15.0
+offset_right = 28.0
+color = Color(0.247059, 0.247059, 0.454902, 1)
+
+[node name="Label" type="Label" parent="Background/Rooms/Research"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.5
+offset_top = -11.5
+offset_right = 35.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Research"
+horizontal_alignment = 1
+
+[node name="Outline" type="CanvasLayer" parent="Background/Rooms/Research"]
+layer = 2
+
+[node name="left" type="ColorRect" parent="Background/Rooms/Research/Outline"]
+offset_left = 877.0
+offset_top = 714.0
+offset_right = 883.0
+offset_bottom = 977.0
+
+[node name="top" type="ColorRect" parent="Background/Rooms/Research/Outline"]
+offset_left = 877.0
+offset_top = 714.0
+offset_right = 1356.0
+offset_bottom = 720.0
+
+[node name="bottom" type="ColorRect" parent="Background/Rooms/Research/Outline"]
+offset_left = 877.0
+offset_top = 975.0
+offset_right = 1361.0
+offset_bottom = 981.0
+
+[node name="right" type="ColorRect" parent="Background/Rooms/Research/Outline"]
+offset_left = 1355.0
+offset_top = 714.0
+offset_right = 1361.0
+offset_bottom = 977.0
+
+[node name="Supply" type="ColorRect" parent="Background/Rooms"]
+layout_mode = 0
+offset_left = 759.266
+offset_top = 106.6
+offset_right = 799.266
+offset_bottom = 168.6
+scale = Vector2(1.7, 1.7)
+color = Color(0.270588, 0.290196, 0.333333, 1)
+
+[node name="Door5" type="ColorRect" parent="Background/Rooms/Supply"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 62.0
+offset_right = 24.0
+offset_bottom = 77.0
+color = Color(0.247059, 0.247059, 0.454902, 1)
+
+[node name="Label" type="Label" parent="Background/Rooms/Supply"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.5
+offset_top = -17.5
+offset_right = 19.5
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 11
+text = "Supply 
+Closet"
+horizontal_alignment = 1
+
+[node name="Outline" type="CanvasLayer" parent="Background/Rooms/Supply"]
+layer = 2
+
+[node name="left" type="ColorRect" parent="Background/Rooms/Supply/Outline"]
+offset_left = 1255.0
+offset_top = 210.0
+offset_right = 1261.0
+offset_bottom = 369.0
+
+[node name="top" type="ColorRect" parent="Background/Rooms/Supply/Outline"]
+offset_left = 1255.0
+offset_top = 209.0
+offset_right = 1359.0
+offset_bottom = 215.0
+
+[node name="bottom" type="ColorRect" parent="Background/Rooms/Supply/Outline"]
+offset_left = 1255.0
+offset_top = 368.0
+offset_right = 1364.0
+offset_bottom = 374.0
+
+[node name="right" type="ColorRect" parent="Background/Rooms/Supply/Outline"]
+offset_left = 1358.0
+offset_top = 209.0
+offset_right = 1364.0
+offset_bottom = 370.0
+
+[node name="Main_Hall" type="ColorRect" parent="Background/Rooms"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -14.0
+offset_top = 217.5
+offset_right = 472.0
+offset_bottom = 323.5
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(1.7, 1.7)
+color = Color(0.270588, 0.290196, 0.333333, 1)
+
+[node name="Outline" type="CanvasLayer" parent="Background/Rooms/Main_Hall"]
+layer = 2
+
+[node name="left" type="ColorRect" parent="Background/Rooms/Main_Hall/Outline"]
+offset_left = 158.0
+offset_top = 408.0
+offset_right = 164.0
+offset_bottom = 679.0
+
+[node name="top" type="ColorRect" parent="Background/Rooms/Main_Hall/Outline"]
+offset_left = 157.0
+offset_top = 408.0
+offset_right = 1397.0
+offset_bottom = 414.0
+
+[node name="bottom" type="ColorRect" parent="Background/Rooms/Main_Hall/Outline"]
+offset_left = 157.0
+offset_top = 677.0
+offset_right = 1401.0
+offset_bottom = 683.0
+
+[node name="right" type="ColorRect" parent="Background/Rooms/Main_Hall/Outline"]
+offset_left = 1395.0
+offset_top = 407.0
+offset_right = 1401.0
+offset_bottom = 679.0
+
+[node name="Label" type="Label" parent="Background/Rooms/Main_Hall"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.0
+offset_top = -11.5
+offset_right = 37.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Main Hall"
+horizontal_alignment = 1
+
+[node name="Mess_Hall" type="ColorRect" parent="Background/Rooms"]
+layout_mode = 2
+anchor_left = -1.967
+anchor_top = -0.833
+anchor_right = -1.967
+anchor_bottom = -0.833
+offset_left = 199.68
+offset_top = 476.32
+offset_right = 499.68
+offset_bottom = 656.32
+color = Color(0.270588, 0.290196, 0.333333, 1)
+
+[node name="Door2" type="ColorRect" parent="Background/Rooms/Mess_Hall"]
+layout_mode = 0
+offset_left = 260.0
+offset_top = -25.0
+offset_right = 269.0
+color = Color(0.247059, 0.247059, 0.454902, 1)
+
+[node name="Label" type="Label" parent="Background/Rooms/Mess_Hall"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+text = "Mess Hall"
+horizontal_alignment = 1
+
+[node name="Outline" type="CanvasLayer" parent="Background/Rooms/Mess_Hall"]
+layer = 2
+
+[node name="left" type="ColorRect" parent="Background/Rooms/Mess_Hall/Outline"]
+offset_left = 299.0
+offset_top = 714.0
+offset_right = 305.0
+offset_bottom = 985.0
+
+[node name="top" type="ColorRect" parent="Background/Rooms/Mess_Hall/Outline"]
+offset_left = 299.0
+offset_top = 714.0
+offset_right = 754.0
+offset_bottom = 720.0
+
+[node name="bottom" type="ColorRect" parent="Background/Rooms/Mess_Hall/Outline"]
+offset_left = 299.0
+offset_top = 983.0
+offset_right = 755.0
+offset_bottom = 989.0
+
+[node name="right" type="ColorRect" parent="Background/Rooms/Mess_Hall/Outline"]
+offset_left = 749.0
+offset_top = 714.0
+offset_right = 755.0
+offset_bottom = 985.0

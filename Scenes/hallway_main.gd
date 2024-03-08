@@ -23,6 +23,7 @@ func _on_mess_hall_body_entered(body):
 		PositionManager.PrevPosition = body.global_position
 		StageManager.changeScene(MESS, 232, 120)
 		StageManager.changeCamera(304)
+		StageManager.scene_change = true
 
 func _on_mess_hall_body_exited(body):
 	HasLeft = true
@@ -34,6 +35,7 @@ func _on_research_room_body_entered(body):
 		PositionManager.PrevPosition = body.global_position
 		StageManager.changeScene(RESEARCH, 80, 128)
 		StageManager.changeCamera(304)
+		StageManager.scene_change = true
 
 func _on_research_room_body_exited(body):
 	HasLeft = true
@@ -52,6 +54,7 @@ func _on_bunks_body_entered(body):
 		PositionManager.PrevPosition = body.global_position
 		StageManager.changeScene(BUNKS, 240, 144)
 		StageManager.changeCamera(304)
+		StageManager.scene_change = true
 		
 func _on_bunks_body_exited(body):
 	HasLeft = true
@@ -63,6 +66,7 @@ func _on_supply_closet_body_entered(body):
 		PositionManager.PrevPosition = body.global_position
 		StageManager.changeScene(SUPPLY, 124, 116)
 		StageManager.changeCamera(304)
+		StageManager.scene_change = true
 
 func _on_supply_closet_body_exited(body):
 	HasLeft = true
@@ -71,9 +75,10 @@ func _on_supply_closet_body_exited(body):
 func _on_stairs_body_entered(body):
 	const STAIRS = preload("res://Scenes/Main floor rooms/supply_closet.tscn")
 	if body.name == "Player":
-		if 0 == 1:
+		if 0 == 1: #replace 0==1 with whatever condition the player has to meet to access the stairs
 			StageManager.changeScene(STAIRS, 59, 89)
 			StageManager.changeCamera(304)
+			StageManager.scene_change = true
 		else:
 			get_node("Player").get_node("Control").get_node("Door_is_locked").show()
 
@@ -89,8 +94,22 @@ func _on_bridge_body_entered(body):
 		PositionManager.PrevPosition = body.global_position
 		StageManager.changeScene(COMMAND_DECK, 144, 128)
 		StageManager.changeCamera(304)
-
+		StageManager.scene_change = true
 
 
 func _on_bridge_body_exited(body):
+	HasLeft = true
+
+
+func _on_to_power_room_body_entered(body):
+	const POWER_ROOM = preload("res://Scenes/Second floor rooms/power_room.tscn")
+	if body.name == "Player" && HasLeft:
+		if PositionManager.HasOpenedVent == true:
+			PositionManager.PrevPosition = body.global_position
+			StageManager.changeScene(POWER_ROOM, 184, 120)
+			StageManager.changeCamera(304)
+			StageManager.scene_change = true
+
+
+func _on_to_power_room_body_exited(body):
 	HasLeft = true

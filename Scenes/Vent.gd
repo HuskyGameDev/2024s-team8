@@ -10,7 +10,8 @@ func _ready():
 
 func _on_interact():
 	if PositionManager.HasCrowbar:
-		queue_free()
+		PositionManager.HasOpenedVent = true
+		get_node("Sprite2D").hide()
 
 
 

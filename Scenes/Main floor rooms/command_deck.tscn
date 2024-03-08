@@ -4,10 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://ny55otxbs0t" path="res://Scenes/tile_map.tscn" id="1_ofowq"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="2_hnavc"]
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="2_xlbxq"]
-[ext_resource type="PackedScene" uid="uid://cq1bq3u0u02u3" path="res://Scenes/player.tscn" id="5_g7xgl"]
+[ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="5_g7xgl"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_41wui"]
-radius = 16.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t3868"]
+size = Vector2(11, 33)
 
 [node name="Command_Deck" type="Node2D"]
 script = ExtResource("1_4wny3")
@@ -34,11 +34,11 @@ layer_0/tile_data = PackedInt32Array(851981, 786432, 0, 917517, 1048576, 0, 9830
 [node name="Door" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
-position = Vector2(104, 120)
-shape = SubResource("CircleShape2D_41wui")
+position = Vector2(110, 120)
+shape = SubResource("RectangleShape2D_t3868")
 
-[node name="Player" parent="." instance=ExtResource("5_g7xgl")]
-position = Vector2(144, 128)
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("5_g7xgl")]
+position = Vector2(111, 121)
 
 [connection signal="body_entered" from="Door" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Door" to="." method="_on_area_2d_body_exited"]
