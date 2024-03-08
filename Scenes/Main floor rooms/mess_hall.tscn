@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scenes/mess_hall.gd" id="1_jtuw8"]
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="2_atyd4"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="2_mi5vb"]
-[ext_resource type="PackedScene" uid="uid://cq1bq3u0u02u3" path="res://Scenes/player.tscn" id="3_627oa"]
+[ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="3_627oa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iba8r"]
 size = Vector2(24, 8)
