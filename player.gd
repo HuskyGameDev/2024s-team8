@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var playerSpeed = 350
 @onready var animationPlayer = $AnimationPlayer
 @onready var animationTree = $AnimationTree
+@onready var lights = $CanvasModulate
 @onready var animationState = animationTree.get("parameters/playback")
 @export var pauseMenu : PackedScene
 @export var mini_map : PackedScene
@@ -10,6 +11,9 @@ var screen_size
 var hasAttention = true
 var pause
 var ValveMinigame = false
+@export var act = 1
+var emergencyLights = "3f0000"
+var normalLights = "ffffff"
 
 
 # Called when the node enters the scene tree for the first time.
@@ -24,6 +28,10 @@ func _swap_attention():
 	animationTree.set("active", hasAttention)
 
 func _process(_delta):
+	if act == 1:
+		lights.color = emergencyLights
+	elif act != 1:
+		lights.color = normalLights
 	if hasAttention:
 		if Input.is_action_just_pressed("MENU"):
 			pause = pauseMenu.instantiate()
