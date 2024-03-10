@@ -1,6 +1,13 @@
 extends Node2D
 
 @onready var interaction_area: InteractionArea = $InteractionArea
+@onready var player = get_tree().get_first_node_in_group("Player")
+@onready var speech_sound = preload("res://Assets/voice_sans.mp3")
+
+const lines: Array[String] = [
+	"This vent is located right above the power room, but it's bolted shut.",
+	"I might be able to open it with some kind of tool..."
+]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,5 +23,11 @@ func _on_interact():
 		StageManager.changeScene(POWER_ROOM, 184, 120)
 		StageManager.changeCamera(304)
 		StageManager.scene_change = true
+	else:
+		player._swap_attention()
+		DialogManager.start_dialog(global_position, lines, speech_sound, false)
+		await DialogManager.dialog_finished
+		player._swap_attention()
+		
 
 
