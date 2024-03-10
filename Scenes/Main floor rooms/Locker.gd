@@ -27,9 +27,10 @@ func _on_interact():
 		await DialogManager.dialog_finished
 		player.hide()
 		InLocker = true
-	
+		
 		await get_tree().create_timer(1.0).timeout
-	
+		player.InteractionOverride = true
+		
 	if InLocker:
 		if Input.is_action_just_pressed("INTERACT"):
 			DialogManager.start_dialog(global_position, lines2, speech_sound, false)
@@ -37,6 +38,7 @@ func _on_interact():
 			player.show()
 			player._swap_attention()
 			InLocker = false
+			player.InteractionOverride = false
 		
 	
 

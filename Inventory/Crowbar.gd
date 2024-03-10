@@ -7,7 +7,7 @@ extends Node2D
 
 const lines: Array[String] = [
 	#"Pick up the crowbar?\n           Yes           No"
-	"You picked up the crowbar."
+	"You picked up the wrench."
 ]
 
 # Called when the node enters the scene tree for the first time.
@@ -19,7 +19,7 @@ func _ready():
 
 func _on_interact():
 	player._swap_attention()
-	DialogManager.start_dialog(global_position, lines, speech_sound, false)
+	DialogManager.start_dialog(global_position, lines, speech_sound, false, false)
 	await DialogManager.dialog_finished
 	player._swap_attention()
 	queue_free()

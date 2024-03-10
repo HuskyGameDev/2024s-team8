@@ -14,18 +14,21 @@ var sfx: AudioStream
 var is_dialog_active = false
 var can_advance_line = false
 var is_interactable = false
-
+var is_automated = false
 
 signal dialog_finished()
 
 
-func start_dialog(position: Vector2, lines: Array[String], speech_sfx: AudioStream, interactable):
+func start_dialog(position: Vector2, lines: Array[String], speech_sfx: AudioStream, 
+	interactable := false, automated := false):
+	
 	if is_dialog_active:
 		return
 	
 	dialog_lines = lines
 	sfx = speech_sfx
 	is_interactable = interactable
+	is_automated = automated
 	show_text_box()
 	
 	is_dialog_active = true
@@ -40,25 +43,53 @@ func show_text_box():
 func on_text_box_finished_displaying():
 	can_advance_line = true
 
-func _unhandled_input(event):
-	if (
-		event.is_action_pressed("INTERACT") &&
-		is_dialog_active &&
-		can_advance_line
-		
-	):
-		if !is_interactable:
-			text_box.queue_free()
+func _process(delta):
+	if is_automated && is_dialog_active && can_advance_line:
+		can_advance_line = false
+		await get_tree().create_timer(0.5).timeout
+		text_box.queue_free()
+		current_line_index += 1
+		if current_line_index >= dialog_lines.size():
+			is_dialog_active = false
+			current_line_index = 0
+			dialog_finished.emit()
+			return
 			
-			current_line_index += 1
-			if current_line_index >= dialog_lines.size():
-				is_dialog_active = false
-				current_line_index = 0
-				dialog_finished.emit()
-				return
-			
-		
-		
 		show_text_box()
+		
+		
+
+func _unhandled_input(event):
+	if !is_automated:
+		if (
+			(event.is_action_pressed("INTERACT")) &&
+			is_dialog_active &&
+			can_advance_line
+		):
+			if !is_interactable:
+				text_box.queue_free()
+				
+				current_line_index += 1
+				if current_line_index >= dialog_lines.size():
+					is_dialog_active = false
+					current_line_index = 0
+					dialog_finished.emit()
+					return
+				
+			show_text_box()
+			
+		
+	if (
+		event.is_action_pressed("MENU") &&
+		is_dialog_active
+	):
+		text_box.queue_free()
+		is_dialog_active = false
+		current_line_index = 0
+		await get_tree().create_timer(0.01).timeout
+		dialog_finished.emit()
+		return
+		
+	
 
 
