@@ -56,7 +56,7 @@ func _unhandled_input(event):
 				current_line_index = 0
 				dialog_finished.emit()
 				return
-		
+			
 		
 		
 		show_text_box()
