@@ -52,7 +52,12 @@ func _on_pod_body_entered(body):
 	const POD = preload("res://Scenes/Main floor rooms/pod.tscn")
 	if body.name == "Player" && HasLeft:
 		PositionManager.PrevPosition = body.global_position
-		pass#StageManager.changeScene(POD, 232, 120) StageManager.changeCamera(310) code for when scene exists 
+		StageManager.changeScene(POD, 148, 137) 
+		StageManager.changeCamera(304)
+		StageManager.scene_change = true
+
+func _on_pod_body_exited(body):
+	HasLeft = true
 
 
 func _on_bunks_body_entered(body):
@@ -109,6 +114,5 @@ func _on_bridge_body_entered(body):
 
 func _on_bridge_body_exited(body):
 	HasLeft = true
-
 
 
