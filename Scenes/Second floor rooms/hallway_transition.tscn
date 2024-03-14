@@ -1,9 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://dfshav0tuk0c6"]
+[gd_scene load_steps=7 format=3 uid="uid://dfshav0tuk0c6"]
 
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="1_4wnrb"]
+[ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="1_b7ajd"]
+[ext_resource type="Script" path="res://Scenes/Second floor rooms/hallway_transition.gd" id="1_sv46e"]
 [ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="2_r3fm3"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bfttq"]
+size = Vector2(16.9706, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d33mc"]
+size = Vector2(16, 8)
+
 [node name="Hallway_transition_2f" type="Node2D"]
+script = ExtResource("1_sv46e")
+
+[node name="Collision" type="TileMap" parent="."]
+tile_set = ExtResource("1_b7ajd")
+format = 2
+layer_0/tile_data = PackedInt32Array(1310732, 1048577, 0, 1310731, 1048577, 0, 1310730, 1048577, 0, 1310729, 1048577, 0, 1310728, 1048577, 0, 1310727, 1048577, 0, 1310726, 1048577, 0, 1310725, 1048577, 0, 983053, 1179649, 0, 983052, 1179649, 0, 983051, 1179649, 0, 983050, 1179649, 0, 983054, 589825, 0, 917526, 1245185, 0, 917525, 1245185, 0, 917524, 1245185, 0, 917523, 1245185, 0, 917522, 1245185, 0, 917521, 1245185, 0, 917520, 1245185, 0, 917519, 1245185, 0, 983063, 458753, 0, 983064, 1245185, 0, 983065, 1245185, 0, 983066, 1245185, 0, 983067, 1245185, 0, 983068, 1114113, 0, 983049, 1114113, 0, 1179654, 1114113, 0, 1245190, 589825, 0, 1048585, 589825, 0, 1048604, 458753, 0, 1245215, 458753, 0, 1048605, 1048577, 0, 1048606, 1048577, 0, 1048607, 1114113, 0, 1114143, 1114113, 0, 1179679, 1114113, 0, 1245216, 1048577, 0, 1310752, 1048577, 0, 1310751, 1048577, 0, 1310750, 1048577, 0, 1310749, 1048577, 0, 1310748, 1048577, 0, 1310747, 1048577, 0, 1310746, 1048577, 0, 1310745, 1048577, 0, 1376281, 1048577, 0, 1376280, 1048577, 0, 1376279, 1048577, 0, 1376278, 1048577, 0, 1376277, 1048577, 0, 1376276, 1048577, 0, 1376275, 1048577, 0, 1376274, 1048577, 0, 1376273, 1048577, 0, 1376272, 1048577, 0, 1376271, 1048577, 0, 1376270, 1048577, 0, 1376269, 1048577, 0, 1376268, 1048577, 0, 1245189, 1048577, 0, 1114118, 1114113, 0, 1048582, 1114113, 0, 1048584, 1048577, 0, 1048583, 1048577, 0, 917527, 1114113, 0, 917518, 1114113, 0)
 
 [node name="Background" type="TileMap" parent="."]
 tile_set = ExtResource("1_4wnrb")
@@ -17,3 +31,30 @@ layer_2/tile_data = PackedInt32Array(786440, 786432, 0, 851975, 786432, 0, 85197
 
 [node name="Player" parent="." instance=ExtResource("2_r3fm3")]
 position = Vector2(74, 131)
+
+[node name="Coord Finder" type="Node2D" parent="."]
+position = Vector2(168, 144)
+
+[node name="To Power Station" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="To Power Station"]
+position = Vector2(62, 139.5)
+rotation = -0.785398
+scale = Vector2(1, 1)
+skew = 0.785398
+shape = SubResource("RectangleShape2D_bfttq")
+
+[node name="To find good player spawn position" type="Area2D" parent="."]
+visible = false
+position = Vector2(240, 144)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="To find good player spawn position"]
+position = Vector2(-1, 2)
+shape = SubResource("RectangleShape2D_d33mc")
+
+[node name="Node2D" type="Node2D" parent="To find good player spawn position"]
+position = Vector2(-1, -10)
+
+[connection signal="body_entered" from="To Power Station" to="." method="_on_to_power_station_body_entered"]
+[connection signal="body_exited" from="To Power Station" to="." method="_on_to_power_station_body_exited"]
