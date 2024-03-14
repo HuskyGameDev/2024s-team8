@@ -1,5 +1,12 @@
 extends Node2D
+
 @onready var Player = get_node("Player")
+@onready var interaction_area: InteractionArea = $InteractionArea
+@onready var speech_sound = preload("res://Assets/voice_sans.mp3")
+
+const lines: Array[String] = [
+	"This door is locked! I must find another way to reach the second floor."
+]
 
 var HasLeft = true
 
@@ -80,7 +87,10 @@ func _on_stairs_body_entered(body):
 			StageManager.changeCamera(304)
 			StageManager.scene_change = true
 		else:
-			get_node("Player").get_node("Control").get_node("Door_is_locked").show()
+			Player._swap_attention()
+			DialogManager.start_dialog(global_position, lines, speech_sound, false)
+			await DialogManager.dialog_finished
+			Player._swap_attention()
 
 
 func _on_stairs_body_exited(body):

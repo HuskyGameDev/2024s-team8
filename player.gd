@@ -14,6 +14,7 @@ var ValveMinigame = false
 @export var act = 1
 var emergencyLights = "3f0000"
 var normalLights = "ffffff"
+var InteractionOverride = false
 
 
 # Called when the node enters the scene tree for the first time.

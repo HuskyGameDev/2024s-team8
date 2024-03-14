@@ -20,12 +20,14 @@ config/icon="res://icon.svg"
 InteractionManager="*res://Inventory/Interaction/InteractionManager.tscn"
 StageManager="*res://Scenes/stage_manager.tscn"
 PositionManager="*res://Scripts/PositionManager.gd"
+DialogManager="*res://Scripts/DialogManager.gd"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/stretch/mode="viewport"
+window/per_pixel_transparency/allowed=true
 
 [filesystem]
 
