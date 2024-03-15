@@ -1,7 +1,6 @@
 extends Node2D
 
 @onready var Player = get_node("Player")
-@onready var interaction_area: InteractionArea = $InteractionArea
 @onready var speech_sound = preload("res://Assets/voice_sans.mp3")
 
 const lines: Array[String] = [

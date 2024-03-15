@@ -32,13 +32,14 @@ func _sort_by_distance_to_player(area1, area2):
 
 func _input(event):
 	if event.is_action_pressed("INTERACT") && can_interact:
-		if (player.hasAttention || player.InteractionOverride):
-			if active_areas.size() > 0:
-				can_interact = false
-				
-				await active_areas[0].interact.call()
-				
-				can_interact = true
+		if (player != null):
+			if (player.hasAttention || player.InteractionOverride):
+				if active_areas.size() > 0:
+					can_interact = false
+					
+					await active_areas[0].interact.call()
+					
+					can_interact = true
 
 
 
