@@ -396,6 +396,7 @@ transform = Transform2D(5, 0, 0, 5, 0, 0)
 [connection signal="body_entered" from="Door areas/Research_Room" to="." method="_on_research_room_body_entered"]
 [connection signal="body_exited" from="Door areas/Research_Room" to="." method="_on_research_room_body_exited"]
 [connection signal="body_entered" from="Door areas/Pod" to="." method="_on_pod_body_entered"]
+[connection signal="body_exited" from="Door areas/Pod" to="." method="_on_pod_body_exited"]
 [connection signal="body_entered" from="Door areas/Bunks" to="." method="_on_bunks_body_entered"]
 [connection signal="body_exited" from="Door areas/Bunks" to="." method="_on_bunks_body_exited"]
 [connection signal="body_entered" from="Door areas/Supply_Closet" to="." method="_on_supply_closet_body_entered"]
