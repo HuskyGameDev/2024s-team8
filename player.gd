@@ -1,17 +1,17 @@
 extends CharacterBody2D
 
-@export var playerSpeed = 350
 @onready var animationPlayer = $AnimationPlayer
 @onready var animationTree = $AnimationTree
 @onready var lights = $CanvasModulate
 @onready var animationState = animationTree.get("parameters/playback")
+@export var playerSpeed = 350
 @export var pauseMenu : PackedScene
 @export var mini_map : PackedScene
+@export var hasAttention = true
+@export var act = 1
 var screen_size
-var hasAttention = true
 var pause
 var ValveMinigame = false
-@export var act = 1
 var emergencyLights = "3f0000"
 var normalLights = "ffffff"
 var InteractionOverride = false
@@ -23,6 +23,7 @@ func _ready():
 	position = StageManager.player_position
 	get_node("Camera2D").limit_right = StageManager.right_camera_limit
 	get_node("Control").get_node("Door_is_locked").hide()
+	animationTree.set("active", true)
 
 func _swap_attention():
 	hasAttention = !hasAttention

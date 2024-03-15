@@ -6,8 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://0tik15ssrfpo" path="res://Assets/Circle.png" id="5_s0kt5"]
 [ext_resource type="Texture2D" uid="uid://cpfwdtrr57pbr" path="res://Assets/char_walk_placeholder.png" id="7_kont8"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1errj"]
-size = Vector2(16, 8)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hv4va"]
+radius = 4.0
+height = 16.0
 
 [sub_resource type="Animation" id="Animation_5dd42"]
 resource_name = "Backward"
@@ -250,7 +251,8 @@ hframes = 16
 
 [node name="World collision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 12)
-shape = SubResource("RectangleShape2D_1errj")
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_hv4va")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(6.3, 6.3)
@@ -305,4 +307,5 @@ blend_mode = 2
 texture = ExtResource("5_s0kt5")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0.247059, 0, 0, 1)

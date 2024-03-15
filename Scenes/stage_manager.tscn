@@ -55,5 +55,5 @@ offset_right = 1919.0
 offset_bottom = 1079.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
-color = Color(0, 0, 0, 1)
+color = Color(0, 0, 0, 0)
 metadata/_edit_use_anchors_ = true
