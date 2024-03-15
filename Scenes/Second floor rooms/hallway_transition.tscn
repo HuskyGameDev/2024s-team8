@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dfshav0tuk0c6"]
+[gd_scene load_steps=13 format=3 uid="uid://dfshav0tuk0c6"]
 
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="1_4wnrb"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="1_b7ajd"]
@@ -16,6 +16,18 @@ size = Vector2(72, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d33mc"]
 size = Vector2(16, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8yo3s"]
+size = Vector2(97, 1.89063)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mbbt2"]
+size = Vector2(84, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1f5tt"]
+size = Vector2(27.6274, 4.00002)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l5r1l"]
+size = Vector2(24.1421, 3)
 
 [node name="Hallway_transition_2f" type="Node2D"]
 script = ExtResource("1_sv46e")
@@ -36,10 +48,9 @@ layer_2/name = "doors"
 layer_2/tile_data = PackedInt32Array(851975, 1048576, 0, 917511, 1048576, 0, 983047, 1048576, 0, 1048583, 1048576, 0, 1114119, 983040, 0, 983054, 589824, 0, 983055, 1245184, 0, 983056, 1245184, 0, 983057, 1245184, 0, 983058, 1245184, 0, 983059, 1245184, 0, 983060, 1245184, 0, 983061, 1245184, 0, 983062, 1245184, 0, 983063, 458752, 0, 917527, 1114112, 0, 851991, 1114112, 0, 786455, 1114112, 0, 917518, 1114112, 0, 851982, 1114112, 0, 786446, 1114112, 0, 720910, 1114112, 0, 655374, 1114112, 0, 655383, 1114112, 0, 720919, 1114112, 0, 589838, 262144, 0, 589847, 524288, 0, 589839, 1048576, 0, 589840, 1048576, 0, 589841, 1048576, 0, 589842, 1048576, 0, 589843, 1048576, 0, 589844, 1048576, 0, 589845, 1048576, 0, 589846, 1048576, 0, 917519, 1245184, 0, 917520, 1245184, 0, 917521, 1245184, 0, 917522, 1245184, 0, 917523, 1245184, 0, 917524, 1245184, 0, 917525, 1245184, 0, 917526, 1245184, 0, 851983, 1245184, 0, 851984, 1245184, 0, 851985, 1245184, 0, 851986, 1245184, 0, 851987, 1245184, 0, 851988, 1245184, 0, 851989, 1245184, 0, 851990, 1245184, 0, 1048605, 1048576, 0, 1048606, 1048576, 0, 1114142, 1048576, 0, 983070, 1048576, 0, 983069, 1048576, 0, 917533, 1048576, 0, 851997, 1048576, 0, 917534, 1048576, 0, 851998, 0, 0, 786461, 0, 0, 1114141, 262144, 0, 1179678, 262144, 0, 786439, 786432, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_r3fm3")]
-position = Vector2(74, 131)
+position = Vector2(81, 133)
 
 [node name="To Power Station" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="To Power Station"]
 position = Vector2(62, 137.5)
@@ -48,7 +59,6 @@ skew = 0.785398
 shape = SubResource("RectangleShape2D_bfttq")
 
 [node name="To Bottom Hallway" type="Area2D" parent="."]
-visible = false
 position = Vector2(152, 168)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="To Bottom Hallway"]
@@ -57,7 +67,6 @@ scale = Vector2(5, 1)
 shape = SubResource("RectangleShape2D_o33to")
 
 [node name="To Top Hallway" type="Area2D" parent="."]
-visible = false
 position = Vector2(152, 120)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="To Top Hallway"]
@@ -80,9 +89,35 @@ position = Vector2(-1, -10)
 visible = false
 position = Vector2(168, 144)
 
+[node name="LandingArea" type="Area2D" parent="."]
+
+[node name="BottomHallArea" type="CollisionShape2D" parent="LandingArea"]
+position = Vector2(152, 161)
+shape = SubResource("RectangleShape2D_8yo3s")
+
+[node name="TopHallArea" type="CollisionShape2D" parent="LandingArea"]
+position = Vector2(152, 126.5)
+shape = SubResource("RectangleShape2D_mbbt2")
+
+[node name="PowerRoomArea" type="CollisionShape2D" parent="LandingArea"]
+position = Vector2(64, 145)
+rotation = -0.785398
+scale = Vector2(1, 1)
+skew = 0.785398
+shape = SubResource("RectangleShape2D_1f5tt")
+
+[node name="AnomolousBathroomArea" type="CollisionShape2D" parent="LandingArea"]
+position = Vector2(237, 145)
+rotation = 0.785398
+scale = Vector2(1, 1)
+skew = 0.785398
+shape = SubResource("RectangleShape2D_l5r1l")
+
 [connection signal="body_entered" from="To Power Station" to="." method="_on_to_power_station_body_entered"]
 [connection signal="body_exited" from="To Power Station" to="." method="_on_to_power_station_body_exited"]
 [connection signal="body_entered" from="To Bottom Hallway" to="." method="_on_to_bottom_hallway_body_entered"]
 [connection signal="body_exited" from="To Bottom Hallway" to="." method="_on_to_bottom_hallway_body_exited"]
 [connection signal="body_entered" from="To Top Hallway" to="." method="_on_to_top_hallway_body_entered"]
 [connection signal="body_exited" from="To Top Hallway" to="." method="_on_to_top_hallway_body_exited"]
+[connection signal="body_entered" from="LandingArea" to="." method="_on_landing_area_body_entered"]
+[connection signal="body_exited" from="LandingArea" to="." method="_on_landing_area_body_exited"]

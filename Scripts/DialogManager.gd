@@ -47,7 +47,8 @@ func _process(delta):
 	if is_automated && is_dialog_active && can_advance_line:
 		can_advance_line = false
 		await get_tree().create_timer(0.5).timeout
-		text_box.queue_free()
+		if text_box != null:
+			text_box.queue_free()
 		current_line_index += 1
 		if current_line_index >= dialog_lines.size():
 			is_dialog_active = false

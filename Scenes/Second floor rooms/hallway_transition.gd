@@ -7,7 +7,7 @@ func _on_to_power_station_body_entered(_body):
 	if hasLeft:
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false)
-		StageManager.changeScene(POWER_ROOM, 279, 122)
+		StageManager.changeScene(POWER_ROOM, 269, 122)
 		StageManager.changeCamera(312)
 		StageManager.scene_change = true
 
@@ -19,7 +19,7 @@ func _on_to_bottom_hallway_body_entered(_body):
 	if hasLeft:
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false)
-		StageManager.changeScene(HALLWAY_BOT, 112, 118)
+		StageManager.changeScene(HALLWAY_BOT, 112, 128)
 		StageManager.changeCamera(480)
 		StageManager.scene_change = true
 
@@ -31,9 +31,17 @@ func _on_to_top_hallway_body_entered(body):
 	if hasLeft:
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false)
-		StageManager.changeScene(HALLWAY_TOP, 86, 144)
+		StageManager.changeScene(HALLWAY_TOP, 86, 140)
 		StageManager.changeCamera(480)
 		StageManager.scene_change = true
 
 func _on_to_top_hallway_body_exited(body):
+	hasLeft = true
+
+
+func _on_landing_area_body_exited(body):
+	hasLeft = true
+
+
+func _on_landing_area_body_entered(body):
 	hasLeft = true

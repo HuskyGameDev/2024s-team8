@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bol5kinu2mfrd"]
+[gd_scene load_steps=7 format=3 uid="uid://bol5kinu2mfrd"]
 
 [ext_resource type="Script" path="res://Scenes/Second floor rooms/power_room.gd" id="1_8gp7i"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="1_dekh7"]
@@ -7,6 +7,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_53vpq"]
 size = Vector2(16.9706, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3u0bn"]
+size = Vector2(113, 41)
 
 [node name="PowerRoom" type="Node2D"]
 script = ExtResource("1_8gp7i")
@@ -39,5 +42,13 @@ rotation = 0.785398
 skew = -0.785398
 shape = SubResource("RectangleShape2D_53vpq")
 
+[node name="LandingArea" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LandingArea"]
+position = Vector2(170, 135)
+shape = SubResource("RectangleShape2D_3u0bn")
+
 [connection signal="body_entered" from="Door" to="." method="_on_door_body_entered"]
 [connection signal="body_exited" from="Door" to="." method="_on_door_body_exited"]
+[connection signal="body_exited" from="LandingArea" to="." method="_on_landing_area_body_exited"]
