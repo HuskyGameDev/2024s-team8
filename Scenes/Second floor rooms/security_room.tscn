@@ -1,13 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://dc66p0riko4pb"]
+[gd_scene load_steps=6 format=3 uid="uid://dc66p0riko4pb"]
 
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="1_4v5m3"]
+[ext_resource type="Script" path="res://Scenes/Second floor rooms/security_room.gd" id="1_tbgio"]
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="2_ekstw"]
+[ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="3_eq2ah"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v05b3"]
+size = Vector2(24, 4)
 
 [node name="Security_Room" type="Node2D"]
+script = ExtResource("1_tbgio")
 
 [node name="Collision" type="TileMap" parent="."]
 tile_set = ExtResource("1_4v5m3")
 format = 2
+layer_0/tile_data = PackedInt32Array(1310743, 1048577, 0, 1376279, 1048577, 0, 1376280, 1048577, 0, 1376281, 1048577, 0, 1376282, 1048577, 0, 1376283, 1048577, 0, 1310747, 1048577, 0, 1310748, 1048577, 0, 1310749, 1048577, 0, 1310750, 1048577, 0, 1310751, 1048577, 0, 1310752, 1048577, 0, 1245216, 1048577, 0, 1310742, 1048577, 0, 1310741, 1048577, 0, 1310740, 1048577, 0, 1310739, 1048577, 0, 1310738, 1048577, 0, 1310737, 1048577, 0, 1310736, 1048577, 0, 1310735, 1048577, 0, 1310734, 1048577, 0, 1310733, 1048577, 0, 1310732, 1048577, 0, 1310731, 1048577, 0, 1310730, 1048577, 0, 1310729, 1048577, 0, 1310728, 1048577, 0, 1310727, 1048577, 0, 1310726, 1048577, 0, 1310725, 1048577, 0, 1245189, 1048577, 0, 1245190, 589825, 0, 1179655, 589825, 0, 1114120, 589825, 0, 1048585, 589825, 0, 983050, 589825, 0, 983067, 458753, 0, 1048604, 458753, 0, 1114141, 458753, 0, 1179678, 458753, 0, 1245215, 458753, 0, 1179679, 1114113, 0, 1114142, 1114113, 0, 1048605, 1114113, 0, 983068, 1114113, 0, 917531, 1114113, 0, 917514, 1114113, 0, 983049, 1114113, 0, 1048584, 1114113, 0, 1114119, 1114113, 0, 1179654, 1114113, 0, 917515, 1179649, 0, 917516, 1179649, 0, 917517, 1179649, 0, 917518, 1179649, 0, 917519, 1179649, 0, 917520, 1179649, 0, 917521, 1179649, 0, 917522, 1179649, 0, 917523, 1179649, 0, 917524, 1179649, 0, 917525, 1179649, 0, 917526, 1179649, 0, 917527, 1179649, 0, 917528, 1179649, 0, 917529, 1179649, 0, 917530, 1179649, 0)
 
 [node name="Background" type="TileMap" parent="."]
 tile_set = ExtResource("2_ekstw")
@@ -18,3 +25,16 @@ layer_1/name = "detail color"
 layer_1/tile_data = PackedInt32Array(327707, 851968, 0, 983067, 458752, 0, 262172, 851968, 0, 1048604, 458752, 0, 196637, 851968, 0, 1114141, 458752, 0, 131102, 851968, 0, 1179678, 458752, 0, 65567, 851968, 0, 1245215, 458752, 0, 65542, 65536, 0, 1245190, 589824, 0, 131079, 65536, 0, 1179655, 589824, 0, 196616, 65536, 0, 1114120, 589824, 0, 262153, 65536, 0, 1048585, 589824, 0, 327690, 65536, 0, 983050, 589824, 0)
 layer_2/name = "doors"
 layer_2/tile_data = PackedInt32Array(1310744, 1245184, 0, 1310745, 1245184, 0, 1310746, 1245184, 0)
+
+[node name="Player" parent="." instance=ExtResource("3_eq2ah")]
+position = Vector2(204, 146)
+
+[node name="To Top Hallway" type="Area2D" parent="."]
+position = Vector2(204, 164)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="To Top Hallway"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_v05b3")
+
+[connection signal="body_entered" from="To Top Hallway" to="." method="_on_to_top_hallway_body_entered"]
+[connection signal="body_exited" from="To Top Hallway" to="." method="_on_to_top_hallway_body_exited"]

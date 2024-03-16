@@ -6,10 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="2_5ewhq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8whdq"]
-size = Vector2(80, 16)
+size = Vector2(72, 12)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7pt75"]
-size = Vector2(82, 2.25)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xrb5m"]
+size = Vector2(24, 8)
 
 [node name="Hallway_bottom_2f" type="Node2D"]
 script = ExtResource("1_qi8v7")
@@ -30,21 +30,20 @@ layer_2/name = "doors"
 layer_2/tile_data = PackedInt32Array(983049, 589824, 0, 983058, 458752, 0, 917522, 1114112, 0, 851986, 1114112, 0, 786450, 1114112, 0, 720914, 1114112, 0, 655378, 1114112, 0, 917513, 1114112, 0, 851977, 1114112, 0, 786441, 1114112, 0, 720905, 1114112, 0, 655369, 1114112, 0, 589842, 524288, 0, 589833, 262144, 0, 589834, 1048576, 0, 589835, 1048576, 0, 589836, 1048576, 0, 589837, 1048576, 0, 589838, 1048576, 0, 589839, 1048576, 0, 589840, 1048576, 0, 589841, 1048576, 0, 786445, 1245184, 0, 786446, 1245184, 0, 720912, 1114112, 0, 655376, 1114112, 0, 720907, 1114112, 0, 655371, 1114112, 0, 786448, 458752, 0, 786443, 589824, 0, 983089, 1048576, 0, 983088, 1048576, 0, 983087, 1048576, 0, 917551, 1048576, 0, 852015, 1048576, 0, 786479, 1048576, 0, 786480, 1048576, 0, 786481, 1048576, 0, 852017, 1048576, 0, 852016, 1048576, 0, 917552, 1048576, 0, 917553, 1048576, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_5ewhq")]
-position = Vector2(112, 128)
+position = Vector2(388, 122)
 
 [node name="To The Transitionary Hallway" type="Area2D" parent="."]
-position = Vector2(112, 112)
+position = Vector2(112, 120)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="To The Transitionary Hallway"]
-position = Vector2(0, 8)
+position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_8whdq")
 
-[node name="LandingArea" type="Area2D" parent="."]
+[node name="To The Boiler Room" type="Area2D" parent="."]
+position = Vector2(388, 124)
 
-[node name="TransHallArea" type="CollisionShape2D" parent="LandingArea"]
-position = Vector2(112, 129.875)
-shape = SubResource("RectangleShape2D_7pt75")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="To The Boiler Room"]
+shape = SubResource("RectangleShape2D_xrb5m")
 
 [connection signal="body_entered" from="To The Transitionary Hallway" to="." method="_on_to_the_transitionary_hallway_body_entered"]
-[connection signal="body_exited" from="To The Transitionary Hallway" to="." method="_on_to_the_transitionary_hallway_body_exited"]
-[connection signal="body_entered" from="LandingArea" to="." method="_on_landing_area_body_entered"]
+[connection signal="body_entered" from="To The Boiler Room" to="." method="_on_to_the_boiler_room_body_entered"]
