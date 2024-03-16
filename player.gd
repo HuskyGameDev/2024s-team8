@@ -7,6 +7,7 @@ extends CharacterBody2D
 @export var playerSpeed = 350
 @export var pauseMenu : PackedScene
 @export var mini_map : PackedScene
+@export var mini_map_2nd_floor : PackedScene
 @export var hasAttention = true
 @export var act = 1
 var screen_size
@@ -41,13 +42,22 @@ func _process(_delta):
 			_swap_attention()
 			if ValveMinigame == true:
 				ValveMinigame = false
-		if Input.is_action_just_pressed("MAP"):
-			var map = mini_map.instantiate()
-			$PauseLayer.add_child(map)
-			map.tree_exited.connect(_swap_attention)
-			_swap_attention()
-			if ValveMinigame == true:
-				ValveMinigame = false
+		if StageManager.on_first_floor == true:
+			if Input.is_action_just_pressed("MAP"):
+				var map = mini_map.instantiate()
+				$PauseLayer.add_child(map)
+				map.tree_exited.connect(_swap_attention)
+				_swap_attention()
+				if ValveMinigame == true:
+					ValveMinigame = false
+		elif StageManager.on_first_floor == false:
+			if Input.is_action_just_pressed("MAP"):
+				var map = mini_map_2nd_floor.instantiate()
+				$PauseLayer.add_child(map)
+				map.tree_exited.connect(_swap_attention)
+				_swap_attention()
+				if ValveMinigame == true:
+					ValveMinigame = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):

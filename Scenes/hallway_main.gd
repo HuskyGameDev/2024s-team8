@@ -86,7 +86,7 @@ func _on_supply_closet_body_exited(body):
 func _on_stairs_body_entered(body):
 	const STAIRS = preload("res://Scenes/Main floor rooms/supply_closet.tscn")
 	if body.name == "Player":
-		if 0 == 1: #replace 0==1 with whatever condition the player has to meet to access the stairs
+		if body.act != 1:
 			StageManager.changeScene(STAIRS, 59, 89)
 			StageManager.changeCamera(304)
 			StageManager.scene_change = true
@@ -98,8 +98,7 @@ func _on_stairs_body_entered(body):
 
 
 func _on_stairs_body_exited(body):
-	if body.name == "Player":
-		get_node("Player").get_node("Control").get_node("Door_is_locked").hide()
+	pass
 
 
 func _on_bridge_body_entered(body):

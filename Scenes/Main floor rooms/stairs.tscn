@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ffehrbd27s8d"]
+[gd_scene load_steps=7 format=3 uid="uid://ffehrbd27s8d"]
 
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="1_30vsc"]
 [ext_resource type="Script" path="res://Scenes/stairs.gd" id="1_qh87w"]
@@ -7,6 +7,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_omm81"]
 size = Vector2(24, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exbm7"]
+size = Vector2(23.9844, 5.25)
 
 [node name="Stairs" type="Node2D"]
 script = ExtResource("1_qh87w")
@@ -27,12 +30,20 @@ layer_2/name = "line detail"
 layer_2/tile_data = PackedInt32Array()
 
 [node name="Player" parent="." instance=ExtResource("2_p6e2w")]
-position = Vector2(59, 89)
+position = Vector2(243, 144)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="to_first_floor" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="to_first_floor"]
 position = Vector2(60, 109.5)
 shape = SubResource("RectangleShape2D_omm81")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[node name="to_second_floor" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="to_second_floor"]
+position = Vector2(244, 166)
+shape = SubResource("RectangleShape2D_exbm7")
+
+[connection signal="body_entered" from="to_first_floor" to="." method="_on_to_first_floor_body_entered"]
+[connection signal="body_entered" from="to_first_floor" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="to_second_floor" to="." method="_on_to_second_floor_body_entered"]

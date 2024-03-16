@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b0u5oq1ep04bc"]
+[gd_scene load_steps=8 format=3 uid="uid://b0u5oq1ep04bc"]
 
 [ext_resource type="Script" path="res://Scenes/Second floor rooms/hallway_top.gd" id="1_js6sa"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="1_wa6ms"]
@@ -10,6 +10,9 @@ size = Vector2(96, 4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_abw3h"]
 size = Vector2(24, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ro3i"]
+size = Vector2(24, 9)
 
 [node name="Hallway_Top_2f" type="Node2D"]
 script = ExtResource("1_js6sa")
@@ -30,7 +33,7 @@ layer_2/name = "doors"
 layer_2/tile_data = PackedInt32Array(786481, 1048576, 0, 852017, 1048576, 0, 917553, 1048576, 0, 983089, 1048576, 0, 786482, 1048576, 0, 852018, 1048576, 0, 917554, 1048576, 0, 983090, 1048576, 0, 786483, 1048576, 0, 852019, 1048576, 0, 917555, 1048576, 0, 983091, 1048576, 0, 786457, 1048576, 0, 851993, 1048576, 0, 851994, 1048576, 0, 917531, 1048576, 0, 983067, 1048576, 0, 983066, 1048576, 0, 983065, 1048576, 0, 917529, 1048576, 0, 917530, 1048576, 0, 786458, 1048576, 0, 786459, 1048576, 0, 851995, 1048576, 0)
 
 [node name="Player" parent="." instance=ExtResource("3_j2e1i")]
-position = Vector2(404, 122)
+position = Vector2(213, 121)
 
 [node name="To The Transitionary Hallway" type="Area2D" parent="."]
 position = Vector2(88, 164)
@@ -45,6 +48,13 @@ position = Vector2(404, 124)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="To Security Room"]
 shape = SubResource("RectangleShape2D_abw3h")
 
+[node name="To_Stairs" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="To_Stairs"]
+position = Vector2(212, 123.5)
+shape = SubResource("RectangleShape2D_6ro3i")
+
 [connection signal="body_entered" from="To The Transitionary Hallway" to="." method="_on_to_the_transitionary_hallway_body_entered"]
 [connection signal="body_exited" from="To The Transitionary Hallway" to="." method="_on_to_the_transitionary_hallway_body_exited"]
 [connection signal="body_entered" from="To Security Room" to="." method="_on_to_security_room_body_entered"]
+[connection signal="body_entered" from="To_Stairs" to="." method="_on_to_stairs_body_entered"]

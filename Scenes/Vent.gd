@@ -23,6 +23,7 @@ func _on_interact():
 		StageManager.changeScene(POWER_ROOM, 184, 120)
 		StageManager.changeCamera(304)
 		StageManager.scene_change = true
+		StageManager.on_first_floor = false
 	else:
 		player._swap_attention()
 		DialogManager.start_dialog(global_position, lines, speech_sound, false)

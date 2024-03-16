@@ -4,6 +4,7 @@ extends CanvasLayer
 var player_position = Vector2.ZERO
 var right_camera_limit = 1000000000000000
 var scene_change = false
+var on_first_floor = true
 func _ready():
 	get_node("ColorRect").hide()
 
