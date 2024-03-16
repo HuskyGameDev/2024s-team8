@@ -192,6 +192,9 @@ z_index = 2
 position = Vector2(440, 128)
 playerSpeed = 60
 
+[node name="Sprite2D" parent="Player" index="0"]
+frame = 8
+
 [node name="Locker" type="Node2D" parent="."]
 position = Vector2(125, 110)
 script = ExtResource("5_3gse4")

@@ -22,7 +22,6 @@ func _ready():
 	screen_size = get_viewport_rect().size
 	position = StageManager.player_position
 	get_node("Camera2D").limit_right = StageManager.right_camera_limit
-	get_node("Control").get_node("Door_is_locked").hide()
 	animationTree.set("active", true)
 
 func _swap_attention():

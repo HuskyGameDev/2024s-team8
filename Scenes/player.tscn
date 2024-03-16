@@ -232,7 +232,7 @@ mini_map = ExtResource("3_si0d5")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("7_kont8")
 hframes = 16
-frame = 13
+frame = 8
 
 [node name="World collision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 12)
@@ -270,27 +270,10 @@ offset_bottom = 100.0
 theme_override_font_sizes/font_size = 40
 text = "I need some way to open this!"
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = -28.0
-offset_top = -31.0
-offset_right = 80.0
-offset_bottom = -10.0
-scale = Vector2(0.5, 0.5)
-
-[node name="Door_is_locked" type="Label" parent="Control"]
-visible = false
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Door is locked"
-
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(0, 6)
 blend_mode = 2
 texture = ExtResource("5_s0kt5")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0.247059, 0, 0, 1)
