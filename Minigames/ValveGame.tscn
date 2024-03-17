@@ -23,6 +23,7 @@ script = ExtResource("1_n4vlg")
 modulate = Color(0, 0, 0, 1)
 self_modulate = Color(0, 0, 0, 0.431373)
 top_level = true
+z_index = -1
 layout_mode = 0
 offset_left = -12.0
 offset_top = -12.0

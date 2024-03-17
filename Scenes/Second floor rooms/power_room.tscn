@@ -1,12 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://bol5kinu2mfrd"]
+[gd_scene load_steps=10 format=3 uid="uid://bol5kinu2mfrd"]
 
 [ext_resource type="Script" path="res://Scenes/Second floor rooms/power_room.gd" id="1_8gp7i"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="1_dekh7"]
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="2_ve6tu"]
 [ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="3_6j74b"]
+[ext_resource type="Script" path="res://Scenes/Second floor rooms/Pipe.gd" id="5_2fpqm"]
+[ext_resource type="Texture2D" uid="uid://d3ajerr0rm07g" path="res://Assets/PipePuzzlePNG.png" id="6_b033g"]
+[ext_resource type="Script" path="res://Interaction/InteractionArea.gd" id="7_g5u1a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_53vpq"]
 size = Vector2(16.9706, 7.99998)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_svskc"]
 
 [node name="PowerRoom" type="Node2D"]
 script = ExtResource("1_8gp7i")
@@ -39,4 +44,26 @@ rotation = 0.785398
 skew = -0.785398
 shape = SubResource("RectangleShape2D_53vpq")
 
+[node name="Pipe" type="Node2D" parent="."]
+position = Vector2(95, 124)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("5_2fpqm")
+
+[node name="Sprite2D" type="Sprite2D" parent="Pipe"]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("6_b033g")
+
+[node name="InteractionArea" type="Area2D" parent="Pipe"]
+script = ExtResource("7_g5u1a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pipe/InteractionArea"]
+scale = Vector2(3, 3)
+shape = SubResource("CircleShape2D_svskc")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." groups=["Canvas"]]
+scale = Vector2(6, 6)
+transform = Transform2D(6, 0, 0, 6, 0, 0)
+
 [connection signal="body_entered" from="Door" to="." method="_on_door_body_entered"]
+[connection signal="body_entered" from="Pipe/InteractionArea" to="Pipe/InteractionArea" method="_on_body_entered"]
+[connection signal="body_exited" from="Pipe/InteractionArea" to="Pipe/InteractionArea" method="_on_body_exited"]
