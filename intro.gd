@@ -10,6 +10,7 @@ const lines: Array[String] = [
 ]
 
 func _ready():
+	PositionManager.StartFromBeginning = true
 	InteractionManager.can_interact = false
 	DialogManager.start_dialog(global_position, lines, speech_sound, false, true)
 	await DialogManager.dialog_finished

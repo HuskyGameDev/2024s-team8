@@ -21,8 +21,10 @@ var InteractionOverride = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
-	position = StageManager.player_position
-	get_node("Camera2D").limit_right = StageManager.right_camera_limit
+	if StageManager.player_position != Vector2.ZERO:
+		position = StageManager.player_position
+	if PositionManager.StartFromBeginning:
+		get_node("Camera2D").limit_right = StageManager.right_camera_limit
 	animationTree.set("active", true)
 
 func _swap_attention():

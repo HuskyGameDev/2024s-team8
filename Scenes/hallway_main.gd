@@ -11,6 +11,7 @@ var HasLeft = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	StageManager.changeCamera(488)
 	InteractionManager.player = Player
 	if PositionManager.PrevPosition != Vector2.ZERO:
 		Player.global_position = PositionManager.PrevPosition

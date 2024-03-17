@@ -167,6 +167,10 @@ script = ExtResource("8_4xsd5")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Valve/InteractionArea"]
 shape = SubResource("CircleShape2D_1x7dq")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." groups=["CanvasLayer"]]
+scale = Vector2(6, 6)
+transform = Transform2D(6, 0, 0, 6, 0, 0)
+
 [connection signal="body_entered" from="Door_to_Hallway" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Door_to_Hallway" to="." method="_on_door_to_hallway_body_exited"]
 [connection signal="body_entered" from="Valve/InteractionArea" to="Valve/InteractionArea" method="_on_body_entered"]
