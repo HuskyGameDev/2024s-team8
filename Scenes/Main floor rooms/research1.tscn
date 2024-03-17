@@ -1,13 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://1bfbt5f8oky"]
+[gd_scene load_steps=9 format=3 uid="uid://1bfbt5f8oky"]
 
 [ext_resource type="PackedScene" uid="uid://ny55otxbs0t" path="res://Scenes/tile_map.tscn" id="1_1c61v"]
 [ext_resource type="Texture2D" uid="uid://db5cscw8pfccj" path="res://Assets/room_tilemap_modular.png" id="1_6aj05"]
 [ext_resource type="Script" path="res://Scenes/research1.gd" id="1_44mdm"]
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="2_17khl"]
 [ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="3_xppy5"]
-[ext_resource type="Texture2D" uid="uid://bvxp1xgc5udf5" path="res://Assets/steam-valve-hi.png" id="6_4na5r"]
-[ext_resource type="Script" path="res://Inventory/Valve.gd" id="6_av778"]
-[ext_resource type="Script" path="res://Inventory/Interaction/InteractionArea.gd" id="8_4xsd5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g4i8w"]
 texture = ExtResource("1_6aj05")
@@ -119,8 +116,6 @@ sources/1 = SubResource("TileSetAtlasSource_g4i8w")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pcf5h"]
 size = Vector2(24, 5)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_1x7dq"]
-
 [node name="Research_1" type="Node2D"]
 script = ExtResource("1_44mdm")
 
@@ -153,25 +148,9 @@ shape = SubResource("RectangleShape2D_pcf5h")
 position = Vector2(83, 112)
 playerSpeed = 60
 
-[node name="Valve" type="Node2D" parent="."]
-position = Vector2(200, 150)
-script = ExtResource("6_av778")
-
-[node name="Sprite2D" type="Sprite2D" parent="Valve"]
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("6_4na5r")
-
-[node name="InteractionArea" type="Area2D" parent="Valve"]
-script = ExtResource("8_4xsd5")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Valve/InteractionArea"]
-shape = SubResource("CircleShape2D_1x7dq")
-
 [node name="CanvasLayer" type="CanvasLayer" parent="." groups=["CanvasLayer"]]
 scale = Vector2(6, 6)
 transform = Transform2D(6, 0, 0, 6, 0, 0)
 
 [connection signal="body_entered" from="Door_to_Hallway" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Door_to_Hallway" to="." method="_on_door_to_hallway_body_exited"]
-[connection signal="body_entered" from="Valve/InteractionArea" to="Valve/InteractionArea" method="_on_body_entered"]
-[connection signal="body_exited" from="Valve/InteractionArea" to="Valve/InteractionArea" method="_on_body_exited"]

@@ -81,14 +81,13 @@ func _unhandled_input(event):
 			
 		
 	if (
-		is_automated &&
 		event.is_action_pressed("MENU") &&
 		is_dialog_active
 	):
 		text_box.queue_free()
 		is_dialog_active = false
 		current_line_index = 0
-		#await get_tree().create_timer(0.01).timeout
+		await get_tree().create_timer(0.001).timeout
 		dialog_finished.emit()
 		return
 		

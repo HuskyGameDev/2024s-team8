@@ -1,6 +1,11 @@
 extends Node2D
 
+@onready var Fog = get_tree().get_first_node_in_group("Fog")
 var count = 0
+
+func _ready():
+	if PositionManager.HasClearedValve:
+		Fog.queue_free()
 
 func _on_to_the_transitionary_hallway_body_entered(_body):
 	count += 1

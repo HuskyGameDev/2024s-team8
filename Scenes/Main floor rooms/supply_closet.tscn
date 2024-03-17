@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="1_nuyvw"]
 [ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="2_74axs"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="2_ok3ji"]
-[ext_resource type="Script" path="res://Inventory/Interaction/InteractionArea.gd" id="5_n3yns"]
+[ext_resource type="Script" path="res://Interaction/InteractionArea.gd" id="5_n3yns"]
 [ext_resource type="Script" path="res://Inventory/Crowbar.gd" id="5_vc7ro"]
 [ext_resource type="Texture2D" uid="uid://bfx5otn34ye1d" path="res://Assets/wrench-blue.png" id="6_gn3dj"]
 

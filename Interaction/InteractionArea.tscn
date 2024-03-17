@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bwmuhr4im6pbt"]
 
-[ext_resource type="Script" path="res://Inventory/Interaction/InteractionArea.gd" id="1_ntdh4"]
+[ext_resource type="Script" path="res://Interaction/InteractionArea.gd" id="1_ntdh4"]
 
 [node name="InteractionArea" type="Area2D"]
 position = Vector2(-4532.57, -930.436)

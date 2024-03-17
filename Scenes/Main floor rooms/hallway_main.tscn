@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bq7i3gq5nox5k" path="res://Inventory/Helianth.png" id="5_v67bu"]
 [ext_resource type="Script" path="res://Scenes/Vent.gd" id="5_vak2t"]
 [ext_resource type="Texture2D" uid="uid://cbkwbxfsg6u7q" path="res://Inventory/Vent.png" id="6_fc0yg"]
-[ext_resource type="Script" path="res://Inventory/Interaction/InteractionArea.gd" id="7_lochg"]
+[ext_resource type="Script" path="res://Interaction/InteractionArea.gd" id="7_browe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4fyx4"]
 texture = ExtResource("2_kjoew")
@@ -201,7 +201,7 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("5_uuage")
 
 [node name="InteractionArea" type="Area2D" parent="Locker"]
-script = ExtResource("7_lochg")
+script = ExtResource("7_browe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Locker/InteractionArea"]
 position = Vector2(-0.5, -0.5)
@@ -215,7 +215,7 @@ script = ExtResource("5_6mey3")
 texture = ExtResource("5_v67bu")
 
 [node name="InteractionArea" type="Area2D" parent="Helianth"]
-script = ExtResource("7_lochg")
+script = ExtResource("7_browe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Helianth/InteractionArea"]
 position = Vector2(0, 18)
@@ -232,7 +232,7 @@ scale = Vector2(0.03, 0.03)
 texture = ExtResource("6_fc0yg")
 
 [node name="InteractionArea" type="Area2D" parent="Vent"]
-script = ExtResource("7_lochg")
+script = ExtResource("7_browe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vent/InteractionArea"]
 position = Vector2(1.5, 0.5)
