@@ -1,5 +1,7 @@
 extends Control
 
+@onready var player = get_tree().get_first_node_in_group("Player")
+
 var comb = [0,0,0,0,0]
 var locks = [0,0,0,0,0]
 
@@ -18,6 +20,11 @@ func _process(delta):
 	if locks == comb:
 		print("Solved")
 		solved.emit()
+		queue_free()
+		player._swap_attention()
+	if Input.is_action_just_pressed("MENU"):
+		queue_free()
+		player._swap_attention()
 
 func _on_lock_1_display_number_change(number):
 	locks[0] = number
