@@ -2,22 +2,18 @@ extends Control
 
 @onready var player = get_tree().get_first_node_in_group("Player")
 
-var comb = [0,0,0,0,0]
 var locks = [0,0,0,0,0]
 
 signal solved()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	for n in range(0,5):
-		comb[n] = randi_range(0,9)
-		
-	print(comb)
+	print(PositionManager.comboCode)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if locks == comb:
+	if locks == PositionManager.comboCode:
 		print("Solved")
 		solved.emit()
 		queue_free()

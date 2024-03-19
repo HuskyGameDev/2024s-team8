@@ -1,6 +1,19 @@
 extends Node2D
 
 var count = 0
+@onready var animPlayer = $AnimationPlayer
+
+func _ready():
+	if PositionManager.Act == 1 and animPlayer != null:
+		$Player._swap_attention()
+		$Player/AnimationPlayer.play("Left")
+		animPlayer.play("Enter Act 2")
+		await animPlayer.animation_finished
+		animPlayer.play("Wake up")
+		await animPlayer.animation_finished
+		$Player._swap_attention()
+	else:
+		print("Pooey")
 
 func _on_door_body_entered(_body):
 	count += 1
