@@ -6,7 +6,6 @@ extends Node2D
 @onready var speech_sound = preload("res://Assets/voice_sans.mp3")
 
 const lines: Array[String] = [
-	#"Pick up the crowbar?\n           Yes           No"
 	"You picked up the wrench."
 ]
 
