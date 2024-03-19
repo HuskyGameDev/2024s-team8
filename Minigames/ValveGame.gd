@@ -19,6 +19,7 @@ var Valve1Solution = 135
 var Valve2Solution = 90
 var Valve3Solution = 45
 
+signal completed()
 
 func ConvertDegrees(degrees):
 	var newDegrees = int(degrees) % 360
@@ -62,6 +63,7 @@ func _process(_delta):
 				player.ValveMinigame = false
 				await get_tree().create_timer(2).timeout
 				PositionManager.HasClearedValve = true
+				completed.emit()
 				queue_free()
 				player._swap_attention()
 				

@@ -3,6 +3,8 @@ extends Control
 var comb = [0,0,0,0,0]
 var locks = [0,0,0,0,0]
 
+signal solved()
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for n in range(0,5):
@@ -15,6 +17,7 @@ func _ready():
 func _process(delta):
 	if locks == comb:
 		print("Solved")
+		solved.emit()
 
 func _on_lock_1_display_number_change(number):
 	locks[0] = number

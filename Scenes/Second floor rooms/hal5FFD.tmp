@@ -15,7 +15,7 @@
 size = Vector2(24, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jeqwj"]
-size = Vector2(24, 32)
+size = Vector2(16, 28)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j35jd"]
 size = Vector2(96, 4)
@@ -109,7 +109,7 @@ texture = ExtResource("6_82hms")
 script = ExtResource("7_51fjl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Combo Lock/InteractionArea"]
-position = Vector2(0, 12)
+position = Vector2(0, 10)
 shape = SubResource("RectangleShape2D_jeqwj")
 
 [node name="Player" parent="." instance=ExtResource("3_j2e1i")]

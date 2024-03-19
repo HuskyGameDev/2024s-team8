@@ -13,6 +13,7 @@ extends CharacterBody2D
 var screen_size
 var pause
 var ValveMinigame = false
+var ComboLock = false
 var emergencyLights = "3f0000"
 var normalLights = "ffffff"
 var InteractionOverride = false
@@ -60,6 +61,8 @@ func _process(_delta):
 				_swap_attention()
 				if ValveMinigame == true:
 					ValveMinigame = false
+				if ComboLock == true:
+					ComboLock = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):

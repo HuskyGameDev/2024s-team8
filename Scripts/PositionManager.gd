@@ -6,4 +6,5 @@ var HasCrowbar = false
 var HasOpenedVent = false
 var StartFromBeginning = false
 var HasClearedValve = false
+var hasClearedCombo = false
 
