@@ -53,11 +53,10 @@ position = Vector2(144, 112)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Starea"]
 position = Vector2(4, 8)
 rotation = 0.785398
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ab7vd")
 
-[connection signal="body_entered" from="to_first_floor" to="." method="_on_to_first_floor_body_entered"]
 [connection signal="body_entered" from="to_first_floor" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="to_first_floor" to="." method="_on_to_first_floor_body_entered"]
 [connection signal="body_entered" from="to_second_floor" to="." method="_on_to_second_floor_body_entered"]
 [connection signal="body_entered" from="Starea" to="." method="_on_starea_body_entered"]
 [connection signal="body_exited" from="Starea" to="." method="_on_starea_body_exited"]

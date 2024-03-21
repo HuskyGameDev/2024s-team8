@@ -85,7 +85,7 @@ func _on_supply_closet_body_exited(body):
 	pass # Replace with function body.
 
 func _on_stairs_body_entered(body):
-	const STAIRS = preload("res://Scenes/Main floor rooms/supply_closet.tscn")
+	const STAIRS = preload("res://Scenes/Main floor rooms/stairs.tscn")
 	if body.name == "Player":
 		if PositionManager.Act != 1:
 			StageManager.changeScene(STAIRS, 59, 89)
