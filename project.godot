@@ -21,6 +21,7 @@ InteractionManager="*res://Interaction/InteractionManager.tscn"
 StageManager="*res://Scenes/stage_manager.tscn"
 PositionManager="*res://Scripts/PositionManager.gd"
 DialogManager="*res://Scripts/DialogManager.gd"
+GlobalAudioManager="*res://Scenes/global_audio_manager.gd"
 
 [display]
 

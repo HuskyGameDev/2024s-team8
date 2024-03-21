@@ -26,6 +26,7 @@ func _ready():
 	if PositionManager.StartFromBeginning:
 		get_node("Camera2D").limit_right = StageManager.right_camera_limit
 	animationTree.set("active", true)
+	GlobalAudioManager.play_act1_music()
 
 func _swap_attention():
 	hasAttention = !hasAttention
