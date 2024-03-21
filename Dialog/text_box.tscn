@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dym1ivtlsvpjd" path="res://Assets/menu_button_light.png" id="1_4msdp"]
 [ext_resource type="Script" path="res://Dialog/text_box.gd" id="1_8yphy"]
-[ext_resource type="FontFile" uid="uid://eakijihfas2k" path="res://Assets/SFPixelate-Bold.ttf" id="3_wn07f"]
+[ext_resource type="FontFile" uid="uid://ex3iw1qedd4a" path="res://Assets/SFPixelate.ttf" id="3_c6x1k"]
 
 [node name="TextBox" type="MarginContainer"]
 z_index = 5
@@ -29,7 +29,7 @@ theme_override_constants/margin_bottom = 8
 texture_filter = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_wn07f")
+theme_override_fonts/font = ExtResource("3_c6x1k")
 theme_override_font_sizes/font_size = 10
 vertical_alignment = 1
 
