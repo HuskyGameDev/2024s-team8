@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ffehrbd27s8d"]
+[gd_scene load_steps=8 format=3 uid="uid://ffehrbd27s8d"]
 
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="1_30vsc"]
 [ext_resource type="Script" path="res://Scenes/stairs.gd" id="1_qh87w"]
@@ -10,6 +10,9 @@ size = Vector2(24, 5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_exbm7"]
 size = Vector2(23.9844, 5.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ab7vd"]
+size = Vector2(73.5391, 39.598)
 
 [node name="Stairs" type="Node2D"]
 script = ExtResource("1_qh87w")
@@ -44,6 +47,17 @@ shape = SubResource("RectangleShape2D_omm81")
 position = Vector2(244, 166)
 shape = SubResource("RectangleShape2D_exbm7")
 
+[node name="Starea" type="Area2D" parent="."]
+position = Vector2(144, 112)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Starea"]
+position = Vector2(4, 8)
+rotation = 0.785398
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_ab7vd")
+
 [connection signal="body_entered" from="to_first_floor" to="." method="_on_to_first_floor_body_entered"]
 [connection signal="body_entered" from="to_first_floor" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="to_second_floor" to="." method="_on_to_second_floor_body_entered"]
+[connection signal="body_entered" from="Starea" to="." method="_on_starea_body_entered"]
+[connection signal="body_exited" from="Starea" to="." method="_on_starea_body_exited"]

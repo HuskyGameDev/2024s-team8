@@ -1,6 +1,8 @@
 extends Node2D
 
 
+var once = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -32,3 +34,14 @@ func _on_to_second_floor_body_entered(body):
 		StageManager.changeCamera(488)
 		StageManager.scene_change = true
 		StageManager.on_first_floor == false
+
+
+func _on_starea_body_entered(body):
+	if once:
+		$Player.onStairs = true;
+	else:
+		once = !once
+
+
+func _on_starea_body_exited(body):
+	$Player.onStairs = false

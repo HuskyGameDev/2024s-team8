@@ -9,6 +9,7 @@ extends CharacterBody2D
 @export var mini_map : PackedScene
 @export var mini_map_2nd_floor : PackedScene
 @export var hasAttention = true
+@export var onStairs = false
 var screen_size
 var pause
 var ValveMinigame = false
@@ -74,6 +75,9 @@ func _physics_process(delta):
 	
 		if Input.is_action_pressed("LEFT"):
 			velocity.x -= 1
+			
+		if onStairs:
+			velocity = velocity.rotated((PI)/4)
 			
 		if Input.is_action_pressed("DOWN"):
 			velocity.y += 1
