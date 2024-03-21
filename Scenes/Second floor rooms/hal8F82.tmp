@@ -78,7 +78,7 @@ offset_right = 424.0
 offset_bottom = 132.0
 texture = SubResource("CanvasTexture_kgqnb")
 
-[node name="Security Door" type="StaticBody2D" parent="." groups=["Security Door"]]
+[node name="Security Door" type="StaticBody2D" parent="."]
 position = Vector2(404, 112)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Security Door"]

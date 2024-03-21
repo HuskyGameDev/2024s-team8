@@ -9,7 +9,6 @@ extends CharacterBody2D
 @export var mini_map : PackedScene
 @export var mini_map_2nd_floor : PackedScene
 @export var hasAttention = true
-@export var act = 1
 var screen_size
 var pause
 var ValveMinigame = false
@@ -33,9 +32,9 @@ func _swap_attention():
 	animationTree.set("active", hasAttention)
 
 func _process(_delta):
-	if act == 1:
+	if PositionManager.Act == 1:
 		lights.color = emergencyLights
-	elif act != 1:
+	elif PositionManager.Act != 1:
 		lights.color = normalLights
 	if hasAttention:
 		if Input.is_action_just_pressed("MENU"):

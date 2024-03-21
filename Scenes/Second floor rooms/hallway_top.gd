@@ -1,16 +1,17 @@
 extends Node2D
 
 @onready var Lock = get_tree().get_first_node_in_group("Combo Lock")
-#@onready var SecurityDoor = get_tree().get_first_node_in_group("Security Door")
+@onready var SecurityDoor = get_tree().get_first_node_in_group("Security Door")
 @onready var animPlayer = get_tree().get_first_node_in_group("AnimationPlayer")
 
 var count = 0
 
 func _ready():
 	if PositionManager.hasClearedCombo:
-		Lock.queue_free()
-		#SecurityDoor.queue_free()
-		_on_combo_lock_open_door()
+		if Lock != null:
+			Lock.queue_free()
+		if SecurityDoor != null:
+			SecurityDoor.queue_free()
 
 func _on_to_the_transitionary_hallway_body_entered(body):
 	count += 1
