@@ -25,7 +25,8 @@ func _on_interact():
 		player._swap_attention()
 		DialogManager.start_dialog(global_position, lines, speech_sound, false)
 		await DialogManager.dialog_finished
-		player.hide()
+		player.get_child(0).hide()
+		player.get_child(6).hide()
 		InLocker = true
 		
 		await get_tree().create_timer(1.0).timeout
@@ -35,7 +36,8 @@ func _on_interact():
 		if Input.is_action_just_pressed("INTERACT"):
 			DialogManager.start_dialog(global_position, lines2, speech_sound, false)
 			await DialogManager.dialog_finished
-			player.show()
+			player.get_child(0).show()
+			player.get_child(6).show()
 			player._swap_attention()
 			InLocker = false
 			player.InteractionOverride = false
