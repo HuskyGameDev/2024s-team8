@@ -129,6 +129,8 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 60
 text = "Quit"
 
+[node name="SettingsLayer" type="CanvasLayer" parent="."]
+
 [connection signal="pressed" from="Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
