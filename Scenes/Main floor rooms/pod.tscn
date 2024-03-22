@@ -35,7 +35,7 @@ transform = Transform2D(0.16, 0, 0, 0.16, 0, 0)
 [node name="To_Hall" type="Area2D" parent="."]
 
 [node name="Player" parent="To_Hall" instance=ExtResource("5_njgdq")]
-position = Vector2(147.97, 142.73)
+position = Vector2(148, 136)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="To_Hall"]
 position = Vector2(148, 157.5)

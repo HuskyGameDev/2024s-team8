@@ -31,7 +31,6 @@ layer_1/name = "Background_details"
 layer_1/tile_data = PackedInt32Array(1245186, 589824, 0, 1048581, 589824, 0, 1048609, 458752, 0, 1114146, 458752, 0, 1179683, 458752, 0, 1245220, 458752, 0, 262149, 262144, 0, 196612, 262144, 0, 131075, 262144, 0, 65538, 262144, 0, 262177, 524288, 0, 196642, 524288, 0, 131107, 524288, 0, 65572, 524288, 0, 1179651, 983040, 0, 1114115, 983040, 0, 720900, 589824, 0, 786435, 589824, 0)
 
 [node name="Player" parent="." instance=ExtResource("3_mibdw")]
-visible = false
 position = Vector2(40, 132)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]

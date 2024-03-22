@@ -13,9 +13,11 @@ func _process(delta):
 
 func _on_to_hall_body_entered(body):
 	if HasLeft:
-		const HALLWAY = preload("res://Scenes/Main floor rooms/hallway_main.tscn")
-		StageManager.changeScene(HALLWAY, 75, 128)
-		StageManager.changeCamera(488)
+		body.hasAttention = false
+		body.set("active", false)
+		const AIRLOCK = preload("res://Scenes/Main floor rooms/airlock.tscn")
+		StageManager.changeScene(AIRLOCK, 155, 110)
+		StageManager.changeCamera(304)
 		StageManager.scene_change = true
 
 

@@ -28,7 +28,6 @@ layer_1/name = "Background_details"
 layer_1/tile_data = PackedInt32Array(262177, 851968, 0, 196642, 851968, 0, 131107, 851968, 0, 65572, 851968, 0, 262149, 65536, 0, 196612, 65536, 0, 131075, 65536, 0, 65538, 65536, 0, 1048581, 589824, 0, 1245186, 589824, 0, 1048609, 458752, 0, 1114146, 458752, 0, 1179683, 458752, 0, 1245220, 458752, 0, 1114115, 983040, 0, 786435, 589824, 0, 720900, 589824, 0)
 
 [node name="Player" parent="." instance=ExtResource("3_lkq5j")]
-visible = false
 position = Vector2(48, 132)
 
 [node name="shower" type="CharacterBody2D" parent="."]

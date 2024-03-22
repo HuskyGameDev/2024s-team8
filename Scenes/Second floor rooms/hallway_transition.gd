@@ -22,7 +22,7 @@ func _on_to_bottom_hallway_body_entered(_body):
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false)
 		StageManager.changeScene(HALLWAY_BOT, 112, 118)
-		StageManager.changeCamera(480)
+		StageManager.changeCamera(488)
 		StageManager.scene_change = true
 
 func _on_to_top_hallway_body_entered(_body):
@@ -32,7 +32,7 @@ func _on_to_top_hallway_body_entered(_body):
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false)
 		StageManager.changeScene(HALLWAY_TOP, 88, 145)
-		StageManager.changeCamera(480)
+		StageManager.changeCamera(488)
 		StageManager.scene_change = true
 
 
@@ -48,5 +48,5 @@ func _on_to_bathroom_body_entered(_body):
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false)
 		StageManager.changeScene(BATHROOM, 40, 132)
-		StageManager.changeCamera(320)
+		StageManager.changeCamera(304)
 		StageManager.scene_change = true
