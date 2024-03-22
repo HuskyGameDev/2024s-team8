@@ -1,9 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://mvq33x270ude"]
+[gd_scene load_steps=11 format=3 uid="uid://mvq33x270ude"]
 
 [ext_resource type="Texture2D" uid="uid://bx4gu78dbksl7" path="res://Assets/puzzle_pipes/bottom_left/pipe_corner_bottom_left.png" id="1_eqbrj"]
 [ext_resource type="Script" path="res://Minigames/PipeGame.gd" id="1_vysyd"]
+[ext_resource type="Script" path="res://Minigames/Row1.gd" id="2_hi4ph"]
 [ext_resource type="Texture2D" uid="uid://b626lh7nf7ly2" path="res://Assets/puzzle_pipes/horizontal/pipe_horizontal.png" id="2_j70tm"]
+[ext_resource type="Script" path="res://Minigames/Row2.gd" id="4_ltmbs"]
 [ext_resource type="Texture2D" uid="uid://dmlam2x8y2gjp" path="res://Assets/cursor_PNG45.png" id="4_o5eas"]
+[ext_resource type="Script" path="res://Minigames/Row3.gd" id="5_wkup7"]
+[ext_resource type="Script" path="res://Minigames/Row4.gd" id="6_odcdh"]
+[ext_resource type="Script" path="res://Minigames/Row5.gd" id="7_k0omh"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_mcxtl"]
 
@@ -31,8 +36,9 @@ texture = SubResource("CanvasTexture_mcxtl")
 
 [node name="Row1" type="Node2D" parent="." groups=["Row1"]]
 position = Vector2(0.025, 0)
+script = ExtResource("2_hi4ph")
 
-[node name="Sprite2D" type="Sprite2D" parent="Row1"]
+[node name="Sprite2D1" type="Sprite2D" parent="Row1"]
 position = Vector2(100, 30)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_eqbrj")
@@ -59,6 +65,7 @@ texture = ExtResource("1_eqbrj")
 
 [node name="Row2" type="Node2D" parent="." groups=["Row2"]]
 position = Vector2(0.025, 0)
+script = ExtResource("4_ltmbs")
 
 [node name="Sprite2D6" type="Sprite2D" parent="Row2"]
 position = Vector2(100, 62)
@@ -87,6 +94,7 @@ texture = ExtResource("1_eqbrj")
 
 [node name="Row3" type="Node2D" parent="." groups=["Row3"]]
 position = Vector2(0.025, 0)
+script = ExtResource("5_wkup7")
 
 [node name="Sprite2D11" type="Sprite2D" parent="Row3"]
 position = Vector2(100, 90)
@@ -115,6 +123,7 @@ texture = ExtResource("1_eqbrj")
 
 [node name="Row4" type="Node2D" parent="." groups=["Row4"]]
 position = Vector2(0.025, 0)
+script = ExtResource("6_odcdh")
 
 [node name="Sprite2D16" type="Sprite2D" parent="Row4"]
 position = Vector2(100, 120)
@@ -124,7 +133,7 @@ texture = ExtResource("1_eqbrj")
 [node name="Sprite2D17" type="Sprite2D" parent="Row4"]
 position = Vector2(130, 120)
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_eqbrj")
+texture = ExtResource("2_j70tm")
 
 [node name="Sprite2D18" type="Sprite2D" parent="Row4"]
 position = Vector2(160, 120)
@@ -143,6 +152,7 @@ texture = ExtResource("1_eqbrj")
 
 [node name="Row5" type="Node2D" parent="." groups=["Row5"]]
 position = Vector2(0.025, 0)
+script = ExtResource("7_k0omh")
 
 [node name="Sprite2D21" type="Sprite2D" parent="Row5"]
 position = Vector2(100, 150)
