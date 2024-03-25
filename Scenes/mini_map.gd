@@ -27,6 +27,8 @@ func sceneChecker(node):
 		get_node("Background/Rooms/Stairs/Outline").show()
 	elif node == "Supply_Closet":
 		get_node("Background/Rooms/Supply/Outline").show()
+	elif node == "airlock":
+		get_node("Background/Rooms/Airlock/Outline").show()
 
 func hideAll():
 	get_node("Background/Rooms/Main_Hall/Outline").hide()
@@ -37,3 +39,4 @@ func hideAll():
 	get_node("Background/Rooms/Command_Deck/Outline").hide()
 	get_node("Background/Rooms/Supply/Outline").hide()
 	get_node("Background/Rooms/Pod/Outline").hide()
+	get_node("Background/Rooms/Airlock/Outline").hide()

@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cpg2xebaf6ybb"]
+[gd_scene load_steps=4 format=3 uid="uid://cpg2xebaf6ybb"]
 
 [ext_resource type="Script" path="res://Scenes/mini_map.gd" id="1_mtimf"]
+[ext_resource type="FontFile" uid="uid://dgej7wwa83tuk" path="res://Assets/yoster.ttf" id="2_jvq6h"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_7b5y6"]
 
@@ -31,15 +32,17 @@ scale = Vector2(1.5, 1.5)
 
 [node name="Pod" type="ColorRect" parent="Background/Rooms"]
 layout_mode = 0
-offset_left = 30.0001
-offset_top = 93.0
-offset_right = 100.0
-offset_bottom = 163.0
+offset_left = 30.0
+offset_top = 28.0
+offset_right = 99.9999
+offset_bottom = 98.0
 scale = Vector2(1.7, 1.7)
 color = Color(0.270588, 0.290196, 0.333333, 1)
 
 [node name="Outline" type="CanvasLayer" parent="Background/Rooms/Pod"]
 layer = 2
+offset = Vector2(0, -100)
+transform = Transform2D(1, 0, 0, 1, 0, -100)
 
 [node name="left" type="ColorRect" parent="Background/Rooms/Pod/Outline"]
 offset_left = 163.0
@@ -67,10 +70,10 @@ offset_bottom = 369.0
 
 [node name="Door7" type="ColorRect" parent="Background/Rooms/Pod"]
 layout_mode = 0
-offset_left = 53.5293
-offset_top = 69.7059
-offset_right = 62.5293
-offset_bottom = 84.7059
+offset_left = 54.0
+offset_top = 70.0
+offset_right = 63.0
+offset_bottom = 82.0
 color = Color(0.247059, 0.247059, 0.454902, 1)
 
 [node name="Label" type="Label" parent="Background/Rooms/Pod"]
@@ -86,6 +89,7 @@ offset_right = 20.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_jvq6h")
 text = "Pod"
 horizontal_alignment = 1
 
@@ -120,6 +124,7 @@ offset_right = 24.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_jvq6h")
 text = "Bunks"
 horizontal_alignment = 1
 
@@ -179,6 +184,7 @@ offset_right = 40.0
 offset_bottom = 24.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_jvq6h")
 text = "Command 
 Deck"
 horizontal_alignment = 1
@@ -240,6 +246,7 @@ offset_right = 22.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_jvq6h")
 text = "Stairs"
 horizontal_alignment = 1
 
@@ -299,6 +306,7 @@ offset_right = 35.5
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_jvq6h")
 text = "Research"
 horizontal_alignment = 1
 
@@ -354,12 +362,13 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -19.5
-offset_top = -17.5
+offset_top = -15.0
 offset_right = 19.5
-offset_bottom = 17.5
+offset_bottom = 15.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 11
+theme_override_fonts/font = ExtResource("2_jvq6h")
+theme_override_font_sizes/font_size = 10
 text = "Supply 
 Closet"
 horizontal_alignment = 1
@@ -411,16 +420,16 @@ color = Color(0.270588, 0.290196, 0.333333, 1)
 layer = 2
 
 [node name="left" type="ColorRect" parent="Background/Rooms/Main_Hall/Outline"]
-offset_left = 158.0
-offset_top = 408.0
-offset_right = 164.0
-offset_bottom = 679.0
+offset_left = 157.0
+offset_top = 407.0
+offset_right = 163.0
+offset_bottom = 678.0
 
 [node name="top" type="ColorRect" parent="Background/Rooms/Main_Hall/Outline"]
 offset_left = 157.0
-offset_top = 408.0
-offset_right = 1397.0
-offset_bottom = 414.0
+offset_top = 405.0
+offset_right = 1401.0
+offset_bottom = 411.0
 
 [node name="bottom" type="ColorRect" parent="Background/Rooms/Main_Hall/Outline"]
 offset_left = 157.0
@@ -447,6 +456,7 @@ offset_right = 37.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_jvq6h")
 text = "Main Hall"
 horizontal_alignment = 1
 
@@ -483,6 +493,7 @@ offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.5, 1.5)
+theme_override_fonts/font = ExtResource("2_jvq6h")
 text = "Mess Hall"
 horizontal_alignment = 1
 
@@ -512,3 +523,61 @@ offset_left = 749.0
 offset_top = 714.0
 offset_right = 755.0
 offset_bottom = 985.0
+
+[node name="Airlock" type="ColorRect" parent="Background/Rooms"]
+layout_mode = 0
+offset_left = 30.6667
+offset_top = 166.0
+offset_right = 149.667
+offset_bottom = 206.0
+color = Color(0.270588, 0.290196, 0.333333, 1)
+
+[node name="Label" type="Label" parent="Background/Rooms/Airlock"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.5
+offset_top = -11.5
+offset_right = 31.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_jvq6h")
+text = "Airlock"
+
+[node name="Outline" type="CanvasLayer" parent="Background/Rooms/Airlock"]
+layer = 2
+
+[node name="left" type="ColorRect" parent="Background/Rooms/Airlock/Outline"]
+offset_left = 164.0
+offset_top = 299.0
+offset_right = 170.0
+offset_bottom = 359.0
+
+[node name="top" type="ColorRect" parent="Background/Rooms/Airlock/Outline"]
+offset_left = 164.0
+offset_top = 299.0
+offset_right = 343.0
+offset_bottom = 305.0
+
+[node name="bottom" type="ColorRect" parent="Background/Rooms/Airlock/Outline"]
+offset_left = 164.0
+offset_top = 353.0
+offset_right = 343.0
+offset_bottom = 359.0
+
+[node name="right" type="ColorRect" parent="Background/Rooms/Airlock/Outline"]
+offset_left = 337.0
+offset_top = 299.0
+offset_right = 343.0
+offset_bottom = 359.0
+
+[node name="Door2" type="ColorRect" parent="Background/Rooms/Airlock"]
+offset_left = 94.0
+offset_top = 40.0
+offset_right = 103.0
+offset_bottom = 72.0
+color = Color(0.247059, 0.247059, 0.454902, 1)

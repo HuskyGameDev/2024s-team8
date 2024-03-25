@@ -16,7 +16,6 @@ func _ready():
 	if PositionManager.PrevPosition != Vector2.ZERO:
 		Player.global_position = PositionManager.PrevPosition
 		HasLeft = false
-	pass # Replace with function body.
  
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

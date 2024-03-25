@@ -11,10 +11,11 @@ const lines: Array[String] = [
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if PositionManager.Act != 1:
+		get_node("Sprite2D").queue_free()
 	interaction_area.interact = Callable(self, "_on_interact")
 	if PositionManager.HasOpenedVent == true:
 		get_node("Sprite2D").queue_free()
-	pass # Replace with function body.
 
 
 func _on_interact():
@@ -26,6 +27,7 @@ func _on_interact():
 		StageManager.changeCamera(304)
 		StageManager.scene_change = true
 		StageManager.on_first_floor = false
+		PositionManager.PrevPosition = Vector2(220, 130)
 	else:
 		player._swap_attention()
 		DialogManager.start_dialog(global_position, lines, speech_sound, false)

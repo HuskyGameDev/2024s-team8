@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cq2g1m0yumyw0"]
+[gd_scene load_steps=4 format=3 uid="uid://cq2g1m0yumyw0"]
 
 [ext_resource type="Script" path="res://Scenes/mini_map_2nd_floor.gd" id="1_js44j"]
+[ext_resource type="FontFile" uid="uid://dgej7wwa83tuk" path="res://Assets/yoster.ttf" id="2_6hi0n"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_curvx"]
 
@@ -47,6 +48,7 @@ offset_right = 49.5
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_6hi0n")
 theme_override_font_sizes/font_size = 35
 text = "Power Room"
 horizontal_alignment = 1
@@ -122,6 +124,7 @@ offset_right = 31.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_6hi0n")
 theme_override_font_sizes/font_size = 35
 text = "Hallway"
 
@@ -223,6 +226,7 @@ offset_right = 39.5
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_6hi0n")
 theme_override_font_sizes/font_size = 35
 text = "Bathroom"
 
@@ -289,6 +293,7 @@ offset_right = 121.0
 offset_bottom = 24.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_6hi0n")
 theme_override_font_sizes/font_size = 35
 text = "Security Room"
 
@@ -356,6 +361,7 @@ offset_right = 102.5
 offset_bottom = 24.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_6hi0n")
 theme_override_font_sizes/font_size = 35
 text = "Boiler Room"
 
@@ -423,6 +429,7 @@ offset_right = 47.5
 offset_bottom = 24.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_6hi0n")
 theme_override_font_sizes/font_size = 35
 text = "Stairs"
 
