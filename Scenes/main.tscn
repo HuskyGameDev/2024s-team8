@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bkrk6ere8vvqi"]
+[gd_scene load_steps=6 format=3 uid="uid://bkrk6ere8vvqi"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_tbkaj"]
 [ext_resource type="PackedScene" uid="uid://ca1eqme7qndxw" path="res://Scenes/background.tscn" id="2_i6f1w"]
 [ext_resource type="Texture2D" uid="uid://dym1ivtlsvpjd" path="res://Assets/menu_button_light.png" id="2_mujtj"]
 [ext_resource type="Texture2D" uid="uid://b5xruj8go3atr" path="res://Assets/menu_button_dark.png" id="3_ch3om"]
+[ext_resource type="FontFile" uid="uid://eakijihfas2k" path="res://Assets/SFPixelate-Bold.ttf" id="4_1q5f7"]
 
 [node name="Main" type="Node2D"]
 scale = Vector2(1.6, 1.6)
@@ -32,8 +33,11 @@ offset_right = 62.5
 offset_bottom = 42.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_1q5f7")
 theme_override_font_sizes/font_size = 60
 text = "Play"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Quit" type="TextureButton" parent="."]
 offset_left = 431.25
@@ -58,8 +62,11 @@ offset_right = 63.0
 offset_bottom = 41.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_1q5f7")
 theme_override_font_sizes/font_size = 60
 text = "Quit"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("2_i6f1w")]
 
@@ -69,15 +76,19 @@ position = Vector2(600, 338.75)
 [node name="Title" type="Label" parent="."]
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_left = 281.25
+offset_left = 200.0
 offset_top = 63.75
-offset_right = 925.25
+offset_right = 1000.0
 offset_bottom = 173.75
 grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.333735, 0.0303467, 0.603665, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.972549, 0, 0.909804)
+theme_override_fonts/font = ExtResource("4_1q5f7")
 theme_override_font_sizes/font_size = 80
 text = "Project: Helianth"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Settings" type="TextureButton" parent="."]
 offset_left = 431.25
@@ -102,8 +113,11 @@ offset_right = 63.0
 offset_bottom = 41.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_1q5f7")
 theme_override_font_sizes/font_size = 60
 text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="SettingsLayer" type="CanvasLayer" parent="."]
 

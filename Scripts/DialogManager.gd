@@ -15,12 +15,13 @@ var is_dialog_active = false
 var can_advance_line = false
 var is_interactable = false
 var is_automated = false
+var is_tutorial = false
 
 signal dialog_finished()
 
 
 func start_dialog(position: Vector2, lines: Array[String], speech_sfx: AudioStream, 
-	interactable := false, automated := false):
+	interactable := false, automated := false, tutorial := false):
 	
 	if is_dialog_active:
 		return
@@ -29,6 +30,7 @@ func start_dialog(position: Vector2, lines: Array[String], speech_sfx: AudioStre
 	sfx = speech_sfx
 	is_interactable = interactable
 	is_automated = automated
+	is_tutorial = tutorial
 	show_text_box()
 	
 	is_dialog_active = true
@@ -61,7 +63,7 @@ func _process(delta):
 		
 
 func _unhandled_input(event):
-	if !is_automated:
+	if !is_automated && !is_tutorial:
 		if (
 			(event.is_action_pressed("INTERACT")) &&
 			is_dialog_active &&
@@ -80,9 +82,19 @@ func _unhandled_input(event):
 			show_text_box()
 			
 		
+	if is_tutorial:
+		if (event.is_action_pressed("OBJECTIVE") &&
+			is_dialog_active &&
+			can_advance_line
+		):
+			text_box.queue_free()
+			is_dialog_active = false
+			current_line_index = 0
+			dialog_finished.emit()
+			return
 	if (
 		event.is_action_pressed("MENU") &&
-		is_dialog_active
+		is_dialog_active && !is_tutorial
 	):
 		text_box.queue_free()
 		is_dialog_active = false

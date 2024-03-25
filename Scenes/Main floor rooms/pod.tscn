@@ -34,12 +34,16 @@ transform = Transform2D(0.16, 0, 0, 0.16, 0, 0)
 
 [node name="To_Hall" type="Area2D" parent="."]
 
-[node name="Player" parent="To_Hall" instance=ExtResource("5_njgdq")]
-position = Vector2(148, 136)
+[node name="Player" parent="To_Hall" groups=["Player"] instance=ExtResource("5_njgdq")]
+position = Vector2(90, 126)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="To_Hall"]
 position = Vector2(148, 157.5)
 shape = SubResource("RectangleShape2D_wekmh")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." groups=["CanvasLayer"]]
+scale = Vector2(5, 5)
+transform = Transform2D(5, 0, 0, 5, 0, 0)
 
 [connection signal="body_entered" from="To_Hall" to="." method="_on_to_hall_body_entered"]
 [connection signal="body_exited" from="To_Hall" to="." method="_on_to_hall_body_exited"]

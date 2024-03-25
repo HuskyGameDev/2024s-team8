@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var animationTree = $AnimationTree
 @onready var lights = $CanvasModulate
 @onready var animationState = animationTree.get("parameters/playback")
+@onready var objectiveMenu = preload("res://Scripts/ObjectivesMenu.tscn")
 @export var playerSpeed = 350
 @export var pauseMenu : PackedScene
 @export var mini_map : PackedScene
@@ -45,6 +46,11 @@ func _process(_delta):
 			_swap_attention()
 			if ValveMinigame == true:
 				ValveMinigame = false
+		if Input.is_action_just_pressed("OBJECTIVE"):
+			var objectives = objectiveMenu.instantiate()
+			$PauseLayer.add_child(objectives)
+			objectives.tree_exited.connect(_swap_attention)
+			_swap_attention()
 		if StageManager.on_first_floor == true:
 			if Input.is_action_just_pressed("MAP"):
 				var map = mini_map.instantiate()
