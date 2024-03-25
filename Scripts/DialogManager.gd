@@ -39,7 +39,8 @@ func show_text_box():
 	text_box = text_box_scene.instantiate()
 	text_box.finished_displaying.connect(on_text_box_finished_displaying)
 	get_tree().get_first_node_in_group("CanvasLayer").add_child(text_box)
-	text_box.display_text(dialog_lines[current_line_index], sfx)
+	if text_box != null:
+		text_box.display_text(dialog_lines[current_line_index], sfx)
 	can_advance_line = false
 
 func on_text_box_finished_displaying():
