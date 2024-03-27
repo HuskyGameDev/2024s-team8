@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cfl3tm624omie"]
+[gd_scene load_steps=28 format=3 uid="uid://cfl3tm624omie"]
 
 [ext_resource type="Script" path="res://Scenes/hallway_main.gd" id="1_uyxqv"]
 [ext_resource type="Texture2D" uid="uid://db5cscw8pfccj" path="res://Assets/room_tilemap_modular.png" id="2_kjoew"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://Scenes/Vent.gd" id="5_vak2t"]
 [ext_resource type="Texture2D" uid="uid://cbkwbxfsg6u7q" path="res://Inventory/Vent.png" id="6_fc0yg"]
 [ext_resource type="Script" path="res://Interaction/InteractionArea.gd" id="7_browe"]
+[ext_resource type="TileSet" uid="uid://b57dw6av5xyw3" path="res://door_icon_tileset.tres" id="12_7hp2b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4fyx4"]
 texture = ExtResource("2_kjoew")
@@ -382,6 +383,11 @@ shape = SubResource("CapsuleShape2D_wm2uj")
 [node name="CanvasLayer" type="CanvasLayer" parent="." groups=["CanvasLayer"]]
 scale = Vector2(5, 5)
 transform = Transform2D(5, 0, 0, 5, 0, 0)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("12_7hp2b")
+format = 2
+layer_0/tile_data = PackedInt32Array(1245206, 131072, 0, 1245216, 655360, 0, 655382, 65536, 0, 655410, 393216, 0, 655369, 589824, 0, 655387, 0, 0)
 
 [connection signal="body_entered" from="Locker/InteractionArea" to="Locker/InteractionArea" method="_on_body_entered"]
 [connection signal="body_exited" from="Locker/InteractionArea" to="Locker/InteractionArea" method="_on_body_exited"]

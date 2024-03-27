@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b0u5oq1ep04bc"]
+[gd_scene load_steps=19 format=3 uid="uid://b0u5oq1ep04bc"]
 
 [ext_resource type="Script" path="res://Scenes/Second floor rooms/hallway_top.gd" id="1_js6sa"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="1_wa6ms"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cif2ei7cuhu8" path="res://Assets/combo_lock.png" id="6_82hms"]
 [ext_resource type="Script" path="res://Scenes/Second floor rooms/Combo Lock.gd" id="6_uy558"]
 [ext_resource type="Script" path="res://Interaction/InteractionArea.gd" id="7_51fjl"]
+[ext_resource type="TileSet" uid="uid://b57dw6av5xyw3" path="res://door_icon_tileset.tres" id="9_4cxew"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_kgqnb"]
 
@@ -141,6 +142,11 @@ shape = SubResource("RectangleShape2D_6ro3i")
 libraries = {
 "": SubResource("AnimationLibrary_s80lg")
 }
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("9_4cxew")
+format = 2
+layer_0/tile_data = PackedInt32Array(655386, 0, 0, 655410, 262144, 0)
 
 [connection signal="open_door" from="Combo Lock" to="." method="_on_combo_lock_open_door"]
 [connection signal="body_entered" from="Combo Lock/InteractionArea" to="Combo Lock/InteractionArea" method="_on_body_entered"]

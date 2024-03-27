@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dfshav0tuk0c6"]
+[gd_scene load_steps=11 format=3 uid="uid://dfshav0tuk0c6"]
 
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="1_4wnrb"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="1_b7ajd"]
 [ext_resource type="Script" path="res://Scenes/Second floor rooms/hallway_transition.gd" id="1_sv46e"]
 [ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="2_r3fm3"]
+[ext_resource type="TileSet" uid="uid://b57dw6av5xyw3" path="res://door_icon_tileset.tres" id="5_jloic"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o33to"]
 size = Vector2(19.2, 4)
@@ -89,6 +90,11 @@ position = Vector2(-1, -10)
 [node name="Coord Finder" type="Node2D" parent="."]
 visible = false
 position = Vector2(168, 144)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("5_jloic")
+format = 2
+layer_0/tile_data = PackedInt32Array(1179656, 524288, 0, 1179677, 720896, 0)
 
 [connection signal="body_entered" from="To Bottom Hallway" to="." method="_on_to_bottom_hallway_body_entered"]
 [connection signal="body_entered" from="To Power Station" to="." method="_on_to_power_station_body_entered"]
