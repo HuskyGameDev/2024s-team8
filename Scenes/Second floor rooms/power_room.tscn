@@ -176,5 +176,5 @@ offset_bottom = 16.0
 texture = SubResource("CanvasTexture_igcop")
 
 [connection signal="body_entered" from="Door" to="." method="_on_door_body_entered"]
-[connection signal="body_entered" from="Pipe/InteractionArea" to="Pipe/InteractionArea" method="_on_body_entered"]
-[connection signal="body_exited" from="Pipe/InteractionArea" to="Pipe/InteractionArea" method="_on_body_exited"]
+[connection signal="area_entered" from="Pipe/InteractionArea" to="Pipe/InteractionArea" method="_on_area_entered"]
+[connection signal="area_exited" from="Pipe/InteractionArea" to="Pipe/InteractionArea" method="_on_area_exited"]

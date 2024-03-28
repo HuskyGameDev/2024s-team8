@@ -149,8 +149,8 @@ format = 2
 layer_0/tile_data = PackedInt32Array(655386, 0, 0, 655410, 262144, 0)
 
 [connection signal="open_door" from="Combo Lock" to="." method="_on_combo_lock_open_door"]
-[connection signal="body_entered" from="Combo Lock/InteractionArea" to="Combo Lock/InteractionArea" method="_on_body_entered"]
-[connection signal="body_exited" from="Combo Lock/InteractionArea" to="Combo Lock/InteractionArea" method="_on_body_exited"]
+[connection signal="area_entered" from="Combo Lock/InteractionArea" to="Combo Lock/InteractionArea" method="_on_area_entered"]
+[connection signal="area_exited" from="Combo Lock/InteractionArea" to="Combo Lock/InteractionArea" method="_on_area_exited"]
 [connection signal="body_entered" from="To The Transitionary Hallway" to="." method="_on_to_the_transitionary_hallway_body_entered"]
 [connection signal="body_exited" from="To The Transitionary Hallway" to="." method="_on_to_the_transitionary_hallway_body_exited"]
 [connection signal="body_entered" from="To Security Room" to="." method="_on_to_security_room_body_entered"]

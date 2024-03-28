@@ -389,12 +389,12 @@ tile_set = ExtResource("12_7hp2b")
 format = 2
 layer_0/tile_data = PackedInt32Array(1245206, 131072, 0, 1245216, 655360, 0, 655382, 65536, 0, 655410, 393216, 0, 655369, 589824, 0, 655387, 0, 0)
 
-[connection signal="body_entered" from="Locker/InteractionArea" to="Locker/InteractionArea" method="_on_body_entered"]
-[connection signal="body_exited" from="Locker/InteractionArea" to="Locker/InteractionArea" method="_on_body_exited"]
-[connection signal="body_entered" from="Helianth/InteractionArea" to="Helianth/InteractionArea" method="_on_body_entered"]
-[connection signal="body_exited" from="Helianth/InteractionArea" to="Helianth/InteractionArea" method="_on_body_exited"]
-[connection signal="body_entered" from="Vent/InteractionArea" to="Vent/InteractionArea" method="_on_body_entered"]
-[connection signal="body_exited" from="Vent/InteractionArea" to="Vent/InteractionArea" method="_on_body_exited"]
+[connection signal="area_entered" from="Locker/InteractionArea" to="Locker/InteractionArea" method="_on_area_entered"]
+[connection signal="area_exited" from="Locker/InteractionArea" to="Locker/InteractionArea" method="_on_area_exited"]
+[connection signal="area_entered" from="Helianth/InteractionArea" to="Helianth/InteractionArea" method="_on_area_entered"]
+[connection signal="area_exited" from="Helianth/InteractionArea" to="Helianth/InteractionArea" method="_on_area_exited"]
+[connection signal="area_entered" from="Vent/InteractionArea" to="Vent/InteractionArea" method="_on_area_entered"]
+[connection signal="area_exited" from="Vent/InteractionArea" to="Vent/InteractionArea" method="_on_area_exited"]
 [connection signal="body_entered" from="Vent/To_Power_Room" to="." method="_on_to_power_room_body_entered"]
 [connection signal="body_exited" from="Vent/To_Power_Room" to="." method="_on_to_power_room_body_exited"]
 [connection signal="body_entered" from="Door areas/Mess_Hall" to="." method="_on_mess_hall_body_entered"]

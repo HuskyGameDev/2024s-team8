@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://dc8fmf8bo75g5"]
+[gd_scene load_steps=15 format=3 uid="uid://dc8fmf8bo75g5"]
 
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="1_3msaw"]
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="1_8b3ki"]
 [ext_resource type="Script" path="res://Scenes/Second floor rooms/hallway_bottom.gd" id="1_qi8v7"]
 [ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="2_5ewhq"]
 [ext_resource type="Script" path="res://Inventory/Valve.gd" id="5_05wnw"]
+[ext_resource type="Texture2D" uid="uid://dpbcrop0gl3sv" path="res://Assets/valve_handle_singlesprite.png" id="6_0ny86"]
 [ext_resource type="Script" path="res://Interaction/InteractionArea.gd" id="7_og5a4"]
 [ext_resource type="Texture2D" uid="uid://ccamcmvtc2hxf" path="res://Assets/steam cloud.png" id="8_ye5xx"]
 [ext_resource type="TileSet" uid="uid://b57dw6av5xyw3" path="res://door_icon_tileset.tres" id="9_h4585"]
@@ -43,7 +44,6 @@ layer_2/name = "doors"
 layer_2/tile_data = PackedInt32Array(983049, 589824, 0, 983058, 458752, 0, 917522, 1114112, 0, 851986, 1114112, 0, 786450, 1114112, 0, 720914, 1114112, 0, 655378, 1114112, 0, 917513, 1114112, 0, 851977, 1114112, 0, 786441, 1114112, 0, 720905, 1114112, 0, 655369, 1114112, 0, 589842, 524288, 0, 589833, 262144, 0, 589834, 1048576, 0, 589835, 1048576, 0, 589836, 1048576, 0, 589837, 1048576, 0, 589838, 1048576, 0, 589839, 1048576, 0, 589840, 1048576, 0, 589841, 1048576, 0, 786445, 1245184, 0, 786446, 1245184, 0, 720912, 1114112, 0, 655376, 1114112, 0, 720907, 1114112, 0, 655371, 1114112, 0, 786448, 458752, 0, 786443, 589824, 0, 983089, 1048576, 0, 983088, 1048576, 0, 983087, 1048576, 0, 917551, 1048576, 0, 852015, 1048576, 0, 786479, 1048576, 0, 786480, 1048576, 0, 786481, 1048576, 0, 852017, 1048576, 0, 852016, 1048576, 0, 917552, 1048576, 0, 917553, 1048576, 0)
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_5ewhq")]
-visible = false
 position = Vector2(117, 134)
 
 [node name="To The Transitionary Hallway" type="Area2D" parent="."]
@@ -65,6 +65,7 @@ script = ExtResource("5_05wnw")
 
 [node name="Sprite2D" type="Sprite2D" parent="Valve"]
 texture_filter = 1
+texture = ExtResource("6_0ny86")
 
 [node name="InteractionArea" type="Area2D" parent="Valve"]
 script = ExtResource("7_og5a4")
@@ -117,5 +118,5 @@ layer_0/tile_data = PackedInt32Array(655408, 196608, 0)
 [connection signal="body_entered" from="To The Transitionary Hallway" to="." method="_on_to_the_transitionary_hallway_body_entered"]
 [connection signal="body_entered" from="To The Boiler Room" to="." method="_on_to_the_boiler_room_body_entered"]
 [connection signal="clear_fog" from="Valve" to="." method="_on_valve_clear_fog"]
-[connection signal="body_entered" from="Valve/InteractionArea" to="Valve/InteractionArea" method="_on_body_entered"]
-[connection signal="body_exited" from="Valve/InteractionArea" to="Valve/InteractionArea" method="_on_body_exited"]
+[connection signal="area_entered" from="Valve/InteractionArea" to="Valve/InteractionArea" method="_on_area_entered"]
+[connection signal="area_exited" from="Valve/InteractionArea" to="Valve/InteractionArea" method="_on_area_exited"]

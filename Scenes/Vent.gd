@@ -21,6 +21,7 @@ func _ready():
 func _on_interact():
 	const POWER_ROOM = preload("res://Scenes/Second floor rooms/power_room.tscn")
 	if PositionManager.HasCrowbar:
+		player._swap_attention()
 		PositionManager.HasOpenedVent = true
 		get_node("Sprite2D").queue_free()
 		StageManager.changeScene(POWER_ROOM, 184, 120)

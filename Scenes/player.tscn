@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://d3smthgcyvtgq"]
+[gd_scene load_steps=34 format=3 uid="uid://d3smthgcyvtgq"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_8m3b3"]
 [ext_resource type="PackedScene" uid="uid://bba3405jkew8f" path="res://Scenes/pauseMenu.tscn" id="2_li7mv"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://cq2g1m0yumyw0" path="res://Scenes/mini_map_2nd_floor.tscn" id="4_w4vrd"]
 [ext_resource type="Texture2D" uid="uid://0tik15ssrfpo" path="res://Assets/Circle.png" id="5_s0kt5"]
 [ext_resource type="Texture2D" uid="uid://cpfwdtrr57pbr" path="res://Assets/char_walk_placeholder.png" id="7_kont8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fna6c"]
+size = Vector2(10, 24)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hv4va"]
 radius = 4.0
@@ -230,11 +233,19 @@ playerSpeed = 50
 pauseMenu = ExtResource("2_li7mv")
 mini_map = ExtResource("3_si0d5")
 mini_map_2nd_floor = ExtResource("4_w4vrd")
+metadata/_edit_horizontal_guides_ = [22.0]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("7_kont8")
 hframes = 16
 frame = 8
+
+[node name="InteractionParent" type="Area2D" parent="." groups=["InteractionParent"]]
+position = Vector2(0, 2)
+
+[node name="Interaction" type="CollisionShape2D" parent="InteractionParent"]
+position = Vector2(-5, 0)
+shape = SubResource("RectangleShape2D_fna6c")
 
 [node name="World collision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 12)
@@ -269,5 +280,6 @@ position = Vector2(0, 6)
 blend_mode = 2
 texture = ExtResource("5_s0kt5")
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
+[node name="CanvasModulate" type="CanvasModulate" parent="." groups=["CanvasModulate"]]
+visible = false
 color = Color(0.247059, 0, 0, 1)

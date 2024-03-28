@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bomb67l3jcmr5"]
+[gd_scene load_steps=16 format=3 uid="uid://bomb67l3jcmr5"]
 
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="1_o3x42"]
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/pod.gd" id="1_wbejf"]
@@ -12,27 +12,15 @@
 [ext_resource type="Texture2D" uid="uid://2nn6dfmeixts" path="res://Assets/Bucket png.png" id="10_oyuoo"]
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Desk.gd" id="11_5lqc3"]
 [ext_resource type="Texture2D" uid="uid://bvoiyfjlh68dc" path="res://Assets/Desk.png" id="11_k7tda"]
-[ext_resource type="Script" path="res://Scenes/Main floor rooms/Outside.gd" id="13_6sjhu"]
-[ext_resource type="Script" path="res://Scenes/Main floor rooms/DogPoster.gd" id="13_pfkp1"]
-[ext_resource type="Texture2D" uid="uid://cv83tob1b1heh" path="res://Assets/Dog picture.jpg" id="14_y3s47"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wekmh"]
 size = Vector2(24, 5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_amobr"]
-size = Vector2(17, 21)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6s73v"]
-size = Vector2(17, 20)
+size = Vector2(17, 29)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c1qwr"]
-size = Vector2(34, 12)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ctkce"]
-size = Vector2(30, 17)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_j3y1k"]
-size = Vector2(16, 13)
+size = Vector2(34, 18)
 
 [node name="Pod" type="Node2D"]
 script = ExtResource("1_wbejf")
@@ -59,7 +47,7 @@ transform = Transform2D(0.16, 0, 0, 0.16, 0, 0)
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("5_njgdq")]
 z_index = 1
-position = Vector2(121, 126)
+position = Vector2(202, 128)
 
 [node name="To_Hall" type="Area2D" parent="."]
 
@@ -72,7 +60,7 @@ scale = Vector2(5, 5)
 transform = Transform2D(5, 0, 0, 5, 0, 0)
 
 [node name="Chair" type="Node2D" parent="."]
-position = Vector2(185, 117)
+position = Vector2(185, 116)
 script = ExtResource("6_vnppr")
 
 [node name="Sprite2D" type="Sprite2D" parent="Chair"]
@@ -83,7 +71,7 @@ texture = ExtResource("7_7hqdr")
 script = ExtResource("8_6muee")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chair/InteractionArea"]
-position = Vector2(0.5, -4.5)
+position = Vector2(0.5, -0.5)
 shape = SubResource("RectangleShape2D_amobr")
 
 [node name="Bucket" type="Node2D" parent="."]
@@ -98,11 +86,10 @@ texture = ExtResource("10_oyuoo")
 script = ExtResource("8_6muee")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bucket/InteractionArea"]
-position = Vector2(-0.5, 0)
-shape = SubResource("RectangleShape2D_6s73v")
+shape = SubResource("RectangleShape2D_c1qwr")
 
 [node name="Desk" type="Node2D" parent="."]
-position = Vector2(215, 119)
+position = Vector2(216, 120)
 script = ExtResource("11_5lqc3")
 
 [node name="Sprite2D" type="Sprite2D" parent="Desk"]
@@ -113,44 +100,14 @@ texture = ExtResource("11_k7tda")
 script = ExtResource("8_6muee")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Desk/InteractionArea"]
-position = Vector2(0, -4)
+position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_c1qwr")
-
-[node name="DogPoster" type="Node2D" parent="."]
-position = Vector2(111, 94)
-script = ExtResource("13_pfkp1")
-
-[node name="Sprite2D" type="Sprite2D" parent="DogPoster"]
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("14_y3s47")
-
-[node name="InteractionArea" type="Area2D" parent="DogPoster"]
-script = ExtResource("8_6muee")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DogPoster/InteractionArea"]
-position = Vector2(0, -1.5)
-shape = SubResource("RectangleShape2D_ctkce")
-
-[node name="Outside" type="Node2D" parent="."]
-position = Vector2(164, 93)
-script = ExtResource("13_6sjhu")
-
-[node name="InteractionArea" type="Area2D" parent="Outside"]
-script = ExtResource("8_6muee")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Outside/InteractionArea"]
-position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_j3y1k")
 
 [connection signal="body_entered" from="To_Hall" to="." method="_on_to_hall_body_entered"]
 [connection signal="body_exited" from="To_Hall" to="." method="_on_to_hall_body_exited"]
-[connection signal="area_entered" from="Chair/InteractionArea" to="Chair/InteractionArea" method="_on_area_entered"]
-[connection signal="area_exited" from="Chair/InteractionArea" to="Chair/InteractionArea" method="_on_area_exited"]
-[connection signal="area_entered" from="Bucket/InteractionArea" to="Bucket/InteractionArea" method="_on_area_entered"]
-[connection signal="area_exited" from="Bucket/InteractionArea" to="Bucket/InteractionArea" method="_on_area_exited"]
-[connection signal="area_entered" from="Desk/InteractionArea" to="Desk/InteractionArea" method="_on_area_entered"]
-[connection signal="area_exited" from="Desk/InteractionArea" to="Desk/InteractionArea" method="_on_area_exited"]
-[connection signal="area_entered" from="DogPoster/InteractionArea" to="DogPoster/InteractionArea" method="_on_area_entered"]
-[connection signal="area_exited" from="DogPoster/InteractionArea" to="DogPoster/InteractionArea" method="_on_area_exited"]
-[connection signal="area_entered" from="Outside/InteractionArea" to="Outside/InteractionArea" method="_on_area_entered"]
-[connection signal="area_exited" from="Outside/InteractionArea" to="Outside/InteractionArea" method="_on_area_exited"]
+[connection signal="body_entered" from="Chair/InteractionArea" to="Chair/InteractionArea" method="_on_body_entered"]
+[connection signal="body_exited" from="Chair/InteractionArea" to="Chair/InteractionArea" method="_on_body_exited"]
+[connection signal="body_entered" from="Bucket/InteractionArea" to="Bucket/InteractionArea" method="_on_body_entered"]
+[connection signal="body_exited" from="Bucket/InteractionArea" to="Bucket/InteractionArea" method="_on_body_exited"]
+[connection signal="body_entered" from="Desk/InteractionArea" to="Desk/InteractionArea" method="_on_body_entered"]
+[connection signal="body_exited" from="Desk/InteractionArea" to="Desk/InteractionArea" method="_on_body_exited"]

@@ -5,6 +5,8 @@ extends CharacterBody2D
 @onready var lights = $CanvasModulate
 @onready var animationState = animationTree.get("parameters/playback")
 @onready var objectiveMenu = preload("res://Scripts/ObjectivesMenu.tscn")
+@onready var InteractionParent = get_tree().get_first_node_in_group("InteractionParent")
+@onready var CanvasModulateObject = get_tree().get_first_node_in_group("CanvasModulate")
 @export var playerSpeed = 350
 @export var pauseMenu : PackedScene
 @export var mini_map : PackedScene
@@ -75,20 +77,27 @@ func _physics_process(delta):
 	velocity = Vector2.ZERO
 	move_and_collide(velocity)
 	if hasAttention:
-		if Input.is_action_pressed("RIGHT"):
-			velocity.x += 1
-	
-		if Input.is_action_pressed("LEFT"):
-			velocity.x -= 1
-			
-		if onStairs:
-			velocity = velocity.rotated((PI)/4)
-			
 		if Input.is_action_pressed("DOWN"):
 			velocity.y += 1
+			InteractionParent.rotation_degrees = 270
+			InteractionParent.get_child(0).rotation_degrees = 270
 			
 		if Input.is_action_pressed("UP"):
 			velocity.y -= 1
+			InteractionParent.rotation_degrees = 90
+			InteractionParent.get_child(0).rotation_degrees = 90
+			
+		if Input.is_action_pressed("RIGHT"):
+			velocity.x += 1
+			InteractionParent.rotation_degrees = 180
+			InteractionParent.get_child(0).rotation_degrees = 180
+	
+		if Input.is_action_pressed("LEFT"):
+			velocity.x -= 1
+			InteractionParent.rotation_degrees = 0
+			InteractionParent.get_child(0).rotation_degrees = 0
+		if onStairs:
+			velocity = velocity.rotated((PI)/4)
 			
 			
 		if velocity != Vector2.ZERO:
