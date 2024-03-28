@@ -14,6 +14,8 @@ func _ready():
 	InteractionManager.can_interact = false
 	for n in range(0,5):
 		PositionManager.comboCode[n] = randi_range(0,9)
+	for n in range(0,3):
+		PositionManager.valveCode[n] = randi_range(1,23)
 	DialogManager.start_dialog(global_position, lines, speech_sound, false, true)
 	await DialogManager.dialog_finished
 	InteractionManager.can_interact = true

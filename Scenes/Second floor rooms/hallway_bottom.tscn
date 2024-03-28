@@ -74,7 +74,6 @@ script = ExtResource("7_og5a4")
 shape = SubResource("CircleShape2D_vyf68")
 
 [node name="Fog" type="Node2D" parent="." groups=["Fog"]]
-visible = false
 position = Vector2(268, 150)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Fog"]

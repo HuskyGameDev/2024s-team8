@@ -15,9 +15,9 @@ extends Control
 @onready var ArrowArray = [Arrow1, Arrow2, Arrow3]
 @onready var index = 0
 
-var Valve1Solution = 135
-var Valve2Solution = 90
-var Valve3Solution = 45
+var Valve1Solution = PositionManager.valveCode[0] * 15
+var Valve2Solution = PositionManager.valveCode[1] * 15
+var Valve3Solution = PositionManager.valveCode[2] * 15
 
 signal completed()
 
