@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dry0m61no3mts"]
+[gd_scene load_steps=13 format=3 uid="uid://dry0m61no3mts"]
 
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/command_deck.gd" id="1_4wny3"]
 [ext_resource type="PackedScene" uid="uid://ny55otxbs0t" path="res://Scenes/tile_map.tscn" id="1_ofowq"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="5_g7xgl"]
 [ext_resource type="Texture2D" uid="uid://b0wp5jn5h8v82" path="res://Assets/command_deck_tiles.png" id="5_sbqnq"]
 [ext_resource type="PackedScene" uid="uid://ca1eqme7qndxw" path="res://Scenes/background.tscn" id="7_4vhpv"]
+[ext_resource type="PackedScene" uid="uid://bwmuhr4im6pbt" path="res://Interaction/InteractionArea.tscn" id="8_gcic5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hdvmr"]
 texture = ExtResource("5_sbqnq")
@@ -42,6 +43,9 @@ sources/0 = SubResource("TileSetAtlasSource_hdvmr")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t3868"]
 size = Vector2(22.6274, 8.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wv1o1"]
+size = Vector2(14.5874, 3.87129)
 
 [node name="Command_Deck" type="Node2D"]
 script = ExtResource("1_4wny3")
@@ -85,6 +89,16 @@ position = Vector2(152, 136)
 [node name="ParallaxBackground" parent="." instance=ExtResource("7_4vhpv")]
 scale = Vector2(0.16, 0.16)
 transform = Transform2D(0.16, 0, 0, 0.16, 0, 0)
+
+[node name="InteractionArea" parent="." instance=ExtResource("8_gcic5")]
+position = Vector2(0, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(41.9059, 39.2978)
+rotation = 0.872665
+scale = Vector2(1, 1)
+skew = -0.698132
+shape = SubResource("RectangleShape2D_wv1o1")
 
 [connection signal="body_entered" from="Door" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Door" to="." method="_on_area_2d_body_exited"]

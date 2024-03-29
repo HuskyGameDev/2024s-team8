@@ -576,6 +576,7 @@ offset_right = 343.0
 offset_bottom = 359.0
 
 [node name="Door2" type="ColorRect" parent="Background/Rooms/Airlock"]
+layout_mode = 0
 offset_left = 94.0
 offset_top = 40.0
 offset_right = 103.0
