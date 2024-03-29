@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://coj1u2mipsnim"]
 
 [ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="1_blpm0"]
-[ext_resource type="Script" path="res://Inventory/Crowbar.gd" id="2_13td0"]
+[ext_resource type="Script" path="res://Scenes/Main floor rooms/Supply Closet/Crowbar.gd" id="2_13td0"]
 [ext_resource type="Texture2D" uid="uid://dlxwkt4n4n5to" path="res://Inventory/R.png" id="2_x51pv"]
 [ext_resource type="PackedScene" uid="uid://bwmuhr4im6pbt" path="res://Interaction/InteractionArea.tscn" id="3_txqm4"]
 [ext_resource type="Texture2D" uid="uid://cbkwbxfsg6u7q" path="res://Inventory/Vent.png" id="5_2clci"]

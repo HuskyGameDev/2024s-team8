@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://btlfhan4hgpoi"]
+
+[ext_resource type="Script" path="res://Scenes/Main floor rooms/Supply Closet/MrCleanAnimation.gd" id="1_cfe08"]
+[ext_resource type="Texture2D" uid="uid://b5xruj8go3atr" path="res://Assets/menu_button_dark.png" id="2_syjbi"]
+[ext_resource type="Texture2D" uid="uid://dtugpa5aijeph" path="res://Assets/Mr Clean PNG.png" id="3_nfxtx"]
+[ext_resource type="Texture2D" uid="uid://c41lwpo8o5jo5" path="res://Assets/Mr Clean Winking.png" id="4_a7ffh"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_7hbq6"]
+normal_texture = ExtResource("2_syjbi")
+
+[node name="MrClean" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_cfe08")
+
+[node name="Background" type="TextureRect" parent="."]
+self_modulate = Color(0.501961, 0.501961, 0.501961, 1)
+z_index = -1
+layout_mode = 2
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = SubResource("CanvasTexture_7hbq6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(802, 439)
+scale = Vector2(3, 3)
+texture = ExtResource("3_nfxtx")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." groups=["MrCleanWink"]]
+visible = false
+z_as_relative = false
+position = Vector2(1186, 461.557)
+scale = Vector2(3.505, 3.64211)
+texture = ExtResource("4_a7ffh")

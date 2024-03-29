@@ -80,7 +80,7 @@ func _on_bunks_body_exited(_body):
 	pass # Replace with function body.
 
 func _on_supply_closet_body_entered(body):
-	const SUPPLY = preload("res://Scenes/Main floor rooms/supply_closet.tscn")
+	const SUPPLY = preload("res://Scenes/Main floor rooms/Supply Closet/supply_closet.tscn")
 	if body.name == "Player" && HasLeft:
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false)
