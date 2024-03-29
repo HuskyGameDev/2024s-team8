@@ -41,6 +41,7 @@ color = Color(0.270588, 0.290196, 0.333333, 1)
 
 [node name="Outline" type="CanvasLayer" parent="Background/Rooms/Pod"]
 layer = 2
+visible = false
 offset = Vector2(0, -100)
 transform = Transform2D(1, 0, 0, 1, 0, -100)
 
@@ -130,6 +131,7 @@ horizontal_alignment = 1
 
 [node name="Outline" type="CanvasLayer" parent="Background/Rooms/Bunks"]
 layer = 2
+visible = false
 
 [node name="left" type="ColorRect" parent="Background/Rooms/Bunks/Outline"]
 offset_left = 377.0
@@ -191,6 +193,7 @@ horizontal_alignment = 1
 
 [node name="Outline" type="CanvasLayer" parent="Background/Rooms/Command_Deck"]
 layer = 2
+visible = false
 
 [node name="left" type="ColorRect" parent="Background/Rooms/Command_Deck/Outline"]
 offset_left = 1445.0
@@ -252,6 +255,7 @@ horizontal_alignment = 1
 
 [node name="Outline" type="CanvasLayer" parent="Background/Rooms/Stairs"]
 layer = 2
+visible = false
 
 [node name="left" type="ColorRect" parent="Background/Rooms/Stairs/Outline"]
 offset_left = 790.0
@@ -312,6 +316,7 @@ horizontal_alignment = 1
 
 [node name="Outline" type="CanvasLayer" parent="Background/Rooms/Research"]
 layer = 2
+visible = false
 
 [node name="left" type="ColorRect" parent="Background/Rooms/Research/Outline"]
 offset_left = 877.0
@@ -375,6 +380,7 @@ horizontal_alignment = 1
 
 [node name="Outline" type="CanvasLayer" parent="Background/Rooms/Supply"]
 layer = 2
+visible = false
 
 [node name="left" type="ColorRect" parent="Background/Rooms/Supply/Outline"]
 offset_left = 1255.0
@@ -418,6 +424,7 @@ color = Color(0.270588, 0.290196, 0.333333, 1)
 
 [node name="Outline" type="CanvasLayer" parent="Background/Rooms/Main_Hall"]
 layer = 2
+visible = false
 
 [node name="left" type="ColorRect" parent="Background/Rooms/Main_Hall/Outline"]
 offset_left = 157.0
@@ -499,6 +506,7 @@ horizontal_alignment = 1
 
 [node name="Outline" type="CanvasLayer" parent="Background/Rooms/Mess_Hall"]
 layer = 2
+visible = false
 
 [node name="left" type="ColorRect" parent="Background/Rooms/Mess_Hall/Outline"]
 offset_left = 299.0
@@ -550,6 +558,7 @@ text = "Airlock"
 
 [node name="Outline" type="CanvasLayer" parent="Background/Rooms/Airlock"]
 layer = 2
+visible = false
 
 [node name="left" type="ColorRect" parent="Background/Rooms/Airlock/Outline"]
 offset_left = 164.0

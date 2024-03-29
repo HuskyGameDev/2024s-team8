@@ -1,15 +1,16 @@
 extends Control
 
 func _ready():
-	hideAll()
-	#if StageManager.scene_change == true:
-		#hideAll()
+	if StageManager.scene_change == true:
+		hideAll()
 
 func _process(_delta):
 	if Input.is_action_just_pressed("MAP") or Input.is_action_just_pressed("MENU"):
 		queue_free()
 	var currentScene = get_tree().current_scene.name
+	#print(currentScene)
 	sceneChecker(currentScene)
+	print(PositionManager.PrevPosition)
 	
 	
 func sceneChecker(node):
@@ -27,8 +28,10 @@ func sceneChecker(node):
 		get_node("Background/Rooms/Stairs/Outline").show()
 	elif node == "Supply_Closet":
 		get_node("Background/Rooms/Supply/Outline").show()
-	elif node == "airlock":
+	elif node == "Airlock":
 		get_node("Background/Rooms/Airlock/Outline").show()
+	elif node == "Pod":
+		get_node("Background/Rooms/Pod/Outline").show()
 
 func hideAll():
 	get_node("Background/Rooms/Main_Hall/Outline").hide()

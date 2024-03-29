@@ -18,7 +18,7 @@ func _ready():
 
 func _on_interact():
 	const POWER_ROOM = preload("res://Scenes/Second floor rooms/power_room.tscn")
-	if PositionManager.HasCrowbar:
+	if PositionManager.HasCrowbar && get_node("Sprite2D") != null: #runs if not queue_free() and player has crowbar
 		player._swap_attention()
 		PositionManager.HasOpenedVent = true
 		get_node("Sprite2D").queue_free()
@@ -27,7 +27,7 @@ func _on_interact():
 		StageManager.scene_change = true
 		StageManager.on_first_floor = false
 		PositionManager.PrevPosition = Vector2(220, 130)
-	else:
+	elif(!PositionManager.HasCrowbar):#runs if player doesn't have crowbar
 		player._swap_attention()
 		DialogManager.start_dialog(global_position, lines, speech_sound, false)
 		await DialogManager.dialog_finished

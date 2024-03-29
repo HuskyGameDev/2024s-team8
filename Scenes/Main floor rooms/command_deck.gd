@@ -11,19 +11,16 @@ func _ready():
 func _process(_delta):
 	pass
 
-
-func _on_area_2d_body_entered(_body):
-	const HALLWAY_MAIN = preload("res://Scenes/Main floor rooms/Main Hall/hallway_main.tscn")
-	if HasLeft:
-		$Player.hasAttention = false
-		$Player/AnimationTree.set("active", false)
-		StageManager.changeScene(HALLWAY_MAIN, 442, 131)
-		StageManager.changeCamera(488)
-		StageManager.scene_change = true
-
-
-func _on_area_2d_body_exited(_body):
-	HasLeft = true
 	
 func _on_interact():
-	print("balls")
+	print("working")
+
+
+func _on_door_body_entered(body):
+	const HALLWAY_MAIN = preload("res://Scenes/Main floor rooms/Main Hall/hallway_main.tscn")
+	if body.name == "Player":
+		$Player.hasAttention = false
+		$Player/AnimationTree.set("active", false)
+		StageManager.changeScene(HALLWAY_MAIN, 449, 138)
+		StageManager.changeCamera(488)
+		StageManager.scene_change = true
