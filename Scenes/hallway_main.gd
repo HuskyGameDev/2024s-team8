@@ -116,12 +116,18 @@ func _on_stairs_body_exited(body):
 func _on_bridge_body_entered(body):
 	const COMMAND_DECK = preload("res://Scenes/Main floor rooms/command_deck.tscn")
 	if body.name == "Player" && HasLeft:
-		$Player.hasAttention = false
-		$Player/AnimationTree.set("active", false)
-		PositionManager.PrevPosition = body.global_position
-		StageManager.changeScene(COMMAND_DECK, 144, 128)
-		StageManager.changeCamera(304)
-		StageManager.scene_change = true
+		if PositionManager.Act != 1:
+			$Player.hasAttention = false
+			$Player/AnimationTree.set("active", false)
+			PositionManager.PrevPosition = body.global_position
+			StageManager.changeScene(COMMAND_DECK, 144, 128)
+			StageManager.changeCamera(304)
+			StageManager.scene_change = true
+		else: #Command deck locked for first act 
+			Player._swap_attention()
+			DialogManager.start_dialog(global_position, lines, speech_sound, false)
+			await DialogManager.dialog_finished
+			Player._swap_attention()
 
 
 func _on_bridge_body_exited(body):

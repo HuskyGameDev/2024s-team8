@@ -11,8 +11,6 @@ const lines: Array[String] = [
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if PositionManager.Act != 1:
-		get_node("Sprite2D").queue_free()
 	interaction_area.interact = Callable(self, "_on_interact")
 	if PositionManager.HasOpenedVent == true:
 		get_node("Sprite2D").queue_free()

@@ -155,9 +155,8 @@ size = Vector2(24, 5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rryx7"]
 size = Vector2(24, 4)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wm2uj"]
-radius = 13.0
-height = 34.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_inxuc"]
+size = Vector2(22.6274, 7)
 
 [node name="hallway_main" type="Node2D"]
 script = ExtResource("1_uyxqv")
@@ -377,8 +376,10 @@ shape = SubResource("RectangleShape2D_rryx7")
 [node name="Bridge" type="Area2D" parent="Door areas"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door areas/Bridge"]
-position = Vector2(471, 127)
-shape = SubResource("CapsuleShape2D_wm2uj")
+position = Vector2(464, 141)
+rotation = 0.785398
+skew = -0.785398
+shape = SubResource("RectangleShape2D_inxuc")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." groups=["CanvasLayer"]]
 scale = Vector2(5, 5)
