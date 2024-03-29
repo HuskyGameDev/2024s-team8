@@ -54,7 +54,7 @@ script = ExtResource("6_etdjv")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Security Button/InteractionArea"]
 shape = SubResource("CircleShape2D_bqamd")
 
-[node name="Player" parent="." instance=ExtResource("3_eq2ah")]
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("3_eq2ah")]
 position = Vector2(204, 146)
 
 [connection signal="body_entered" from="To Top Hallway" to="." method="_on_to_top_hallway_body_entered"]
