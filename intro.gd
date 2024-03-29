@@ -24,7 +24,7 @@ func _ready():
 
 func _process(delta):
 	if Input.is_action_just_pressed("MENU"):
-		const POD = preload("res://Scenes/Main floor rooms/pod.tscn")
+		const POD = preload("res://Scenes/Main floor rooms/Pod/pod.tscn")
 		
 		# Plays act 1 music if intro is skipped
 		GlobalAudioManager.play_act1_music()
@@ -33,7 +33,7 @@ func _process(delta):
 		StageManager.changeCamera(304)
 	
 func _on_animation_player_animation_finished(_anim_name):
-	const POD = preload("res://Scenes/Main floor rooms/pod.tscn")
+	const POD = preload("res://Scenes/Main floor rooms/Pod/pod.tscn")
 	
 	# Plays act 1 music once intro animation finishes
 	GlobalAudioManager.play_act1_music()

@@ -8,12 +8,12 @@ var on_first_floor = true
 func _ready():
 	get_node("ColorRect").hide()
 
-func _process(delta):
+func _process(_delta):
 	if scene_change == true:
 		scene_change == false
 
 func changeScene(stage_next, x, y):
-	var stage = stage_next.instantiate()
+	var _stage = stage_next.instantiate()
 	
 	player_position = Vector2(x, y)
 	

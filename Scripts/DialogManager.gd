@@ -20,7 +20,7 @@ var is_tutorial = false
 signal dialog_finished()
 
 
-func start_dialog(position: Vector2, lines: Array[String], speech_sfx: AudioStream, 
+func start_dialog(_position: Vector2, lines: Array[String], speech_sfx: AudioStream, 
 	interactable := false, automated := false, tutorial := false):
 	
 	if is_dialog_active:
@@ -46,7 +46,7 @@ func show_text_box():
 func on_text_box_finished_displaying():
 	can_advance_line = true
 
-func _process(delta):
+func _process(_delta):
 	if is_automated && is_dialog_active && can_advance_line:
 		can_advance_line = false
 		await get_tree().create_timer(0.5).timeout

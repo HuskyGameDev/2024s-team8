@@ -9,13 +9,13 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 
-func _on_area_2d_body_entered(body):
+func _on_area_2d_body_entered(_body):
 	if HasLeft:
-		const HALLWAY_MAIN = preload("res://Scenes/Main floor rooms/hallway_main.tscn")
+		const HALLWAY_MAIN = preload("res://Scenes/Main floor rooms/Main Hall/hallway_main.tscn")
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false)
 		StageManager.changeScene(HALLWAY_MAIN, 442, 131)
@@ -23,6 +23,6 @@ func _on_area_2d_body_entered(body):
 		StageManager.scene_change = true
 
 
-func _on_door_to_hallway_body_exited(body):
+func _on_door_to_hallway_body_exited(_body):
 	HasLeft = true
 	pass # Replace with function body.

@@ -74,6 +74,7 @@ theme_override_fonts/font = ExtResource("4_73prb")
 theme_override_font_sizes/font_size = 30
 
 [node name="Objectives" type="VBoxContainer" parent="TabContainer"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 4
 
@@ -115,7 +116,6 @@ text = " - Leave the pod and enter the main ship.
 "
 
 [node name="Documents" type="VBoxContainer" parent="TabContainer"]
-visible = false
 layout_mode = 2
 
 [node name="Alignment" type="Label" parent="TabContainer/Documents"]

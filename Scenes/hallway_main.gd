@@ -19,7 +19,7 @@ func _ready():
  
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 
@@ -33,7 +33,7 @@ func _on_mess_hall_body_entered(body):
 		StageManager.changeCamera(304)
 		StageManager.scene_change = true
 
-func _on_mess_hall_body_exited(body):
+func _on_mess_hall_body_exited(_body):
 	HasLeft = true
 	pass # Replace with function body.
 
@@ -47,12 +47,12 @@ func _on_research_room_body_entered(body):
 		StageManager.changeCamera(304)
 		StageManager.scene_change = true
 
-func _on_research_room_body_exited(body):
+func _on_research_room_body_exited(_body):
 	HasLeft = true
 	pass # Replace with function body.
 
 func _on_pod_body_entered(body):
-	const AIRLOCK = preload("res://Scenes/Main floor rooms/airlock.tscn")
+	const AIRLOCK = preload("res://Scenes/Main floor rooms/Airlock/airlock.tscn")
 	if body.name == "Player" && HasLeft:
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false)
@@ -61,7 +61,7 @@ func _on_pod_body_entered(body):
 		StageManager.changeCamera(304)
 		StageManager.scene_change = true
 
-func _on_pod_body_exited(body):
+func _on_pod_body_exited(_body):
 	HasLeft = true
 
 
@@ -75,7 +75,7 @@ func _on_bunks_body_entered(body):
 		StageManager.changeCamera(304)
 		StageManager.scene_change = true
 		
-func _on_bunks_body_exited(body):
+func _on_bunks_body_exited(_body):
 	HasLeft = true
 	pass # Replace with function body.
 
@@ -89,7 +89,7 @@ func _on_supply_closet_body_entered(body):
 		StageManager.changeCamera(304)
 		StageManager.scene_change = true
 
-func _on_supply_closet_body_exited(body):
+func _on_supply_closet_body_exited(_body):
 	HasLeft = true
 	pass # Replace with function body.
 
@@ -109,7 +109,7 @@ func _on_stairs_body_entered(body):
 			Player._swap_attention()
 
 
-func _on_stairs_body_exited(body):
+func _on_stairs_body_exited(_body):
 	pass
 
 
@@ -130,7 +130,7 @@ func _on_bridge_body_entered(body):
 			Player._swap_attention()
 
 
-func _on_bridge_body_exited(body):
+func _on_bridge_body_exited(_body):
 	HasLeft = true
 
 

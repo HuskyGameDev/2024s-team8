@@ -20,21 +20,16 @@ func _ready():
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
 func _on_to_hall_body_entered(body):
 	if HasLeft && body.name == "Player":
 		body.hasAttention = false
 		body.set("active", false)
-		const AIRLOCK = preload("res://Scenes/Main floor rooms/airlock.tscn")
+		const AIRLOCK = preload("res://Scenes/Main floor rooms/Airlock/airlock.tscn")
 		StageManager.changeScene(AIRLOCK, 155, 110)
 		StageManager.changeCamera(304)
 		StageManager.scene_change = true
 
 
 
-func _on_to_hall_body_exited(body):
+func _on_to_hall_body_exited(_body):
 	HasLeft = true

@@ -1,20 +1,20 @@
 [gd_scene load_steps=22 format=3 uid="uid://bomb67l3jcmr5"]
 
-[ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="1_o3x42"]
-[ext_resource type="Script" path="res://Scenes/Main floor rooms/pod.gd" id="1_wbejf"]
-[ext_resource type="PackedScene" uid="uid://ca1eqme7qndxw" path="res://Scenes/background.tscn" id="2_m7dbj"]
-[ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="2_maqc2"]
-[ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="5_njgdq"]
-[ext_resource type="Script" path="res://Scenes/Main floor rooms/Chair.gd" id="6_vnppr"]
-[ext_resource type="Texture2D" uid="uid://b01eow4r4c1y5" path="res://Assets/Chair png.png" id="7_7hqdr"]
-[ext_resource type="Script" path="res://Interaction/InteractionArea.gd" id="8_6muee"]
-[ext_resource type="Script" path="res://Scenes/Main floor rooms/Bucket.gd" id="9_vxis0"]
-[ext_resource type="Texture2D" uid="uid://2nn6dfmeixts" path="res://Assets/Bucket png.png" id="10_oyuoo"]
-[ext_resource type="Script" path="res://Scenes/Main floor rooms/Desk.gd" id="11_5lqc3"]
-[ext_resource type="Texture2D" uid="uid://bvoiyfjlh68dc" path="res://Assets/Desk.png" id="11_k7tda"]
-[ext_resource type="Script" path="res://Scenes/Main floor rooms/Outside.gd" id="13_6sjhu"]
-[ext_resource type="Script" path="res://Scenes/Main floor rooms/DogPoster.gd" id="13_pfkp1"]
-[ext_resource type="Texture2D" uid="uid://cv83tob1b1heh" path="res://Assets/Dog picture.jpg" id="14_y3s47"]
+[ext_resource type="Script" path="res://Scenes/Main floor rooms/Pod/pod.gd" id="1_bvhxj"]
+[ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="2_tvsd5"]
+[ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="3_i5ylh"]
+[ext_resource type="PackedScene" uid="uid://ca1eqme7qndxw" path="res://Scenes/background.tscn" id="4_vwbbb"]
+[ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="5_pgn6b"]
+[ext_resource type="Script" path="res://Scenes/Main floor rooms/Pod/Chair.gd" id="6_mghl4"]
+[ext_resource type="Texture2D" uid="uid://b01eow4r4c1y5" path="res://Assets/Chair png.png" id="7_gkfjr"]
+[ext_resource type="Script" path="res://Interaction/InteractionArea.gd" id="8_pijyp"]
+[ext_resource type="Script" path="res://Scenes/Main floor rooms/Pod/Bucket.gd" id="9_88acc"]
+[ext_resource type="Texture2D" uid="uid://2nn6dfmeixts" path="res://Assets/Bucket png.png" id="10_agxlv"]
+[ext_resource type="Script" path="res://Scenes/Main floor rooms/Pod/Desk.gd" id="11_i2y8d"]
+[ext_resource type="Texture2D" uid="uid://bvoiyfjlh68dc" path="res://Assets/Desk.png" id="12_aay5w"]
+[ext_resource type="Script" path="res://Scenes/Main floor rooms/Pod/DogPoster.gd" id="13_u2fhw"]
+[ext_resource type="Texture2D" uid="uid://cv83tob1b1heh" path="res://Assets/Dog picture.jpg" id="14_3aiej"]
+[ext_resource type="Script" path="res://Scenes/Main floor rooms/Pod/Outside.gd" id="15_oe2i3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wekmh"]
 size = Vector2(24, 5)
@@ -35,15 +35,15 @@ size = Vector2(30, 17)
 size = Vector2(16, 13)
 
 [node name="Pod" type="Node2D"]
-script = ExtResource("1_wbejf")
+script = ExtResource("1_bvhxj")
 
 [node name="Collision" type="TileMap" parent="."]
-tile_set = ExtResource("2_maqc2")
+tile_set = ExtResource("2_tvsd5")
 format = 2
 layer_0/tile_data = PackedInt32Array(1245200, 1048577, 0, 1245199, 1048577, 0, 1245198, 1048577, 0, 1245197, 1048577, 0, 1245196, 1048577, 0, 1245195, 1048577, 0, 1245194, 1048577, 0, 1245193, 1048577, 0, 1245192, 1048577, 0, 1245191, 1048577, 0, 1245190, 1048577, 0, 1310736, 1048577, 0, 1310737, 1048577, 0, 1310738, 1048577, 0, 1310739, 1048577, 0, 1310740, 1048577, 0, 1245204, 1048577, 0, 1245205, 1048577, 0, 1245206, 1048577, 0, 1245207, 1048577, 0, 1245208, 1048577, 0, 1245209, 1048577, 0, 1245210, 1048577, 0, 1245211, 1048577, 0, 1245212, 1048577, 0, 1245213, 1048577, 0, 1245214, 1048577, 0, 1245215, 1048577, 0, 1245216, 1048577, 0, 1245189, 1048577, 0, 1179654, 524289, 0, 1114119, 524289, 0, 1048584, 524289, 0, 983049, 524289, 0, 983068, 262145, 0, 1048605, 262145, 0, 1114142, 262145, 0, 1179679, 262145, 0, 917531, 1048577, 0, 917530, 1048577, 0, 917529, 1048577, 0, 917528, 1048577, 0, 917527, 1048577, 0, 917526, 1048577, 0, 917525, 1048577, 0, 917524, 1048577, 0, 917523, 1048577, 0, 917522, 1048577, 0, 917521, 1048577, 0, 917520, 1048577, 0, 917519, 1048577, 0, 917518, 1048577, 0, 917517, 1048577, 0, 917516, 1048577, 0, 917515, 1048577, 0, 917514, 1048577, 0, 917532, 1048577, 0, 983069, 1048577, 0, 1048606, 1048577, 0, 1114143, 1048577, 0, 1179680, 1048577, 0, 917513, 1048577, 0, 983048, 1048577, 0, 1048583, 1048577, 0, 1114118, 1048577, 0, 1179653, 1048577, 0)
 
 [node name="background" type="TileMap" parent="."]
-tile_set = ExtResource("1_o3x42")
+tile_set = ExtResource("3_i5ylh")
 rendering_quadrant_size = 8
 format = 2
 layer_0/name = "background flat"
@@ -53,11 +53,11 @@ layer_1/tile_data = PackedInt32Array(131103, 851968, 0, 196638, 851968, 0, 26217
 layer_2/name = "line detail"
 layer_2/tile_data = PackedInt32Array()
 
-[node name="ParallaxBackground" parent="." instance=ExtResource("2_m7dbj")]
+[node name="ParallaxBackground" parent="." instance=ExtResource("4_vwbbb")]
 scale = Vector2(0.16, 0.16)
 transform = Transform2D(0.16, 0, 0, 0.16, 0, 0)
 
-[node name="Player" parent="." groups=["Player"] instance=ExtResource("5_njgdq")]
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("5_pgn6b")]
 z_index = 1
 position = Vector2(121, 126)
 
@@ -73,14 +73,14 @@ transform = Transform2D(5, 0, 0, 5, 0, 0)
 
 [node name="Chair" type="Node2D" parent="."]
 position = Vector2(185, 117)
-script = ExtResource("6_vnppr")
+script = ExtResource("6_mghl4")
 
 [node name="Sprite2D" type="Sprite2D" parent="Chair"]
 scale = Vector2(0.025, 0.025)
-texture = ExtResource("7_7hqdr")
+texture = ExtResource("7_gkfjr")
 
 [node name="InteractionArea" type="Area2D" parent="Chair"]
-script = ExtResource("8_6muee")
+script = ExtResource("8_pijyp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chair/InteractionArea"]
 position = Vector2(0.5, -4.5)
@@ -88,14 +88,14 @@ shape = SubResource("RectangleShape2D_amobr")
 
 [node name="Bucket" type="Node2D" parent="."]
 position = Vector2(73, 140)
-script = ExtResource("9_vxis0")
+script = ExtResource("9_88acc")
 
 [node name="Sprite2D" type="Sprite2D" parent="Bucket"]
 scale = Vector2(0.01, 0.01)
-texture = ExtResource("10_oyuoo")
+texture = ExtResource("10_agxlv")
 
 [node name="InteractionArea" type="Area2D" parent="Bucket"]
-script = ExtResource("8_6muee")
+script = ExtResource("8_pijyp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bucket/InteractionArea"]
 position = Vector2(-0.5, 0)
@@ -103,14 +103,14 @@ shape = SubResource("RectangleShape2D_6s73v")
 
 [node name="Desk" type="Node2D" parent="."]
 position = Vector2(215, 119)
-script = ExtResource("11_5lqc3")
+script = ExtResource("11_i2y8d")
 
 [node name="Sprite2D" type="Sprite2D" parent="Desk"]
 scale = Vector2(0.03, 0.03)
-texture = ExtResource("11_k7tda")
+texture = ExtResource("12_aay5w")
 
 [node name="InteractionArea" type="Area2D" parent="Desk"]
-script = ExtResource("8_6muee")
+script = ExtResource("8_pijyp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Desk/InteractionArea"]
 position = Vector2(0, -4)
@@ -118,14 +118,14 @@ shape = SubResource("RectangleShape2D_c1qwr")
 
 [node name="DogPoster" type="Node2D" parent="."]
 position = Vector2(111, 94)
-script = ExtResource("13_pfkp1")
+script = ExtResource("13_u2fhw")
 
 [node name="Sprite2D" type="Sprite2D" parent="DogPoster"]
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("14_y3s47")
+texture = ExtResource("14_3aiej")
 
 [node name="InteractionArea" type="Area2D" parent="DogPoster"]
-script = ExtResource("8_6muee")
+script = ExtResource("8_pijyp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DogPoster/InteractionArea"]
 position = Vector2(0, -1.5)
@@ -133,10 +133,10 @@ shape = SubResource("RectangleShape2D_ctkce")
 
 [node name="Outside" type="Node2D" parent="."]
 position = Vector2(164, 93)
-script = ExtResource("13_6sjhu")
+script = ExtResource("15_oe2i3")
 
 [node name="InteractionArea" type="Area2D" parent="Outside"]
-script = ExtResource("8_6muee")
+script = ExtResource("8_pijyp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Outside/InteractionArea"]
 position = Vector2(0, 1)

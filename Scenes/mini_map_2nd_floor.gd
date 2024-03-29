@@ -6,7 +6,7 @@ func _ready():
 	if StageManager.scene_change == true:
 		hideAll()
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("MAP") or Input.is_action_just_pressed("MENU"):
 		queue_free()
 	var currentScene = get_tree().current_scene.name

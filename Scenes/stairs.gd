@@ -9,7 +9,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 
@@ -18,7 +18,7 @@ func _on_to_first_floor_body_entered(body):
 	if body.name == "Player":
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false)
-		const HALLWAY_MAIN = preload("res://Scenes/Main floor rooms/hallway_main.tscn")
+		const HALLWAY_MAIN = preload("res://Scenes/Main floor rooms/Main Hall/hallway_main.tscn")
 		StageManager.changeScene(HALLWAY_MAIN, 220, 130)
 		StageManager.changeCamera(488)
 		StageManager.scene_change = true
@@ -36,12 +36,12 @@ func _on_to_second_floor_body_entered(body):
 		StageManager.on_first_floor == false
 
 
-func _on_starea_body_entered(body):
+func _on_starea_body_entered(_body):
 	if once:
 		$Player.onStairs = true;
 	else:
 		once = !once
 
 
-func _on_starea_body_exited(body):
+func _on_starea_body_exited(_body):
 	$Player.onStairs = false

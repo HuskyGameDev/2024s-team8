@@ -11,4 +11,6 @@ var Act = 1
 var comboCode := [0,0,0,0,0]
 var valveCode := [9,6,3]
 var HasOpenedTutorial = false
+var OpenedAirlock = false
+
 
