@@ -32,7 +32,6 @@ func display_text(text_to_display: String, speech_sfx: AudioStream):
 		await resized
 		custom_minimum_size.y = size.y
 	
-	global_position.x += 64
 	label.text = ""
 	display_letter()
 

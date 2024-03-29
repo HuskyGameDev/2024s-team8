@@ -7,7 +7,8 @@
 [node name="TextBox" type="MarginContainer"]
 z_index = 5
 texture_filter = 1
-offset_right = 43.0
+offset_left = 64.0
+offset_right = 107.0
 offset_bottom = 25.0
 script = ExtResource("1_8yphy")
 

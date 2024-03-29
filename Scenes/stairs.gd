@@ -22,7 +22,7 @@ func _on_to_first_floor_body_entered(body):
 		StageManager.changeScene(HALLWAY_MAIN, 220, 130)
 		StageManager.changeCamera(488)
 		StageManager.scene_change = true
-		StageManager.on_first_floor == true
+		StageManager.on_first_floor = true
 
 
 func _on_to_second_floor_body_entered(body):
@@ -33,7 +33,7 @@ func _on_to_second_floor_body_entered(body):
 		StageManager.changeScene(HALL, 213, 121)
 		StageManager.changeCamera(488)
 		StageManager.scene_change = true
-		StageManager.on_first_floor == false
+		StageManager.on_first_floor = false
 
 
 func _on_starea_body_entered(_body):

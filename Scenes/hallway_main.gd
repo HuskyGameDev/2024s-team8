@@ -2,9 +2,14 @@ extends Node2D
 
 @onready var Player = get_node("Player")
 @onready var speech_sound = preload("res://Assets/voice_sans.mp3")
+@onready var speech_sound2 = preload("res://Assets/Dialogue blip5.mp3")
 
 const lines: Array[String] = [
 	"This door is locked! I must find another way to reach the second floor."
+]
+
+const lines2: Array[String] = [
+	"This door is locked!"
 ]
 
 var HasLeft = true
@@ -24,7 +29,7 @@ func _process(_delta):
 
 
 func _on_mess_hall_body_entered(body):
-	const MESS = preload("res://Scenes/Main floor rooms/mess_hall.tscn")
+	const MESS = preload("res://Scenes/Main floor rooms/Mess Hall/mess_hall.tscn")
 	if body.name == "Player" && HasLeft:
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false)
@@ -125,7 +130,7 @@ func _on_bridge_body_entered(body):
 			StageManager.scene_change = true
 		else: #Command deck locked for first act 
 			Player._swap_attention()
-			DialogManager.start_dialog(global_position, lines, speech_sound, false)
+			DialogManager.start_dialog(global_position, lines2, speech_sound2, false)
 			await DialogManager.dialog_finished
 			Player._swap_attention()
 

@@ -22,7 +22,7 @@ func _ready():
 	
 	
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("MENU"):
 		const POD = preload("res://Scenes/Main floor rooms/Pod/pod.tscn")
 		

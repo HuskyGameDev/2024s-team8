@@ -67,7 +67,7 @@ script = ExtResource("7_j4w0r")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wrench/InteractionArea"]
 shape = SubResource("CircleShape2D_b6m7c")
 
-[node name="Broom" type="Node2D" parent="." groups=["Crowbar"]]
+[node name="Broom" type="Node2D" parent="."]
 position = Vector2(134, 100)
 script = ExtResource("8_ivf7p")
 
@@ -84,7 +84,7 @@ script = ExtResource("7_j4w0r")
 position = Vector2(-0.75, -1)
 shape = SubResource("RectangleShape2D_s2qle")
 
-[node name="Mr_Clean" type="Node2D" parent="." groups=["Crowbar"]]
+[node name="Mr_Clean" type="Node2D" parent="."]
 position = Vector2(204, 101)
 script = ExtResource("10_vtnkg")
 

@@ -10,7 +10,7 @@ func _ready():
 
 func _process(_delta):
 	if scene_change == true:
-		scene_change == false
+		scene_change = false
 
 func changeScene(stage_next, x, y):
 	var _stage = stage_next.instantiate()

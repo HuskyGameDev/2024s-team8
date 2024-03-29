@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://34w5h6a27u0w"]
+[gd_scene load_steps=16 format=3 uid="uid://34w5h6a27u0w"]
 
 [ext_resource type="PackedScene" uid="uid://ny55otxbs0t" path="res://Scenes/tile_map.tscn" id="1_hwk40"]
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/bunks.gd" id="1_uttu1"]
@@ -6,6 +6,8 @@
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="2_ppfll"]
 [ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="3_6cqsx"]
 [ext_resource type="Texture2D" uid="uid://dpakxqjcwsx3s" path="res://Assets/bunk_tiles.png" id="5_1d6nq"]
+[ext_resource type="Script" path="res://Scenes/Main floor rooms/Bed.gd" id="7_06b1p"]
+[ext_resource type="Script" path="res://Interaction/InteractionArea.gd" id="8_jj0ge"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_emwc2"]
 texture = ExtResource("5_1d6nq")
@@ -205,6 +207,18 @@ sources/0 = SubResource("TileSetAtlasSource_emwc2")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ev6vh"]
 size = Vector2(24, 6)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ukpfj"]
+size = Vector2(22.2171, 24.0015)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rsrhm"]
+size = Vector2(21, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r6neu"]
+size = Vector2(21.477, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oxwhd"]
+size = Vector2(22.9276, 25.5279)
+
 [node name="Bunks" type="Node2D"]
 script = ExtResource("1_uttu1")
 
@@ -228,7 +242,7 @@ tile_set = SubResource("TileSet_t474c")
 format = 2
 layer_0/tile_data = PackedInt32Array(917510, 262144, 0, 983046, 655360, 0, 917511, 327680, 0, 983047, 720896, 0, 1048583, 131072, 0, 851976, 196608, 0, 917512, 393216, 0, 983048, 786432, 0, 1048584, 131072, 0, 851977, 0, 0, 917513, 458752, 0, 983049, 65536, 0, 1048585, 131072, 0, 851978, 0, 0, 917514, 524288, 0, 983050, 851968, 0, 1048586, 983040, 0, 851979, 0, 0, 917515, 589824, 0, 983051, 917504, 0, 917517, 1048576, 0, 983053, 1376256, 0, 917518, 1114112, 0, 983054, 1441792, 0, 1048590, 131072, 0, 851983, 0, 0, 917519, 1179648, 0, 983055, 65536, 0, 1048591, 131072, 0, 851984, 0, 0, 917520, 1245184, 0, 983056, 65536, 0, 1048592, 131072, 0, 851985, 0, 0, 917521, 1310720, 0, 983057, 1507328, 0, 1048593, 1572864, 0, 851988, 0, 0, 917524, 2752512, 0, 983060, 2949120, 0, 1048596, 3014656, 0, 851989, 0, 0, 917525, 2686976, 0, 983061, 65536, 0, 1048597, 131072, 0, 851990, 0, 0, 917526, 2621440, 0, 983062, 65536, 0, 1048598, 131072, 0, 917527, 2555904, 0, 983063, 2883584, 0, 1048599, 131072, 0, 917528, 2490368, 0, 983064, 2818048, 0, 851994, 0, 0, 917530, 2031616, 0, 983066, 2359296, 0, 851995, 0, 0, 917531, 1966080, 0, 983067, 2293760, 0, 1048603, 2424832, 0, 851996, 0, 0, 917532, 1900544, 0, 983068, 65536, 0, 1048604, 131072, 0, 851997, 1638400, 0, 917533, 1835008, 0, 983069, 2228224, 0, 1048605, 131072, 0, 917534, 1769472, 0, 983070, 2162688, 0, 1048606, 131072, 0, 917535, 1703936, 0, 983071, 2097152, 0)
 
-[node name="Player" parent="." instance=ExtResource("3_6cqsx")]
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("3_6cqsx")]
 position = Vector2(243, 152)
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -237,5 +251,38 @@ position = Vector2(243, 152)
 position = Vector2(244, 165)
 shape = SubResource("RectangleShape2D_ev6vh")
 
+[node name="Bed" type="Node2D" parent="."]
+position = Vector2(75, 120)
+script = ExtResource("7_06b1p")
+
+[node name="InteractionArea" type="Area2D" parent="Bed"]
+script = ExtResource("8_jj0ge")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bed/InteractionArea"]
+position = Vector2(1.34295, -0.286064)
+skew = 0.820305
+shape = SubResource("RectangleShape2D_ukpfj")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Bed/InteractionArea"]
+position = Vector2(53.977, -1)
+skew = 0.445059
+shape = SubResource("RectangleShape2D_rsrhm")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Bed/InteractionArea"]
+position = Vector2(100.262, 0)
+skew = -0.445059
+shape = SubResource("RectangleShape2D_r6neu")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Bed/InteractionArea"]
+position = Vector2(152, -2.98023e-08)
+skew = -0.820305
+shape = SubResource("RectangleShape2D_oxwhd")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." groups=["CanvasLayer"]]
+scale = Vector2(5, 5)
+transform = Transform2D(5, 0, 0, 5, 0, 0)
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="area_entered" from="Bed/InteractionArea" to="Bed/InteractionArea" method="_on_area_entered"]
+[connection signal="area_exited" from="Bed/InteractionArea" to="Bed/InteractionArea" method="_on_area_exited"]
