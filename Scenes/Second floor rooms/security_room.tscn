@@ -1,12 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://dc66p0riko4pb"]
+[gd_scene load_steps=10 format=3 uid="uid://dc66p0riko4pb"]
 
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="1_4v5m3"]
 [ext_resource type="Script" path="res://Scenes/Second floor rooms/security_room.gd" id="1_tbgio"]
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="2_ekstw"]
 [ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="3_eq2ah"]
+[ext_resource type="Texture2D" uid="uid://c14b6i1lnm1sj" path="res://Assets/Button.png" id="5_exwsh"]
+[ext_resource type="Script" path="res://Scenes/Second floor rooms/Security Button.gd" id="5_wnp5u"]
+[ext_resource type="Script" path="res://Interaction/InteractionArea.gd" id="6_etdjv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v05b3"]
 size = Vector2(24, 4)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bqamd"]
+radius = 12.0
 
 [node name="Security_Room" type="Node2D"]
 script = ExtResource("1_tbgio")
@@ -26,9 +32,6 @@ layer_1/tile_data = PackedInt32Array(327707, 851968, 0, 983067, 458752, 0, 26217
 layer_2/name = "doors"
 layer_2/tile_data = PackedInt32Array(1310744, 1245184, 0, 1310745, 1245184, 0, 1310746, 1245184, 0)
 
-[node name="Player" parent="." instance=ExtResource("3_eq2ah")]
-position = Vector2(204, 146)
-
 [node name="To Top Hallway" type="Area2D" parent="."]
 position = Vector2(204, 164)
 
@@ -36,5 +39,25 @@ position = Vector2(204, 164)
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_v05b3")
 
+[node name="Security Button" type="Node2D" parent="."]
+position = Vector2(160, 128)
+script = ExtResource("5_wnp5u")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Security Button"]
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("5_exwsh")
+
+[node name="InteractionArea" type="Area2D" parent="Security Button"]
+script = ExtResource("6_etdjv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Security Button/InteractionArea"]
+shape = SubResource("CircleShape2D_bqamd")
+
+[node name="Player" parent="." instance=ExtResource("3_eq2ah")]
+position = Vector2(204, 146)
+
 [connection signal="body_entered" from="To Top Hallway" to="." method="_on_to_top_hallway_body_entered"]
 [connection signal="body_exited" from="To Top Hallway" to="." method="_on_to_top_hallway_body_exited"]
+[connection signal="area_entered" from="Security Button/InteractionArea" to="Security Button/InteractionArea" method="_on_area_entered"]
+[connection signal="area_exited" from="Security Button/InteractionArea" to="Security Button/InteractionArea" method="_on_area_exited"]

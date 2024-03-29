@@ -281,5 +281,4 @@ blend_mode = 2
 texture = ExtResource("5_s0kt5")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." groups=["CanvasModulate"]]
-visible = false
 color = Color(0.247059, 0, 0, 1)

@@ -2,9 +2,6 @@ extends Node2D
 
 var count = 0
 
-func _ready():
-	PositionManager.Act = 2
-
 func _on_to_power_station_body_entered(_body):
 	count += 1
 	if count > 4:

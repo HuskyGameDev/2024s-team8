@@ -14,6 +14,9 @@ func _ready():
 		$Player._swap_attention()
 	else:
 		print("Pooey")
+	
+	if PositionManager.hasClearedPipe:
+		$Pipe.queue_free()
 
 func _on_door_body_entered(_body):
 	count += 1

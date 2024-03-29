@@ -19,6 +19,12 @@ func _on_interact():
 		await get_tree().create_timer(0.001).timeout
 		minigame = minigameScene.instantiate()
 		Canvas.add_child(minigame)
+		minigame.cleared.connect(_on_cleared)
 		#player.ValveMinigame = true
 		player._swap_attention()
 	pass
+
+func _on_cleared():
+	PositionManager.hasClearedPipe = true
+	PositionManager.Act = 2
+	queue_free()

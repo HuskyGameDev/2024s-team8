@@ -19,6 +19,7 @@ extends Control
 var RowIndex = 0
 var ColIndex = 0
 var solved = false
+signal cleared
 
 func _process(_delta):
 	if !solved:
@@ -30,6 +31,7 @@ func _process(_delta):
 					if checkWinRecurse(1,0,3):
 						solved = true
 						await get_tree().create_timer(2).timeout
+						cleared.emit()
 						queue_free()
 						player._swap_attention()
 						print("solved whole thing")
