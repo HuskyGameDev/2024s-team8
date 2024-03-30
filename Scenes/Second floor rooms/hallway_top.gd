@@ -12,6 +12,8 @@ func _ready():
 			Lock.queue_free()
 		if SecurityDoor != null:
 			SecurityDoor.queue_free()
+	else:
+		animPlayer.play("Closed")
 
 func _on_to_the_transitionary_hallway_body_entered(body):
 	count += 1

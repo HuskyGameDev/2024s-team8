@@ -7,6 +7,8 @@ extends Node2D
 
 var minigame = null
 
+signal opening
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	StageManager.changeCamera(1000)
@@ -27,4 +29,5 @@ func _on_interact():
 func _on_cleared():
 	PositionManager.hasClearedPipe = true
 	PositionManager.Act = 2
+	opening.emit()
 	queue_free()

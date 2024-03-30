@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b0u5oq1ep04bc"]
+[gd_scene load_steps=20 format=3 uid="uid://b0u5oq1ep04bc"]
 
 [ext_resource type="Script" path="res://Scenes/Second floor rooms/hallway_top.gd" id="1_js6sa"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="1_wa6ms"]
@@ -57,8 +57,24 @@ tracks/0/keys = {
 "values": [Vector2(404, 80)]
 }
 
+[sub_resource type="Animation" id="Animation_e3qsh"]
+resource_name = "Closed"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Security Door:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(404, 112), Vector2(404, 112)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s80lg"]
 _data = {
+"Closed": SubResource("Animation_e3qsh"),
 "Door_Opening": SubResource("Animation_eb7qc"),
 "Open": SubResource("Animation_v2ejf")
 }
@@ -81,6 +97,7 @@ texture = SubResource("CanvasTexture_kgqnb")
 
 [node name="Security Door" type="StaticBody2D" parent="." groups=["Security Door"]]
 position = Vector2(404, 112)
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Security Door"]
 visible = false
@@ -114,7 +131,7 @@ position = Vector2(0, 12)
 shape = SubResource("RectangleShape2D_jeqwj")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("3_j2e1i")]
-position = Vector2(213, 121)
+position = Vector2(88, 144)
 
 [node name="To The Transitionary Hallway" type="Area2D" parent="."]
 position = Vector2(88, 164)

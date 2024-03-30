@@ -15,6 +15,8 @@ const lines: Array[String] = [
 	"The door is sealed shut."
 ]
 
+func _ready():
+	PositionManager.Act = 1
 
 func _on_to_hall_body_entered(body):
 	count += 1

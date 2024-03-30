@@ -24,6 +24,7 @@ var InteractionOverride = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	lights.show()
 	screen_size = get_viewport_rect().size
 	if StageManager.player_position != Vector2.ZERO:
 		position = StageManager.player_position

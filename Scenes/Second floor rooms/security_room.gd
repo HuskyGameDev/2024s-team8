@@ -9,5 +9,5 @@ func _on_to_top_hallway_body_entered(_body):
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false)
 		StageManager.changeScene(HALLWAY_TOP, 404, 122)
-		StageManager.changeCamera(480)
+		StageManager.changeCamera(488)
 		StageManager.scene_change = true
