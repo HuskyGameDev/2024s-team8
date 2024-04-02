@@ -83,7 +83,6 @@ position = Vector2(122, 128)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
 position = Vector2(112, 132.5)
 rotation = -0.785398
-scale = Vector2(1, 1)
 skew = 0.785398
 shape = SubResource("RectangleShape2D_hubel")
 
@@ -97,7 +96,6 @@ position = Vector2(0, 0)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 position = Vector2(41.9059, 39.2978)
 rotation = 0.872665
-scale = Vector2(1, 1)
 skew = -0.698132
 shape = SubResource("RectangleShape2D_wv1o1")
 
