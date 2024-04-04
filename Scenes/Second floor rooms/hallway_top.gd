@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var Lock = get_tree().get_first_node_in_group("Combo Lock")
 @onready var SecurityDoor = get_tree().get_first_node_in_group("Security Door")
+@onready var StairsDoor = get_tree().get_first_node_in_group("Stairs Door")
 @onready var animPlayer = get_tree().get_first_node_in_group("AnimationPlayer")
 
 var count = 0
@@ -13,7 +14,10 @@ func _ready():
 		if SecurityDoor != null:
 			SecurityDoor.queue_free()
 	else:
-		animPlayer.play("Closed")
+		animPlayer.play("Sec_Closed")
+	
+	if !PositionManager.SecurityEnabled:
+		StairsDoor.queue_free()
 
 func _on_to_the_transitionary_hallway_body_entered(body):
 	count += 1
@@ -51,4 +55,4 @@ func _on_to_stairs_body_entered(body):
 			StageManager.scene_change = true
 
 func _on_combo_lock_open_door():
-	animPlayer.play("Door_Opening")
+	animPlayer.play("Sec_Door_Opening")

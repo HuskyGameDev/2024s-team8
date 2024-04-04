@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var Player = get_node("Player")
+@onready var StairsDoor = get_tree().get_first_node_in_group("Stairs Door")
 @onready var speech_sound = preload("res://Assets/voice_sans.mp3")
 @onready var speech_sound2 = preload("res://Assets/Dialogue blip5.mp3")
 var count = 0
@@ -21,6 +22,8 @@ func _ready():
 	if PositionManager.PrevPosition != Vector2.ZERO:
 		Player.global_position = PositionManager.PrevPosition
 		HasLeft = false
+	if !PositionManager.SecurityEnabled:
+		StairsDoor.queue_free()
  
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

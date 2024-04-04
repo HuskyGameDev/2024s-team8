@@ -1,12 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://c67llndhruew1"]
+[gd_scene load_steps=10 format=3 uid="uid://c67llndhruew1"]
 
 [ext_resource type="Script" path="res://Scenes/Second floor rooms/boiler_room.gd" id="1_bnok5"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="1_m8cq8"]
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="2_tjt1t"]
 [ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="3_cdlho"]
+[ext_resource type="Script" path="res://Scenes/Second floor rooms/Note.gd" id="5_cllcq"]
+[ext_resource type="Texture2D" uid="uid://b64doeqvowr0m" path="res://Assets/paper_note_sprite.png" id="6_td36m"]
+[ext_resource type="Script" path="res://Interaction/InteractionArea.gd" id="7_yxdp5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rs3x6"]
 size = Vector2(24, 4)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w72mb"]
+radius = 3.16228
 
 [node name="Boiler_Room" type="Node2D"]
 script = ExtResource("1_bnok5")
@@ -26,7 +32,7 @@ layer_1/tile_data = PackedInt32Array(983048, 589824, 0, 1048583, 589824, 0, 1114
 layer_2/name = "doors"
 layer_2/tile_data = PackedInt32Array(1310746, 1245184, 0, 1310745, 1245184, 0, 1310744, 1245184, 0)
 
-[node name="Player" parent="." instance=ExtResource("3_cdlho")]
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("3_cdlho")]
 position = Vector2(204, 146)
 
 [node name="Boiler" type="Area2D" parent="."]
@@ -36,4 +42,21 @@ position = Vector2(204, 164)
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_rs3x6")
 
+[node name="Note" type="Node2D" parent="." groups=["Crowbar"]]
+position = Vector2(169, 127)
+script = ExtResource("5_cllcq")
+
+[node name="Sprite2D" type="Sprite2D" parent="Note"]
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_td36m")
+
+[node name="InteractionArea" type="Area2D" parent="Note"]
+script = ExtResource("7_yxdp5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Note/InteractionArea"]
+shape = SubResource("CircleShape2D_w72mb")
+
 [connection signal="body_entered" from="Boiler" to="." method="_on_to_bottom_hallway_body_entered"]
+[connection signal="area_entered" from="Note/InteractionArea" to="Note/InteractionArea" method="_on_area_entered"]
+[connection signal="area_exited" from="Note/InteractionArea" to="Note/InteractionArea" method="_on_area_exited"]

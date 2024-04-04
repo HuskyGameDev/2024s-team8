@@ -17,6 +17,36 @@ size = Vector2(22.6274, 44)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_svskc"]
 
+[sub_resource type="Animation" id="Animation_l62ea"]
+resource_name = "Closed"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Powered Door:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(284, 120), Vector2(284, 120)]
+}
+
+[sub_resource type="Animation" id="Animation_18kpq"]
+resource_name = "Door_Opening"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Powered Door:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(284, 120), Vector2(284, 76)]
+}
+
 [sub_resource type="Animation" id="Animation_jxluv"]
 resource_name = "Enter Act 2"
 length = 1.1
@@ -57,6 +87,21 @@ tracks/2/keys = {
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_i57bj"]
+resource_name = "Open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Powered Door:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(284, 76)]
+}
+
 [sub_resource type="Animation" id="Animation_i7o34"]
 resource_name = "Wake up"
 length = 1.5
@@ -95,51 +140,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(5, 0.5),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_18kpq"]
-resource_name = "Door_Opening"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Powered Door:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(284, 120), Vector2(284, 76)]
-}
-
-[sub_resource type="Animation" id="Animation_i57bj"]
-resource_name = "Open"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Powered Door:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(284, 76)]
-}
-
-[sub_resource type="Animation" id="Animation_l62ea"]
-resource_name = "Closed"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Powered Door:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(284, 120), Vector2(284, 120)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jet3h"]

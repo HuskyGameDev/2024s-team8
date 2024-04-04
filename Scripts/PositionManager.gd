@@ -15,3 +15,4 @@ var HasOpenedTutorial = false
 var OpenedAirlock = false
 var HasEatenBurger = false
 var SecurityEnabled = true
+var hasCode = false
