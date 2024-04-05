@@ -1,19 +1,51 @@
-[gd_scene load_steps=11 format=3 uid="uid://dry0m61no3mts"]
+[gd_scene load_steps=13 format=3 uid="uid://dry0m61no3mts"]
 
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/command_deck.gd" id="1_4wny3"]
 [ext_resource type="PackedScene" uid="uid://ny55otxbs0t" path="res://Scenes/tile_map.tscn" id="1_ofowq"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="2_hnavc"]
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="2_xlbxq"]
 [ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="5_g7xgl"]
-[ext_resource type="TileSet" path="res://Scenes/Main floor rooms/console_tileset.tres" id="5_uul2n"]
+[ext_resource type="Texture2D" uid="uid://b0wp5jn5h8v82" path="res://Assets/command_deck_tiles.png" id="5_sbqnq"]
 [ext_resource type="PackedScene" uid="uid://ca1eqme7qndxw" path="res://Scenes/background.tscn" id="7_4vhpv"]
 [ext_resource type="PackedScene" uid="uid://bwmuhr4im6pbt" path="res://Interaction/InteractionArea.tscn" id="8_gcic5"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hdvmr"]
+texture = ExtResource("5_sbqnq")
+texture_region_size = Vector2i(8, 8)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+16:0/0 = 0
+17:0/0 = 0
+18:0/0 = 0
+19:0/0 = 0
+20:0/0 = 0
+21:0/0 = 0
+22:0/0 = 0
+23:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ok6no"]
+tile_size = Vector2i(8, 8)
+sources/0 = SubResource("TileSetAtlasSource_hdvmr")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hubel"]
 size = Vector2(22.6274, 8.99998)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wv1o1"]
-size = Vector2(6.59128, 17.3345)
+size = Vector2(14.5874, 3.87129)
 
 [node name="Command_Deck" type="Node2D"]
 script = ExtResource("1_4wny3")
@@ -38,7 +70,7 @@ format = 2
 layer_0/tile_data = PackedInt32Array(851981, 786432, 0, 917517, 1048576, 0, 983053, 1048576, 0, 1048589, 1048576, 0, 1114125, 524288, 0, 786446, 786432, 0, 851982, 1048576, 0, 917518, 1048576, 0, 983054, 1048576, 0, 1048590, 524288, 0, 1114135, 1310720, 0, 1048598, 1310720, 0, 983061, 1310720, 0)
 
 [node name="console" type="TileMap" parent="."]
-tile_set = ExtResource("5_uul2n")
+tile_set = SubResource("TileSet_ok6no")
 format = 2
 layer_0/tile_data = PackedInt32Array(1245211, 327680, 0, 1245212, 327680, 0, 983061, 131072, 0, 1048598, 131072, 0, 1114135, 131072, 0, 1179672, 131072, 0, 917524, 131072, 0, 851988, 0, 0, 917525, 65536, 0, 983062, 65536, 0, 1048599, 65536, 0, 1114136, 65536, 0, 1179673, 327680, 0, 1179674, 327680, 0, 1114137, 262144, 0, 1048600, 262144, 0, 983063, 262144, 0, 1048601, 196608, 0, 983064, 196608, 0, 1114138, 196608, 0, 851990, 196608, 0, 917526, 262144, 0, 917527, 196608, 0, 851989, 1507328, 0)
 layer_1/tile_data = PackedInt32Array(1179674, 1441792, 0, 851988, 393216, 0, 851989, 458752, 0, 851990, 524288, 0, 851991, 589824, 0, 917525, 655360, 0, 917526, 720896, 0, 917527, 786432, 0, 917528, 851968, 0, 983062, 917504, 0, 983063, 983040, 0, 983064, 1048576, 0, 1048599, 1114112, 0, 1048600, 1179648, 0, 1114136, 1245184, 0, 1114137, 1310720, 0, 1179673, 1376256, 0)
@@ -62,9 +94,9 @@ transform = Transform2D(0.16, 0, 0, 0.16, 0, 0)
 position = Vector2(0, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-position = Vector2(44.7062, 40.7689)
-scale = Vector2(1, 1)
-skew = -0.663225
+position = Vector2(41.9059, 39.2978)
+rotation = 0.872665
+skew = -0.698132
 shape = SubResource("RectangleShape2D_wv1o1")
 
 [connection signal="body_entered" from="Door" to="." method="_on_door_body_entered"]
