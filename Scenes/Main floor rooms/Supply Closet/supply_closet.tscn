@@ -66,6 +66,7 @@ script = ExtResource("7_j4w0r")
 shape = SubResource("CircleShape2D_b6m7c")
 
 [node name="Broom" type="Node2D" parent="."]
+visible = false
 position = Vector2(134, 100)
 script = ExtResource("8_ivf7p")
 

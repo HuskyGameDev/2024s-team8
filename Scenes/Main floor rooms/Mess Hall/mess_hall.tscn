@@ -46,6 +46,7 @@ position = Vector2(236, 121)
 shape = SubResource("RectangleShape2D_iba8r")
 
 [node name="Burger" type="Node2D" parent="." groups=["Burger"]]
+visible = false
 position = Vector2(115, 133)
 script = ExtResource("6_t0rqf")
 
@@ -64,6 +65,7 @@ script = ExtResource("8_72jq1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Burger/InteractionArea"]
 shape = SubResource("CircleShape2D_6s774")
+disabled = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." groups=["CanvasLayer"]]
 scale = Vector2(5, 5)
