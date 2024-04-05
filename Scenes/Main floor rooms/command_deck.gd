@@ -14,7 +14,7 @@ func _process(_delta):
 
 	
 func _on_interact():
-	get_tree().change_scene_to_file("res://outro.tscn")
+	print("working")
 
 
 func _on_door_body_entered(body):
