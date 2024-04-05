@@ -5,11 +5,11 @@
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="3_277va"]
 [ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="4_2uors"]
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Airlock/AirlockButton.gd" id="5_ofs5b"]
-[ext_resource type="Texture2D" uid="uid://c14b6i1lnm1sj" path="res://Assets/Button.png" id="5_vh3ed"]
+[ext_resource type="Texture2D" uid="uid://cikswv1ej5ew5" path="res://Assets/button_pedestal_sprites.png" id="6_whwr3"]
 [ext_resource type="Script" path="res://Interaction/InteractionArea.gd" id="7_iopdc"]
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Airlock/AirlockDocument.gd" id="8_ldlo2"]
-[ext_resource type="Texture2D" uid="uid://b64doeqvowr0m" path="res://Assets/paper_note_sprite.png" id="8_r8njj"]
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Airlock/AirlockButton2.gd" id="8_wptix"]
+[ext_resource type="Texture2D" uid="uid://7h3gnmd8xbdb" path="res://Assets/info_poster_sprite.png" id="10_6y7qf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7hcie"]
 size = Vector2(24, 5)
@@ -18,13 +18,13 @@ size = Vector2(24, 5)
 size = Vector2(24, 4.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h3qex"]
-size = Vector2(16, 11)
+size = Vector2(8, 21.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7qvgi"]
-size = Vector2(16, 12)
+size = Vector2(8, 21)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ba3ga"]
-size = Vector2(14, 20)
+size = Vector2(16, 20)
 
 [node name="Airlock" type="Node2D" groups=["Airlock"]]
 script = ExtResource("1_tr7se")
@@ -72,14 +72,14 @@ script = ExtResource("5_ofs5b")
 one_shot = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Button1"]
-scale = Vector2(0.015, 0.015)
-texture = ExtResource("5_vh3ed")
+position = Vector2(-3, -10)
+texture = ExtResource("6_whwr3")
 
 [node name="InteractionArea" type="Area2D" parent="Button1"]
 script = ExtResource("7_iopdc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Button1/InteractionArea"]
-position = Vector2(0, -0.5)
+position = Vector2(-3, -4.375)
 shape = SubResource("RectangleShape2D_h3qex")
 
 [node name="Button2" type="Node2D" parent="."]
@@ -90,13 +90,14 @@ script = ExtResource("8_wptix")
 one_shot = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Button2"]
-scale = Vector2(0.015, 0.015)
-texture = ExtResource("5_vh3ed")
+position = Vector2(12, -9)
+texture = ExtResource("6_whwr3")
 
 [node name="InteractionArea" type="Area2D" parent="Button2"]
 script = ExtResource("7_iopdc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Button2/InteractionArea"]
+position = Vector2(12, -3.5)
 shape = SubResource("RectangleShape2D_7qvgi")
 
 [node name="AirlockDocument" type="Node2D" parent="."]
@@ -104,8 +105,7 @@ position = Vector2(119, 95)
 script = ExtResource("8_ldlo2")
 
 [node name="Sprite2D" type="Sprite2D" parent="AirlockDocument"]
-scale = Vector2(2.3, 2.3)
-texture = ExtResource("8_r8njj")
+texture = ExtResource("10_6y7qf")
 
 [node name="InteractionArea" type="Area2D" parent="AirlockDocument"]
 script = ExtResource("7_iopdc")

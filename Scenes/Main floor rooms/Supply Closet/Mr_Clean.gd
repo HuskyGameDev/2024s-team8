@@ -19,7 +19,7 @@ const lines2: Array[String] = [
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	interaction_area.interact = Callable(self, "_on_interact")
+#	interaction_area.interact = Callable(self, "_on_interact")
 	pass # Replace with function body.
 
 

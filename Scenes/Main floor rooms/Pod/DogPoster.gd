@@ -6,7 +6,7 @@ extends Node2D
 
 
 const lines: Array[String] = [
-	"A poster of your best-friend, Lily.",
+	"A poster of your best-friend, Frost.",
 	"There's a message underneath...",
 	"'If love alone could have kept you here, you would have lived forever.'"
 ]
