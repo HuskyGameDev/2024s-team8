@@ -26,7 +26,7 @@ func _on_to_hall_body_entered(body):
 		body.hasAttention = false
 		body.set("active", false)
 		const AIRLOCK = preload("res://Scenes/Main floor rooms/Airlock/airlock.tscn")
-		StageManager.changeScene(AIRLOCK, 155, 110)
+		StageManager.changeScene(AIRLOCK, 155, 110, true)
 		StageManager.changeCamera(304)
 		StageManager.scene_change = true
 
