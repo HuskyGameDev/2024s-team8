@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bomb67l3jcmr5"]
+[gd_scene load_steps=23 format=3 uid="uid://bomb67l3jcmr5"]
 
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Pod/pod.gd" id="1_bvhxj"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="2_tvsd5"]
@@ -6,33 +6,34 @@
 [ext_resource type="PackedScene" uid="uid://ca1eqme7qndxw" path="res://Scenes/background.tscn" id="4_vwbbb"]
 [ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="5_pgn6b"]
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Pod/Chair.gd" id="6_mghl4"]
-[ext_resource type="Texture2D" uid="uid://b01eow4r4c1y5" path="res://Assets/Chair png.png" id="7_gkfjr"]
+[ext_resource type="Texture2D" uid="uid://7sxx34fi7udt" path="res://Assets/chair_sprite_1.png" id="7_x3dav"]
 [ext_resource type="Script" path="res://Interaction/InteractionArea.gd" id="8_pijyp"]
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Pod/Bucket.gd" id="9_88acc"]
 [ext_resource type="Texture2D" uid="uid://2nn6dfmeixts" path="res://Assets/Bucket png.png" id="10_agxlv"]
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Pod/Desk.gd" id="11_i2y8d"]
 [ext_resource type="Texture2D" uid="uid://bvoiyfjlh68dc" path="res://Assets/Desk.png" id="12_aay5w"]
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Pod/DogPoster.gd" id="13_u2fhw"]
-[ext_resource type="Texture2D" uid="uid://cv83tob1b1heh" path="res://Assets/Dog picture.jpg" id="14_3aiej"]
+[ext_resource type="Texture2D" uid="uid://bkg443ij7dow5" path="res://Assets/frost.jpg" id="14_gc7et"]
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Pod/Outside.gd" id="15_oe2i3"]
+[ext_resource type="TileSet" uid="uid://cqe5d6xma5nss" path="res://Scenes/console_tileset.tres" id="16_gn7oi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wekmh"]
 size = Vector2(24, 5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_amobr"]
-size = Vector2(17, 21)
+size = Vector2(17, 28.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6s73v"]
 size = Vector2(17, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c1qwr"]
-size = Vector2(34, 12)
+size = Vector2(34.2817, 43.8714)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ctkce"]
-size = Vector2(30, 17)
+size = Vector2(30, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j3y1k"]
-size = Vector2(16, 13)
+size = Vector2(63, 11.5)
 
 [node name="Pod" type="Node2D"]
 script = ExtResource("1_bvhxj")
@@ -40,7 +41,7 @@ script = ExtResource("1_bvhxj")
 [node name="Collision" type="TileMap" parent="."]
 tile_set = ExtResource("2_tvsd5")
 format = 2
-layer_0/tile_data = PackedInt32Array(1245200, 1048577, 0, 1245199, 1048577, 0, 1245198, 1048577, 0, 1245197, 1048577, 0, 1245196, 1048577, 0, 1245195, 1048577, 0, 1245194, 1048577, 0, 1245193, 1048577, 0, 1245192, 1048577, 0, 1245191, 1048577, 0, 1245190, 1048577, 0, 1310736, 1048577, 0, 1310737, 1048577, 0, 1310738, 1048577, 0, 1310739, 1048577, 0, 1310740, 1048577, 0, 1245204, 1048577, 0, 1245205, 1048577, 0, 1245206, 1048577, 0, 1245207, 1048577, 0, 1245208, 1048577, 0, 1245209, 1048577, 0, 1245210, 1048577, 0, 1245211, 1048577, 0, 1245212, 1048577, 0, 1245213, 1048577, 0, 1245214, 1048577, 0, 1245215, 1048577, 0, 1245216, 1048577, 0, 1245189, 1048577, 0, 1179654, 524289, 0, 1114119, 524289, 0, 1048584, 524289, 0, 983049, 524289, 0, 983068, 262145, 0, 1048605, 262145, 0, 1114142, 262145, 0, 1179679, 262145, 0, 917531, 1048577, 0, 917530, 1048577, 0, 917529, 1048577, 0, 917528, 1048577, 0, 917527, 1048577, 0, 917526, 1048577, 0, 917525, 1048577, 0, 917524, 1048577, 0, 917523, 1048577, 0, 917522, 1048577, 0, 917521, 1048577, 0, 917520, 1048577, 0, 917519, 1048577, 0, 917518, 1048577, 0, 917517, 1048577, 0, 917516, 1048577, 0, 917515, 1048577, 0, 917514, 1048577, 0, 917532, 1048577, 0, 983069, 1048577, 0, 1048606, 1048577, 0, 1114143, 1048577, 0, 1179680, 1048577, 0, 917513, 1048577, 0, 983048, 1048577, 0, 1048583, 1048577, 0, 1114118, 1048577, 0, 1179653, 1048577, 0)
+layer_0/tile_data = PackedInt32Array(1245200, 1048577, 0, 1245199, 1048577, 0, 1245198, 1048577, 0, 1245197, 1048577, 0, 1245196, 1048577, 0, 1245195, 1048577, 0, 1245194, 1048577, 0, 1245193, 1048577, 0, 1245192, 1048577, 0, 1245191, 1048577, 0, 1245190, 1048577, 0, 1310736, 1048577, 0, 1310737, 1048577, 0, 1310738, 1048577, 0, 1310739, 1048577, 0, 1310740, 1048577, 0, 1245204, 1048577, 0, 1245205, 1048577, 0, 1245206, 1048577, 0, 1245207, 1048577, 0, 1245208, 1048577, 0, 1245209, 1048577, 0, 1245210, 1048577, 0, 1245211, 1048577, 0, 1245212, 1048577, 0, 1245213, 1048577, 0, 1245214, 1048577, 0, 1245215, 1048577, 0, 1245216, 1048577, 0, 1245189, 1048577, 0, 1179654, 524289, 0, 1114119, 524289, 0, 1048584, 524289, 0, 983049, 524289, 0, 983068, 262145, 0, 1048605, 262145, 0, 1114142, 262145, 0, 1179679, 1114113, 0, 917531, 1048577, 0, 917530, 1114113, 0, 917529, 1048577, 0, 917528, 1048577, 0, 917527, 1048577, 0, 917526, 1048577, 0, 917525, 1048577, 0, 917524, 1048577, 0, 917523, 1048577, 0, 917522, 1048577, 0, 917521, 1048577, 0, 917520, 1048577, 0, 917519, 1048577, 0, 917518, 1048577, 0, 917517, 1048577, 0, 917516, 1048577, 0, 917515, 1048577, 0, 917514, 1048577, 0, 917532, 1048577, 0, 983069, 1048577, 0, 1048606, 1048577, 0, 1114143, 1048577, 0, 1179680, 1048577, 0, 917513, 1048577, 0, 983048, 1048577, 0, 1048583, 1048577, 0, 1114118, 1048577, 0, 1179653, 1048577, 0, 983066, 393217, 0, 1048603, 393217, 0, 1114140, 393217, 0, 1179677, 393217, 0, 1114141, 1114113, 0, 1048604, 1114113, 0, 983067, 1114113, 0, 1179678, 1114113, 0)
 
 [node name="background" type="TileMap" parent="."]
 tile_set = ExtResource("3_i5ylh")
@@ -52,6 +53,8 @@ layer_1/name = "background detail"
 layer_1/tile_data = PackedInt32Array(131103, 851968, 0, 196638, 851968, 0, 262173, 851968, 0, 327709, 851968, 0, 327708, 851968, 0, 327689, 65536, 0, 262152, 65536, 0, 196615, 65536, 0, 131078, 65536, 0, 983068, 458752, 0, 1048605, 458752, 0, 1114142, 458752, 0, 1179679, 458752, 0, 983049, 589824, 0, 1048584, 589824, 0, 1114119, 589824, 0, 1179654, 589824, 0, 393245, 589824, 0, 327710, 589824, 0, 851997, 65536, 0, 917534, 65536, 0)
 layer_2/name = "line detail"
 layer_2/tile_data = PackedInt32Array()
+layer_3/name = "console"
+layer_3/tile_data = PackedInt32Array(983066, 458752, 0, 1048603, 458752, 0, 1114140, 458752, 0, 1179677, 458752, 0, 1179679, 1048576, 0, 1179678, 1048576, 0, 1048606, 1245184, 0, 983069, 1245184, 0, 917532, 1245184, 0, 1114142, 1245184, 0, 1114143, 1245184, 0)
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("4_vwbbb")]
 scale = Vector2(0.16, 0.16)
@@ -72,21 +75,21 @@ scale = Vector2(5, 5)
 transform = Transform2D(5, 0, 0, 5, 0, 0)
 
 [node name="Chair" type="Node2D" parent="."]
-position = Vector2(185, 117)
+position = Vector2(201, 121)
 script = ExtResource("6_mghl4")
 
 [node name="Sprite2D" type="Sprite2D" parent="Chair"]
-scale = Vector2(0.025, 0.025)
-texture = ExtResource("7_gkfjr")
+texture = ExtResource("7_x3dav")
 
 [node name="InteractionArea" type="Area2D" parent="Chair"]
 script = ExtResource("8_pijyp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chair/InteractionArea"]
-position = Vector2(0.5, -4.5)
+position = Vector2(0, 1.75)
 shape = SubResource("RectangleShape2D_amobr")
 
 [node name="Bucket" type="Node2D" parent="."]
+visible = false
 position = Vector2(73, 140)
 script = ExtResource("9_88acc")
 
@@ -100,12 +103,14 @@ script = ExtResource("8_pijyp")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bucket/InteractionArea"]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_6s73v")
+disabled = true
 
 [node name="Desk" type="Node2D" parent="."]
 position = Vector2(215, 119)
 script = ExtResource("11_i2y8d")
 
 [node name="Sprite2D" type="Sprite2D" parent="Desk"]
+visible = false
 scale = Vector2(0.03, 0.03)
 texture = ExtResource("12_aay5w")
 
@@ -113,7 +118,8 @@ texture = ExtResource("12_aay5w")
 script = ExtResource("8_pijyp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Desk/InteractionArea"]
-position = Vector2(0, -4)
+position = Vector2(25.4952, 16.625)
+skew = -0.794125
 shape = SubResource("RectangleShape2D_c1qwr")
 
 [node name="DogPoster" type="Node2D" parent="."]
@@ -121,14 +127,14 @@ position = Vector2(111, 94)
 script = ExtResource("13_u2fhw")
 
 [node name="Sprite2D" type="Sprite2D" parent="DogPoster"]
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("14_3aiej")
+rotation = 3.14159
+scale = Vector2(-0.015, -0.015)
+texture = ExtResource("14_gc7et")
 
 [node name="InteractionArea" type="Area2D" parent="DogPoster"]
 script = ExtResource("8_pijyp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DogPoster/InteractionArea"]
-position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_ctkce")
 
 [node name="Outside" type="Node2D" parent="."]
@@ -139,8 +145,14 @@ script = ExtResource("15_oe2i3")
 script = ExtResource("8_pijyp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Outside/InteractionArea"]
-position = Vector2(0, 1)
+position = Vector2(19.5, 4.25)
 shape = SubResource("RectangleShape2D_j3y1k")
+
+[node name="Controls" type="TileMap" parent="."]
+tile_set = ExtResource("16_gn7oi")
+format = 2
+layer_0/tile_data = PackedInt32Array(983068, 65536, 0, 1048605, 65536, 0, 917531, 1376256, 0, 1114143, 262144, 0)
+layer_1/tile_data = PackedInt32Array(851994, 0, 0, 917531, 65536, 0, 983068, 917504, 0, 1048605, 1114112, 0, 917530, 131072, 0, 983067, 131072, 0, 1048604, 131072, 0, 1114143, 327680, 0, 1114142, 327680, 0, 1114141, 131072, 0, 983070, 1048576, 0, 917533, 786432, 0, 851996, 524288, 0, 851995, 1507328, 0, 983069, 983040, 0, 1048606, 1179648, 0, 917532, 720896, 0, 1048607, 196608, 0, 851997, 589824, 0, 917534, 851968, 0)
 
 [connection signal="body_entered" from="To_Hall" to="." method="_on_to_hall_body_entered"]
 [connection signal="body_exited" from="To_Hall" to="." method="_on_to_hall_body_exited"]

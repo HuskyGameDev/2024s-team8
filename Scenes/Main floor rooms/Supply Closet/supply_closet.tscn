@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://piw1ffh2ljly"]
+[gd_scene load_steps=16 format=3 uid="uid://piw1ffh2ljly"]
 
 [ext_resource type="Script" path="res://Scenes/supply_closet.gd" id="1_0dtoi"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="2_tomo4"]
@@ -21,8 +21,6 @@ radius = 6.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s2qle"]
 size = Vector2(27.5, 30)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ciom"]
 
 [node name="Supply_Closet" type="Node2D"]
 script = ExtResource("1_0dtoi")
@@ -72,6 +70,7 @@ position = Vector2(134, 100)
 script = ExtResource("8_ivf7p")
 
 [node name="Sprite2D" type="Sprite2D" parent="Broom"]
+visible = false
 texture_filter = 1
 rotation = 0.165806
 scale = Vector2(0.008, 0.008)
@@ -83,8 +82,10 @@ script = ExtResource("7_j4w0r")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Broom/InteractionArea"]
 position = Vector2(-0.75, -1)
 shape = SubResource("RectangleShape2D_s2qle")
+disabled = true
 
 [node name="Mr_Clean" type="Node2D" parent="."]
+visible = false
 position = Vector2(204, 101)
 script = ExtResource("10_vtnkg")
 
@@ -100,14 +101,6 @@ scale = Vector2(0.025, 0.025)
 texture = ExtResource("11_cjjrs")
 flip_h = true
 
-[node name="InteractionArea" type="Area2D" parent="Mr_Clean"]
-script = ExtResource("7_j4w0r")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Mr_Clean/InteractionArea"]
-z_index = 1
-position = Vector2(0, -7)
-shape = SubResource("RectangleShape2D_5ciom")
-
 [node name="CanvasLayer" type="CanvasLayer" parent="." groups=["CanvasLayer"]]
 scale = Vector2(5, 5)
 transform = Transform2D(5, 0, 0, 5, 0, 0)
@@ -118,5 +111,3 @@ transform = Transform2D(5, 0, 0, 5, 0, 0)
 [connection signal="area_exited" from="Wrench/InteractionArea" to="Wrench/InteractionArea" method="_on_area_exited"]
 [connection signal="area_entered" from="Broom/InteractionArea" to="Broom/InteractionArea" method="_on_area_entered"]
 [connection signal="area_exited" from="Broom/InteractionArea" to="Broom/InteractionArea" method="_on_area_exited"]
-[connection signal="area_entered" from="Mr_Clean/InteractionArea" to="Mr_Clean/InteractionArea" method="_on_area_entered"]
-[connection signal="area_exited" from="Mr_Clean/InteractionArea" to="Mr_Clean/InteractionArea" method="_on_area_exited"]
