@@ -57,6 +57,10 @@ script = ExtResource("7_yxdp5")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Note/InteractionArea"]
 shape = SubResource("CircleShape2D_w72mb")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." groups=["CanvasLayer"]]
+scale = Vector2(5, 5)
+transform = Transform2D(5, 0, 0, 5, 0, 0)
+
 [connection signal="body_entered" from="Boiler" to="." method="_on_to_bottom_hallway_body_entered"]
 [connection signal="area_entered" from="Note/InteractionArea" to="Note/InteractionArea" method="_on_area_entered"]
 [connection signal="area_exited" from="Note/InteractionArea" to="Note/InteractionArea" method="_on_area_exited"]
