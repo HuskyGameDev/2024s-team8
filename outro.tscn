@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bie8yvoau4pr4"]
+[gd_scene load_steps=9 format=3 uid="uid://bie8yvoau4pr4"]
 
 [ext_resource type="PackedScene" uid="uid://ca1eqme7qndxw" path="res://Scenes/background.tscn" id="1_qmns4"]
 [ext_resource type="Texture2D" uid="uid://mvetj5pcsap" path="res://icon.svg" id="2_kkhwr"]
@@ -10,6 +10,46 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="Gradient" id="Gradient_k8t7g"]
 colors = PackedColorArray(1, 0, 0, 1, 1, 0.984314, 0, 1)
+
+[sub_resource type="Animation" id="Animation_v441y"]
+resource_name = "Ship near earth"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Big Ship node/Big Ship:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(454, 540), Vector2(954, 540), Vector2(1454, 540)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Big Ship node/Big Ship/Camera2D/Black Square:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Big Ship node/Big Ship:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_7023b"]
 resource_name = "Ship starts up and heads toward earth"
@@ -41,6 +81,7 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4k3i7"]
 _data = {
+"Ship near earth": SubResource("Animation_v441y"),
 "Ship starts up and heads toward earth": SubResource("Animation_7023b")
 }
 
@@ -53,6 +94,7 @@ follow_viewport_scale = 3.0
 [node name="Big Ship node" type="Node2D" parent="."]
 
 [node name="Big Ship" type="Sprite2D" parent="Big Ship node"]
+visible = false
 position = Vector2(454, 540)
 scale = Vector2(5, 5)
 texture = ExtResource("2_kkhwr")
