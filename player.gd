@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var animationPlayer = $AnimationPlayer
 @onready var animationTree = $AnimationTree
 @onready var lights = $CanvasModulate
+@onready var CodeNotif = $PauseLayer/TextEdit
 @onready var animationState = animationTree.get("parameters/playback")
 @onready var objectiveMenu = preload("res://Scripts/ObjectivesMenu.tscn")
 @onready var InteractionParent = get_tree().get_first_node_in_group("InteractionParent")
@@ -41,6 +42,12 @@ func _process(_delta):
 		lights.color = emergencyLights
 	elif PositionManager.Act != 1:
 		lights.color = normalLights
+	if PositionManager.HasNote:
+		if !PositionManager.hasClearedCombo:
+			CodeNotif.visible = true
+			CodeNotif.text = "Security Code: " + str(PositionManager.comboCode)
+		else:
+			CodeNotif.visible = false
 	if hasAttention:
 		if Input.is_action_just_pressed("MENU"):
 			pause = pauseMenu.instantiate()
