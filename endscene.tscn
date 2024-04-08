@@ -1,0 +1,160 @@
+[gd_scene load_steps=9 format=3 uid="uid://b5hedm04usk7a"]
+
+[ext_resource type="Script" path="res://endscene.gd" id="1_7dbqx"]
+[ext_resource type="PackedScene" uid="uid://ca1eqme7qndxw" path="res://Scenes/background.tscn" id="1_22mpi"]
+[ext_resource type="Texture2D" uid="uid://dym1ivtlsvpjd" path="res://Assets/menu_button_light.png" id="2_f1fm1"]
+[ext_resource type="Texture2D" uid="uid://b5xruj8go3atr" path="res://Assets/menu_button_dark.png" id="3_yph77"]
+[ext_resource type="FontFile" uid="uid://eakijihfas2k" path="res://Assets/SFPixelate-Bold.ttf" id="5_vqna1"]
+
+[sub_resource type="Animation" id="Animation_lm17m"]
+resource_name = "Fade_In"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ParallaxBackground/Title:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.7, 2.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(572, 0), Vector2(572, 100)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureButton:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.7, 2.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(721, 905), Vector2(721, 452.5)]
+}
+
+[sub_resource type="Animation" id="Animation_cxyj4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ParallaxBackground/Title:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(572, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureButton:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(721, 452.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_svnvm"]
+_data = {
+"Fade_In": SubResource("Animation_lm17m"),
+"RESET": SubResource("Animation_cxyj4")
+}
+
+[node name="Endscene" type="Node2D"]
+script = ExtResource("1_7dbqx")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("1_22mpi")]
+
+[node name="Title" type="Label" parent="ParallaxBackground"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -388.0
+offset_right = 412.0
+offset_bottom = 76.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.333333, 0.0313726, 0.603922, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.972549, 0, 0.909804)
+theme_override_fonts/font = ExtResource("5_vqna1")
+theme_override_font_sizes/font_size = 80
+text = "Project: Helianth"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_svnvm")
+}
+autoplay = "Fade_In"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1921.0
+offset_bottom = 1081.0
+color = Color(0, 0, 0, 0)
+
+[node name="TextureButton" type="TextureButton" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 721.0
+offset_top = 452.5
+offset_right = 1199.0
+offset_bottom = 627.5
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_f1fm1")
+texture_pressed = ExtResource("3_yph77")
+texture_hover = ExtResource("3_yph77")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="TextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -34.5
+offset_right = 45.0
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_vqna1")
+theme_override_font_sizes/font_size = 80
+text = "Exit"
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

@@ -83,7 +83,7 @@ offsets = PackedFloat32Array(0.52, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="Gradient" id="Gradient_0d4vl"]
-colors = PackedColorArray(1, 0, 0, 1, 1, 0.983333, 0, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0.984314, 0, 1)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_ah2gu"]
 
