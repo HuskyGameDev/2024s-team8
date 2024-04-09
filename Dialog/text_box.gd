@@ -52,9 +52,6 @@ func display_letter():
 			timer.start(letter_time) 
 			
 			var new_audio_player = audio_player.duplicate()
-			#new_audio_player.pitch_scale += randf_range(-0.1, 0.1)
-			#if text[letter_index] in ["a", "e", "i", "o", "u"]:
-				#new_audio_player.pitch_scale += 0.2
 			get_tree().root.add_child(new_audio_player)
 			if letter_index % 2 == 0:
 				new_audio_player.play()

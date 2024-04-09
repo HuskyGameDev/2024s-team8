@@ -4,7 +4,9 @@ extends Node2D
 @onready var StairsDoor = get_tree().get_first_node_in_group("Stairs Door")
 @onready var speech_sound = preload("res://Assets/voice_sans.mp3")
 @onready var speech_sound2 = preload("res://Assets/Dialogue blip5.mp3")
+
 var count = 0
+
 const lines: Array[String] = [
 	"This door is locked! I must find another way to reach the second floor."
 ]
@@ -28,6 +30,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	
 	pass
 
 
@@ -123,9 +126,8 @@ func _on_stairs_body_exited(_body):
 
 func _on_bridge_body_entered(body):
 	const COMMAND_DECK = preload("res://Scenes/Main floor rooms/command_deck.tscn")
-	HasLeft = true
 	count += 1
-	if body.name == "Player" && count > 1:
+	if body.name == "Player" && HasLeft:
 		if PositionManager.Act != 1:
 			$Player.hasAttention = false
 			$Player/AnimationTree.set("active", false)

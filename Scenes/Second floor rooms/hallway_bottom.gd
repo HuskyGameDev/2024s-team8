@@ -8,7 +8,6 @@ func _ready():
 		Fog.queue_free()
 
 func _on_to_the_transitionary_hallway_body_entered(_body):
-	print(count)
 	count += 1
 	if count > 2:
 		const HALLWAY_TRANS = preload("res://Scenes/Second floor rooms/hallway_transition.tscn")
@@ -20,7 +19,6 @@ func _on_to_the_transitionary_hallway_body_entered(_body):
 
 
 func _on_to_the_boiler_room_body_entered(_body):
-	print(count)
 	count += 1
 	if count > 2:
 		const BOILER_ROOM = preload("res://Scenes/Second floor rooms/boiler_room.tscn")

@@ -12,7 +12,6 @@ const lines: Array[String] = [
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	interaction_area.interact = Callable(self, "_on_interact")
-	pass # Replace with function body.
 
 
 func _on_interact():
@@ -20,6 +19,5 @@ func _on_interact():
 	DialogManager.start_dialog(global_position, lines, speech_sound, false)
 	await DialogManager.dialog_finished
 	player._swap_attention()
-	pass
 	
 	

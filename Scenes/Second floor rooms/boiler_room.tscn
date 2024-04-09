@@ -33,6 +33,7 @@ layer_2/name = "doors"
 layer_2/tile_data = PackedInt32Array(1310746, 1245184, 0, 1310745, 1245184, 0, 1310744, 1245184, 0)
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("3_cdlho")]
+z_index = 1
 position = Vector2(204, 146)
 
 [node name="Boiler" type="Area2D" parent="."]
@@ -42,7 +43,7 @@ position = Vector2(204, 164)
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_rs3x6")
 
-[node name="Note" type="Node2D" parent="." groups=["Crowbar"]]
+[node name="Note" type="Node2D" parent="." groups=["Note"]]
 position = Vector2(169, 127)
 script = ExtResource("5_cllcq")
 

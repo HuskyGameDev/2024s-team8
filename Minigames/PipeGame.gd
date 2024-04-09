@@ -34,7 +34,6 @@ func _process(_delta):
 						cleared.emit()
 						queue_free()
 						player._swap_attention()
-						print("solved whole thing")
 		
 		if Input.is_action_just_pressed("LEFT"):
 			ColIndex = ColIndex - 1 if ColIndex > 0 else 4

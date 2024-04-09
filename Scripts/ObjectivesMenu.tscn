@@ -86,7 +86,7 @@ theme_override_font_sizes/font_size = 37
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_73prb")
 theme_override_font_sizes/font_size = 37
-text = " - Press 'WASD' to move.
+text = " - Use WASD' to move.
 
 "
 
@@ -98,6 +98,14 @@ text = " - Press 'F' to interact.
 
 "
 
+[node name="Label5" type="Label" parent="TabContainer/Objectives"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_73prb")
+theme_override_font_sizes/font_size = 37
+text = " - Hold 'Shift' to sprint.
+
+"
+
 [node name="Label3" type="Label" parent="TabContainer/Objectives"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_73prb")
@@ -106,12 +114,19 @@ text = " - Press 'M' to open the map.
 
 "
 
+[node name="Label6" type="Label" parent="TabContainer/Objectives"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_73prb")
+theme_override_font_sizes/font_size = 37
+text = " - Press 'G' to open the objectives.
+
+"
+
 [node name="Label4" type="Label" parent="TabContainer/Objectives"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_73prb")
 theme_override_font_sizes/font_size = 37
-text = " - Leave the pod and enter the main ship.
-
+text = " - Explore the ship.
 "
 
 [node name="Documents" type="VBoxContainer" parent="TabContainer"]

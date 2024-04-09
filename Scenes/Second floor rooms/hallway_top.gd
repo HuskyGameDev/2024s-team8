@@ -35,7 +35,7 @@ func _on_to_security_room_body_entered(body):
 	count += 1
 	if count > 2:
 		if body.name == "Player":
-			const SECURITY_ROOM = preload("res://Scenes/Second floor rooms/security_room.tscn")
+			const SECURITY_ROOM = preload("res://Scenes/Second floor rooms/Security Room/security_room.tscn")
 			$Player.hasAttention = false
 			$Player/AnimationTree.set("active", false)
 			StageManager.changeScene(SECURITY_ROOM, 204, 146)

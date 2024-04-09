@@ -25,7 +25,7 @@ func _ready():
 func _process(_delta):
 	if Input.is_action_just_pressed("MENU"):
 		const POD = preload("res://Scenes/Main floor rooms/Pod/pod.tscn")
-		
+		await DialogManager.dialog_finished
 		# Plays act 1 music if intro is skipped
 		GlobalAudioManager.play_act1_music()
 		
