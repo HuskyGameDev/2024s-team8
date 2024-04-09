@@ -123,8 +123,9 @@ func _on_stairs_body_exited(_body):
 
 func _on_bridge_body_entered(body):
 	const COMMAND_DECK = preload("res://Scenes/Main floor rooms/command_deck.tscn")
+	HasLeft = true
 	count += 1
-	if body.name == "Player" && count > 2:
+	if body.name == "Player" && count > 1:
 		if PositionManager.Act != 1:
 			$Player.hasAttention = false
 			$Player/AnimationTree.set("active", false)

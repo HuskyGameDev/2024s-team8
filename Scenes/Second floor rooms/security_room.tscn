@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dc66p0riko4pb"]
+[gd_scene load_steps=12 format=3 uid="uid://dc66p0riko4pb"]
 
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="1_4v5m3"]
 [ext_resource type="Script" path="res://Scenes/Second floor rooms/security_room.gd" id="1_tbgio"]
@@ -7,12 +7,16 @@
 [ext_resource type="Texture2D" uid="uid://cikswv1ej5ew5" path="res://Assets/button_pedestal_sprites.png" id="5_4q430"]
 [ext_resource type="Script" path="res://Scenes/Second floor rooms/Security Button.gd" id="5_wnp5u"]
 [ext_resource type="Script" path="res://Interaction/InteractionArea.gd" id="6_etdjv"]
+[ext_resource type="Texture2D" uid="uid://7h3gnmd8xbdb" path="res://Assets/info_poster_sprite.png" id="9_f85bc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v05b3"]
 size = Vector2(24, 4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2t1wb"]
 size = Vector2(8, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3h1ou"]
+size = Vector2(16, 20)
 
 [node name="Security_Room" type="Node2D"]
 script = ExtResource("1_tbgio")
@@ -40,7 +44,7 @@ position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_v05b3")
 
 [node name="Security Button" type="Node2D" parent="."]
-position = Vector2(160, 128)
+position = Vector2(143, 110)
 script = ExtResource("5_wnp5u")
 metadata/_edit_group_ = true
 
@@ -57,7 +61,23 @@ shape = SubResource("RectangleShape2D_2t1wb")
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("3_eq2ah")]
 position = Vector2(204, 146)
 
+[node name="SecurityRoomPoster" type="Node2D" parent="."]
+position = Vector2(119, 95)
+
+[node name="Sprite2D" type="Sprite2D" parent="SecurityRoomPoster"]
+position = Vector2(41, 5)
+texture = ExtResource("9_f85bc")
+
+[node name="InteractionArea" type="Area2D" parent="SecurityRoomPoster"]
+script = ExtResource("6_etdjv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SecurityRoomPoster/InteractionArea"]
+position = Vector2(41, 5)
+shape = SubResource("RectangleShape2D_3h1ou")
+
 [connection signal="body_entered" from="To Top Hallway" to="." method="_on_to_top_hallway_body_entered"]
 [connection signal="body_exited" from="To Top Hallway" to="." method="_on_to_top_hallway_body_exited"]
 [connection signal="area_entered" from="Security Button/InteractionArea" to="Security Button/InteractionArea" method="_on_area_entered"]
 [connection signal="area_exited" from="Security Button/InteractionArea" to="Security Button/InteractionArea" method="_on_area_exited"]
+[connection signal="area_entered" from="SecurityRoomPoster/InteractionArea" to="SecurityRoomPoster/InteractionArea" method="_on_area_entered"]
+[connection signal="area_exited" from="SecurityRoomPoster/InteractionArea" to="SecurityRoomPoster/InteractionArea" method="_on_area_exited"]

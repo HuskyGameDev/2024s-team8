@@ -48,7 +48,6 @@ script = ExtResource("5_cllcq")
 
 [node name="Sprite2D" type="Sprite2D" parent="Note"]
 texture_filter = 1
-scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_td36m")
 
 [node name="InteractionArea" type="Area2D" parent="Note"]
