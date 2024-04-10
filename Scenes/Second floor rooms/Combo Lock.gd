@@ -3,7 +3,7 @@ extends Node2D
 @onready var interaction_area: InteractionArea = $InteractionArea
 @onready var player = get_tree().get_first_node_in_group("Player")
 @onready var minigameScene = preload("res://combinationLock.tscn")
-@onready var Canvas = get_tree().get_first_node_in_group("Canvas")
+@onready var Canvas = get_tree().get_first_node_in_group("CanvasLayer2")
 
 var minigame = null
 
@@ -16,7 +16,6 @@ func _ready():
 
 
 func _on_interact():
-	print("INTERACTING")
 	if minigame == null:
 		minigame = minigameScene.instantiate()
 		Canvas.add_child(minigame)

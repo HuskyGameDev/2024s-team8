@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b0u5oq1ep04bc"]
+[gd_scene load_steps=23 format=3 uid="uid://b0u5oq1ep04bc"]
 
 [ext_resource type="Script" path="res://Scenes/Second floor rooms/hallway_top.gd" id="1_js6sa"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="1_wa6ms"]
@@ -9,6 +9,8 @@
 [ext_resource type="Script" path="res://Scenes/Second floor rooms/Combo Lock.gd" id="6_uy558"]
 [ext_resource type="Script" path="res://Interaction/InteractionArea.gd" id="7_51fjl"]
 [ext_resource type="TileSet" uid="uid://b57dw6av5xyw3" path="res://door_icon_tileset.tres" id="9_4cxew"]
+[ext_resource type="Script" path="res://Scenes/Second floor rooms/CodeHintDocument.gd" id="10_bssee"]
+[ext_resource type="Texture2D" uid="uid://b64doeqvowr0m" path="res://Assets/paper_note_sprite.png" id="10_j0oca"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_kgqnb"]
 
@@ -78,6 +80,9 @@ _data = {
 "Sec_Door_Opening": SubResource("Animation_eb7qc"),
 "Sec_Open": SubResource("Animation_v2ejf")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1us0s"]
+size = Vector2(6, 10)
 
 [node name="Hallway_Top_2f" type="Node2D"]
 script = ExtResource("1_js6sa")
@@ -164,8 +169,6 @@ shape = SubResource("RectangleShape2D_abw3h")
 position = Vector2(212, 123)
 shape = SubResource("RectangleShape2D_6ro3i")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." groups=["Canvas"]]
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." groups=["AnimationPlayer"]]
 libraries = {
 "": SubResource("AnimationLibrary_s80lg")
@@ -176,6 +179,28 @@ tile_set = ExtResource("9_4cxew")
 format = 2
 layer_0/tile_data = PackedInt32Array(655386, 0, 0, 655410, 262144, 0)
 
+[node name="CodeHintDocument" type="Node2D" parent="."]
+position = Vector2(441, 140)
+rotation = 0.71733
+scale = Vector2(1.5, 1.5)
+skew = -0.20944
+script = ExtResource("10_bssee")
+
+[node name="Sprite2D" type="Sprite2D" parent="CodeHintDocument"]
+texture = ExtResource("10_j0oca")
+
+[node name="InteractionArea" type="Area2D" parent="CodeHintDocument"]
+script = ExtResource("7_51fjl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CodeHintDocument/InteractionArea"]
+shape = SubResource("RectangleShape2D_1us0s")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." groups=["CanvasLayer"]]
+scale = Vector2(5, 5)
+transform = Transform2D(5, 0, 0, 5, 0, 0)
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." groups=["CanvasLayer2"]]
+
 [connection signal="open_door" from="Combo Lock" to="." method="_on_combo_lock_open_door"]
 [connection signal="area_entered" from="Combo Lock/InteractionArea" to="Combo Lock/InteractionArea" method="_on_area_entered"]
 [connection signal="area_exited" from="Combo Lock/InteractionArea" to="Combo Lock/InteractionArea" method="_on_area_exited"]
@@ -183,3 +208,5 @@ layer_0/tile_data = PackedInt32Array(655386, 0, 0, 655410, 262144, 0)
 [connection signal="body_exited" from="To The Transitionary Hallway" to="." method="_on_to_the_transitionary_hallway_body_exited"]
 [connection signal="body_entered" from="To Security Room" to="." method="_on_to_security_room_body_entered"]
 [connection signal="body_entered" from="To_Stairs" to="." method="_on_to_stairs_body_entered"]
+[connection signal="area_entered" from="CodeHintDocument/InteractionArea" to="CodeHintDocument/InteractionArea" method="_on_area_entered"]
+[connection signal="area_exited" from="CodeHintDocument/InteractionArea" to="CodeHintDocument/InteractionArea" method="_on_area_exited"]

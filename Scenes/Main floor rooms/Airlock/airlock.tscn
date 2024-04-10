@@ -83,21 +83,20 @@ position = Vector2(-3, -4.375)
 shape = SubResource("RectangleShape2D_h3qex")
 
 [node name="Button2" type="Node2D" parent="."]
-position = Vector2(91, 133)
+position = Vector2(113, 117)
 script = ExtResource("8_wptix")
 
 [node name="Timer2" type="Timer" parent="Button2" groups=["Timer"]]
 one_shot = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Button2"]
-position = Vector2(12, -9)
 texture = ExtResource("6_whwr3")
 
 [node name="InteractionArea" type="Area2D" parent="Button2"]
 script = ExtResource("7_iopdc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Button2/InteractionArea"]
-position = Vector2(12, -3.5)
+position = Vector2(0, 5.5)
 shape = SubResource("RectangleShape2D_7qvgi")
 
 [node name="AirlockDocument" type="Node2D" parent="."]

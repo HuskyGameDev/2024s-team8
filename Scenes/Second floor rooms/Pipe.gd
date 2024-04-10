@@ -3,7 +3,7 @@ extends Node2D
 @onready var interaction_area: InteractionArea = $InteractionArea
 @onready var player = get_tree().get_first_node_in_group("Player")
 @onready var minigameScene = preload("res://Minigames/PipeGame.tscn")
-@onready var Canvas = get_tree().get_first_node_in_group("Canvas")
+@onready var Canvas = get_tree().get_first_node_in_group("CanvasLayer")
 
 var minigame = null
 
