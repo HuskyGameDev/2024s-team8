@@ -16,8 +16,16 @@ func _ready():
 		PositionManager.comboCode[n] = randi_range(0,9)
 	for n in range(0,3):
 		PositionManager.valveCode[n] = randi_range(1,23)
+		
+	# Stopgap measure to prevent crash after intro
+	var prevSpd = PositionManager.textSpd
+	PositionManager.textSpd = 1.0  
+		
 	DialogManager.start_dialog(global_position, lines, speech_sound, false, true)
 	await DialogManager.dialog_finished
+	
+	PositionManager.textSpd = prevSpd # Reset speed to prev. value (if possible)
+	
 	InteractionManager.can_interact = true
 	
 	

@@ -10,10 +10,12 @@ const MAX_WIDTH = 256
 
 var text = ""
 var letter_index = 0
+var textSpd = PositionManager.textSpd
 
-const letter_time = 0.03
+const letter_time = 0.03 
 const space_time = 0.06
 const punctuation_time = 0.2
+
 
 signal finished_displaying()
 
@@ -45,11 +47,11 @@ func display_letter():
 	
 	match text[letter_index]:
 		"!", ".", ",", "?":
-			timer.start(punctuation_time)
+			timer.start(punctuation_time * textSpd)
 		" ":
-			timer.start(space_time)
+			timer.start(space_time * textSpd)
 		_:
-			timer.start(letter_time) 
+			timer.start(letter_time * textSpd) 
 			
 			var new_audio_player = audio_player.duplicate()
 			get_tree().root.add_child(new_audio_player)
