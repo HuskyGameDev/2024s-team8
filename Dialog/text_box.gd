@@ -47,11 +47,11 @@ func display_letter():
 	
 	match text[letter_index]:
 		"!", ".", ",", "?":
-			timer.start(punctuation_time * textSpd)
+			timer.start(float(punctuation_time) / textSpd)
 		" ":
-			timer.start(space_time * textSpd)
+			timer.start(float(space_time) / textSpd)
 		_:
-			timer.start(letter_time * textSpd) 
+			timer.start(float(letter_time) / textSpd) 
 			
 			var new_audio_player = audio_player.duplicate()
 			get_tree().root.add_child(new_audio_player)

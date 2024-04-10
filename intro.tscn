@@ -90,7 +90,7 @@ colors = PackedColorArray(1, 0, 0, 1, 1, 0.984314, 0, 1)
 [node name="Intro" type="Node2D"]
 script = ExtResource("1_etl3n")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." groups=["AnimationPlayer"]]
 reset_on_save = false
 libraries = {
 "": SubResource("AnimationLibrary_lljj0")
@@ -107,7 +107,8 @@ scale = Vector2(5, 5)
 texture = ExtResource("2_m1g78")
 
 [node name="Small Ship" type="Node2D" parent="."]
-position = Vector2(232, 512)
+position = Vector2(1728, 512)
+skew = -0.174533
 metadata/_edit_group_ = true
 
 [node name="Small Ship Sprite" type="Sprite2D" parent="Small Ship"]
@@ -119,7 +120,6 @@ zoom = Vector2(2, 2)
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Small Ship"]
 show_behind_parent = true
-emitting = false
 amount = 10
 lifetime = 0.75
 preprocess = 0.75
@@ -133,7 +133,7 @@ color_ramp = SubResource("Gradient_02slc")
 color_initial_ramp = SubResource("Gradient_0d4vl")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-modulate = Color(0, 0, 0, 1)
+modulate = Color(0, 0, 0, 0)
 offset_left = -448.0
 offset_right = 768.0
 offset_bottom = 1080.0

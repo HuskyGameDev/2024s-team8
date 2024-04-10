@@ -84,11 +84,12 @@ func _process(_delta):
 func _physics_process(delta):
 	velocity = Vector2.ZERO
 	move_and_collide(velocity)
-	if hasAttention:
-		if Input.is_action_just_pressed("SHIFT"):
+	
+	if Input.is_action_just_pressed("SHIFT"):
 			playerSpeed += 20
-		if Input.is_action_just_released("SHIFT"):
+	if Input.is_action_just_released("SHIFT"):
 			playerSpeed -= 20
+	if hasAttention:
 		if Input.is_action_pressed("DOWN"):
 			velocity.y += 1
 			InteractionParent.rotation_degrees = 270

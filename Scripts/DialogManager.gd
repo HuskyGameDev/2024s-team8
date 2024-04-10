@@ -49,7 +49,7 @@ func on_text_box_finished_displaying():
 func _process(_delta):
 	if is_automated && is_dialog_active && can_advance_line:
 		can_advance_line = false
-		await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(float(0.5) / PositionManager.textSpd).timeout
 		if text_box != null:
 			text_box.queue_free()
 		current_line_index += 1

@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var player = get_tree().get_first_node_in_group("Player")
+@onready var animPlayer = get_tree().get_first_node_in_group("AnimationPlayer")
 @onready var speech_sound = preload("res://Assets/voice_sans.mp3")
 
 const lines: Array[String] = [
@@ -10,6 +11,7 @@ const lines: Array[String] = [
 ]
 
 func _ready():
+	animPlayer.speed_scale = PositionManager.textSpd
 	PositionManager.StartFromBeginning = true
 	InteractionManager.can_interact = false
 	for n in range(0,5):
@@ -17,14 +19,8 @@ func _ready():
 	for n in range(0,3):
 		PositionManager.valveCode[n] = randi_range(1,23)
 		
-	# Stopgap measure to prevent crash after intro
-	var prevSpd = PositionManager.textSpd
-	PositionManager.textSpd = 1.0  
-		
 	DialogManager.start_dialog(global_position, lines, speech_sound, false, true)
 	await DialogManager.dialog_finished
-	
-	PositionManager.textSpd = prevSpd # Reset speed to prev. value (if possible)
 	
 	InteractionManager.can_interact = true
 	
@@ -43,6 +39,8 @@ func _process(_delta):
 func _on_animation_player_animation_finished(_anim_name):
 	const POD = preload("res://Scenes/Main floor rooms/Pod/pod.tscn")
 	
+	if DialogManager.is_dialog_active:
+		await DialogManager.dialog_finished
 	# Plays act 1 music once intro animation finishes
 	GlobalAudioManager.play_act1_music()
 	

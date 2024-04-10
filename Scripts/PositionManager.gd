@@ -18,3 +18,6 @@ var SecurityEnabled = true
 var hasCode = false
 var HasNote = false
 var textSpd = 1.0 # Factor for text speed
+	
+	
+	
