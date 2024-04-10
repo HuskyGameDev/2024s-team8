@@ -63,6 +63,7 @@ offset_bottom = 113.0
 color = Color(0.247059, 0.247059, 0.454902, 1)
 
 [node name="Outline" type="Control" parent="Background/Rooms/Power_Room"]
+visible = false
 anchors_preset = 0
 offset_left = -61.0
 offset_top = -432.0
@@ -145,6 +146,7 @@ offset_bottom = 412.0
 color = Color(0.270588, 0.290196, 0.333333, 1)
 
 [node name="Outline" type="Control" parent="Background/Rooms/Hallways"]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -238,6 +240,7 @@ offset_bottom = 108.5
 color = Color(0.247059, 0.247059, 0.454902, 1)
 
 [node name="Outline" type="Control" parent="Background/Rooms/Bathroom"]
+visible = false
 anchors_preset = 0
 offset_left = -612.0
 offset_top = -432.0
@@ -306,6 +309,7 @@ offset_bottom = 190.0
 color = Color(0.247059, 0.247059, 0.454902, 1)
 
 [node name="Outline" type="Control" parent="Background/Rooms/Security"]
+visible = false
 anchors_preset = 0
 offset_left = -1078.0
 offset_top = -42.0
@@ -374,6 +378,7 @@ offset_bottom = 220.0
 color = Color(0.247059, 0.247059, 0.454902, 1)
 
 [node name="Outline" type="Control" parent="Background/Rooms/BoilerRoom"]
+visible = false
 anchors_preset = 0
 offset_left = -1078.0
 offset_top = -432.0
@@ -442,6 +447,7 @@ offset_bottom = 191.0
 color = Color(0.247059, 0.247059, 0.454902, 1)
 
 [node name="Outline" type="Control" parent="Background/Rooms/Stairs"]
+visible = false
 anchors_preset = 0
 offset_left = -299.174
 offset_top = 160.739
