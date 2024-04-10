@@ -1,16 +1,16 @@
-[gd_scene load_steps=13 format=3 uid="uid://coxf21xs7o22r"]
+[gd_scene load_steps=13 format=3 uid="uid://bqyk0q8fbouna"]
 
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/command_deck.gd" id="1_4wny3"]
 [ext_resource type="PackedScene" uid="uid://ny55otxbs0t" path="res://Scenes/tile_map.tscn" id="1_ofowq"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="2_hnavc"]
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="2_xlbxq"]
-[ext_resource type="Texture2D" uid="uid://b0wp5jn5h8v82" path="res://Assets/command_deck_tiles.png" id="5_c34fb"]
-[ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="6_7qtv0"]
-[ext_resource type="PackedScene" uid="uid://ca1eqme7qndxw" path="res://Scenes/background.tscn" id="7_phw5f"]
-[ext_resource type="PackedScene" uid="uid://bwmuhr4im6pbt" path="res://Interaction/InteractionArea.tscn" id="8_3p23r"]
+[ext_resource type="Texture2D" uid="uid://b0wp5jn5h8v82" path="res://Assets/command_deck_tiles.png" id="5_d7slj"]
+[ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="6_0wx3g"]
+[ext_resource type="PackedScene" uid="uid://ca1eqme7qndxw" path="res://Scenes/background.tscn" id="7_7iuag"]
+[ext_resource type="PackedScene" uid="uid://bwmuhr4im6pbt" path="res://Interaction/InteractionArea.tscn" id="8_64hh3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hdvmr"]
-texture = ExtResource("5_c34fb")
+texture = ExtResource("5_d7slj")
 texture_region_size = Vector2i(8, 8)
 0:0/0 = 0
 1:0/0 = 0
@@ -75,7 +75,7 @@ format = 2
 layer_0/tile_data = PackedInt32Array(1245211, 327680, 0, 1245212, 327680, 0, 983061, 131072, 0, 1048598, 131072, 0, 1114135, 131072, 0, 1179672, 131072, 0, 917524, 131072, 0, 851988, 0, 0, 917525, 65536, 0, 983062, 65536, 0, 1048599, 65536, 0, 1114136, 65536, 0, 1179673, 327680, 0, 1179674, 327680, 0, 1114137, 262144, 0, 1048600, 262144, 0, 983063, 262144, 0, 1048601, 196608, 0, 983064, 196608, 0, 1114138, 196608, 0, 851990, 196608, 0, 917526, 262144, 0, 917527, 196608, 0, 851989, 1507328, 0)
 layer_1/tile_data = PackedInt32Array(1179674, 1441792, 0, 851988, 393216, 0, 851989, 458752, 0, 851990, 524288, 0, 851991, 589824, 0, 917525, 655360, 0, 917526, 720896, 0, 917527, 786432, 0, 917528, 851968, 0, 983062, 917504, 0, 983063, 983040, 0, 983064, 1048576, 0, 1048599, 1114112, 0, 1048600, 1179648, 0, 1114136, 1245184, 0, 1114137, 1310720, 0, 1179673, 1376256, 0)
 
-[node name="Player" parent="." groups=["Player"] instance=ExtResource("6_7qtv0")]
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("6_0wx3g")]
 position = Vector2(122, 128)
 
 [node name="Door" type="Area2D" parent="."]
@@ -86,11 +86,11 @@ rotation = -0.785398
 skew = 0.785398
 shape = SubResource("RectangleShape2D_hubel")
 
-[node name="ParallaxBackground" parent="." instance=ExtResource("7_phw5f")]
+[node name="ParallaxBackground" parent="." instance=ExtResource("7_7iuag")]
 scale = Vector2(0.16, 0.16)
 transform = Transform2D(0.16, 0, 0, 0.16, 0, 0)
 
-[node name="InteractionArea" parent="." instance=ExtResource("8_3p23r")]
+[node name="InteractionArea" parent="." instance=ExtResource("8_64hh3")]
 position = Vector2(0, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
