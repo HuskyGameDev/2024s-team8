@@ -4,8 +4,9 @@ var HasLeft = true
 @onready var player = get_tree().get_first_node_in_group("Player")
 @onready var speech_sound = preload("res://Assets/voice_sans.mp3")
 
-const lines: Array[String] = [
-	"I should press 'G' to look over my notes...",
+# REMINDER: Could replace G with + InputMap.action_get_events("OBJECTIVE")[0].as_text() +, after finding out how to remove "(physical)"
+var lines: Array[String] = [
+	"I should press 'G' to look over my notes...", 
 	""
 ]
 

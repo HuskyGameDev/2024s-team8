@@ -1,11 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://cgqicxea4vakq"]
+[gd_scene load_steps=10 format=3 uid="uid://cgqicxea4vakq"]
 
 [ext_resource type="Script" path="res://Scenes/settings.gd" id="1_tv1l3"]
 [ext_resource type="Script" path="res://Scenes/Audio.gd" id="2_ufqym"]
 [ext_resource type="Texture2D" uid="uid://dym1ivtlsvpjd" path="res://Assets/menu_button_light.png" id="3_hhnm7"]
 [ext_resource type="Texture2D" uid="uid://b5xruj8go3atr" path="res://Assets/menu_button_dark.png" id="4_qtn7d"]
 [ext_resource type="FontFile" uid="uid://eakijihfas2k" path="res://Assets/SFPixelate-Bold.ttf" id="5_xhqac"]
+[ext_resource type="Script" path="res://Scenes/Controls.gd" id="6_1i75p"]
 [ext_resource type="Script" path="res://Scenes/Gameplay.gd" id="6_1013g"]
+[ext_resource type="Theme" uid="uid://be5ofcn8baxw6" path="res://Assets/Themes/default_theme.tres" id="7_4x3uy"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_7hbq6"]
 normal_texture = ExtResource("4_qtn7d")
@@ -192,6 +194,16 @@ value = 1.0
 [node name="Controls" type="VBoxContainer" parent="TabContainer"]
 visible = false
 layout_mode = 2
+script = ExtResource("6_1i75p")
+action_items = Array[String](["UP", "DOWN", "LEFT", "RIGHT", "INTERACT", "MENU", "MAP", "OBJECTIVE", "SHIFT"])
+
+[node name="CtrlGridContainer" type="GridContainer" parent="TabContainer/Controls"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("7_4x3uy")
+columns = 2
 
 [node name="Gameplay" type="VBoxContainer" parent="TabContainer"]
 visible = false

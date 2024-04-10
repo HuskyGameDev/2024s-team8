@@ -1,0 +1,10 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://be5ofcn8baxw6"]
+
+[ext_resource type="FontFile" uid="uid://eakijihfas2k" path="res://Assets/SFPixelate-Bold.ttf" id="1_x5mlw"]
+
+[resource]
+Label/font_sizes/font_size = 30
+Label/fonts/font = ExtResource("1_x5mlw")
+RemapButton/base_type = &"Button"
+RemapButton/font_sizes/font_size = 30
+RemapButton/fonts/font = ExtResource("1_x5mlw")
