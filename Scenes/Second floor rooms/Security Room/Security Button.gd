@@ -24,6 +24,7 @@ func _on_interact():
 	player._swap_attention()
 	if PositionManager.SecurityEnabled:
 		PositionManager.SecurityEnabled = false
+		GlobalAudioManager.door_SFX() # Plays door opening SFX
 		DialogManager.start_dialog(global_position, lines, speech_sound, false)
 		await DialogManager.dialog_finished
 	else:

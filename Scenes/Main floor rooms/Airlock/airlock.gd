@@ -43,6 +43,6 @@ func _on_to_pod_body_entered(body):
 			const POD = preload("res://Scenes/Main floor rooms/Pod/pod.tscn")
 			$Player.hasAttention = false
 			$Player/AnimationTree.set("active", false)
-			StageManager.changeScene(POD, 148, 136)
+			StageManager.changeScene(POD, 148, 136, true)
 			StageManager.changeCamera(304)
 			StageManager.scene_change = true

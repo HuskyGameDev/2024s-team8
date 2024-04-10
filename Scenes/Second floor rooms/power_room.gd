@@ -40,4 +40,5 @@ func _on_door_body_entered(_body):
 
 func _on_pipe_opening():
 	door.monitoring = true
+	GlobalAudioManager.door_SFX() # Plays door opening SFX
 	animPlayer.play("Door_Opening")

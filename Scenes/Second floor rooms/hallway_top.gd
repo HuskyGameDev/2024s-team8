@@ -55,4 +55,5 @@ func _on_to_stairs_body_entered(body):
 			StageManager.scene_change = true
 
 func _on_combo_lock_open_door():
+	GlobalAudioManager.door_SFX() # Plays door opening SFX
 	animPlayer.play("Sec_Door_Opening")
