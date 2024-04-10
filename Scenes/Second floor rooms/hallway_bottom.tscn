@@ -16,7 +16,8 @@ size = Vector2(72, 12)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrb5m"]
 size = Vector2(24, 8)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_vyf68"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0lemv"]
+size = Vector2(70, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_juw52"]
 size = Vector2(20, 120)
@@ -61,18 +62,29 @@ position = Vector2(388, 124)
 shape = SubResource("RectangleShape2D_xrb5m")
 
 [node name="Valve" type="Node2D" parent="."]
-position = Vector2(196, 124)
+position = Vector2(184, 106)
 script = ExtResource("5_05wnw")
 
 [node name="Sprite2D" type="Sprite2D" parent="Valve"]
 texture_filter = 1
 texture = ExtResource("6_0ny86")
 
+[node name="Sprite2D2" type="Sprite2D" parent="Valve"]
+texture_filter = 1
+position = Vector2(25, 0)
+texture = ExtResource("6_0ny86")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Valve"]
+texture_filter = 1
+position = Vector2(50, 0)
+texture = ExtResource("6_0ny86")
+
 [node name="InteractionArea" type="Area2D" parent="Valve"]
 script = ExtResource("7_og5a4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Valve/InteractionArea"]
-shape = SubResource("CircleShape2D_vyf68")
+position = Vector2(25, 0)
+shape = SubResource("RectangleShape2D_0lemv")
 
 [node name="Fog" type="Node2D" parent="." groups=["Fog"]]
 position = Vector2(268, 150)
