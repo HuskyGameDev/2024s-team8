@@ -6,6 +6,7 @@ extends Node2D
 @onready var speech_sound2 = preload("res://Assets/Dialogue blip5.mp3")
 
 var count = 0
+var count2 = 0
 
 const lines: Array[String] = [
 	"This door is locked! I must find another way to reach the second floor."
@@ -15,6 +16,10 @@ const lines2: Array[String] = [
 	"This door is locked!"
 ]
 
+const lines3: Array[String] = [
+	"I've turned off the security. The ships command deck is now unlocked, lets get out of here!"
+	]
+	
 var HasLeft = true
 
 # Called when the node enters the scene tree for the first time.
@@ -26,6 +31,12 @@ func _ready():
 		HasLeft = false
 	if !PositionManager.SecurityEnabled:
 		StairsDoor.queue_free()
+	if PositionManager.Act != 1 && PositionManager.Act != 0 && count2 < 1:
+		Player._swap_attention()
+		DialogManager.start_dialog(global_position, lines3, speech_sound2, false, false)
+		await DialogManager.dialog_finished
+		Player._swap_attention()
+		count2 += 1
  
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

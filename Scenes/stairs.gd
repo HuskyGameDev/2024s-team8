@@ -1,7 +1,13 @@
 extends Node2D
 
-
+@onready var speech_sound = preload("res://Assets/voice_sans.mp3")
 var once = false
+
+const lines: Array[String] = [
+	"I've turned off the security. 
+	The ships command deck is now unlocked, 
+	lets get out of here!"
+	]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
