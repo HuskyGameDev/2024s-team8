@@ -63,7 +63,7 @@ func _process(_delta):
 		
 		
 
-func _unhandled_input(event):
+func _input(event):
 	if !is_automated && !is_tutorial:
 		if (
 			(event.is_action_pressed("INTERACT")) &&
@@ -75,6 +75,7 @@ func _unhandled_input(event):
 				
 				current_line_index += 1
 				if current_line_index >= dialog_lines.size():
+					await get_tree().create_timer(0.001).timeout
 					is_dialog_active = false
 					current_line_index = 0
 					dialog_finished.emit()
