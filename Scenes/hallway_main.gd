@@ -38,6 +38,7 @@ func _ready():
 		StairsDoor.queue_free()
 	if PositionManager.Act != 1 && PositionManager.Act != 0 && count2 < 1 && !PositionManager.HasReadEscapeText:
 		Player._swap_attention()
+		HasLeft = true
 		PositionManager.HasReadEscapeText = true
 		DialogManager.start_dialog(global_position, lines3, speech_sound, false, false)
 		await DialogManager.dialog_finished
