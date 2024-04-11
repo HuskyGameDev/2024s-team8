@@ -15,7 +15,7 @@ func _process(_delta):
 
 func _on_area_2d_body_entered(_body):
 	if HasLeft:
-		const HALLWAY_MAIN = preload("res://Scenes/Main floor rooms/Main Hall/hallway_main.tscn")
+		var HALLWAY_MAIN = load("res://Scenes/Main floor rooms/Main Hall/hallway_main.tscn")
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false)
 		StageManager.changeScene(HALLWAY_MAIN, 442, 131)

@@ -15,7 +15,7 @@
 size = Vector2(16.9706, 7.99998)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_04tfb"]
-size = Vector2(22.6274, 44)
+size = Vector2(22.6274, 5.65684)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_exq4k"]
 size = Vector2(16, 20)
@@ -196,9 +196,8 @@ position = Vector2(0, -6)
 texture = ExtResource("4_6wo4v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Powered Door"]
-position = Vector2(-3.05176e-05, -6.00002)
+position = Vector2(0, 12)
 rotation = 0.785398
-skew = -0.785398
 shape = SubResource("RectangleShape2D_04tfb")
 
 [node name="Background" type="TileMap" parent="."]
@@ -263,6 +262,7 @@ offset_top = -4.0
 offset_right = 300.0
 offset_bottom = 164.0
 texture = SubResource("CanvasTexture_65kqh")
+metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
 self_modulate = Color(0, 0, 0, 1)
@@ -272,6 +272,7 @@ offset_top = -8.0
 offset_right = 224.0
 offset_bottom = 16.0
 texture = SubResource("CanvasTexture_igcop")
+metadata/_edit_lock_ = true
 
 [connection signal="body_entered" from="Door" to="." method="_on_door_body_entered"]
 [connection signal="area_entered" from="PowerRoomDocument/InteractionArea" to="PowerRoomDocument/InteractionArea" method="_on_area_entered"]

@@ -276,10 +276,8 @@ parameters/Moving/blend_position = Vector2(0.00105822, -0.0133333)
 [node name="PauseLayer" type="CanvasLayer" parent="."]
 
 [node name="TextEdit" type="TextEdit" parent="PauseLayer"]
-visible = false
-offset_left = 88.0
-offset_right = 305.0
-offset_bottom = 36.0
+offset_right = 215.0
+offset_bottom = 35.0
 editable = false
 context_menu_enabled = false
 shortcut_keys_enabled = false
@@ -288,6 +286,7 @@ deselect_on_focus_loss_enabled = false
 drag_and_drop_selection_enabled = false
 virtual_keyboard_enabled = false
 middle_mouse_paste_enabled = false
+autowrap_mode = 1
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(0, 6)

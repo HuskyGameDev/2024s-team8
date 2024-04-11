@@ -18,7 +18,7 @@ func _on_interact():
 
 
 func _on_door_body_entered(body):
-	const HALLWAY_MAIN = preload("res://Scenes/Main floor rooms/Main Hall/hallway_main.tscn")
+	var HALLWAY_MAIN = load("res://Scenes/Main floor rooms/Main Hall/hallway_main.tscn")
 	count += 1
 	if body.name == "Player" && count > 1:
 		$Player.hasAttention = false

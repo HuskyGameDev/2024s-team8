@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var Canvas = get_tree().get_first_node_in_group("CanvasLayer")
-@onready var interaction_area: InteractionArea = $InteractionArea
+#@onready var interaction_area: InteractionArea = $InteractionArea
 @onready var player = get_tree().get_first_node_in_group("Player")
 @onready var speech_sound = preload("res://Assets/Dialogue blip5.mp3")
 @onready var speech_sound2 = preload("res://Assets/voice_sans.mp3")

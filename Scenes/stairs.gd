@@ -22,9 +22,11 @@ func _process(_delta):
 
 func _on_to_first_floor_body_entered(body):
 	if body.name == "Player":
+		if PositionManager.Act == 2:
+			PositionManager.Act = 3
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false)
-		const HALLWAY_MAIN = preload("res://Scenes/Main floor rooms/Main Hall/hallway_main.tscn")
+		var HALLWAY_MAIN = load("res://Scenes/Main floor rooms/Main Hall/hallway_main.tscn")
 		StageManager.changeScene(HALLWAY_MAIN, 220, 130)
 		StageManager.changeCamera(488)
 		StageManager.scene_change = true
@@ -35,7 +37,7 @@ func _on_to_second_floor_body_entered(body):
 	if body.name == "Player":
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false)
-		const HALL = preload("res://Scenes/Second floor rooms/hallway_top.tscn")
+		var HALL = load("res://Scenes/Second floor rooms/hallway_top.tscn")
 		StageManager.changeScene(HALL, 213, 121)
 		StageManager.changeCamera(488)
 		StageManager.scene_change = true

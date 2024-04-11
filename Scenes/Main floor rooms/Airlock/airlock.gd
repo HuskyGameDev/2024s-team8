@@ -23,7 +23,7 @@ func _on_to_hall_body_entered(body):
 	if count > 1:
 		if body.name == "Player":
 			if PositionManager.OpenedAirlock:
-				const HALL = preload("res://Scenes/Main floor rooms/Main Hall/hallway_main.tscn")
+				var HALL = load("res://Scenes/Main floor rooms/Main Hall/hallway_main.tscn")
 				$Player.hasAttention = false
 				$Player/AnimationTree.set("active", false)
 				StageManager.changeScene(HALL, 76, 130)
@@ -40,7 +40,7 @@ func _on_to_pod_body_entered(body):
 	count += 1
 	if count > 1:
 		if body.name == "Player":
-			const POD = preload("res://Scenes/Main floor rooms/Pod/pod.tscn")
+			var POD = load("res://Scenes/Main floor rooms/Pod/pod.tscn")
 			$Player.hasAttention = false
 			$Player/AnimationTree.set("active", false)
 			StageManager.changeScene(POD, 148, 136, true)

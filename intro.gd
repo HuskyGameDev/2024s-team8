@@ -28,16 +28,10 @@ func _ready():
 
 func _process(_delta):
 	if Input.is_action_just_pressed("MENU"):
-		const POD = preload("res://Scenes/Main floor rooms/Pod/pod.tscn")
-		await DialogManager.dialog_finished
-		# Plays act 1 music if intro is skipped
-		GlobalAudioManager.play_act1_music()
-		
-		StageManager.changeScene(POD, 90, 126)
-		StageManager.changeCamera(304)
+		_on_animation_player_animation_finished("")
 	
 func _on_animation_player_animation_finished(_anim_name):
-	const POD = preload("res://Scenes/Main floor rooms/Pod/pod.tscn")
+	var POD = load("res://Scenes/Main floor rooms/Pod/pod.tscn")
 	
 	if DialogManager.is_dialog_active:
 		await DialogManager.dialog_finished

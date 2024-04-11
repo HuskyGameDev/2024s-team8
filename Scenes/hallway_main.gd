@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var Player = get_node("Player")
 @onready var StairsDoor = get_tree().get_first_node_in_group("Stairs Door")
+@onready var CommandDoor = get_tree().get_first_node_in_group("Command Door")
 @onready var speech_sound = preload("res://Assets/voice_sans.mp3")
 @onready var speech_sound2 = preload("res://Assets/Dialogue blip5.mp3")
 
@@ -24,6 +25,10 @@ var HasLeft = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if PositionManager.Act == 3:
+		CommandDoor.queue_free()
+		$"Door areas/Bridge".monitoring = true
+		
 	StageManager.changeCamera(488)
 	InteractionManager.player = Player
 	if PositionManager.PrevPosition != Vector2.ZERO:
@@ -46,7 +51,7 @@ func _process(_delta):
 
 
 func _on_mess_hall_body_entered(body):
-	const MESS = preload("res://Scenes/Main floor rooms/Mess Hall/mess_hall.tscn")
+	var MESS = load("res://Scenes/Main floor rooms/Mess Hall/mess_hall.tscn")
 	if body.name == "Player" && HasLeft:
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false)
@@ -60,7 +65,7 @@ func _on_mess_hall_body_exited(_body):
 	pass # Replace with function body.
 
 func _on_research_room_body_entered(body):
-	const RESEARCH = preload("res://Scenes/Main floor rooms/research1.tscn")
+	var RESEARCH = load("res://Scenes/Main floor rooms/research1.tscn")
 	if body.name == "Player" && HasLeft:
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false)
@@ -74,7 +79,7 @@ func _on_research_room_body_exited(_body):
 	pass # Replace with function body.
 
 func _on_pod_body_entered(body):
-	const AIRLOCK = preload("res://Scenes/Main floor rooms/Airlock/airlock.tscn")
+	var AIRLOCK = load("res://Scenes/Main floor rooms/Airlock/airlock.tscn")
 	if body.name == "Player" && HasLeft:
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false)
@@ -88,7 +93,7 @@ func _on_pod_body_exited(_body):
 
 
 func _on_bunks_body_entered(body):
-	const BUNKS = preload("res://Scenes/Main floor rooms/bunks.tscn")
+	var BUNKS = load("res://Scenes/Main floor rooms/bunks.tscn")
 	if body.name == "Player" && HasLeft:
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false)
@@ -102,7 +107,7 @@ func _on_bunks_body_exited(_body):
 	pass # Replace with function body.
 
 func _on_supply_closet_body_entered(body):
-	const SUPPLY = preload("res://Scenes/Main floor rooms/Supply Closet/supply_closet.tscn")
+	var SUPPLY = load("res://Scenes/Main floor rooms/Supply Closet/supply_closet.tscn")
 	if body.name == "Player" && HasLeft:
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false)
@@ -116,7 +121,7 @@ func _on_supply_closet_body_exited(_body):
 	pass # Replace with function body.
 
 func _on_stairs_body_entered(body):
-	const STAIRS = preload("res://Scenes/Main floor rooms/stairs.tscn")
+	var STAIRS = load("res://Scenes/Main floor rooms/stairs.tscn")
 	if body.name == "Player":
 		if PositionManager.Act != 1:
 			$Player.hasAttention = false
@@ -136,7 +141,7 @@ func _on_stairs_body_exited(_body):
 
 
 func _on_bridge_body_entered(body):
-	const COMMAND_DECK = preload("res://Scenes/Main floor rooms/command_deck.tscn")
+	var COMMAND_DECK = load("res://Scenes/Main floor rooms/command_deck.tscn")
 	count += 1
 	if body.name == "Player" && HasLeft:
 		if PositionManager.Act != 1:
