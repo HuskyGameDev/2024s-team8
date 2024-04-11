@@ -16,7 +16,8 @@ const lines: Array[String] = [
 ]
 
 func _ready():
-	PositionManager.Act = 1
+	if PositionManager.Act < 1:
+		PositionManager.Act = 1
 
 func _on_to_hall_body_entered(body):
 	count += 1

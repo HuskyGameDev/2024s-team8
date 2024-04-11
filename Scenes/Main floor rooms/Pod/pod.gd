@@ -12,7 +12,8 @@ var lines: Array[String] = [
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	PositionManager.Act = 0
+	if PositionManager.Act < 1:
+		PositionManager.Act = 0
 	if !PositionManager.HasOpenedTutorial && PositionManager.StartFromBeginning:
 		player._swap_attention()
 		await get_tree().create_timer(1).timeout
