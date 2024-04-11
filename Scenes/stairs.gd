@@ -27,7 +27,7 @@ func _on_to_first_floor_body_entered(body):
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false)
 		var HALLWAY_MAIN = load("res://Scenes/Main floor rooms/Main Hall/hallway_main.tscn")
-		StageManager.changeScene(HALLWAY_MAIN, 220, 130)
+		StageManager.changeScene(HALLWAY_MAIN, 220, 110)
 		StageManager.changeCamera(488)
 		StageManager.scene_change = true
 		StageManager.on_first_floor = true

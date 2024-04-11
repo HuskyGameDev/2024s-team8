@@ -54,6 +54,7 @@ func display_letter():
 			timer.start(float(letter_time) / textSpd) 
 			
 			var new_audio_player = audio_player.duplicate()
+			#new_audio_player.volume_db = 20.0
 			get_tree().root.add_child(new_audio_player)
 			if letter_index % 2 == 0:
 				new_audio_player.play()

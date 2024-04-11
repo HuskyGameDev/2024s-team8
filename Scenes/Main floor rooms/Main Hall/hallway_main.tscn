@@ -210,7 +210,6 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Command Door"]
 position = Vector2(1, 17)
 rotation = 0.785398
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_uf06a")
 
 [node name="Sprite2D" type="Sprite2D" parent="Command Door"]

@@ -276,6 +276,7 @@ parameters/Moving/blend_position = Vector2(0.00105822, -0.0133333)
 [node name="PauseLayer" type="CanvasLayer" parent="."]
 
 [node name="TextEdit" type="TextEdit" parent="PauseLayer"]
+visible = false
 offset_right = 215.0
 offset_bottom = 35.0
 editable = false

@@ -36,9 +36,10 @@ func _ready():
 		HasLeft = false
 	if !PositionManager.SecurityEnabled:
 		StairsDoor.queue_free()
-	if PositionManager.Act != 1 && PositionManager.Act != 0 && count2 < 1:
+	if PositionManager.Act != 1 && PositionManager.Act != 0 && count2 < 1 && !PositionManager.HasReadEscapeText:
 		Player._swap_attention()
-		DialogManager.start_dialog(global_position, lines3, speech_sound2, false, false)
+		PositionManager.HasReadEscapeText = true
+		DialogManager.start_dialog(global_position, lines3, speech_sound, false, false)
 		await DialogManager.dialog_finished
 		Player._swap_attention()
 		count2 += 1
@@ -46,7 +47,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	
 	pass
 
 
@@ -122,10 +122,11 @@ func _on_supply_closet_body_exited(_body):
 
 func _on_stairs_body_entered(body):
 	var STAIRS = load("res://Scenes/Main floor rooms/stairs.tscn")
-	if body.name == "Player":
+	if body.name == "Player" && HasLeft:
 		if PositionManager.Act != 1:
 			$Player.hasAttention = false
 			$Player/AnimationTree.set("active", false)
+			PositionManager.PrevPosition = body.global_position
 			StageManager.changeScene(STAIRS, 59, 89)
 			StageManager.changeCamera(304)
 			StageManager.scene_change = true
@@ -137,6 +138,7 @@ func _on_stairs_body_entered(body):
 
 
 func _on_stairs_body_exited(_body):
+	HasLeft = true
 	pass
 
 

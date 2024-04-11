@@ -23,6 +23,6 @@ func _on_door_body_entered(body):
 	if body.name == "Player" && count > 1:
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false)
-		StageManager.changeScene(HALLWAY_MAIN, 443, 138)
+		StageManager.changeScene(HALLWAY_MAIN, 462, 130)
 		StageManager.changeCamera(488)
 		StageManager.scene_change = true
