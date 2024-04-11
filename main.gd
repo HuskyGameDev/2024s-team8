@@ -4,6 +4,10 @@ extends Node2D
 
 var settings 		# Variable to store a settingsMenu 
 
+func _ready():
+	# Plays main menu music when main menu is created
+	GlobalAudioManager.play_menu_music()
+
 func _on_play_pressed():
 	get_tree().change_scene_to_file("res://intro.tscn")
 	StageManager.scene_change = true
