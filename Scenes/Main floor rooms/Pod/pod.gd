@@ -6,7 +6,7 @@ var HasLeft = true
 
 # REMINDER: Could replace G with + InputMap.action_get_events("OBJECTIVE")[0].as_text() +, after finding out how to remove "(physical)"
 var lines: Array[String] = [
-	"I should press 'G' to look over my notes...", 
+	"I should press '" + InputMap.action_get_events("OBJECTIVE")[0].as_text() + "' to look over my notes...", 
 	""
 ]
 

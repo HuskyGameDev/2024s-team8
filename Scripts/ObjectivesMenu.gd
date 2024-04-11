@@ -4,10 +4,8 @@ extends Control
 func _ready():
 	if !PositionManager.HasOpenedTutorial:
 		PositionManager.HasOpenedTutorial = true
-		
-		
-		# setLabels() # Uncomment later after figuring out how to remove "(physical)" from description 
 	
+	setLabels()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -27,7 +25,7 @@ func _on_button_pressed():
 
 # Sets the labels to current keybinds
 func setLabels():
-	%Label.text = " - Use '" + InputMap.action_get_events("UP")[0].as_text() + InputMap.action_get_events("DOWN")[0].as_text() + InputMap.action_get_events("LEFT")[0].as_text() + InputMap.action_get_events("RIGHT")[0].as_text() +"' to move."
+	%Label.text = " - Use '" + InputMap.action_get_events("UP")[0].as_text() + InputMap.action_get_events("LEFT")[0].as_text() + InputMap.action_get_events("DOWN")[0].as_text() + InputMap.action_get_events("RIGHT")[0].as_text() +"' to move."
 	%Label2.text = " - Press '" + InputMap.action_get_events("INTERACT")[0].as_text() + "' to interact."  
 	%Label5.text = "- Hold '" + InputMap.action_get_events("SHIFT")[0].as_text() + "' to sprint."
 	%Label3.text = " - Press '" + InputMap.action_get_events("MAP")[0].as_text() + "' to open the map."
