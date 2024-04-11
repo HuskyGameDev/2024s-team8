@@ -37,13 +37,14 @@ func _ready():
 	if !PositionManager.SecurityEnabled:
 		StairsDoor.queue_free()
 	if PositionManager.Act != 1 && PositionManager.Act != 0 && count2 < 1 && !PositionManager.HasReadEscapeText:
+		count2 += 1
 		Player._swap_attention()
 		HasLeft = true
 		PositionManager.HasReadEscapeText = true
 		DialogManager.start_dialog(global_position, lines3, speech_sound, false, false)
 		await DialogManager.dialog_finished
 		Player._swap_attention()
-		count2 += 1
+	
  
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

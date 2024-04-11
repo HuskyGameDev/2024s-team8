@@ -10,7 +10,7 @@ func _process(_delta):
 	var currentScene = get_tree().current_scene.name
 	#print(currentScene)
 	sceneChecker(currentScene)
-	print(PositionManager.PrevPosition)
+	#print(PositionManager.PrevPosition)
 	
 	
 func sceneChecker(node):
