@@ -16,19 +16,20 @@ extends Control
 @onready var Row5 = [Row5Node.get_child(0), Row5Node.get_child(1), Row5Node.get_child(2), Row5Node.get_child(3), Row5Node.get_child(4)]
 @onready var Rows = [Row1, Row2, Row3, Row4, Row5]
 
-var RowIndex = 0
-var ColIndex = 0
+var RowIndex0 = 0
+var ColIndex0 = 0
+var FlowFromDirection = 0
 var solved = false
 signal cleared
 
 func _process(_delta):
 	if !solved:
 		if Input.is_action_just_pressed("INTERACT"):
-			Rows[RowIndex][ColIndex].rotation_degrees += 90
-			RowNodes[RowIndex].rotatePipe(ColIndex+1)
+			Rows[RowIndex0][ColIndex0].rotation_degrees += 90
+			RowNodes[RowIndex0].rotatePipe(ColIndex0+1)
 			if !((RowNodes[0].Pipe1[0] != true) or (RowNodes[0].Pipe1[3] != true)):
-				if (RowNodes[4].Pipe5[2] == true && RowNodes[4].Pipe5[1]):
-					if checkWinRecurse(1,0,3):
+				if checkWinRecurse(1,0,3):
+					if (RowNodes[4].Pipes[4][2] && RowNodes[4].Pipes[4][alternateDirection(FlowFromDirection)]):
 						solved = true
 						await get_tree().create_timer(2).timeout
 						cleared.emit()
@@ -36,14 +37,14 @@ func _process(_delta):
 						player._swap_attention()
 		
 		if Input.is_action_just_pressed("LEFT"):
-			ColIndex = ColIndex - 1 if ColIndex > 0 else 4
+			ColIndex0 = ColIndex0 - 1 if ColIndex0 > 0 else 4
 		if Input.is_action_just_pressed("RIGHT"):
-			ColIndex = ColIndex + 1 if ColIndex < 4 else 0
+			ColIndex0 = ColIndex0 + 1 if ColIndex0 < 4 else 0
 		if Input.is_action_just_pressed("UP"):
-			RowIndex = RowIndex - 1 if RowIndex > 0 else 4
+			RowIndex0 = RowIndex0 - 1 if RowIndex0 > 0 else 4
 		if Input.is_action_just_pressed("DOWN"):
-			RowIndex = RowIndex + 1 if RowIndex < 4 else 0
-		Cursor.position = Rows[RowIndex][ColIndex].position
+			RowIndex0 = RowIndex0 + 1 if RowIndex0 < 4 else 0
+		Cursor.position = Rows[RowIndex0][ColIndex0].position
 	
 	if Input.is_action_just_pressed("MENU"):
 		queue_free()
@@ -52,6 +53,7 @@ func _process(_delta):
 
 #Order, Left = 0, Up = 1, Right = 2, Down = 3
 func checkWinRecurse(RowIndex, ColIndex, FromDirection):
+	FlowFromDirection = FromDirection
 	if RowIndex == 4 && ColIndex == 4:
 		return true
 	
