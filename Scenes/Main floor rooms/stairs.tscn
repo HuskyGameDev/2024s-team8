@@ -59,8 +59,8 @@ shape = SubResource("RectangleShape2D_ab7vd")
 scale = Vector2(5, 5)
 transform = Transform2D(5, 0, 0, 5, 0, 0)
 
-[connection signal="body_entered" from="to_first_floor" to="." method="_on_to_first_floor_body_entered"]
 [connection signal="body_entered" from="to_first_floor" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="to_first_floor" to="." method="_on_to_first_floor_body_entered"]
 [connection signal="body_entered" from="to_second_floor" to="." method="_on_to_second_floor_body_entered"]
 [connection signal="body_entered" from="Starea" to="." method="_on_starea_body_entered"]
 [connection signal="body_exited" from="Starea" to="." method="_on_starea_body_exited"]

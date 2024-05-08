@@ -7,7 +7,8 @@ extends CharacterBody2D
 @onready var animationState = animationTree.get("parameters/playback")
 @onready var objectiveMenu = preload("res://Scripts/ObjectivesMenu.tscn")
 @onready var InteractionParent = get_tree().get_first_node_in_group("InteractionParent")
-@onready var CanvasModulateObject = get_tree().get_first_node_in_group("CanvasModulate")
+@onready var CanvasModulateObject = get_tree().get_first_node_in_group("CanvasModulate") #Red filter canvas modulate (just CanvasModulate)
+@onready var NoiseModulateObject = get_tree().get_first_node_in_group("NoiseModulate")
 @export var playerSpeed = 350
 @export var pauseMenu : PackedScene
 @export var mini_map : PackedScene

@@ -1,0 +1,59 @@
+[gd_resource type="ShaderMaterial" script_class="FastNoiseLiteShaderMaterial" load_steps=4 format=3 uid="uid://bsr0lnm3p1tv7"]
+
+[ext_resource type="Script" path="res://addons/FastNoiseLiteRuntimeShader/FastNoiseLiteShaderMaterial.gd" id="1_6f1an"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_gf3cm"]
+noise_type = 0
+frequency = 1.0
+fractal_gain = 1.26
+domain_warp_fractal_octaves = 10
+domain_warp_fractal_lacunarity = 5.61
+domain_warp_fractal_gain = -0.115
+
+[sub_resource type="Shader" id="Shader_lg3vw"]
+code = "shader_type canvas_item;
+#define CANVAS_ITEM
+#define DEFINE_OVERRIDE
+#define SELECTED_NOISE_TYPE 0
+#define SELECTED_FRACTAL_TYPE 1
+#define SELECTED_DOMAIN_WARP_TYPE 0
+#define SELECTED_DOMAIN_WARP_FRACTAL_TYPE 4
+#define FNL_COMPILLER_OPTIMISATIONS_REQUIRED
+#include \"res://addons/FastNoiseLiteRuntimeShader/FastNoiseLiteLib.gdshaderinc\"
+#define IS_3D_TEXTURE false
+#define IN_3D_SPACE true
+#define DOMAIN_WARP_ENABLED false
+#define SEAMLESS false
+#define AS_NORMAL_MAP false
+#define NO_GROUPS
+#include \"res://addons/FastNoiseLiteRuntimeShader/FastNoiseLiteBase.gdshaderinc\"
+"
+
+[resource]
+shader = SubResource("Shader_lg3vw")
+shader_parameter/wdh = Vector3(1000, 1000, 512)
+shader_parameter/uvw = Vector3(1, 1, 1)
+shader_parameter/invert = false
+shader_parameter/output = 4
+shader_parameter/seed = 0
+shader_parameter/frequency = 1.0
+shader_parameter/offset = Vector3(0, 0, 0)
+shader_parameter/octaves = 5
+shader_parameter/lacunarity = 2.0
+shader_parameter/gain = 1.26
+shader_parameter/weighted_strength = 0.0
+script = ExtResource("1_6f1an")
+shader_type = 0
+texture_type = 0
+texture_uvw = Vector3(1, 1, 1)
+output = 4
+width = 1000
+heigth = 1000
+depth = 512
+invert = false
+in_3d_space = true
+seamless = false
+seamless_blend_skirt = 1.0
+as_normal_map = false
+bump_strength = 8
+noise = SubResource("FastNoiseLite_gf3cm")
