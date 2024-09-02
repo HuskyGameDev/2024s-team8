@@ -164,5 +164,3 @@ func _on_bridge_body_entered(body):
 
 func _on_bridge_body_exited(_body):
 	HasLeft = true
-
-
