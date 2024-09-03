@@ -16,6 +16,8 @@ var can_advance_line = false
 var is_interactable = false
 var is_automated = false
 var is_tutorial = false
+var skippingDialogue = false
+var waitingIntro = false
 
 signal dialog_finished()
 
@@ -49,7 +51,9 @@ func on_text_box_finished_displaying():
 func _process(_delta):
 	if is_automated && is_dialog_active && can_advance_line:
 		can_advance_line = false
+		waitingIntro = true
 		await get_tree().create_timer(float(0.5) / PositionManager.textSpd).timeout
+		waitingIntro = false
 		if text_box != null:
 			text_box.queue_free()
 		current_line_index += 1
@@ -68,7 +72,7 @@ func _input(event):
 		if (
 			(event.is_action_pressed("INTERACT")) &&
 			is_dialog_active &&
-			can_advance_line
+			can_advance_line && !skippingDialogue
 		):
 			if !is_interactable:
 				text_box.queue_free()
@@ -83,7 +87,17 @@ func _input(event):
 				
 			show_text_box()
 			
-		
+		elif (
+			(event.is_action_pressed("INTERACT")) &&
+			is_dialog_active && !can_advance_line
+		): 	
+			skippingDialogue = true
+			PositionManager.playTextSound = false
+			while (!PositionManager.finished_displaying):
+				await get_tree().create_timer(0.001).timeout
+			PositionManager.playTextSound = true
+			skippingDialogue = false
+			
 	if is_tutorial:
 		if (event.is_action_pressed("OBJECTIVE") &&
 			is_dialog_active &&
@@ -98,13 +112,19 @@ func _input(event):
 		event.is_action_pressed("MENU") &&
 		is_dialog_active && !is_tutorial
 	):
-		text_box.queue_free()
-		is_dialog_active = false
-		current_line_index = 0
-		await get_tree().create_timer(0.001).timeout
-		dialog_finished.emit()
-		return
+		if !is_automated:
+			text_box.queue_free()
+			is_dialog_active = false
+			current_line_index = 0
+			await get_tree().create_timer(0.001).timeout
+			dialog_finished.emit()
+			return
+		elif !waitingIntro:
+			text_box.queue_free()
+			is_dialog_active = false
+			current_line_index = 0
+			await get_tree().create_timer(0.001).timeout
+			dialog_finished.emit()
+			return
 		
 	
-
-
