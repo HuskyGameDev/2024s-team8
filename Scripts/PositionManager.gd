@@ -11,6 +11,7 @@ var hasClearedCombo = false
 var Act = 0
 var comboCode := [0,0,0,0,1]
 var valveCode := [9,6,3]
+var PipeVersion = 1
 var HasOpenedTutorial = false
 var OpenedAirlock = false
 var HasEatenBurger = false

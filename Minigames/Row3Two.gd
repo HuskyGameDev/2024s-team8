@@ -2,9 +2,9 @@ extends Node2D
 
 #Direction Order: Left, Up, Right, Down
 var Pipe1 = [true, false, false, true]
-var Pipe2 = [true, false, false, true]
-var Pipe3 = [true, false, false, true]
-var Pipe4 = [true, false, false, true]
+var Pipe2 = [false, true, false, true]
+var Pipe3 = [true, true, true, true]
+var Pipe4 = [false, false, true, true]
 var Pipe5 = [true, false, false, true]
 var Pipes = [Pipe1, Pipe2, Pipe3, Pipe4, Pipe5]
 

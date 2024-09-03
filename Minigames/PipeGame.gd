@@ -90,5 +90,3 @@ func alternateDirection(Direction):
 	
 	
 	
-
-

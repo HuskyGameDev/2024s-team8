@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmxe8rssi3ook"
-path="res://.godot/imported/board.png-13c184c4ff53ae71675383ddbc753db3.ctex"
+uid="uid://l2w7magfouy1"
+path="res://.godot/imported/pipe_corner_top_right.png-a98b92b756c4efb8cb3d02a7c940eabb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/puzzle_pipes/board.png"
-dest_files=["res://.godot/imported/board.png-13c184c4ff53ae71675383ddbc753db3.ctex"]
+source_file="res://Assets/puzzle_pipes/pipe_corner_top_right.png"
+dest_files=["res://.godot/imported/pipe_corner_top_right.png-a98b92b756c4efb8cb3d02a7c940eabb.ctex"]
 
 [params]
 

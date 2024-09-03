@@ -50,5 +50,3 @@ func rotatePipe(PipeNumber):
 		Pipe5[0] = temp
 		#print(Pipe5)
 		#print('\n')
-
-
