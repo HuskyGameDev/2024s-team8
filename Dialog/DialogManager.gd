@@ -113,6 +113,8 @@ func _input(event):
 		is_dialog_active && !is_tutorial
 	):
 		if !is_automated:
+			PositionManager.playTextSound = true
+			skippingDialogue = false
 			text_box.queue_free()
 			is_dialog_active = false
 			current_line_index = 0
@@ -120,6 +122,8 @@ func _input(event):
 			dialog_finished.emit()
 			return
 		elif !waitingIntro:
+			PositionManager.playTextSound = true
+			skippingDialogue = false
 			text_box.queue_free()
 			is_dialog_active = false
 			current_line_index = 0
