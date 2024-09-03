@@ -17,7 +17,7 @@ func _ready():
 
 
 func _on_interact():
-	const POWER_ROOM = preload("res://Scenes/Second floor rooms/power_room.tscn")
+	var POWER_ROOM = load("res://Scenes/Second floor rooms/Power Room/power_room.tscn")
 	if PositionManager.HasCrowbar && get_node("Sprite2D") != null: #runs if not queue_free() and player has crowbar
 		player._swap_attention()
 		PositionManager.HasOpenedVent = true
@@ -33,5 +33,3 @@ func _on_interact():
 		await DialogManager.dialog_finished
 		player._swap_attention()
 		
-
-

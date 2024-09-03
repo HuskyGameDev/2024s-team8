@@ -21,7 +21,7 @@ func _on_to_the_transitionary_hallway_body_entered(_body):
 func _on_to_the_boiler_room_body_entered(_body):
 	count += 1
 	if count > 2:
-		var BOILER_ROOM = load("res://Scenes/Second floor rooms/boiler_room.tscn")
+		var BOILER_ROOM = load("res://Scenes/Second floor rooms/Boiler Room/boiler_room.tscn")
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false)
 		StageManager.changeScene(BOILER_ROOM, 204, 146)

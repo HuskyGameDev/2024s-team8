@@ -21,3 +21,4 @@ var HasReadEscapeText = false
 var textSpd = 1.0 # Factor for text speed
 var playTextSound = true
 var finished_displaying = true
+var Documents = []

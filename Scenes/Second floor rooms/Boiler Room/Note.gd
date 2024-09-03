@@ -17,6 +17,8 @@ func _ready():
 
 func _on_interact():
 	player._swap_attention()
+	if PositionManager.Documents.find("Boiler Note") == -1:
+		PositionManager.Documents.append("Boiler Note")
 	DialogManager.start_dialog(global_position, lines, speech_sound, false, false)
 	await DialogManager.dialog_finished
 	player._swap_attention()

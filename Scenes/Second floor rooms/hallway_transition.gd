@@ -5,7 +5,7 @@ var count = 0
 func _on_to_power_station_body_entered(_body):
 	count += 1
 	if count > 4:
-		var POWER_ROOM = load("res://Scenes/Second floor rooms/power_room.tscn")
+		var POWER_ROOM = load("res://Scenes/Second floor rooms/Power Room/power_room.tscn")
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false)
 		StageManager.changeScene(POWER_ROOM, 269, 122)

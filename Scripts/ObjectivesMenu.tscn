@@ -19,7 +19,7 @@ script = ExtResource("1_wja83")
 
 [node name="Background" type="TextureRect" parent="."]
 self_modulate = Color(0.254902, 0.254902, 0.254902, 1)
-z_index = -1
+z_index = -3
 layout_mode = 2
 offset_right = 1920.0
 offset_bottom = 1080.0
@@ -72,22 +72,20 @@ offset_right = 1500.0
 offset_bottom = 930.0
 theme_override_fonts/font = ExtResource("4_73prb")
 theme_override_font_sizes/font_size = 30
+current_tab = 0
 
 [node name="Objectives" type="VBoxContainer" parent="TabContainer"]
 layout_mode = 2
 size_flags_vertical = 4
-
-[node name="Alignment" type="Label" parent="TabContainer/Objectives"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("4_73prb")
-theme_override_font_sizes/font_size = 37
+metadata/_tab_index = 0
 
 [node name="Label" type="Label" parent="TabContainer/Objectives"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_73prb")
 theme_override_font_sizes/font_size = 37
-text = " - Use 'WASD' to move.
+text = " 
+ - Use 'WASD' to move.
 
 "
 
@@ -131,32 +129,88 @@ text = " - Press 'G' to open the objectives.
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_73prb")
 theme_override_font_sizes/font_size = 37
-text = " - Explore the ship.
+text = "
+ - Explore the ship.
+
 "
 
-[node name="Documents" type="VBoxContainer" parent="TabContainer"]
+[node name="Documents" type="VBoxContainer" parent="TabContainer" groups=["Documents"]]
 visible = false
 layout_mode = 2
+metadata/_tab_index = 1
 
-[node name="Alignment" type="Label" parent="TabContainer/Documents"]
+[node name="Document 1" type="Button" parent="TabContainer/Documents"]
+visible = false
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_73prb")
-theme_override_font_sizes/font_size = 37
+theme_override_font_sizes/font_size = 36
+text = "Document 1"
 
-[node name="Document1" type="Label" parent="TabContainer/Documents"]
+[node name="Document 2" type="Button" parent="TabContainer/Documents"]
+visible = false
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_73prb")
-theme_override_font_sizes/font_size = 37
-text = "
-- Document 1"
+theme_override_font_sizes/font_size = 36
+text = "Document 2"
 
-[node name="Document1Button" type="Button" parent="TabContainer/Documents/Document1"]
-z_index = -1
+[node name="Document 3" type="Button" parent="TabContainer/Documents"]
+visible = false
 layout_mode = 2
-offset_left = 1.0
-offset_top = 13.0
-offset_right = 330.0
-offset_bottom = 100.0
+theme_override_font_sizes/font_size = 36
+text = "Document 3"
+
+[node name="Document 4" type="Button" parent="TabContainer/Documents"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Document 4
+"
+
+[node name="Document 5" type="Button" parent="TabContainer/Documents"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Document 5
+"
+
+[node name="Document 6" type="Button" parent="TabContainer/Documents"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Document 6
+"
+
+[node name="Document 7" type="Button" parent="TabContainer/Documents"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Document 7
+"
+
+[node name="Document 8" type="Button" parent="TabContainer/Documents"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Document 8"
+
+[node name="Document 9" type="Button" parent="TabContainer/Documents"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Document 9"
+
+[node name="Document 10" type="Button" parent="TabContainer/Documents"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Document 10"
 
 [connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
-[connection signal="pressed" from="TabContainer/Documents/Document1/Document1Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="TabContainer/Documents/Document 1" to="." method="_on_document_button_pressed" binds= [1]]
+[connection signal="pressed" from="TabContainer/Documents/Document 2" to="." method="_on_document_button_pressed" binds= [2]]
+[connection signal="pressed" from="TabContainer/Documents/Document 3" to="." method="_on_document_button_pressed" binds= [3]]
+[connection signal="pressed" from="TabContainer/Documents/Document 4" to="." method="_on_document_button_pressed" binds= [4]]
+[connection signal="pressed" from="TabContainer/Documents/Document 5" to="." method="_on_document_button_pressed" binds= [5]]
+[connection signal="pressed" from="TabContainer/Documents/Document 6" to="." method="_on_document_button_pressed" binds= [6]]
+[connection signal="pressed" from="TabContainer/Documents/Document 7" to="." method="_on_document_button_pressed" binds= [7]]
+[connection signal="pressed" from="TabContainer/Documents/Document 8" to="." method="_on_document_button_pressed" binds= [8]]
+[connection signal="pressed" from="TabContainer/Documents/Document 9" to="." method="_on_document_button_pressed" binds= [9]]
+[connection signal="pressed" from="TabContainer/Documents/Document 10" to="." method="_on_document_button_pressed" binds= [10]]
