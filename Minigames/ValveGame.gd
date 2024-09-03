@@ -96,6 +96,3 @@ func RotateValve():
 				ArrowArray[index].visible = true
 				
 	pass
-
-
-

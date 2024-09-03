@@ -22,3 +22,12 @@ var textSpd = 1.0 # Factor for text speed
 var playTextSound = true
 var finished_displaying = true
 var Documents = []
+var DocumentsText= []
+
+
+func array_to_string(arr: Array, skipLines: int = 0) -> String:
+	var string = ""
+	for i in range(skipLines, arr.size()):
+		string += str(arr[i])
+		string += " "
+	return string

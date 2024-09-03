@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Minigames/ValveGame.gd" id="1_n4vlg"]
 [ext_resource type="Texture2D" uid="uid://dpbcrop0gl3sv" path="res://Assets/valve_handle_singlesprite.png" id="2_scea5"]
 [ext_resource type="Texture2D" uid="uid://xedf5es1uqvk" path="res://Assets/arrow.png" id="3_mcx1x"]
-[ext_resource type="Texture2D" uid="uid://bx4gu78dbksl7" path="res://Assets/puzzle_pipes/bottom_left/pipe_corner_bottom_left.png" id="4_iuwdv"]
+[ext_resource type="Texture2D" uid="uid://difqk6actvwo0" path="res://Assets/puzzle_pipes/pipe_end.png" id="4_11sef"]
 [ext_resource type="Texture2D" uid="uid://0tik15ssrfpo" path="res://Assets/Circle.png" id="5_qmcx3"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_ois1y"]
@@ -21,7 +21,7 @@ script = ExtResource("1_n4vlg")
 
 [node name="Background" type="TextureRect" parent="."]
 modulate = Color(0, 0, 0, 1)
-self_modulate = Color(0, 0, 0, 0.431373)
+self_modulate = Color(0, 0, 0, 0.580392)
 top_level = true
 z_index = -1
 layout_mode = 0
@@ -68,29 +68,29 @@ texture = ExtResource("3_mcx1x")
 
 [node name="Pipe1" type="Sprite2D" parent="."]
 z_index = 1
-position = Vector2(60, 55)
+position = Vector2(58, 55)
 rotation = 1.5708
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_iuwdv")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_11sef")
 
 [node name="Pipe2" type="Sprite2D" parent="."]
-position = Vector2(163, 55)
+position = Vector2(159, 55)
 rotation = 1.5708
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_iuwdv")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_11sef")
 
 [node name="Pipe3" type="Sprite2D" parent="."]
-position = Vector2(263, 55)
+position = Vector2(259, 55)
 rotation = 1.5708
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_iuwdv")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_11sef")
 
 [node name="Steam1" type="CPUParticles2D" parent="." groups=["Steam1"]]
 show_behind_parent = true
 z_index = 1
 position = Vector2(58, 33)
 amount = 12
-lifetime = 0.4
+preprocess = 15.0
 texture = ExtResource("5_qmcx3")
 gravity = Vector2(0, -650)
 initial_velocity_min = 10.0
@@ -102,9 +102,9 @@ color = Color(0.392157, 0.392157, 0.392157, 1)
 [node name="Steam2" type="CPUParticles2D" parent="." groups=["Steam2"]]
 show_behind_parent = true
 z_index = 1
-position = Vector2(162, 33)
+position = Vector2(159, 33)
 amount = 12
-lifetime = 0.4
+preprocess = 15.0
 texture = ExtResource("5_qmcx3")
 gravity = Vector2(0, -650)
 initial_velocity_min = 10.0
@@ -116,9 +116,9 @@ color = Color(0.392157, 0.392157, 0.392157, 1)
 [node name="Steam3" type="CPUParticles2D" parent="." groups=["Steam3"]]
 show_behind_parent = true
 z_index = 1
-position = Vector2(263, 33)
+position = Vector2(259, 33)
 amount = 12
-lifetime = 0.4
+preprocess = 15.0
 texture = ExtResource("5_qmcx3")
 gravity = Vector2(0, -650)
 initial_velocity_min = 10.0

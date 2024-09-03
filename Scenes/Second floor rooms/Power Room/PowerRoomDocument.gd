@@ -21,6 +21,7 @@ func _on_interact():
 	player._swap_attention()
 	if PositionManager.Documents.find("Power Room Document") == -1:
 		PositionManager.Documents.append("Power Room Document")
+		PositionManager.DocumentsText.append(PositionManager.array_to_string(lines))
 	DialogManager.start_dialog(global_position, lines, speech_sound, false)
 	await DialogManager.dialog_finished
 	player._swap_attention()

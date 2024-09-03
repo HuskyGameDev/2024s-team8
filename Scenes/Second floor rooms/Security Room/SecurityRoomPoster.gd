@@ -18,6 +18,7 @@ func _on_interact():
 	player._swap_attention()
 	if PositionManager.Documents.find("Security Note") == -1:
 		PositionManager.Documents.append("Security Note")
+		PositionManager.DocumentsText.append(PositionManager.array_to_string(lines))
 	DialogManager.start_dialog(global_position, lines, speech_sound, false)
 	await DialogManager.dialog_finished
 	player._swap_attention()

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://b7jmba3d5jgg5"]
+[gd_scene load_steps=7 format=3 uid="uid://b7jmba3d5jgg5"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectivesMenu.gd" id="1_wja83"]
 [ext_resource type="Texture2D" uid="uid://b5xruj8go3atr" path="res://Assets/menu_button_dark.png" id="2_erno3"]
 [ext_resource type="Texture2D" uid="uid://dym1ivtlsvpjd" path="res://Assets/menu_button_light.png" id="3_483bv"]
 [ext_resource type="FontFile" uid="uid://eakijihfas2k" path="res://Assets/SFPixelate-Bold.ttf" id="4_73prb"]
+[ext_resource type="Script" path="res://Scripts/tab_container.gd" id="5_xg8tj"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_7hbq6"]
 normal_texture = ExtResource("2_erno3")
@@ -64,7 +65,7 @@ text = "Exit
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TabContainer" type="TabContainer" parent="."]
+[node name="TabContainer" type="TabContainer" parent="." groups=["TabContainer"]]
 layout_mode = 2
 offset_left = 420.0
 offset_top = 120.0
@@ -73,6 +74,7 @@ offset_bottom = 930.0
 theme_override_fonts/font = ExtResource("4_73prb")
 theme_override_font_sizes/font_size = 30
 current_tab = 0
+script = ExtResource("5_xg8tj")
 
 [node name="Objectives" type="VBoxContainer" parent="TabContainer"]
 layout_mode = 2
@@ -202,6 +204,27 @@ visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Document 10"
+
+[node name="Inventory" type="VBoxContainer" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Text" type="Control" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="Label" type="Label" parent="TabContainer/Text" groups=["LabelTab"]]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 21.0
+offset_top = 11.0
+offset_right = -19.0
+offset_bottom = -12.0
+theme_override_font_sizes/font_size = 36
+autowrap_mode = 3
 
 [connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="TabContainer/Documents/Document 1" to="." method="_on_document_button_pressed" binds= [1]]

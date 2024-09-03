@@ -9,6 +9,8 @@ const lines: Array[String] = [
 	"You picked up a note."
 ]
 
+var ComboCode = "Security Code: " + PositionManager.array_to_string(PositionManager.comboCode)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	interaction_area.interact = Callable(self, "_on_interact")
@@ -19,6 +21,7 @@ func _on_interact():
 	player._swap_attention()
 	if PositionManager.Documents.find("Boiler Note") == -1:
 		PositionManager.Documents.append("Boiler Note")
+		PositionManager.DocumentsText.append(ComboCode)
 	DialogManager.start_dialog(global_position, lines, speech_sound, false, false)
 	await DialogManager.dialog_finished
 	player._swap_attention()

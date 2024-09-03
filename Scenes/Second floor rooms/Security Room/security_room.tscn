@@ -21,6 +21,7 @@ size = Vector2(16, 20)
 
 [node name="Security_Room" type="Node2D"]
 script = ExtResource("1_wl5uw")
+metadata/_edit_vertical_guides_ = [-91.0]
 
 [node name="Collision" type="TileMap" parent="."]
 tile_set = ExtResource("2_womnn")

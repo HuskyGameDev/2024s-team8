@@ -1,6 +1,8 @@
 extends Control
 
 @onready var Documents = get_tree().get_first_node_in_group("Documents")
+@onready var TabContain = get_tree().get_first_node_in_group("TabContainer")
+@onready var LabelTab = get_tree().get_first_node_in_group("LabelTab")
 
 func _ready():
 	if !PositionManager.HasOpenedTutorial:
@@ -21,6 +23,8 @@ func _on_exit_button_pressed():
 	queue_free()
 
 func _on_document_button_pressed(extra_arg_0: int) -> void:
+	TabContain.current_tab = 3
+	LabelTab.text = PositionManager.DocumentsText[extra_arg_0-1]
 	pass # Replace with function body.
 
 
