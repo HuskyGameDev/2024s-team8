@@ -8,13 +8,14 @@ signal solved()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(PositionManager.comboCode)
+	#print(PositionManager.comboCode)
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if locks == PositionManager.comboCode:
-		print("Solved")
+		#print("Solved")
 		solved.emit()
 		queue_free()
 		player._swap_attention()

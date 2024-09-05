@@ -10,7 +10,7 @@ domain_warp_fractal_octaves = 10
 domain_warp_fractal_lacunarity = 5.61
 domain_warp_fractal_gain = -0.115
 
-[sub_resource type="Shader" id="Shader_aiivs"]
+[sub_resource type="Shader" id="Shader_3wm4f"]
 code = "shader_type canvas_item;
 #define CANVAS_ITEM
 #define DEFINE_OVERRIDE
@@ -30,11 +30,11 @@ code = "shader_type canvas_item;
 "
 
 [resource]
-shader = SubResource("Shader_aiivs")
+shader = SubResource("Shader_3wm4f")
 shader_parameter/wdh = Vector3(1000, 1000, 512)
 shader_parameter/uvw = Vector3(1, 1, 1)
 shader_parameter/invert = false
-shader_parameter/output = 4096
+shader_parameter/output = 16384
 shader_parameter/seed = 0
 shader_parameter/frequency = 1.0
 shader_parameter/offset = Vector3(0, 0, 0)

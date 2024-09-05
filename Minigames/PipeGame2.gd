@@ -53,7 +53,6 @@ func _process(_delta):
 
 #Order, Left = 0, Up = 1, Right = 2, Down = 3
 func checkWinRecurse(RowIndex, ColIndex, FromDirection):
-	print(RowIndex, ColIndex, FromDirection)
 	FlowFromDirection = FromDirection
 	if RowIndex == 4 && ColIndex == 4:
 		return true
