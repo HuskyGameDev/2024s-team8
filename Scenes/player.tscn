@@ -275,6 +275,7 @@ limit_bottom = 160
 [node name="NoiseFilterLayer" type="Sprite2D" parent="Camera2D"]
 modulate = Color(0, 0, 0, 0.196078)
 self_modulate = Color(0, 0, 0, 0.478431)
+top_level = true
 material = ExtResource("7_i7p63")
 position = Vector2(-250, -250)
 scale = Vector2(500, 500)
@@ -282,7 +283,6 @@ texture = ExtResource("7_7q8n3")
 script = ExtResource("8_u76dg")
 
 [node name="ColorRect" type="ColorRect" parent="Camera2D"]
-visible = false
 material = ExtResource("7_i7p63")
 custom_minimum_size = Vector2(350, 200)
 layout_direction = 1

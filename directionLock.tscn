@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://sgibs6j2lkvu"]
+
+[ext_resource type="Texture2D" uid="uid://0tik15ssrfpo" path="res://Assets/Circle.png" id="1_si5rt"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_5031t"]
+
+[node name="directionLock" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="."]
+self_modulate = Color(0.0627451, 0.0627451, 0.0627451, 0.431373)
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = SubResource("CanvasTexture_5031t")
+
+[node name="lockKnob" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 612.0
+offset_top = 276.0
+offset_right = 1188.0
+offset_bottom = 852.0
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="lockKnob"]
+modulate = Color(0.198492, 0.477291, 0.84472, 1)
+layout_mode = 0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 544.0
+offset_bottom = 544.0
+texture = ExtResource("1_si5rt")
+stretch_mode = 4
+
+[node name="TextureRect" type="TextureRect" parent="lockKnob/TextureRect"]
+self_modulate = Color(0.808819, 0.661079, 0.763473, 1)
+show_behind_parent = true
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 544.0
+offset_bottom = 544.0
+texture = ExtResource("1_si5rt")
+stretch_mode = 4

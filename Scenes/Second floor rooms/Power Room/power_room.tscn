@@ -192,7 +192,7 @@ position = Vector2(284, 120)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Powered Door"]
-position = Vector2(0, -6)
+position = Vector2(0, -7)
 texture = ExtResource("4_8dpo0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Powered Door"]
