@@ -4,6 +4,8 @@ extends Node2D
 @onready var player = get_tree().get_first_node_in_group("Player")
 @onready var speech_sound = preload("res://Assets/Dialogue blip5.mp3")
 @onready var timer = get_tree().get_first_node_in_group("Timer")
+@onready var toPod = get_tree().get_first_node_in_group("to_pod")
+@onready var animPlayer = get_tree().get_first_node_in_group("AnimationPlayer")
 
 
 var Button1 = false
@@ -16,8 +18,15 @@ const lines: Array[String] = [
 ]
 
 func _ready():
+	toPod.monitoring = false
 	if PositionManager.Act < 1:
 		PositionManager.Act = 1
+	if PositionManager.OpenedAirlock:
+		animPlayer.play("closed")
+	else:
+		animPlayer.play("closing")
+		await animPlayer.animation_finished
+		toPod.monitoring = true
 
 func _on_to_hall_body_entered(body):
 	count += 1
@@ -44,6 +53,9 @@ func _on_to_pod_body_entered(body):
 			var POD = load("res://Scenes/Main floor rooms/Pod/pod.tscn")
 			$Player.hasAttention = false
 			$Player/AnimationTree.set("active", false)
+			GlobalAudioManager.door_SFX() # Plays door opening SFX
+			animPlayer.play("opening") 
+			await animPlayer.animation_finished
 			StageManager.changeScene(POD, 148, 136, true)
 			StageManager.changeCamera(304)
 			StageManager.scene_change = true
