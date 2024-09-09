@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cfl3tm624omie"]
+[gd_scene load_steps=35 format=3 uid="uid://cfl3tm624omie"]
 
 [ext_resource type="Script" path="res://Scenes/hallway_main.gd" id="1_uyxqv"]
 [ext_resource type="Texture2D" uid="uid://db5cscw8pfccj" path="res://Assets/room_tilemap_modular.png" id="2_kjoew"]
@@ -14,6 +14,8 @@
 [ext_resource type="TileSet" uid="uid://b57dw6av5xyw3" path="res://door_icon_tileset.tres" id="12_7hp2b"]
 [ext_resource type="Texture2D" uid="uid://b68qnvvg3nd0x" path="res://Assets/vent-sprite.png" id="12_khwuv"]
 [ext_resource type="Texture2D" uid="uid://dj0lr4c3ty7f5" path="res://Assets/simple_diagonal_door.png" id="14_536ue"]
+[ext_resource type="PackedScene" uid="uid://coym0lkppx1o7" path="res://lamp.tscn" id="15_pr4ik"]
+[ext_resource type="PackedScene" uid="uid://cy74qcmqm8dhl" path="res://lampFlicker.tscn" id="16_kqwo2"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_nn5nj"]
 
@@ -386,6 +388,25 @@ transform = Transform2D(5, 0, 0, 5, 0, 0)
 tile_set = ExtResource("12_7hp2b")
 format = 2
 layer_0/tile_data = PackedInt32Array(1245206, 131072, 0, 1245216, 655360, 0, 524338, 393216, 0, 524297, 589824, 0, 524315, 0, 0, 524310, 65536, 0)
+
+[node name="Lamps" type="Node2D" parent="."]
+
+[node name="Lamp" parent="Lamps" instance=ExtResource("16_kqwo2")]
+position = Vector2(404, 76)
+minBright = 0.25
+maxBright = 0.45
+
+[node name="Lamp2" parent="Lamps" instance=ExtResource("15_pr4ik")]
+position = Vector2(220, 76)
+
+[node name="Lamp3" parent="Lamps" instance=ExtResource("15_pr4ik")]
+position = Vector2(180, 76)
+
+[node name="Lamp4" parent="Lamps" instance=ExtResource("16_kqwo2")]
+position = Vector2(76, 76)
+time = 3
+minBright = 0.6
+maxBright = 0.9
 
 [connection signal="area_entered" from="Locker/InteractionArea" to="Locker/InteractionArea" method="_on_area_entered"]
 [connection signal="area_exited" from="Locker/InteractionArea" to="Locker/InteractionArea" method="_on_area_exited"]

@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var animationPlayer = $AnimationPlayer
 @onready var animationTree = $AnimationTree
-@onready var lights = $CanvasModulate
+@onready var lights = $Lighting/CanvasModulate
 @onready var CodeNotif = $PauseLayer/TextEdit
 @onready var animationState = animationTree.get("parameters/playback")
 @onready var objectiveMenu = preload("res://Scripts/ObjectivesMenu.tscn")
@@ -19,7 +19,7 @@ var screen_size
 var pause
 var ValveMinigame = false
 var ComboLock = false
-var emergencyLights = "3f0000"
+var emergencyLights = "694d94"
 var normalLights = "ffffff"
 var InteractionOverride = false
 

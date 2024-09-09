@@ -22,6 +22,9 @@ func _ready():
 		player._swap_attention()
 	pass # Replace with function body.
 
+func _process(_delta):
+	if PositionManager.Act == 1:
+		PositionManager.Act = 0
 
 func _on_to_hall_body_entered(body):
 	if HasLeft && body.name == "Player":

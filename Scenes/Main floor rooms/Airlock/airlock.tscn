@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://wj0r171hbpc6"]
+[gd_scene load_steps=30 format=3 uid="uid://wj0r171hbpc6"]
 
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Airlock/airlock.gd" id="1_tr7se"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="2_sam63"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Airlock/AirlockDocument.gd" id="8_ldlo2"]
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Airlock/AirlockButton2.gd" id="8_wptix"]
 [ext_resource type="Texture2D" uid="uid://7h3gnmd8xbdb" path="res://Assets/info_poster_sprite.png" id="10_6y7qf"]
+[ext_resource type="PackedScene" uid="uid://coym0lkppx1o7" path="res://lamp.tscn" id="12_kokgf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2wqav"]
 size = Vector2(24, 32)
@@ -24,11 +25,32 @@ size = Vector2(24, 4.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h3qex"]
 size = Vector2(8, 21.25)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_2ip7y"]
+polygon = PackedVector2Array(-1, -5, -1, -4, -2, -4, -2, -3, -3, -3, -3, -2, -4, -2, -4, 16, 4, 16, 4, -2, 3, -2, 3, -3, 2, -3, 2, -4, 1, -4, 1, -5)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7qvgi"]
 size = Vector2(8, 21)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6r7ue"]
+polygon = PackedVector2Array(-1, -5, -1, -4, -2, -4, -2, -3, -3, -3, -3, -2, -4, -2, -4, 16, 4, 16, 4, -2, 3, -2, 3, -3, 2, -3, 2, -4, 1, -4, 1, -5)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ba3ga"]
 size = Vector2(16, 20)
+
+[sub_resource type="Animation" id="Animation_l4ejs"]
+resource_name = "closed"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Airlock Door:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(156, 96)]
+}
 
 [sub_resource type="Animation" id="Animation_urx3v"]
 resource_name = "closing"
@@ -60,27 +82,36 @@ tracks/0/keys = {
 "values": [Vector2(156, 96), Vector2(156, 64)]
 }
 
-[sub_resource type="Animation" id="Animation_l4ejs"]
-resource_name = "closed"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Airlock Door:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(156, 96)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_12god"]
 _data = {
 "closed": SubResource("Animation_l4ejs"),
 "closing": SubResource("Animation_urx3v"),
 "opening": SubResource("Animation_6g403")
 }
+
+[sub_resource type="Gradient" id="Gradient_cr6b7"]
+offsets = PackedFloat32Array(0.25974, 0.467532)
+colors = PackedColorArray(0.965, 0.7, 1, 1, 0.0599999, 0, 0.45, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_irr8q"]
+gradient = SubResource("Gradient_cr6b7")
+height = 96
+fill = 1
+fill_from = Vector2(0.513761, 0.490826)
+
+[sub_resource type="Gradient" id="Gradient_d7tcd"]
+interpolation_mode = 2
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gyxb8"]
+gradient = SubResource("Gradient_d7tcd")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.9, 0.9)
+metadata/_snap_enabled = true
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_mrrnj"]
+polygon = PackedVector2Array(-2.90909, 0, -1.45455, 2, -1.45455, 0, 1.45454, 0, 1.45454, 2, 2.90909, 0, 1.45454, -2, -1.45455, -2)
 
 [node name="Airlock" type="Node2D" groups=["Airlock"]]
 script = ExtResource("1_tr7se")
@@ -131,14 +162,12 @@ position = Vector2(156, 149.5)
 shape = SubResource("RectangleShape2D_7hcie")
 
 [node name="to_pod" type="Area2D" parent="." groups=["to_pod"]]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="to_pod"]
 position = Vector2(156, 109.75)
 shape = SubResource("RectangleShape2D_1awhh")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("4_2uors")]
-visible = false
 z_index = 1
 position = Vector2(157, 109)
 
@@ -160,6 +189,11 @@ script = ExtResource("7_iopdc")
 position = Vector2(-3, -4.375)
 shape = SubResource("RectangleShape2D_h3qex")
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Button1"]
+show_behind_parent = true
+position = Vector2(-3, -10)
+occluder = SubResource("OccluderPolygon2D_2ip7y")
+
 [node name="Button2" type="Node2D" parent="."]
 position = Vector2(113, 117)
 script = ExtResource("8_wptix")
@@ -176,6 +210,10 @@ script = ExtResource("7_iopdc")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Button2/InteractionArea"]
 position = Vector2(0, 5.5)
 shape = SubResource("RectangleShape2D_7qvgi")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Button2"]
+show_behind_parent = true
+occluder = SubResource("OccluderPolygon2D_6r7ue")
 
 [node name="AirlockDocument" type="Node2D" parent="."]
 position = Vector2(119, 95)
@@ -196,6 +234,50 @@ libraries = {
 "": SubResource("AnimationLibrary_12god")
 }
 
+[node name="Lamp" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(156, 70)
+scale = Vector2(5, 2.875)
+color = Color(0.796, 0.64, 1, 1)
+blend_mode = 2
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 0.1
+texture = SubResource("GradientTexture2D_irr8q")
+offset = Vector2(-0.799997, 4.86957)
+
+[node name="Lamp2" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(156, 70)
+scale = Vector2(5, 2.875)
+color = Color(0.796078, 0.639216, 1, 1)
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 0.1
+texture = SubResource("GradientTexture2D_gyxb8")
+offset = Vector2(-0.799997, 4.86957)
+
+[node name="Lamp3" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(156, 72)
+scale = Vector2(2.75, 2)
+color = Color(0.945167, 0.53, 1, 0.54902)
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 0.1
+texture = SubResource("GradientTexture2D_gyxb8")
+offset = Vector2(-1.45455, 8)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Lamp3"]
+occluder = SubResource("OccluderPolygon2D_mrrnj")
+
+[node name="Lamp4" parent="." instance=ExtResource("12_kokgf")]
+position = Vector2(156, 76)
+
+[node name="Bulb" parent="Lamp4" index="1"]
+scale = Vector2(9, 3)
+energy = 0.5
+
 [connection signal="body_entered" from="to_Hall" to="." method="_on_to_hall_body_entered"]
 [connection signal="body_entered" from="to_pod" to="." method="_on_to_pod_body_entered"]
 [connection signal="timeout" from="Button1/Timer1" to="Button1" method="_on_timer_1_timeout"]
@@ -206,3 +288,5 @@ libraries = {
 [connection signal="area_exited" from="Button2/InteractionArea" to="Button2/InteractionArea" method="_on_area_exited"]
 [connection signal="area_entered" from="AirlockDocument/InteractionArea" to="AirlockDocument/InteractionArea" method="_on_area_entered"]
 [connection signal="area_exited" from="AirlockDocument/InteractionArea" to="AirlockDocument/InteractionArea" method="_on_area_exited"]
+
+[editable path="Lamp4"]

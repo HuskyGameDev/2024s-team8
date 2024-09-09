@@ -24,6 +24,9 @@ var playTextSound = true
 var finished_displaying = true
 var Documents = []
 var DocumentsText= []
+var redLight = "3f0000"
+var pinkLight = "cba3ff"
+var purpleLight = "0f0073"
 
 
 func array_to_string(arr: Array, skipLines: int = 0) -> String:
