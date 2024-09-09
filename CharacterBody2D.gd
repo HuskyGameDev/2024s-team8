@@ -27,6 +27,3 @@ func move(delta):
 		pass
 	move_and_slide();
 	pass
-
-
-

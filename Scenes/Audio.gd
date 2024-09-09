@@ -4,14 +4,17 @@ var MASTER_BUS_ID = AudioServer.get_bus_index("Master")
 var MUSIC_BUS_ID = AudioServer.get_bus_index("Music")
 var SFX_BUS_ID = AudioServer.get_bus_index("SFX")
 var DIALOGUE_BUS_ID = AudioServer.get_bus_index("Dialogue")
+@export var sound_value = .5
 
 # Sets the sliders to their respective positions if they have been altered before
 func _ready():
-	get_node("%MasterSlider").set_value_no_signal(db_to_linear(AudioServer.get_bus_volume_db(MASTER_BUS_ID)))
-	get_node("%MusicSlider").set_value_no_signal(db_to_linear(AudioServer.get_bus_volume_db(MUSIC_BUS_ID)))
-	get_node("%SFXSlider").set_value_no_signal(db_to_linear(AudioServer.get_bus_volume_db(SFX_BUS_ID)))
-	get_node("%DialogueSlider").set_value_no_signal(db_to_linear(AudioServer.get_bus_volume_db(DIALOGUE_BUS_ID)))
-
+	get_node("%MasterSlider").set_value_no_signal(sound_value)
+	get_node("%MusicSlider").set_value_no_signal(sound_value)
+	get_node("%SFXSlider").set_value_no_signal(sound_value)
+	get_node("%DialogueSlider").set_value_no_signal(sound_value)
+	
+	
+	
 # Changes volume of music bus to the music slider value when the music slider is altered
 func _on_music_slider_value_changed(value):
 	AudioServer.set_bus_volume_db(MUSIC_BUS_ID,linear_to_db(value))

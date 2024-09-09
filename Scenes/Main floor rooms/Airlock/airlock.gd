@@ -16,7 +16,7 @@ var count = 0
 const lines: Array[String] = [
 	"The door is sealed shut."
 ]
-
+#
 func _ready():
 	toPod.monitoring = false
 	if PositionManager.Act < 1:

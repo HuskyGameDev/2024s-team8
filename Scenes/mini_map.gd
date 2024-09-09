@@ -1,18 +1,22 @@
 extends Control
 
+
+
+#hides all the outlines when the scene changes
 func _ready():
 	if StageManager.scene_change == true:
 		hideAll()
 
+
+#closes map popup if M or ESC is pressed and calls scene checker
 func _process(_delta):
 	if Input.is_action_just_pressed("MAP") or Input.is_action_just_pressed("MENU"):
 		queue_free()
 	var currentScene = get_tree().current_scene.name
-	#print(currentScene)
 	sceneChecker(currentScene)
-	#print(PositionManager.PrevPosition)
 	
-	
+
+#input a node and if that node maches one of the specified nodes shows the appropriate outline
 func sceneChecker(node):
 	if node == "hallway_main":
 		get_node("Background/Rooms/Main_Hall/Outline").show()
@@ -33,6 +37,9 @@ func sceneChecker(node):
 	elif node == "Pod":
 		get_node("Background/Rooms/Pod/Outline").show()
 
+
+
+#hides all outlines when called
 func hideAll():
 	get_node("Background/Rooms/Main_Hall/Outline").hide()
 	get_node("Background/Rooms/Mess_Hall/Outline").hide()
