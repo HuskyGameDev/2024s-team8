@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dc66p0riko4pb"]
+[gd_scene load_steps=14 format=3 uid="uid://dc66p0riko4pb"]
 
 [ext_resource type="Script" path="res://Scenes/Second floor rooms/Security Room/security_room.gd" id="1_wl5uw"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="2_womnn"]
@@ -16,10 +16,14 @@ size = Vector2(24, 4)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2t1wb"]
 size = Vector2(8, 21)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7sgkc"]
+size = Vector2(8, 9)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3h1ou"]
 size = Vector2(16, 20)
 
 [node name="Security_Room" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_wl5uw")
 metadata/_edit_vertical_guides_ = [-91.0]
 
@@ -46,7 +50,7 @@ position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_v05b3")
 
 [node name="Security Button" type="Node2D" parent="."]
-position = Vector2(127, 110)
+position = Vector2(118, 129)
 script = ExtResource("4_8bcfp")
 metadata/_edit_group_ = true
 
@@ -60,23 +64,26 @@ script = ExtResource("6_8opok")
 position = Vector2(0, 5.5)
 shape = SubResource("RectangleShape2D_2t1wb")
 
+[node name="Collision" type="StaticBody2D" parent="Security Button"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Security Button/Collision"]
+position = Vector2(0, 8.5)
+shape = SubResource("RectangleShape2D_7sgkc")
+
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("7_y8wyt")]
-z_index = 1
 position = Vector2(206, 146)
 
 [node name="SecurityRoomPoster" type="Node2D" parent="."]
-position = Vector2(119, 95)
+position = Vector2(166, 101)
 script = ExtResource("8_a3wlt")
 
 [node name="Sprite2D" type="Sprite2D" parent="SecurityRoomPoster"]
-position = Vector2(41, 5)
 texture = ExtResource("9_nrfna")
 
 [node name="InteractionArea" type="Area2D" parent="SecurityRoomPoster"]
 script = ExtResource("6_8opok")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SecurityRoomPoster/InteractionArea"]
-position = Vector2(41, 5)
 shape = SubResource("RectangleShape2D_3h1ou")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." groups=["CanvasLayer"]]

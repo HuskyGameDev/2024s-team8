@@ -14,8 +14,8 @@
 [ext_resource type="TileSet" uid="uid://b57dw6av5xyw3" path="res://door_icon_tileset.tres" id="12_7hp2b"]
 [ext_resource type="Texture2D" uid="uid://b68qnvvg3nd0x" path="res://Assets/vent-sprite.png" id="12_khwuv"]
 [ext_resource type="Texture2D" uid="uid://dj0lr4c3ty7f5" path="res://Assets/simple_diagonal_door.png" id="14_536ue"]
-[ext_resource type="PackedScene" uid="uid://coym0lkppx1o7" path="res://lamp.tscn" id="15_pr4ik"]
-[ext_resource type="PackedScene" uid="uid://cy74qcmqm8dhl" path="res://lampFlicker.tscn" id="16_kqwo2"]
+[ext_resource type="PackedScene" path="res://lamp.tscn" id="15_pr4ik"]
+[ext_resource type="PackedScene" path="res://lampFlicker.tscn" id="16_kqwo2"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_nn5nj"]
 

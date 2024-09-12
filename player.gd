@@ -22,6 +22,7 @@ var ComboLock = false
 var emergencyLights = "694d94"
 var normalLights = "ffffff"
 var InteractionOverride = false
+var pressedShift = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -33,12 +34,15 @@ func _ready():
 	if PositionManager.StartFromBeginning:
 		get_node("Camera2D").limit_right = StageManager.right_camera_limit
 	animationTree.set("active", true)
+	playerSpeed = 50
 
 func _swap_attention():
 	hasAttention = !hasAttention
 	animationTree.set("active", hasAttention)
 
 func _process(_delta):
+	print(playerSpeed)
+	print(PositionManager.RetainPlayerSpeed)
 	if PositionManager.Act == 1:
 		lights.color = emergencyLights
 	elif PositionManager.Act != 1:
@@ -86,10 +90,12 @@ func _physics_process(delta):
 	velocity = Vector2.ZERO
 	move_and_collide(velocity)
 	
-	if Input.is_action_just_pressed("SHIFT"):
-			playerSpeed += 20
+	if Input.is_action_just_pressed("SHIFT") or PositionManager.RetainPlayerSpeed:
+			playerSpeed = 70
+			PositionManager.RetainPlayerSpeed = true
 	if Input.is_action_just_released("SHIFT"):
-			playerSpeed -= 20
+			playerSpeed = 50
+			PositionManager.RetainPlayerSpeed = false
 	if hasAttention:
 		if Input.is_action_pressed("DOWN"):
 			velocity.y += 1

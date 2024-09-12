@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://wj0r171hbpc6"]
+[gd_scene load_steps=31 format=3 uid="uid://wj0r171hbpc6"]
 
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Airlock/airlock.gd" id="1_tr7se"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="2_sam63"]
@@ -11,7 +11,7 @@
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Airlock/AirlockDocument.gd" id="8_ldlo2"]
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Airlock/AirlockButton2.gd" id="8_wptix"]
 [ext_resource type="Texture2D" uid="uid://7h3gnmd8xbdb" path="res://Assets/info_poster_sprite.png" id="10_6y7qf"]
-[ext_resource type="PackedScene" uid="uid://coym0lkppx1o7" path="res://lamp.tscn" id="12_kokgf"]
+[ext_resource type="PackedScene" path="res://lamp.tscn" id="12_kokgf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2wqav"]
 size = Vector2(24, 32)
@@ -21,6 +21,9 @@ size = Vector2(24, 5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1awhh"]
 size = Vector2(24, 4.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y5ilf"]
+size = Vector2(8, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h3qex"]
 size = Vector2(8, 21.25)
@@ -114,6 +117,7 @@ metadata/_snap_enabled = true
 polygon = PackedVector2Array(-2.90909, 0, -1.45455, 2, -1.45455, 0, 1.45454, 0, 1.45454, 2, 2.90909, 0, 1.45454, -2, -1.45455, -2)
 
 [node name="Airlock" type="Node2D" groups=["Airlock"]]
+y_sort_enabled = true
 script = ExtResource("1_tr7se")
 
 [node name="Collision" type="TileMap" parent="."]
@@ -168,30 +172,35 @@ position = Vector2(156, 109.75)
 shape = SubResource("RectangleShape2D_1awhh")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("4_2uors")]
-z_index = 1
 position = Vector2(157, 109)
 
 [node name="Button1" type="Node2D" parent="."]
-position = Vector2(201, 115)
+position = Vector2(194, 117)
 script = ExtResource("5_ofs5b")
 
 [node name="Timer1" type="Timer" parent="Button1" groups=["Timer"]]
 one_shot = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Button1"]
-position = Vector2(-3, -10)
 texture = ExtResource("6_whwr3")
 
+[node name="Collision" type="StaticBody2D" parent="Button1"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Button1/Collision"]
+position = Vector2(0, 9)
+shape = SubResource("RectangleShape2D_y5ilf")
+
 [node name="InteractionArea" type="Area2D" parent="Button1"]
+visible = false
 script = ExtResource("7_iopdc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Button1/InteractionArea"]
-position = Vector2(-3, -4.375)
 shape = SubResource("RectangleShape2D_h3qex")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Button1"]
 show_behind_parent = true
-position = Vector2(-3, -10)
 occluder = SubResource("OccluderPolygon2D_2ip7y")
 
 [node name="Button2" type="Node2D" parent="."]
@@ -204,7 +213,16 @@ one_shot = true
 [node name="Sprite2D" type="Sprite2D" parent="Button2"]
 texture = ExtResource("6_whwr3")
 
+[node name="Collision" type="StaticBody2D" parent="Button2"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Button2/Collision"]
+position = Vector2(0, 9)
+shape = SubResource("RectangleShape2D_y5ilf")
+
 [node name="InteractionArea" type="Area2D" parent="Button2"]
+visible = false
 script = ExtResource("7_iopdc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Button2/InteractionArea"]
@@ -272,6 +290,7 @@ offset = Vector2(-1.45455, 8)
 occluder = SubResource("OccluderPolygon2D_mrrnj")
 
 [node name="Lamp4" parent="." instance=ExtResource("12_kokgf")]
+z_index = 1
 position = Vector2(156, 76)
 
 [node name="Bulb" parent="Lamp4" index="1"]

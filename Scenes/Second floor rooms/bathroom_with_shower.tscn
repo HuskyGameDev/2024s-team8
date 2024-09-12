@@ -12,6 +12,7 @@
 size = Vector2(16.9706, 8)
 
 [node name="Bathroom_with_shower" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_4mhil")
 
 [node name="Collision" type="TileMap" parent="."]
