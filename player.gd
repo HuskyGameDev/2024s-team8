@@ -41,8 +41,6 @@ func _swap_attention():
 	animationTree.set("active", hasAttention)
 
 func _process(_delta):
-	print(playerSpeed)
-	print(PositionManager.RetainPlayerSpeed)
 	if PositionManager.Act == 1:
 		lights.color = emergencyLights
 	elif PositionManager.Act != 1:

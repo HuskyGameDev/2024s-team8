@@ -1,9 +1,9 @@
 [gd_scene load_steps=53 format=3 uid="uid://d3smthgcyvtgq"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_8m3b3"]
-[ext_resource type="PackedScene" uid="uid://bba3405jkew8f" path="res://Scenes/pauseMenu.tscn" id="2_li7mv"]
-[ext_resource type="PackedScene" uid="uid://cpg2xebaf6ybb" path="res://Scenes/mini_map.tscn" id="3_si0d5"]
-[ext_resource type="PackedScene" uid="uid://cq2g1m0yumyw0" path="res://Scenes/mini_map_2nd_floor.tscn" id="4_w4vrd"]
+[ext_resource type="PackedScene" uid="uid://bba3405jkew8f" path="res://Settings/pauseMenu.tscn" id="2_li7mv"]
+[ext_resource type="PackedScene" uid="uid://cpg2xebaf6ybb" path="res://Minimap/mini_map.tscn" id="3_si0d5"]
+[ext_resource type="PackedScene" uid="uid://cq2g1m0yumyw0" path="res://Minimap/mini_map_2nd_floor.tscn" id="4_w4vrd"]
 [ext_resource type="Shader" path="res://Scenes/chromaticaberration1.gdshader" id="6_06h85"]
 [ext_resource type="Texture2D" uid="uid://bbngs5f4p4wv6" path="res://Assets/filterlayertestsmall.png" id="7_7q8n3"]
 [ext_resource type="Material" uid="uid://bsr0lnm3p1tv7" path="res://Shaders/noisefiltermaterial.tres" id="7_i7p63"]

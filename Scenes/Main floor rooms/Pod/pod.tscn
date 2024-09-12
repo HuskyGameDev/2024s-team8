@@ -9,9 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://7sxx34fi7udt" path="res://Assets/chair_sprite_1.png" id="7_x3dav"]
 [ext_resource type="Script" path="res://Interaction/InteractionArea.gd" id="8_pijyp"]
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Pod/Bucket.gd" id="9_88acc"]
-[ext_resource type="Texture2D" uid="uid://2nn6dfmeixts" path="res://Assets/Bucket png.png" id="10_agxlv"]
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Pod/Desk.gd" id="11_i2y8d"]
-[ext_resource type="Texture2D" uid="uid://bvoiyfjlh68dc" path="res://Assets/Desk.png" id="12_aay5w"]
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Pod/DogPoster.gd" id="13_u2fhw"]
 [ext_resource type="Texture2D" uid="uid://bkg443ij7dow5" path="res://Assets/frost.jpg" id="14_gc7et"]
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Pod/Outside.gd" id="15_oe2i3"]
@@ -26,8 +24,14 @@ size = Vector2(16, 10)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_amobr"]
 size = Vector2(17, 28.5)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2cu1l"]
+load_path = "res://.godot/imported/Bucket png.png-0355c1413266ff48201d407dc6ce33f7.ctex"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6s73v"]
 size = Vector2(17, 20)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_k42f1"]
+load_path = "res://.godot/imported/Desk.png-22afc2006f1cbe8e2b86af34480edcd3.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c1qwr"]
 size = Vector2(34.2817, 43.8714)
@@ -106,7 +110,7 @@ script = ExtResource("9_88acc")
 
 [node name="Sprite2D" type="Sprite2D" parent="Bucket"]
 scale = Vector2(0.01, 0.01)
-texture = ExtResource("10_agxlv")
+texture = SubResource("CompressedTexture2D_2cu1l")
 
 [node name="InteractionArea" type="Area2D" parent="Bucket"]
 script = ExtResource("8_pijyp")
@@ -123,7 +127,7 @@ script = ExtResource("11_i2y8d")
 [node name="Sprite2D" type="Sprite2D" parent="Desk"]
 visible = false
 scale = Vector2(0.03, 0.03)
-texture = ExtResource("12_aay5w")
+texture = SubResource("CompressedTexture2D_k42f1")
 
 [node name="InteractionArea" type="Area2D" parent="Desk"]
 script = ExtResource("8_pijyp")

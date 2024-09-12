@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://piw1ffh2ljly"]
 
-[ext_resource type="Script" path="res://Scenes/supply_closet.gd" id="1_0dtoi"]
+[ext_resource type="Script" path="res://Scenes/Main floor rooms/Supply Closet/supply_closet.gd" id="1_0dtoi"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="2_tomo4"]
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="3_lwea3"]
 [ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="4_kuhmd"]
@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://Interaction/InteractionArea.gd" id="7_j4w0r"]
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Supply Closet/Broom.gd" id="8_ivf7p"]
 [ext_resource type="Texture2D" uid="uid://cc5ot5jm363dc" path="res://Assets/Broom png.png" id="9_2kbsk"]
-[ext_resource type="Texture2D" uid="uid://dtugpa5aijeph" path="res://Assets/Mr Clean PNG.png" id="10_bqu51"]
+[ext_resource type="Texture2D" path="res://Assets/Mr Clean PNG.png" id="10_bqu51"]
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Supply Closet/Mr_Clean.gd" id="10_vtnkg"]
 [ext_resource type="Texture2D" uid="uid://df6g0xqmwjih6" path="res://Assets/Metal Shelf.png" id="11_cjjrs"]
 

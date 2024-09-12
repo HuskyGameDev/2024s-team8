@@ -1,6 +1,6 @@
 [gd_scene load_steps=35 format=3 uid="uid://cfl3tm624omie"]
 
-[ext_resource type="Script" path="res://Scenes/hallway_main.gd" id="1_uyxqv"]
+[ext_resource type="Script" path="res://Scenes/Main floor rooms/Main Hall/hallway_main.gd" id="1_uyxqv"]
 [ext_resource type="Texture2D" uid="uid://db5cscw8pfccj" path="res://Assets/room_tilemap_modular.png" id="2_kjoew"]
 [ext_resource type="Texture2D" uid="uid://dr1le2hugw8mv" path="res://Assets/simple_door2.png" id="3_5oow4"]
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="3_eku0h"]
@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Main Hall/Locker.gd" id="5_3gse4"]
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Main Hall/Helianth.gd" id="5_6mey3"]
 [ext_resource type="Texture2D" uid="uid://bq7i3gq5nox5k" path="res://Inventory/Helianth.png" id="5_v67bu"]
-[ext_resource type="Script" path="res://Scenes/Vent.gd" id="5_vak2t"]
+[ext_resource type="Script" path="res://Scenes/Main floor rooms/Main Hall/Vent.gd" id="5_vak2t"]
 [ext_resource type="Texture2D" uid="uid://h4sy0m4qq4k" path="res://Assets/locker_sprites.png" id="6_kjlwu"]
 [ext_resource type="Script" path="res://Interaction/InteractionArea.gd" id="7_browe"]
 [ext_resource type="TileSet" uid="uid://b57dw6av5xyw3" path="res://door_icon_tileset.tres" id="12_7hp2b"]
@@ -181,6 +181,10 @@ z_index = 2
 position = Vector2(412, 136)
 playerSpeed = 60
 metadata/_edit_group_ = true
+
+[node name="LightOccluder2D" parent="Player/Lighting" index="2" groups=["LightOccluder"]]
+
+[node name="Sprite2D" parent="Player" index="2" groups=["PlayerSprite"]]
 
 [node name="Locker" type="Node2D" parent="."]
 position = Vector2(125, 110)
