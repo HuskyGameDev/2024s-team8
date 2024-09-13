@@ -11,6 +11,8 @@ var lines: Array[String] = [
 ]
 
 # Called when the node enters the scene tree for the first time.
+#Tells player to press G on startup
+#checks if act is between 1 and 0? if so sets it to 0
 func _ready():
 	if PositionManager.Act < 1:
 		PositionManager.Act = 0
@@ -22,10 +24,12 @@ func _ready():
 		player._swap_attention()
 	pass # Replace with function body.
 
+#sets the act to 0 if the player walks in the room if they're in act is 1
 func _process(_delta):
 	if PositionManager.Act == 1:
 		PositionManager.Act = 0
 
+#Switches to airlock scene
 func _on_to_hall_body_entered(body):
 	if HasLeft && body.name == "Player":
 		body.hasAttention = false

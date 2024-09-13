@@ -26,6 +26,9 @@ var pressedShift = false
 
 
 # Called when the node enters the scene tree for the first time.
+#Shows the lights, changes the screen size, makes sure the Players position is changed by the stage manager
+#Makes the camera limit equal to the value returned by Stagemanagers right_camera_limit function
+#sets the animation tree and player speed 
 func _ready():
 	lights.show()
 	screen_size = get_viewport_rect().size
@@ -36,10 +39,15 @@ func _ready():
 	animationTree.set("active", true)
 	playerSpeed = 50
 
+#swaps the players attention to stop the player from moving and stops animations
 func _swap_attention():
 	hasAttention = !hasAttention
 	animationTree.set("active", hasAttention)
 
+
+#changes the color of the lights for different acts
+#switches player to pause menu when they press esc and to the map depending which floor they are on 
+#when they press m 
 func _process(_delta):
 	if PositionManager.Act == 1:
 		lights.color = emergencyLights
@@ -84,12 +92,13 @@ func _process(_delta):
 					ComboLock = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+#allows player to collide with objects also deals with player movement and animation
 func _physics_process(delta):
 	velocity = Vector2.ZERO
 	move_and_collide(velocity)
 	
 	if Input.is_action_just_pressed("SHIFT") or PositionManager.RetainPlayerSpeed:
-			playerSpeed = 70
+			playerSpeed = 80
 			PositionManager.RetainPlayerSpeed = true
 	if Input.is_action_just_released("SHIFT"):
 			playerSpeed = 50

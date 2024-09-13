@@ -18,14 +18,21 @@ const lines2: Array[String] = [
 ]
 
 # Called when the node enters the scene tree for the first time.
+#Allows player to interact with the button then starts a timer
 func _ready():
 	interaction_area.interact = Callable(self, "_on_interact")
 	timer.wait_time = 5
 
+
+
+#Unpushes the button when the timer is out of time
 func _on_timer_1_timeout():
 	Airlock.Button1 = false
 	pass # Replace with function body.
 
+
+#Pushes the button when the player interacts with it if they have pushed the other button
+#and the airlock isnt open yet opens the airlock
 func _on_interact():
 	player._swap_attention()
 	if Airlock.Button2 && !PositionManager.OpenedAirlock:

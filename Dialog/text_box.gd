@@ -18,7 +18,9 @@ const punctuation_time = 0.2
 
 signal finished_displaying()
 
-
+#displays text given to the funtion as well as playing audio
+#wraps text back around once the size.x of the text is greater than the max size given
+#calls display letter function
 func display_text(text_to_display: String, speech_sfx: AudioStream):
 	PositionManager.finished_displaying = false
 	text = text_to_display
@@ -31,13 +33,16 @@ func display_text(text_to_display: String, speech_sfx: AudioStream):
 	if size.x > MAX_WIDTH:
 		label.autowrap_mode = TextServer.AUTOWRAP_WORD
 		await resized
-		#await resized
 		custom_minimum_size.y = size.y
 	
 	label.text = ""
 	
 	display_letter()
 
+
+#loops through the array of text and displayes it letter by letter stopping after periods, commas
+#and other punctuation for a certain amount of time specified
+#replays sound every even index in the array
 func display_letter():
 	label.text += text[letter_index]
 	

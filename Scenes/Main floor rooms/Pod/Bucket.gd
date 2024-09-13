@@ -12,11 +12,13 @@ const lines: Array[String] = [
 ]
 
 # Called when the node enters the scene tree for the first time.
+#Makes the item interactable
 func _ready():
 	interaction_area.interact = Callable(self, "_on_interact")
 	pass # Replace with function body.
 
 
+#Function for interaction with the object plays Dialogue when interacted with
 func _on_interact():
 	player._swap_attention()
 	DialogManager.start_dialog(global_position, lines, speech_sound, false)

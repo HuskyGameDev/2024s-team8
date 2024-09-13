@@ -8,10 +8,12 @@ var on_first_floor = true
 func _ready():
 	get_node("ColorRect").hide()
 
+#when canvas layer is called changes scene_change to false if True
 func _process(_delta):
 	if scene_change == true:
 		scene_change = false
 
+#fades out and in to the scene after changing scenes as well as changing player position
 func changeScene(stage_next, x, y, door = false):
 	var _stage = stage_next.instantiate()
 	
@@ -32,6 +34,8 @@ func changeScene(stage_next, x, y, door = false):
 	await get_node("AnimationPlayer").animation_finished
 	get_node("ColorRect").hide()
 	
+	
+#changes the right camera limit
 func changeCamera(limit):
 	right_camera_limit = limit
 	

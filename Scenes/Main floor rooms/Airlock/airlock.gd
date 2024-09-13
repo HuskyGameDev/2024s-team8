@@ -16,7 +16,7 @@ var count = 0
 const lines: Array[String] = [
 	"The door is sealed shut."
 ]
-#
+#turns off the monitoring of the toPod area when airlock is closed
 func _ready():
 	toPod.monitoring = false
 	if PositionManager.Act < 1:
@@ -28,6 +28,8 @@ func _ready():
 		await animPlayer.animation_finished
 		toPod.monitoring = true
 
+
+#switches to the main hall scene
 func _on_to_hall_body_entered(body):
 	count += 1
 	if count > 1:
@@ -46,6 +48,7 @@ func _on_to_hall_body_entered(body):
 				player._swap_attention()
 				
 
+#switches to the pod scene
 func _on_to_pod_body_entered(body):
 	count += 1
 	if count > 1:

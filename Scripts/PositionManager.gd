@@ -29,7 +29,7 @@ var pinkLight = "cba3ff"
 var purpleLight = "0f0073"
 var RetainPlayerSpeed = false
 
-
+#turns arrays that contain text to strings
 func array_to_string(arr: Array, skipLines: int = 0) -> String:
 	var string = ""
 	for i in range(skipLines, arr.size()):
