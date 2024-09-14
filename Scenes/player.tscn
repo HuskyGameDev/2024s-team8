@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://d3smthgcyvtgq"]
+[gd_scene load_steps=55 format=3 uid="uid://d3smthgcyvtgq"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_8m3b3"]
 [ext_resource type="PackedScene" uid="uid://bba3405jkew8f" path="res://Settings/pauseMenu.tscn" id="2_li7mv"]
@@ -28,6 +28,17 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hv4va"]
 radius = 4.0
 height = 14.0
+
+[sub_resource type="Gradient" id="Gradient_d13ed"]
+offsets = PackedFloat32Array(0, 0.649351, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m7p6r"]
+gradient = SubResource("Gradient_d13ed")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+metadata/_snap_enabled = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fna6c"]
 size = Vector2(10, 24)
@@ -467,12 +478,17 @@ color = Color(0.34684, 0.2714, 0.46, 1)
 [node name="PointLight2D" type="PointLight2D" parent="Lighting"]
 visible = false
 position = Vector2(-7.15256e-07, 0)
-energy = 0.5
-blend_mode = 2
+color = Color(0.345098, 0.270588, 0.458824, 1)
 texture = ExtResource("14_5k8th")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Lighting"]
 occluder = ExtResource("11_2q6xh")
+
+[node name="PointLight2DSource" type="PointLight2D" parent="Lighting"]
+position = Vector2(-7.15256e-07, 0)
+color = Color(0.345098, 0.270588, 0.458824, 1)
+energy = 0.5
+texture = SubResource("GradientTexture2D_m7p6r")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("7_kont8")

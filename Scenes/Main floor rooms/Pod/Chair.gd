@@ -24,5 +24,3 @@ func _on_interact():
 	pass
 	
 	
-
-
