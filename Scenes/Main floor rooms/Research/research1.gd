@@ -5,7 +5,7 @@ var HasLeft = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	get_node("AnimationPlayer").play("pace")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -26,3 +26,7 @@ func _on_area_2d_body_entered(_body):
 func _on_door_to_hallway_body_exited(_body):
 	HasLeft = true
 	pass # Replace with function body.
+
+
+func _on_flower_touched() -> void:
+	get_node("AnimationPlayer").active = false

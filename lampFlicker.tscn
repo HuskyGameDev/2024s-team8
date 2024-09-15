@@ -27,7 +27,7 @@ texture = ExtResource("1_qc8sl")
 [node name="Bulb" type="PointLight2D" parent="."]
 position = Vector2(0, 28)
 scale = Vector2(15, 5)
-color = Color(0.945167, 0.53, 1, 0.54902)
+color = Color(0.501961, 0.8, 1, 0.662745)
 shadow_enabled = true
 shadow_filter = 1
 shadow_filter_smooth = 0.1

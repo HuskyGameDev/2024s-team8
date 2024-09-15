@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://1bfbt5f8oky"]
+[gd_scene load_steps=13 format=3 uid="uid://1bfbt5f8oky"]
 
 [ext_resource type="PackedScene" uid="uid://ny55otxbs0t" path="res://Scenes/tile_map.tscn" id="1_1c61v"]
 [ext_resource type="Texture2D" uid="uid://db5cscw8pfccj" path="res://Assets/room_tilemap_modular.png" id="1_6aj05"]
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Research/research1.gd" id="1_44mdm"]
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="2_17khl"]
 [ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="3_xppy5"]
+[ext_resource type="PackedScene" uid="uid://bu52063b5h6qs" path="res://flowerEnemy.tscn" id="6_35rce"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g4i8w"]
 texture = ExtResource("1_6aj05")
@@ -64,6 +65,57 @@ sources/1 = SubResource("TileSetAtlasSource_g4i8w")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pcf5h"]
 size = Vector2(24, 5)
 
+[sub_resource type="Animation" id="Animation_ourop"]
+resource_name = "pace"
+length = 6.0
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flower:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(128, 121), Vector2(240, 121)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Flower:facing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_uxhqc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flower:facing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_880gr"]
+_data = {
+"RESET": SubResource("Animation_uxhqc"),
+"pace": SubResource("Animation_ourop")
+}
+
 [node name="Research_1" type="Node2D"]
 script = ExtResource("1_44mdm")
 
@@ -100,5 +152,15 @@ playerSpeed = 60
 scale = Vector2(6, 6)
 transform = Transform2D(6, 0, 0, 6, 0, 0)
 
+[node name="Flower" parent="." instance=ExtResource("6_35rce")]
+position = Vector2(240, 121)
+facing = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_880gr")
+}
+
 [connection signal="body_entered" from="Door_to_Hallway" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Door_to_Hallway" to="." method="_on_door_to_hallway_body_exited"]
+[connection signal="touched" from="Flower" to="." method="_on_flower_touched"]
