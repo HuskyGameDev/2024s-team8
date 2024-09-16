@@ -1,0 +1,117 @@
+[gd_scene load_steps=10 format=3 uid="uid://c5vskyjs3li7v"]
+
+[ext_resource type="Script" path="res://directional_lock.gd" id="1_su50g"]
+[ext_resource type="Texture2D" uid="uid://dm21a1gghd2x2" path="res://Assets/dial.png" id="2_rwgx5"]
+[ext_resource type="Texture2D" uid="uid://0tik15ssrfpo" path="res://Assets/Circle.png" id="3_gfq1u"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_tap2u"]
+
+[sub_resource type="Animation" id="Animation_x2lup"]
+resource_name = "w"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dial:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(192, 96), Vector2(192, 64), Vector2(192, 112), Vector2(192, 96)]
+}
+
+[sub_resource type="Animation" id="Animation_6mm8u"]
+resource_name = "a"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dial:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(192, 96), Vector2(160, 96), Vector2(208, 96), Vector2(192, 96)]
+}
+
+[sub_resource type="Animation" id="Animation_7dox2"]
+resource_name = "d"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dial:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(192, 96), Vector2(224, 96), Vector2(176, 96), Vector2(192, 96)]
+}
+
+[sub_resource type="Animation" id="Animation_yqbu8"]
+resource_name = "s"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dial:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(192, 96), Vector2(192, 128), Vector2(192, 80), Vector2(192, 96)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_83561"]
+_data = {
+"a": SubResource("Animation_6mm8u"),
+"d": SubResource("Animation_7dox2"),
+"s": SubResource("Animation_yqbu8"),
+"w": SubResource("Animation_x2lup")
+}
+
+[node name="Node2D" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_su50g")
+
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 0.431373)
+top_level = true
+z_index = -1
+layout_mode = 0
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 320.0
+offset_bottom = 183.0
+scale = Vector2(1.2, 1.2)
+texture = SubResource("CanvasTexture_tap2u")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_83561")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.2628, 0.3195, 0.36, 1)
+position = Vector2(192, 96)
+scale = Vector2(3, 3)
+texture = ExtResource("3_gfq1u")
+
+[node name="Dial" type="Sprite2D" parent="."]
+position = Vector2(192, 96)
+texture = ExtResource("2_rwgx5")
+
+[node name="LockState" type="Sprite2D" parent="."]
+position = Vector2(144, 48)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_gfq1u")
