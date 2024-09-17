@@ -1,20 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://daise62ngs48s"]
+[gd_scene load_steps=7 format=3 uid="uid://daise62ngs48s"]
 
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Mess Hall/mess_hall.gd" id="1_5lmt6"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="2_onope"]
 [ext_resource type="PackedScene" uid="uid://ny55otxbs0t" path="res://Scenes/tile_map.tscn" id="3_nky0x"]
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="4_s8k3y"]
 [ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="5_1jw8f"]
-[ext_resource type="Script" path="res://Scenes/Main floor rooms/Mess Hall/Burger.gd" id="6_t0rqf"]
-[ext_resource type="Texture2D" uid="uid://b5l4y7uikv02o" path="res://Assets/Cockroach png.png" id="7_0p8gs"]
-[ext_resource type="Texture2D" uid="uid://dnm454us5c2v0" path="res://Assets/Juicy Burger.png" id="7_t25f0"]
-[ext_resource type="Script" path="res://Interaction/InteractionArea.gd" id="8_72jq1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iba8r"]
 size = Vector2(24, 8)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_6s774"]
-radius = 15.0
 
 [node name="Mess_Hall" type="Node2D"]
 script = ExtResource("1_5lmt6")
@@ -45,33 +38,9 @@ position = Vector2(236.35, 109.98)
 position = Vector2(236, 121)
 shape = SubResource("RectangleShape2D_iba8r")
 
-[node name="Burger" type="Node2D" parent="." groups=["Burger"]]
-visible = false
-position = Vector2(115, 133)
-script = ExtResource("6_t0rqf")
-
-[node name="Cockroach" type="Sprite2D" parent="Burger"]
-texture_filter = 1
-scale = Vector2(0.025, 0.025)
-texture = ExtResource("7_0p8gs")
-
-[node name="Sprite2D" type="Sprite2D" parent="Burger"]
-texture_filter = 1
-scale = Vector2(0.025, 0.025)
-texture = ExtResource("7_t25f0")
-
-[node name="InteractionArea" type="Area2D" parent="Burger"]
-script = ExtResource("8_72jq1")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Burger/InteractionArea"]
-shape = SubResource("CircleShape2D_6s774")
-disabled = true
-
 [node name="CanvasLayer" type="CanvasLayer" parent="." groups=["CanvasLayer"]]
 scale = Vector2(5, 5)
 transform = Transform2D(5, 0, 0, 5, 0, 0)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
-[connection signal="area_entered" from="Burger/InteractionArea" to="Burger/InteractionArea" method="_on_area_entered"]
-[connection signal="area_exited" from="Burger/InteractionArea" to="Burger/InteractionArea" method="_on_area_exited"]

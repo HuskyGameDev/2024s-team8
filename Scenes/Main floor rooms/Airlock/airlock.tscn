@@ -11,7 +11,7 @@
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Airlock/AirlockDocument.gd" id="8_ldlo2"]
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Airlock/AirlockButton2.gd" id="8_wptix"]
 [ext_resource type="Texture2D" uid="uid://7h3gnmd8xbdb" path="res://Assets/info_poster_sprite.png" id="10_6y7qf"]
-[ext_resource type="PackedScene" path="res://lamp.tscn" id="12_kokgf"]
+[ext_resource type="PackedScene" uid="uid://coym0lkppx1o7" path="res://lamp.tscn" id="12_kokgf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2wqav"]
 size = Vector2(24, 32)

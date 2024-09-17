@@ -5,6 +5,7 @@ extends Node2D
 @onready var minigameScene = load("res://Minigames/Pipe Game/PipeGame.tscn")
 @onready var minigameScene2 = load("res://Minigames/Pipe Game 2/PipeGame2.tscn")
 @onready var Canvas = get_tree().get_first_node_in_group("CanvasLayer")
+@onready var PipePuzzle = get_tree().get_first_node_in_group("PipePuzzle")
 
 var minigame = null
 
@@ -24,7 +25,6 @@ func _on_interact():
 		minigame = minigameScene.instantiate()
 		Canvas.add_child(minigame)
 		minigame.cleared.connect(_on_cleared)
-		#player.ValveMinigame = true
 		player._swap_attention()
 	pass
 
@@ -32,4 +32,4 @@ func _on_cleared():
 	PositionManager.hasClearedPipe = true
 	PositionManager.Act = 2
 	opening.emit()
-	queue_free()
+	PipePuzzle.queue_free()

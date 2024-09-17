@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bomb67l3jcmr5"]
+[gd_scene load_steps=20 format=3 uid="uid://bomb67l3jcmr5"]
 
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Pod/pod.gd" id="1_bvhxj"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="2_tvsd5"]
@@ -8,7 +8,6 @@
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Pod/Chair.gd" id="6_mghl4"]
 [ext_resource type="Texture2D" uid="uid://7sxx34fi7udt" path="res://Assets/chair_sprite_1.png" id="7_x3dav"]
 [ext_resource type="Script" path="res://Interaction/InteractionArea.gd" id="8_pijyp"]
-[ext_resource type="Script" path="res://Scenes/Main floor rooms/Pod/Bucket.gd" id="9_88acc"]
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Pod/Desk.gd" id="11_i2y8d"]
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Pod/DogPoster.gd" id="13_u2fhw"]
 [ext_resource type="Texture2D" uid="uid://bkg443ij7dow5" path="res://Assets/frost.jpg" id="14_gc7et"]
@@ -23,15 +22,6 @@ size = Vector2(16, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_amobr"]
 size = Vector2(17, 28.5)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2cu1l"]
-load_path = "res://.godot/imported/Bucket png.png-0355c1413266ff48201d407dc6ce33f7.ctex"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6s73v"]
-size = Vector2(17, 20)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_k42f1"]
-load_path = "res://.godot/imported/Desk.png-22afc2006f1cbe8e2b86af34480edcd3.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c1qwr"]
 size = Vector2(34.2817, 43.8714)
@@ -96,38 +86,15 @@ position = Vector2(0, 9)
 shape = SubResource("RectangleShape2D_5et5p")
 
 [node name="InteractionArea" type="Area2D" parent="Chair"]
-visible = false
 script = ExtResource("8_pijyp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chair/InteractionArea"]
 position = Vector2(0, 1.75)
 shape = SubResource("RectangleShape2D_amobr")
 
-[node name="Bucket" type="Node2D" parent="."]
-visible = false
-position = Vector2(73, 140)
-script = ExtResource("9_88acc")
-
-[node name="Sprite2D" type="Sprite2D" parent="Bucket"]
-scale = Vector2(0.01, 0.01)
-texture = SubResource("CompressedTexture2D_2cu1l")
-
-[node name="InteractionArea" type="Area2D" parent="Bucket"]
-script = ExtResource("8_pijyp")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bucket/InteractionArea"]
-position = Vector2(-0.5, 0)
-shape = SubResource("RectangleShape2D_6s73v")
-disabled = true
-
 [node name="Desk" type="Node2D" parent="."]
 position = Vector2(215, 119)
 script = ExtResource("11_i2y8d")
-
-[node name="Sprite2D" type="Sprite2D" parent="Desk"]
-visible = false
-scale = Vector2(0.03, 0.03)
-texture = SubResource("CompressedTexture2D_k42f1")
 
 [node name="InteractionArea" type="Area2D" parent="Desk"]
 script = ExtResource("8_pijyp")
@@ -174,8 +141,6 @@ layer_1/tile_data = PackedInt32Array(851994, 0, 0, 917531, 65536, 0, 983068, 917
 [connection signal="body_exited" from="To_Hall" to="." method="_on_to_hall_body_exited"]
 [connection signal="area_entered" from="Chair/InteractionArea" to="Chair/InteractionArea" method="_on_area_entered"]
 [connection signal="area_exited" from="Chair/InteractionArea" to="Chair/InteractionArea" method="_on_area_exited"]
-[connection signal="area_entered" from="Bucket/InteractionArea" to="Bucket/InteractionArea" method="_on_area_entered"]
-[connection signal="area_exited" from="Bucket/InteractionArea" to="Bucket/InteractionArea" method="_on_area_exited"]
 [connection signal="area_entered" from="Desk/InteractionArea" to="Desk/InteractionArea" method="_on_area_entered"]
 [connection signal="area_exited" from="Desk/InteractionArea" to="Desk/InteractionArea" method="_on_area_exited"]
 [connection signal="area_entered" from="DogPoster/InteractionArea" to="DogPoster/InteractionArea" method="_on_area_entered"]
