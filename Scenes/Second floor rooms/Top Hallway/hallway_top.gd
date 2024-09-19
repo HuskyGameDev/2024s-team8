@@ -1,20 +1,18 @@
 extends Node2D
 
 @onready var Lock = get_tree().get_first_node_in_group("Combo Lock")
-@onready var SecurityDoor = get_tree().get_first_node_in_group("Security Door")
+@onready var SecurityDoor = get_node("dialDoor")
 @onready var StairsDoor = get_tree().get_first_node_in_group("Stairs Door")
-@onready var animPlayer = get_tree().get_first_node_in_group("AnimationPlayer")
+@onready var animPlayer = get_node("AnimationPlayer")
 
 var count = 0
 
 func _ready():
-	if PositionManager.hasClearedCombo:
-		if Lock != null:
-			Lock.queue_free()
+	if PositionManager.hasClearedDial:
 		if SecurityDoor != null:
 			SecurityDoor.queue_free()
 	else:
-		animPlayer.play("Sec_Closed")
+		animPlayer.play("closed")
 	
 	if !PositionManager.SecurityEnabled:
 		StairsDoor.queue_free()
@@ -56,4 +54,11 @@ func _on_to_stairs_body_entered(body):
 
 func _on_combo_lock_open_door():
 	GlobalAudioManager.door_SFX() # Plays door opening SFX
-	animPlayer.play("Sec_Door_Opening")
+	#animPlayer.play("Sec_Door_Opening")
+
+
+func _on_dial_door_open_door() -> void:
+	GlobalAudioManager.door_SFX() # Plays door opening SFX
+	animPlayer.play("opening")
+	await animPlayer.animation_finished
+	animPlayer.play("open")

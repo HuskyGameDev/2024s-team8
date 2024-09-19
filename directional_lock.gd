@@ -5,14 +5,20 @@ var userInput = []
 var lockStates = []
 var currentIndex = 0
 var previousIndex = -1
+@onready var person = get_tree().get_first_node_in_group("Player")
 @onready var player = get_node("AnimationPlayer")
-@onready var state = get_node("LockState")
+@onready var state = get_node("Backplate/Outline/LockState")
+
+signal solved()
 
 func _ready() -> void:
 	state.modulate = "FF2222"
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("MENU"):
+		queue_free()
+		person._swap_attention()
 	if Input.is_action_just_pressed("UP"):
 		userInput.append('w')
 	if Input.is_action_just_pressed("DOWN"):
@@ -39,7 +45,9 @@ func lockProcess() -> void:
 			print("Success!")
 			state.modulate = "22FF22"
 			await get_tree().create_timer(1).timeout
-			get_tree().quit()
+			solved.emit()
+			person._swap_attention()
+			queue_free()
 		else:
 			print("You suck")
 			userInput.clear()

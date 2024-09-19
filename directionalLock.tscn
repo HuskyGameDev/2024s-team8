@@ -4,23 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dm21a1gghd2x2" path="res://Assets/dial.png" id="2_rwgx5"]
 [ext_resource type="Texture2D" uid="uid://0tik15ssrfpo" path="res://Assets/Circle.png" id="3_gfq1u"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_tap2u"]
-
-[sub_resource type="Animation" id="Animation_x2lup"]
-resource_name = "w"
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Dial:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.75, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(192, 96), Vector2(192, 64), Vector2(192, 112), Vector2(192, 96)]
-}
+[sub_resource type="CanvasTexture" id="CanvasTexture_w5u54"]
 
 [sub_resource type="Animation" id="Animation_6mm8u"]
 resource_name = "a"
@@ -28,14 +12,14 @@ step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Dial:position")
+tracks/0/path = NodePath("Backplate/Dial:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5, 0.75, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(192, 96), Vector2(160, 96), Vector2(208, 96), Vector2(192, 96)]
+"values": [Vector2(0, 0), Vector2(-8, 0), Vector2(4, 0), Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_7dox2"]
@@ -44,14 +28,14 @@ step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Dial:position")
+tracks/0/path = NodePath("Backplate/Dial:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5, 0.75, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(192, 96), Vector2(224, 96), Vector2(176, 96), Vector2(192, 96)]
+"values": [Vector2(0, 0), Vector2(8, 0), Vector2(-4, 0), Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_yqbu8"]
@@ -60,14 +44,30 @@ step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Dial:position")
+tracks/0/path = NodePath("Backplate/Dial:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5, 0.75, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(192, 96), Vector2(192, 128), Vector2(192, 80), Vector2(192, 96)]
+"values": [Vector2(0, 0), Vector2(0, 8), Vector2(0, -4), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_x2lup"]
+resource_name = "w"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Backplate/Dial:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -8), Vector2(0, 4), Vector2(0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_83561"]
@@ -78,40 +78,46 @@ _data = {
 "w": SubResource("Animation_x2lup")
 }
 
-[node name="Node2D" type="Control"]
+[node name="dialLock" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+offset_right = 380.0
+offset_bottom = 216.0
 script = ExtResource("1_su50g")
 
 [node name="Background" type="TextureRect" parent="."]
-modulate = Color(0, 0, 0, 1)
-self_modulate = Color(0, 0, 0, 0.431373)
-top_level = true
-z_index = -1
-layout_mode = 0
-offset_left = -12.0
-offset_top = -12.0
-offset_right = 320.0
-offset_bottom = 183.0
-scale = Vector2(1.2, 1.2)
-texture = SubResource("CanvasTexture_tap2u")
+self_modulate = Color(0.0627451, 0.0627451, 0.0627451, 0.431373)
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = SubResource("CanvasTexture_w5u54")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_83561")
 }
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.2628, 0.3195, 0.36, 1)
-position = Vector2(192, 96)
-scale = Vector2(3, 3)
+[node name="Backplate" type="Sprite2D" parent="."]
+self_modulate = Color(0.388235, 0.388235, 0.388235, 1)
+position = Vector2(960, 540)
+scale = Vector2(15, 15)
 texture = ExtResource("3_gfq1u")
 
-[node name="Dial" type="Sprite2D" parent="."]
-position = Vector2(192, 96)
+[node name="Shadow" type="Sprite2D" parent="Backplate"]
+self_modulate = Color(0.258824, 0.258824, 0.258824, 1)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_gfq1u")
+
+[node name="Dial" type="Sprite2D" parent="Backplate"]
+z_as_relative = false
+scale = Vector2(0.333333, 0.333333)
 texture = ExtResource("2_rwgx5")
 
-[node name="LockState" type="Sprite2D" parent="."]
-position = Vector2(144, 48)
-scale = Vector2(0.25, 0.25)
+[node name="Outline" type="Sprite2D" parent="Backplate"]
+self_modulate = Color(0.670588, 0.670588, 0.670588, 1)
+position = Vector2(-16, -16)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_gfq1u")
+
+[node name="LockState" type="Sprite2D" parent="Backplate/Outline"]
+scale = Vector2(0.833333, 0.833333)
 texture = ExtResource("3_gfq1u")

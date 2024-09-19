@@ -1,0 +1,133 @@
+[gd_scene load_steps=10 format=3 uid="uid://cp6afuewhh2x1"]
+
+[ext_resource type="Texture2D" uid="uid://muhyywxf7pet" path="res://Assets/dial_door.png" id="1_nv8cf"]
+[ext_resource type="Script" path="res://dial_door.gd" id="1_vaopo"]
+[ext_resource type="Script" path="res://Interaction/InteractionArea.gd" id="2_443tk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pvcjd"]
+size = Vector2(24, 44)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cqfqh"]
+size = Vector2(32, 32)
+
+[sub_resource type="Animation" id="Animation_cu7gg"]
+resource_name = "closed"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Security Door:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Security Door/Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_eth1a"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Security Door:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -44)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Security Door/Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_bpj75"]
+resource_name = "opening"
+length = 2.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Security Door:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 0.7, 1, 2),
+"transitions": PackedFloat32Array(1, 0.239877, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -4), Vector2(0, -4), Vector2(0, -44)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Security Door/Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xyewc"]
+_data = {
+"closed": SubResource("Animation_cu7gg"),
+"open": SubResource("Animation_eth1a"),
+"opening": SubResource("Animation_bpj75")
+}
+
+[node name="dialDoor" type="Node2D"]
+script = ExtResource("1_vaopo")
+
+[node name="Security Door" type="StaticBody2D" parent="." groups=["Security Door"]]
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Security Door"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_pvcjd")
+
+[node name="Sprite2D" type="Sprite2D" parent="Security Door"]
+position = Vector2(0, -1.19209e-07)
+texture = ExtResource("1_nv8cf")
+offset = Vector2(0, 2)
+hframes = 2
+
+[node name="InteractionArea" type="Area2D" parent="."]
+position = Vector2(0, 24)
+script = ExtResource("2_443tk")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_cqfqh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xyewc")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

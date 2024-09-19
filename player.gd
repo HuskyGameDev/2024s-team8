@@ -18,8 +18,9 @@ extends CharacterBody2D
 var screen_size
 var pause
 var ValveMinigame = false
-var ComboLock = false
-var emergencyLights = "694d94"
+var DialLock = false
+#var emergencyLights = "694d94"
+var emergencyLights = "584575"
 var normalLights = "ffffff"
 var InteractionOverride = false
 var pressedShift = false
@@ -88,8 +89,8 @@ func _process(_delta):
 				_swap_attention()
 				if ValveMinigame == true:
 					ValveMinigame = false
-				if ComboLock == true:
-					ComboLock = false
+				if DialLock == true:
+					DialLock = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #allows player to collide with objects also deals with player movement and animation
