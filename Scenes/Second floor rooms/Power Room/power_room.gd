@@ -20,7 +20,6 @@ func _ready():
 		print("Pooey")
 	
 	if PositionManager.hasClearedPipe:
-		$Pipe.queue_free()
 		if poweredDoor != null:
 			poweredDoor.queue_free()
 			door.monitoring = true
