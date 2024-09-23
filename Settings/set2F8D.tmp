@@ -250,6 +250,7 @@ value = 1.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
+bus = &"Dialogue"
 
 [connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="value_changed" from="TabContainer/Sound/MasterHBox/MasterSlider" to="TabContainer/Sound" method="_on_master_slider_value_changed"]

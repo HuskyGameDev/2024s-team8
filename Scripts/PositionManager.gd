@@ -29,6 +29,10 @@ var pinkLight = "cba3ff"
 var purpleLight = "0f0073"
 var RetainPlayerSpeed = false
 var pinkLamp = "f187ff8c"
+var masterVolume = 0.5
+var musicVolume = 0.5
+var sfxVolume = 0.5
+var dialogueVolume = 0.5
 
 #turns arrays that contain text to strings
 func array_to_string(arr: Array, skipLines: int = 0) -> String:
