@@ -103,7 +103,7 @@ size = Vector2(25, 5)
 size = Vector2(24, 4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j6sdg"]
-size = Vector2(24, 4)
+size = Vector2(19, 4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y7p06"]
 size = Vector2(24, 5)
@@ -151,7 +151,7 @@ enabled = false
 tile_set = ExtResource("3_eku0h")
 
 [node name="Stairs Door" type="StaticBody2D" parent="." groups=["Stairs Door"]]
-position = Vector2(224, 100)
+position = Vector2(139, 100)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stairs Door"]
@@ -189,6 +189,7 @@ tile_set = ExtResource("3_eku0h")
 
 [node name="Layer1" type="TileMapLayer" parent="doors"]
 use_parent_material = true
+tile_map_data = PackedByteArray("AAASAA8AAAASAAAAAAATAA8AAAASAAAAAAAPAA8AAAAPAAAAAAAQAA8AAAATAAAAAAARAA8AAAATAAAAAAAbAAoAAAAQAAAAAAAcAAoAAAAQAAAAAAAbAAsAAAAQAAAAAAAbAAwAAAAQAAAAAAAbAA0AAAAQAAAAAAAbAA4AAAAQAAAAAAAcAA4AAAAQAAAAAAAcAA0AAAAQAAAAAAAcAAwAAAAQAAAAAAAcAAsAAAAQAAAAAAA=")
 tile_set = ExtResource("3_eku0h")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("4_iar2e")]
@@ -362,7 +363,7 @@ shape = SubResource("RectangleShape2D_egakj")
 [node name="Bunks" type="Area2D" parent="Door areas"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door areas/Bunks"]
-position = Vector2(180, 122)
+position = Vector2(223.5, 122)
 shape = SubResource("RectangleShape2D_j6sdg")
 
 [node name="Supply_Closet" type="Area2D" parent="Door areas"]
@@ -374,7 +375,7 @@ shape = SubResource("RectangleShape2D_y7p06")
 [node name="Stairs" type="Area2D" parent="Door areas"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door areas/Stairs"]
-position = Vector2(224, 120)
+position = Vector2(138, 119)
 shape = SubResource("RectangleShape2D_rryx7")
 
 [node name="Bridge" type="Area2D" parent="Door areas"]
