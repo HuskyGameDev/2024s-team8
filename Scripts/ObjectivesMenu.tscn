@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://b7jmba3d5jgg5"]
+[gd_scene load_steps=9 format=3 uid="uid://b7jmba3d5jgg5"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectivesMenu.gd" id="1_wja83"]
 [ext_resource type="Texture2D" uid="uid://b5xruj8go3atr" path="res://Assets/menu_button_dark.png" id="2_erno3"]
 [ext_resource type="Texture2D" uid="uid://dym1ivtlsvpjd" path="res://Assets/menu_button_light.png" id="3_483bv"]
 [ext_resource type="FontFile" uid="uid://eakijihfas2k" path="res://Assets/SFPixelate-Bold.ttf" id="4_73prb"]
 [ext_resource type="Script" path="res://Scripts/tab_container.gd" id="5_xg8tj"]
+[ext_resource type="PackedScene" uid="uid://3uswv3g7ylu5" path="res://Scripts/InventoryNode.tscn" id="6_ctvyi"]
+[ext_resource type="Script" path="res://Scripts/grid_container.gd" id="6_m5wp6"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_7hbq6"]
 normal_texture = ExtResource("2_erno3")
@@ -209,6 +211,130 @@ text = "Document 10"
 visible = false
 layout_mode = 2
 metadata/_tab_index = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Inventory"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 90
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 90
+theme_override_constants/margin_bottom = 100
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Inventory/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="TabContainer/Inventory/MarginContainer/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 100
+theme_override_constants/v_separation = 120
+columns = 5
+script = ExtResource("6_m5wp6")
+
+[node name="Slot1" parent="TabContainer/Inventory/MarginContainer/ScrollContainer/GridContainer" groups=["Slot"] instance=ExtResource("6_ctvyi")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = null
+
+[node name="Slot2" parent="TabContainer/Inventory/MarginContainer/ScrollContainer/GridContainer" groups=["Slot"] instance=ExtResource("6_ctvyi")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = null
+
+[node name="Slot3" parent="TabContainer/Inventory/MarginContainer/ScrollContainer/GridContainer" groups=["Slot"] instance=ExtResource("6_ctvyi")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = null
+
+[node name="Slot4" parent="TabContainer/Inventory/MarginContainer/ScrollContainer/GridContainer" groups=["Slot"] instance=ExtResource("6_ctvyi")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = null
+
+[node name="Slot5" parent="TabContainer/Inventory/MarginContainer/ScrollContainer/GridContainer" groups=["Slot"] instance=ExtResource("6_ctvyi")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = null
+
+[node name="Slot6" parent="TabContainer/Inventory/MarginContainer/ScrollContainer/GridContainer" groups=["Slot"] instance=ExtResource("6_ctvyi")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = null
+
+[node name="Slot7" parent="TabContainer/Inventory/MarginContainer/ScrollContainer/GridContainer" groups=["Slot"] instance=ExtResource("6_ctvyi")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = null
+
+[node name="Slot8" parent="TabContainer/Inventory/MarginContainer/ScrollContainer/GridContainer" groups=["Slot"] instance=ExtResource("6_ctvyi")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = null
+
+[node name="Slot9" parent="TabContainer/Inventory/MarginContainer/ScrollContainer/GridContainer" groups=["Slot"] instance=ExtResource("6_ctvyi")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = null
+
+[node name="Slot10" parent="TabContainer/Inventory/MarginContainer/ScrollContainer/GridContainer" groups=["Slot"] instance=ExtResource("6_ctvyi")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = null
+
+[node name="Slot11" parent="TabContainer/Inventory/MarginContainer/ScrollContainer/GridContainer" groups=["Slot"] instance=ExtResource("6_ctvyi")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = null
+
+[node name="Slot12" parent="TabContainer/Inventory/MarginContainer/ScrollContainer/GridContainer" groups=["Slot"] instance=ExtResource("6_ctvyi")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = null
+
+[node name="Slot13" parent="TabContainer/Inventory/MarginContainer/ScrollContainer/GridContainer" groups=["Slot"] instance=ExtResource("6_ctvyi")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = null
+
+[node name="Slot14" parent="TabContainer/Inventory/MarginContainer/ScrollContainer/GridContainer" groups=["Slot"] instance=ExtResource("6_ctvyi")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = null
+
+[node name="Slot15" parent="TabContainer/Inventory/MarginContainer/ScrollContainer/GridContainer" groups=["Slot"] instance=ExtResource("6_ctvyi")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = null
 
 [node name="Text" type="Control" parent="TabContainer"]
 visible = false

@@ -1,12 +1,12 @@
 extends Node2D
 
-@onready var Canvas = get_tree().get_first_node_in_group("CanvasLayer")
 @onready var interaction_area: InteractionArea = $InteractionArea
 @onready var player = get_tree().get_first_node_in_group("Player")
 @onready var speech_sound = preload("res://Assets/Dialogue blip5.mp3")
 
+
 const lines: Array[String] = [
-	"You picked up the wrench."
+	"You picked up the cool orb lying on the ground."
 ]
 
 # Called when the node enters the scene tree for the first time.
@@ -17,11 +17,12 @@ func _ready():
 
 func _on_interact():
 	player._swap_attention()
-	PositionManager.Inventory.append("res://Assets/wrench-gray.png")
-	PositionManager.InventoryText.append("An ordinary wrench")
-	DialogManager.start_dialog(global_position, lines, speech_sound, false, false)
+	PositionManager.Inventory.append("res://Assets/dial.png")
+	PositionManager.InventoryText.append("A cool orb you found on the ground")
+	DialogManager.start_dialog(global_position, lines, speech_sound, false)
 	await DialogManager.dialog_finished
-	player._swap_attention()
 	queue_free()
-	PositionManager.HasCrowbar = true
+	player._swap_attention()
 	pass
+	
+	
