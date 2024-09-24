@@ -35,7 +35,7 @@ func _on_area_2d_2_body_entered(body: Node2D) -> void:
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false)
 		var BUNK = load("res://Scenes/Main floor rooms/Bunks/bunks.tscn")
-		StageManager.changeScene(BUNK, 276, 130)
+		StageManager.changeScene(BUNK, 273, 130)
 		StageManager.changeCamera(304)
 		StageManager.scene_change = true
 	pass # Replace with function body.
