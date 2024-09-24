@@ -194,7 +194,7 @@ position = Vector2(156, 109.75)
 shape = SubResource("RectangleShape2D_1awhh")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("4_2uors")]
-position = Vector2(157, 109)
+position = Vector2(96, 122)
 
 [node name="Button1" type="Node2D" parent="."]
 position = Vector2(194, 117)

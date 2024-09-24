@@ -49,7 +49,7 @@ tile_set = ExtResource("3_lwea3")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("4_kuhmd")]
 z_index = 1
-position = Vector2(131, 116)
+position = Vector2(194, 116)
 
 [node name="Area2D2" type="Area2D" parent="."]
 

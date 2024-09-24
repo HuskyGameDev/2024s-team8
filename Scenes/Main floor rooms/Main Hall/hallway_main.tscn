@@ -200,7 +200,7 @@ tile_set = ExtResource("3_eku0h")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("4_iar2e")]
 z_index = 2
-position = Vector2(414, 150)
+position = Vector2(329, 133)
 playerSpeed = 60
 metadata/_edit_group_ = true
 

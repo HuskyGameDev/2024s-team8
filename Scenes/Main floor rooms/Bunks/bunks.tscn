@@ -171,7 +171,7 @@ tile_set = SubResource("TileSet_t474c")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("3_6cqsx")]
 unique_name_in_owner = true
-position = Vector2(276, 130)
+position = Vector2(153, 136)
 
 [node name="Door trigger hallway" type="Area2D" parent="."]
 position = Vector2(-192, 0)

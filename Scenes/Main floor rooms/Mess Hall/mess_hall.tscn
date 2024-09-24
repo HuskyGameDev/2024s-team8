@@ -45,7 +45,7 @@ format = 2
 layer_0/tile_data = PackedInt32Array(983070, 1048576, 0, 983069, 1048576, 0, 983068, 1048576, 0, 917532, 1048576, 0, 851996, 1048576, 0, 786460, 1048576, 0, 786461, 1048576, 0, 786462, 1048576, 0, 851998, 1048576, 0, 917534, 1048576, 0, 917533, 1048576, 0, 851997, 1048576, 0)
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("5_1jw8f")]
-position = Vector2(62, 117)
+position = Vector2(276, 140)
 
 [node name="To_Main" type="Area2D" parent="."]
 

@@ -45,7 +45,7 @@ use_parent_material = true
 tile_set = ExtResource("1_30vsc")
 
 [node name="Player" parent="." instance=ExtResource("2_p6e2w")]
-position = Vector2(243, 144)
+position = Vector2(202, 141)
 
 [node name="to_first_floor" type="Area2D" parent="."]
 
