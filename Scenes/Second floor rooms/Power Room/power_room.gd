@@ -1,11 +1,11 @@
 extends Node2D
 
-var count = 0
 @onready var animPlayer = $AnimationPlayer
 @onready var poweredDoor = get_tree().get_first_node_in_group("P-Door")
 @onready var door = $Door
 
 func _ready():
+	StageManager.changeCamera(304)
 	if PositionManager.Act == 1 and animPlayer != null:
 		door.monitoring = false
 		animPlayer.play("Closed")
@@ -23,12 +23,10 @@ func _ready():
 		if poweredDoor != null:
 			poweredDoor.queue_free()
 			door.monitoring = true
-			count += 1
 		
 
 func _on_door_body_entered(_body):
-	count += 1
-	if count > 2:
+	if Input.is_action_pressed("RIGHT"):
 		var HALLWAY_TRANS = load("res://Scenes/Second floor rooms/Transition Hallway/hallway_transition.tscn")
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false) 

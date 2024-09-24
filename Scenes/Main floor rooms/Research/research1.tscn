@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://1bfbt5f8oky"]
+[gd_scene load_steps=14 format=4 uid="uid://1bfbt5f8oky"]
 
 [ext_resource type="PackedScene" uid="uid://ny55otxbs0t" path="res://Scenes/tile_map.tscn" id="1_1c61v"]
 [ext_resource type="Texture2D" uid="uid://db5cscw8pfccj" path="res://Assets/room_tilemap_modular.png" id="1_6aj05"]
@@ -116,6 +116,9 @@ _data = {
 "pace": SubResource("Animation_ourop")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hcdg1"]
+size = Vector2(16, 3)
+
 [node name="Research_1" type="Node2D"]
 script = ExtResource("1_44mdm")
 
@@ -123,7 +126,7 @@ script = ExtResource("1_44mdm")
 tile_set = SubResource("TileSet_oihvh")
 format = 2
 
-[node name="Layer0" type="TileMapLayer" parent="Collision"]
+[node name="Layer1" type="TileMapLayer" parent="Collision"]
 use_parent_material = true
 tile_map_data = PackedByteArray("AAAJAAwAAQAQAAAAAAAKAAwAAQAQAAAAAAALAAwAAQAQAAAAAAALAA0AAQAQAAAAAAAJAA0AAQAQAAAAAAAKAA0AAQAQAAAAAAAIAAwAAQAQAAAAAAAHAA0AAQAQAAAAAAAIAA0AAQAQAAAAAAAHAAwAAQAQAAAAAAAMABAAAQAQAAAAAAAMABEAAQAQAAAAAAANABEAAQAQAAAAAAAOABEAAQAQAAAAAAAPABEAAQAQAAAAAAAQABEAAQAQAAAAAAARABEAAQAQAAAAAAASABEAAQAQAAAAAAATABEAAQAQAAAAAAAUABEAAQAQAAAAAAAVABEAAQAQAAAAAAAWABEAAQAQAAAAAAAXABEAAQAQAAAAAAAYABEAAQAQAAAAAAAZABEAAQAQAAAAAAAaABEAAQAQAAAAAAAbABEAAQAQAAAAAAAcABEAAQAQAAAAAAAdABEAAQAQAAAAAAAeABEAAQAQAAAAAAAfABEAAQAQAAAAAAAGAA8AAQAQAAAAAAAFABAAAQAQAAAAAAAEABEAAQAQAAAAAAADABIAAQAQAAAAAAAGABAAAQAIAAAAAAAFABEAAQAIAAAAAAAEABIAAQAIAAAAAAADABMAAQAIAAAAAAAHAA4AAQAQAAAAAAAIAA4AAQAQAAAAAAAgABEAAQAQAAAAAAAhABEAAQAQAAAAAAAiABIAAQAEAAAAAAAjABMAAQAEAAAAAAADABQAAQAQAAAAAAAEABQAAQAQAAAAAAAFABQAAQAQAAAAAAAGABQAAQAQAAAAAAAHABQAAQAQAAAAAAAIABQAAQAQAAAAAAAJABQAAQAQAAAAAAAKABQAAQAQAAAAAAALABQAAQAQAAAAAAAMABQAAQAQAAAAAAANABQAAQAQAAAAAAAOABQAAQAQAAAAAAAPABQAAQAQAAAAAAAQABQAAQAQAAAAAAARABQAAQAQAAAAAAASABQAAQAQAAAAAAATABQAAQAQAAAAAAAUABQAAQAQAAAAAAAVABQAAQAQAAAAAAAWABQAAQAQAAAAAAAXABQAAQAQAAAAAAAYABQAAQAQAAAAAAAZABQAAQAQAAAAAAAaABQAAQAQAAAAAAAbABQAAQAQAAAAAAAcABQAAQAQAAAAAAAdABQAAQAQAAAAAAAeABQAAQAQAAAAAAAfABQAAQAQAAAAAAAgABQAAQAQAAAAAAAhABQAAQAQAAAAAAAiABQAAQAQAAAAAAAjABQAAQAQAAAAAAAkABQAAQAQAAAAAAAMAA4AAQAQAAAAAAAHAA8AAQAQAAAAAAAIAA8AAQAQAAAAAAAJAA4AAQAQAAAAAAAKAA4AAQAQAAAAAAALAA4AAQAQAAAAAAACABMAAQAQAAAAAAACABQAAQAQAAAAAAAiABEAAQAQAAAAAAAjABIAAQAQAAAAAAAkABMAAQAQAAAAAAAeAA8AAQAQAAAAAAAfAA8AAQAQAAAAAAAgAA8AAQAQAAAAAAAaAA8AAQAQAAAAAAAZAA8AAQAQAAAAAAAYAA8AAQAQAAAAAAAZAA4AAQAQAAAAAAAaAA4AAQAQAAAAAAAbAA4AAQAQAAAAAAAcAA4AAQAQAAAAAAAdAA4AAQAQAAAAAAAeAA4AAQAQAAAAAAAfAA4AAQAQAAAAAAAXAA8AAQAQAAAAAAAWAA8AAQAQAAAAAAAVAA8AAQAQAAAAAAAUAA8AAQAQAAAAAAATAA8AAQAQAAAAAAASAA8AAQAQAAAAAAARAA8AAQAQAAAAAAAQAA8AAQAQAAAAAAAPAA8AAQAQAAAAAAAOAA8AAQAQAAAAAAANAA8AAQAQAAAAAAAFAA8AAQAQAAAAAAANAA4AAQAQAAAAAAA=")
 tile_set = SubResource("TileSet_oihvh")
@@ -149,7 +152,7 @@ tile_set = ExtResource("2_17khl")
 tile_set = ExtResource("2_17khl")
 format = 2
 
-[node name="Layer0" type="TileMapLayer" parent="doors"]
+[node name="Layer1" type="TileMapLayer" parent="doors"]
 use_parent_material = true
 tile_map_data = PackedByteArray("AAAJAA8AAAAQAAAAAAAKAA8AAAAQAAAAAAALAA8AAAAQAAAAAAAJAA4AAAAQAAAAAAAKAA4AAAAQAAAAAAALAA4AAAAQAAAAAAAJAA0AAAAQAAAAAAAKAA0AAAAQAAAAAAALAA0AAAAQAAAAAAAJAAwAAAAQAAAAAAAKAAwAAAAQAAAAAAALAAwAAAAQAAAAAAA=")
 tile_set = ExtResource("2_17khl")
@@ -161,7 +164,7 @@ position = Vector2(84, 122.5)
 shape = SubResource("RectangleShape2D_pcf5h")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("3_xppy5")]
-position = Vector2(83, 112)
+position = Vector2(225, 116)
 playerSpeed = 60
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." groups=["CanvasLayer"]]
@@ -169,8 +172,7 @@ scale = Vector2(6, 6)
 transform = Transform2D(6, 0, 0, 6, 0, 0)
 
 [node name="Flower" parent="." instance=ExtResource("6_35rce")]
-visible = false
-position = Vector2(240, 121)
+position = Vector2(156, 124)
 facing = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -178,6 +180,13 @@ libraries = {
 "": SubResource("AnimationLibrary_880gr")
 }
 
+[node name="To_Hall_Right" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="To_Hall_Right"]
+position = Vector2(224, 120)
+shape = SubResource("RectangleShape2D_hcdg1")
+
 [connection signal="body_entered" from="Door_to_Hallway" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Door_to_Hallway" to="." method="_on_door_to_hallway_body_exited"]
 [connection signal="touched" from="Flower" to="." method="_on_flower_touched"]
+[connection signal="body_entered" from="To_Hall_Right" to="." method="_on_to_hall_right_body_entered"]

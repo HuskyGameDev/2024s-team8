@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://daise62ngs48s"]
+[gd_scene load_steps=8 format=4 uid="uid://daise62ngs48s"]
 
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Mess Hall/mess_hall.gd" id="1_5lmt6"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="2_onope"]
@@ -9,6 +9,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iba8r"]
 size = Vector2(24, 8)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_80vr4"]
+size = Vector2(16.5, 4)
+
 [node name="Mess_Hall" type="Node2D"]
 script = ExtResource("1_5lmt6")
 
@@ -17,7 +20,7 @@ visible = false
 tile_set = ExtResource("2_onope")
 format = 2
 
-[node name="Layer0" type="TileMapLayer" parent="Collision"]
+[node name="Layer1" type="TileMapLayer" parent="Collision"]
 use_parent_material = true
 tile_map_data = PackedByteArray("AAAbAA4AAQAQAAAAAAAJAA4AAQAQAAAAAAAIAA4AAQAQAAAAAAAHAA4AAQAQAAAAAAAGAA4AAQAQAAAAAAAFAA4AAQAQAAAAAAAEAA8AAQAQAAAAAAAEABAAAQAIAAAAAAADABEAAQAIAAAAAAACABIAAQAIAAAAAAABABMAAQAIAAAAAAABABQAAQAQAAAAAAACABQAAQAQAAAAAAADABQAAQAQAAAAAAAEABQAAQAQAAAAAAAFABQAAQAQAAAAAAAGABQAAQAQAAAAAAAHABQAAQAQAAAAAAAIABQAAQAQAAAAAAAJABQAAQAQAAAAAAAKABQAAQAQAAAAAAALABQAAQAQAAAAAAAMABQAAQAQAAAAAAANABQAAQAQAAAAAAAOABQAAQAQAAAAAAAPABQAAQAQAAAAAAAQABQAAQAQAAAAAAARABQAAQAQAAAAAAASABQAAQAQAAAAAAATABQAAQAQAAAAAAAUABQAAQAQAAAAAAAVABQAAQAQAAAAAAAWABQAAQAQAAAAAAAXABQAAQAQAAAAAAAYABQAAQAQAAAAAAAZABQAAQAQAAAAAAAaABQAAQAQAAAAAAAbABQAAQAQAAAAAAAcABQAAQAQAAAAAAAdABQAAQAQAAAAAAAeABQAAQAQAAAAAAAfABQAAQAQAAAAAAAgABQAAQAQAAAAAAAhABQAAQAQAAAAAAAiABQAAQAQAAAAAAAjABQAAQAQAAAAAAAkABQAAQAQAAAAAAAlABQAAQAQAAAAAAAhABAAAQAEAAAAAAAiABEAAQAEAAAAAAAjABIAAQAEAAAAAAAkABMAAQAEAAAAAAAfAA4AAQAQAAAAAAAeAA4AAQAQAAAAAAAdAA4AAQAQAAAAAAAcAA4AAQAQAAAAAAAhAA8AAQAQAAAAAAAiABAAAQAQAAAAAAAjABEAAQAQAAAAAAAkABIAAQAQAAAAAAAlABMAAQAQAAAAAAABABIAAQAQAAAAAAACABEAAQAQAAAAAAADABAAAQAQAAAAAAAAABMAAQAQAAAAAAAfAA8AAQAQAAAAAAAgAA8AAQAQAAAAAAAbAA8AAQAQAAAAAAAaAA8AAQAQAAAAAAAZAA8AAQAQAAAAAAAYAA8AAQAQAAAAAAAXAA8AAQAQAAAAAAAWAA8AAQAQAAAAAAAVAA8AAQAQAAAAAAAUAA8AAQAQAAAAAAATAA8AAQAQAAAAAAASAA8AAQAQAAAAAAARAA8AAQAQAAAAAAAQAA8AAQAQAAAAAAAPAA8AAQAQAAAAAAAOAA8AAQAQAAAAAAANAA8AAQAQAAAAAAAMAA8AAQAQAAAAAAALAA8AAQAQAAAAAAAKAA8AAQAQAAAAAAAJAA8AAQAQAAAAAAAFAA8AAQAQAAAAAAA=")
 tile_set = ExtResource("2_onope")
@@ -42,17 +45,23 @@ format = 2
 layer_0/tile_data = PackedInt32Array(983070, 1048576, 0, 983069, 1048576, 0, 983068, 1048576, 0, 917532, 1048576, 0, 851996, 1048576, 0, 786460, 1048576, 0, 786461, 1048576, 0, 786462, 1048576, 0, 851998, 1048576, 0, 917534, 1048576, 0, 917533, 1048576, 0, 851997, 1048576, 0)
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("5_1jw8f")]
-position = Vector2(236.35, 109.98)
+position = Vector2(62, 117)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="To_Main" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="To_Main"]
 position = Vector2(236, 121)
 shape = SubResource("RectangleShape2D_iba8r")
+
+[node name="To_Main_Left" type="Area2D" parent="To_Main"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="To_Main/To_Main_Left"]
+position = Vector2(64.25, 120)
+shape = SubResource("RectangleShape2D_80vr4")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." groups=["CanvasLayer"]]
 scale = Vector2(5, 5)
 transform = Transform2D(5, 0, 0, 5, 0, 0)
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="To_Main" to="." method="_on_to_main_body_entered"]
+[connection signal="body_entered" from="To_Main/To_Main_Left" to="." method="_on_to_main_left_body_entered"]

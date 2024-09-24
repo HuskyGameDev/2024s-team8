@@ -18,6 +18,7 @@ const lines: Array[String] = [
 ]
 #turns off the monitoring of the toPod area when airlock is closed
 func _ready():
+	StageManager.changeCamera(488)
 	toPod.monitoring = false
 	if PositionManager.Act < 1:
 		PositionManager.Act = 1
@@ -31,15 +32,13 @@ func _ready():
 
 #switches to the main hall scene
 func _on_to_hall_body_entered(body):
-	count += 1
-	if count > 1:
+	if Input.is_action_pressed("DOWN"):
 		if body.name == "Player":
 			if PositionManager.OpenedAirlock:
 				var HALL = load("res://Scenes/Main floor rooms/Main Hall/hallway_main.tscn")
 				$Player.hasAttention = false
 				$Player/AnimationTree.set("active", false)
 				StageManager.changeScene(HALL, 76, 130)
-				StageManager.changeCamera(480)
 				StageManager.scene_change = true
 			else:
 				player._swap_attention()
@@ -50,8 +49,7 @@ func _on_to_hall_body_entered(body):
 
 #switches to the pod scene
 func _on_to_pod_body_entered(body):
-	count += 1
-	if count > 1:
+	if Input.is_action_pressed("UP"):
 		if body.name == "Player":
 			var POD = load("res://Scenes/Main floor rooms/Pod/pod.tscn")
 			$Player.hasAttention = false
@@ -60,5 +58,4 @@ func _on_to_pod_body_entered(body):
 			animPlayer.play("opening") 
 			await animPlayer.animation_finished
 			StageManager.changeScene(POD, 148, 136, true)
-			StageManager.changeCamera(304)
 			StageManager.scene_change = true

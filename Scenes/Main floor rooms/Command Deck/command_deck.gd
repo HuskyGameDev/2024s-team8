@@ -6,6 +6,7 @@ var count = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	interaction_area.interact = Callable(self, "_on_interact")
+	StageManager.changeCamera(488)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -18,11 +19,11 @@ func _on_interact():
 
 
 func _on_door_body_entered(body):
-	var HALLWAY_MAIN = load("res://Scenes/Main floor rooms/Main Hall/hallway_main.tscn")
-	count += 1
-	if body.name == "Player" && count > 1:
-		$Player.hasAttention = false
-		$Player/AnimationTree.set("active", false)
-		StageManager.changeScene(HALLWAY_MAIN, 462, 130)
-		StageManager.changeCamera(488)
-		StageManager.scene_change = true
+	if Input.is_action_pressed("LEFT"):
+		var HALLWAY_MAIN = load("res://Scenes/Main floor rooms/Main Hall/hallway_main.tscn")
+		if body.name == "Player":
+			$Player.hasAttention = false
+			$Player/AnimationTree.set("active", false)
+			StageManager.changeScene(HALLWAY_MAIN, 462, 130)
+			StageManager.changeCamera(488)
+			StageManager.scene_change = true

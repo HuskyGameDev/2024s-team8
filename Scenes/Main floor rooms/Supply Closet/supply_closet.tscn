@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://piw1ffh2ljly"]
+[gd_scene load_steps=11 format=4 uid="uid://piw1ffh2ljly"]
 
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Supply Closet/supply_closet.gd" id="1_0dtoi"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="2_tomo4"]
@@ -7,6 +7,9 @@
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Supply Closet/Crowbar.gd" id="5_h7fjr"]
 [ext_resource type="Texture2D" uid="uid://bfx5otn34ye1d" path="res://Assets/wrench-blue.png" id="6_ulac0"]
 [ext_resource type="Script" path="res://Interaction/InteractionArea.gd" id="7_j4w0r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p4nn5"]
+size = Vector2(11.3137, 4.00001)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cm6d2"]
 size = Vector2(24, 5)
@@ -21,9 +24,9 @@ script = ExtResource("1_0dtoi")
 tile_set = ExtResource("2_tomo4")
 format = 2
 
-[node name="Layer0" type="TileMapLayer" parent="Collision"]
+[node name="Layer1" type="TileMapLayer" parent="Collision"]
 use_parent_material = true
-tile_map_data = PackedByteArray("AAALABEAAQAQAAAAAAAMABEAAQAQAAAAAAANABEAAQAQAAAAAAAOABIAAQAQAAAAAAAPABIAAQAQAAAAAAAQABIAAQAQAAAAAAARABEAAQAQAAAAAAASABEAAQAQAAAAAAATABEAAQAQAAAAAAAUABEAAQAQAAAAAAAVABEAAQAQAAAAAAAWABEAAQAQAAAAAAAXABEAAQAQAAAAAAAYABEAAQAQAAAAAAAZABEAAQAQAAAAAAAaABEAAQAQAAAAAAARABIAAQAQAAAAAAANABIAAQAQAAAAAAAMABAAAQAQAAAAAAANAA8AAQAIAAAAAAAOAA4AAQAIAAAAAAAPAA0AAQAIAAAAAAAQAAwAAQAQAAAAAAARAAwAAQAQAAAAAAASAAwAAQAQAAAAAAATAAwAAQAQAAAAAAAUAAwAAQAQAAAAAAAVAAwAAQAQAAAAAAAWAAwAAQAQAAAAAAAXAAwAAQAQAAAAAAAYAAwAAQAQAAAAAAAYAA0AAQAQAAAAAAAZAA4AAQAQAAAAAAAaAA8AAQAQAAAAAAAbABAAAQAQAAAAAAAYAA4AAQAEAAAAAAAZAA8AAQAEAAAAAAAaABAAAQAEAAAAAAAQAA0AAQAQAAAAAAARAA0AAQAQAAAAAAASAA0AAQAQAAAAAAATAA0AAQAQAAAAAAAUAA0AAQAQAAAAAAAVAA0AAQAQAAAAAAAWAA0AAQAQAAAAAAAXAA0AAQAQAAAAAAAPAAwAAQAQAAAAAAAOAA0AAQAQAAAAAAANAA4AAQAQAAAAAAAMAA8AAQAQAAAAAAALABAAAQAQAAAAAAA=")
+tile_map_data = PackedByteArray("AAALABEAAQAQAAAAAAAMABEAAQAQAAAAAAANABEAAQAQAAAAAAAOABIAAQAQAAAAAAAPABIAAQAQAAAAAAAQABIAAQAQAAAAAAARABEAAQAQAAAAAAASABEAAQAQAAAAAAATABEAAQAQAAAAAAAUABEAAQAQAAAAAAAVABEAAQAQAAAAAAAWABEAAQAQAAAAAAAXABEAAQAQAAAAAAAYABEAAQAQAAAAAAAZABEAAQAQAAAAAAAaABEAAQAQAAAAAAARABIAAQAQAAAAAAANABIAAQAQAAAAAAAPAA0AAQAIAAAAAAAQAAwAAQAQAAAAAAARAAwAAQAQAAAAAAASAAwAAQAQAAAAAAATAAwAAQAQAAAAAAAUAAwAAQAQAAAAAAAVAAwAAQAQAAAAAAAWAAwAAQAQAAAAAAAXAAwAAQAQAAAAAAAYAAwAAQAQAAAAAAAYAA0AAQAQAAAAAAAZAA4AAQAQAAAAAAAaAA8AAQAQAAAAAAAbABAAAQAQAAAAAAAYAA4AAQAEAAAAAAAZAA8AAQAEAAAAAAAaABAAAQAEAAAAAAAQAA0AAQAQAAAAAAARAA0AAQAQAAAAAAASAA0AAQAQAAAAAAATAA0AAQAQAAAAAAAUAA0AAQAQAAAAAAAVAA0AAQAQAAAAAAAWAA0AAQAQAAAAAAAXAA0AAQAQAAAAAAAPAAwAAQAQAAAAAAAOAA0AAQAQAAAAAAALABAAAQAQAAAAAAANAA0AAQAQAAAAAAALAA8AAQAQAAAAAAAMAA4AAQAIAAAAAAAMAA0AAQAQAAAAAAALAA4AAQAQAAAAAAA=")
 tile_set = ExtResource("2_tomo4")
 
 [node name="Background" type="TileMap" parent="."]
@@ -46,7 +49,15 @@ tile_set = ExtResource("3_lwea3")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("4_kuhmd")]
 z_index = 1
-position = Vector2(124, 128)
+position = Vector2(131, 116)
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(100, 115)
+rotation = -0.785398
+skew = 0.785398
+shape = SubResource("RectangleShape2D_p4nn5")
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -73,6 +84,7 @@ shape = SubResource("CircleShape2D_b6m7c")
 scale = Vector2(5, 5)
 transform = Transform2D(5, 0, 0, 5, 0, 0)
 
+[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="area_entered" from="Wrench/InteractionArea" to="Wrench/InteractionArea" method="_on_area_entered"]
