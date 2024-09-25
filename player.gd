@@ -20,6 +20,7 @@ var pause
 var ValveMinigame = false
 var DialLock = false
 #var emergencyLights = "694d94"
+#var emergencyLights = "584575"
 var emergencyLights = "584575"
 var normalLights = "ffffff"
 var InteractionOverride = false
@@ -55,9 +56,9 @@ func _process(_delta):
 	elif PositionManager.Act != 1:
 		lights.color = normalLights
 	if PositionManager.HasNote:
-		if !PositionManager.hasClearedCombo:
+		if !PositionManager.hasClearedDial:
 			CodeNotif.visible = true
-			CodeNotif.text = "Security Code: " + str(PositionManager.comboCode)
+			CodeNotif.text = "Security Code: Is a poem now"
 		else:
 			CodeNotif.visible = false
 	if hasAttention:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://c67llndhruew1"]
+[gd_scene load_steps=16 format=4 uid="uid://c67llndhruew1"]
 
 [ext_resource type="Script" path="res://Scenes/Second floor rooms/Boiler Room/boiler_room.gd" id="1_0df65"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="2_atjwr"]
@@ -7,6 +7,9 @@
 [ext_resource type="Script" path="res://Scenes/Second floor rooms/Boiler Room/Note.gd" id="5_yip5h"]
 [ext_resource type="Texture2D" uid="uid://b64doeqvowr0m" path="res://Assets/paper_note_sprite.png" id="6_oev6b"]
 [ext_resource type="Script" path="res://Interaction/InteractionArea.gd" id="7_53ave"]
+[ext_resource type="Script" path="res://Inventory/Valve.gd" id="8_fc2kb"]
+[ext_resource type="Texture2D" uid="uid://dpbcrop0gl3sv" path="res://Assets/valve_handle_singlesprite.png" id="9_fsjjk"]
+[ext_resource type="Texture2D" uid="uid://ccamcmvtc2hxf" path="res://Assets/steam cloud.png" id="10_8lpw5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rs3x6"]
 size = Vector2(24, 4)
@@ -14,21 +17,31 @@ size = Vector2(24, 4)
 [sub_resource type="CircleShape2D" id="CircleShape2D_w72mb"]
 radius = 3.16228
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8xd2i"]
+size = Vector2(70, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pdl6s"]
+size = Vector2(20, 120)
+
+[sub_resource type="Gradient" id="Gradient_85e8v"]
+offsets = PackedFloat32Array(0.52, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.466181, 0.466181, 0.466181, 1)
+
 [node name="Boiler_Room" type="Node2D"]
 script = ExtResource("1_0df65")
 
-[node name="Collision" type="TileMap" parent="."]
-tile_set = ExtResource("2_atjwr")
-format = 2
+[node name="Collision" type="Node2D" parent="."]
 
-[node name="Layer0" type="TileMapLayer" parent="Collision"]
+[node name="Layer1" type="TileMapLayer" parent="Collision"]
 use_parent_material = true
 tile_map_data = PackedByteArray("AAAXABQAAQAQAAAAAAAXABUAAQAQAAAAAAAYABUAAQAQAAAAAAAZABUAAQAQAAAAAAAaABUAAQAQAAAAAAAbABUAAQAQAAAAAAAbABQAAQAQAAAAAAAcABQAAQAQAAAAAAAdABQAAQAQAAAAAAAeABQAAQAQAAAAAAAfABQAAQAQAAAAAAAgABQAAQAQAAAAAAAhABQAAQAQAAAAAAAiABQAAQAQAAAAAAAiABMAAQAQAAAAAAAWABQAAQAQAAAAAAAVABQAAQAQAAAAAAAUABQAAQAQAAAAAAATABQAAQAQAAAAAAASABQAAQAQAAAAAAARABQAAQAQAAAAAAAQABQAAQAQAAAAAAAPABQAAQAQAAAAAAAOABQAAQAQAAAAAAANABQAAQAQAAAAAAAMABQAAQAQAAAAAAALABQAAQAQAAAAAAAKABQAAQAQAAAAAAAJABQAAQAQAAAAAAAIABQAAQAQAAAAAAAHABQAAQAQAAAAAAAGABQAAQAQAAAAAAAFABQAAQAQAAAAAAAEABQAAQAQAAAAAAADABQAAQAQAAAAAAADABMAAQAQAAAAAAAJAA4AAQASAAAAAAAKAA4AAQASAAAAAAALAA4AAQASAAAAAAAMAA4AAQASAAAAAAANAA4AAQASAAAAAAAOAA4AAQASAAAAAAAPAA4AAQASAAAAAAAQAA4AAQASAAAAAAARAA4AAQASAAAAAAASAA4AAQASAAAAAAATAA4AAQASAAAAAAAUAA4AAQASAAAAAAAVAA4AAQASAAAAAAAWAA4AAQASAAAAAAAXAA4AAQASAAAAAAAYAA4AAQASAAAAAAAZAA4AAQASAAAAAAAaAA4AAQASAAAAAAAbAA4AAQASAAAAAAAcAA4AAQASAAAAAAAdAA4AAQARAAAAAAAeAA8AAQARAAAAAAAfABAAAQARAAAAAAAgABEAAQARAAAAAAAhABIAAQARAAAAAAAEABIAAQARAAAAAAAFABEAAQARAAAAAAAGABAAAQARAAAAAAAHAA8AAQARAAAAAAAIAA4AAQARAAAAAAAEABMAAQAJAAAAAAAFABIAAQAJAAAAAAAGABEAAQAJAAAAAAAHABAAAQAJAAAAAAAIAA8AAQAJAAAAAAAhABMAAQAHAAAAAAAgABIAAQAHAAAAAAAfABEAAQAHAAAAAAAeABAAAQAHAAAAAAAdAA8AAQAHAAAAAAA=")
 tile_set = ExtResource("2_atjwr")
 
-[node name="Background" type="TileMap" parent="."]
-tile_set = ExtResource("3_obose")
-format = 2
+[node name="Layer0" type="TileMapLayer" parent="Collision"]
+use_parent_material = true
+tile_set = ExtResource("2_atjwr")
+
+[node name="Background" type="Node2D" parent="."]
 
 [node name="flat color" type="TileMapLayer" parent="Background"]
 use_parent_material = true
@@ -45,6 +58,10 @@ use_parent_material = true
 tile_map_data = PackedByteArray("AAAaABQAAAATAAAAAAAZABQAAAATAAAAAAAYABQAAAATAAAAAAA=")
 tile_set = ExtResource("3_obose")
 
+[node name="Layer0" type="TileMapLayer" parent="Background"]
+use_parent_material = true
+tile_set = ExtResource("3_obose")
+
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("4_62ril")]
 z_index = 1
 position = Vector2(204, 146)
@@ -57,8 +74,9 @@ position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_rs3x6")
 
 [node name="Note" type="Node2D" parent="." groups=["Note"]]
-position = Vector2(169, 127)
+position = Vector2(96, 128)
 script = ExtResource("5_yip5h")
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Note"]
 texture_filter = 1
@@ -70,10 +88,72 @@ script = ExtResource("7_53ave")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Note/InteractionArea"]
 shape = SubResource("CircleShape2D_w72mb")
 
+[node name="Valve" type="Node2D" parent="."]
+position = Vector2(168, 104)
+script = ExtResource("8_fc2kb")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Valve"]
+texture_filter = 1
+texture = ExtResource("9_fsjjk")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Valve"]
+texture_filter = 1
+position = Vector2(25, 0)
+texture = ExtResource("9_fsjjk")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Valve"]
+texture_filter = 1
+position = Vector2(50, 0)
+texture = ExtResource("9_fsjjk")
+
+[node name="InteractionArea" type="Area2D" parent="Valve"]
+script = ExtResource("7_53ave")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Valve/InteractionArea"]
+position = Vector2(25, 0)
+shape = SubResource("RectangleShape2D_8xd2i")
+
+[node name="Fog" type="Node2D" parent="." groups=["Fog"]]
+position = Vector2(144, 150)
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Fog"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fog/StaticBody2D"]
+position = Vector2(0, -50)
+shape = SubResource("RectangleShape2D_pdl6s")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Fog"]
+position = Vector2(0, -130)
+amount = 7
+lifetime = 0.85
+preprocess = 1.0
+draw_order = 1
+texture = ExtResource("10_8lpw5")
+emission_shape = 1
+emission_sphere_radius = 5.0
+direction = Vector2(0, 1)
+spread = 1.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+linear_accel_min = 100.0
+linear_accel_max = 100.0
+scale_amount_min = 0.5
+scale_amount_max = 0.7
+color = Color(0.858824, 0.858824, 0.858824, 1)
+color_ramp = SubResource("Gradient_85e8v")
+hue_variation_min = 0.1
+hue_variation_max = 1.0
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." groups=["CanvasLayer"]]
-scale = Vector2(5, 5)
-transform = Transform2D(5, 0, 0, 5, 0, 0)
+scale = Vector2(6, 6)
+transform = Transform2D(6, 0, 0, 6, 0, 0)
 
 [connection signal="body_entered" from="Boiler" to="." method="_on_to_bottom_hallway_body_entered"]
 [connection signal="area_entered" from="Note/InteractionArea" to="Note/InteractionArea" method="_on_area_entered"]
 [connection signal="area_exited" from="Note/InteractionArea" to="Note/InteractionArea" method="_on_area_exited"]
+[connection signal="clear_fog" from="Valve" to="." method="_on_valve_clear_fog"]
+[connection signal="area_entered" from="Valve/InteractionArea" to="Valve/InteractionArea" method="_on_area_entered"]
+[connection signal="area_exited" from="Valve/InteractionArea" to="Valve/InteractionArea" method="_on_area_exited"]

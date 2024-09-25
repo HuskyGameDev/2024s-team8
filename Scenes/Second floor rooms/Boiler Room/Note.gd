@@ -9,7 +9,7 @@ const lines: Array[String] = [
 	"You picked up a note."
 ]
 
-var ComboCode = "Security Code: " + PositionManager.array_to_string(PositionManager.comboCode)
+var ComboCode = "No more code, poem instead"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
