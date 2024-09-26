@@ -34,8 +34,7 @@ func _on_to_top_hallway_body_entered(_body):
 
 
 func _on_to_bathroom_body_entered(_body):
-	count += 1
-	if count > 4:
+	if _body == "Player" && Input.is_action_pressed("RIGHT"):
 		var ran = randi_range(0,1)
 		var BATHROOM
 		if ran == 0:

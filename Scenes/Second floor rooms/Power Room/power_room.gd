@@ -5,7 +5,7 @@ extends Node2D
 @onready var door = $Door
 
 func _ready():
-	StageManager.changeCamera(304)
+	StageManager.changeCamera(488)
 	if PositionManager.Act == 1 and animPlayer != null:
 		door.monitoring = false
 		animPlayer.play("Closed")
@@ -26,12 +26,11 @@ func _ready():
 		
 
 func _on_door_body_entered(_body):
-	if Input.is_action_pressed("RIGHT"):
-		var HALLWAY_TRANS = load("res://Scenes/Second floor rooms/Transition Hallway/hallway_transition.tscn")
+	if Input.is_action_pressed("RIGHT") && _body.name == "Player":
+		var HALLWAY_TOP = load("res://Scenes/Second floor rooms/Top Hallway/hallway_top.tscn")
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false) 
-		StageManager.changeScene(HALLWAY_TRANS, 72, 132)
-		StageManager.changeCamera(304)
+		StageManager.changeScene(HALLWAY_TOP, 32, 130)
 		StageManager.scene_change = true
 
 

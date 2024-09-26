@@ -7,15 +7,7 @@ func _ready():
 	if PositionManager.HasClearedValve:
 		Fog.queue_free()
 
-func _on_to_the_transitionary_hallway_body_entered(_body):
-	count += 1
-	if count > 2:
-		var HALLWAY_TRANS = load("res://Scenes/Second floor rooms/Transition Hallway/hallway_transition.tscn")
-		$Player.hasAttention = false
-		$Player/AnimationTree.set("active", false)
-		StageManager.changeScene(HALLWAY_TRANS, 152, 146)
-		StageManager.changeCamera(304)
-		StageManager.scene_change = true
+
 
 
 func _on_to_the_boiler_room_body_entered(_body):

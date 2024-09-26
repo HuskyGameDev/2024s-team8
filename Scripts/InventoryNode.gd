@@ -10,7 +10,7 @@ extends TextureRect
 func _ready():
 	label.text = text
 
-func _process(delta):
+func _process(_delta):
 	label.text = text
 
 func _on_mouse_entered() -> void:

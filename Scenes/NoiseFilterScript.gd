@@ -3,7 +3,7 @@ extends Sprite2D
 ##Trying to change the seed of the noise filter each frame, not working :(
 
 #var noiseSeedIndex
-var seed = 0
+var Seed = 0
 #var propertyArray: Array[Dictionary] = material.get_property_list()
 
 # Called when the node enters the scene tree for the first time.
@@ -25,6 +25,6 @@ func _ready():
 func _process(_delta):
 	#propertyArray[noiseSeedIndex] = seed
 	material.set("shader_parameter/seed", seed)
-	seed+=1
+	Seed+=1
 
 	

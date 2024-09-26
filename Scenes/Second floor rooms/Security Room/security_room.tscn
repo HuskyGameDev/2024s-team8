@@ -58,7 +58,7 @@ tile_set = ExtResource("3_0q0sd")
 position = Vector2(204, 164)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="To Top Hallway"]
-position = Vector2(0, 2)
+position = Vector2(-64, 2)
 shape = SubResource("RectangleShape2D_v05b3")
 
 [node name="Security Button" type="Node2D" parent="."]
@@ -83,7 +83,7 @@ position = Vector2(0, 8.5)
 shape = SubResource("RectangleShape2D_7sgkc")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("7_y8wyt")]
-position = Vector2(231, 120)
+position = Vector2(199, 123)
 
 [node name="SecurityRoomPoster" type="Node2D" parent="."]
 position = Vector2(166, 101)

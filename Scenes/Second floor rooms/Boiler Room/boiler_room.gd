@@ -13,12 +13,11 @@ func _ready():
 
 
 func _on_to_bottom_hallway_body_entered(_body):
-	count += 1
-	if count > 1:
-		var HALLWAY_BOT = load("res://Scenes/Second floor rooms/Bottom Hallway/hallway_bottom.tscn")
+	if Input.is_action_pressed("DOWN"):
+		var HALLWAY_TOP = load("res://Scenes/Second floor rooms/Top Hallway/hallway_top.tscn")
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false)
-		StageManager.changeScene(HALLWAY_BOT, 388, 122)
+		StageManager.changeScene(HALLWAY_TOP, 401, 115)
 		StageManager.changeCamera(480)
 		StageManager.scene_change = true
 
