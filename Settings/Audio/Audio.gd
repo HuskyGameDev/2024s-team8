@@ -61,12 +61,14 @@ func _on_dialogue_slider_value_changed(value):
 	AudioServer.set_bus_mute(DIALOGUE_BUS_ID, value < 0.05)	
 
 func play_audio(audio, bus):
-	var new_audio_player = audio_player.duplicate()
-	new_audio_player.stream = audio
-	new_audio_player.bus = bus
-	get_tree().root.add_child(new_audio_player)
-	new_audio_player.play()
-	await new_audio_player.finished
-	new_audio_player.queue_free()
+	if PositionManager.ConfigLoaded:
+		var new_audio_player = audio_player.duplicate()
+		new_audio_player.stream = audio
+		new_audio_player.bus = bus
+		get_tree().root.add_child(new_audio_player)
+		new_audio_player.play()
+		await new_audio_player.finished
+		new_audio_player.queue_free()
+	
 	
 	

@@ -2,3 +2,4 @@
 .godot/
 !.godot/editor/filesystem_cache8
 Shaders/noisefiltermaterial.tres
+Settings/Config/setting.ini

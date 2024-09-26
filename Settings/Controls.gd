@@ -6,7 +6,18 @@ extends VBoxContainer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	load_keybindings_from_settings()
 	create_action_remap_items()
+	
+
+func load_keybindings_from_settings():
+	action_items.clear()
+	var keybindings = ConfigManager.load_keybinding()
+	for action in keybindings.keys():
+		InputMap.action_add_event(action, keybindings[action])
+		action_items.append(action)
+		
+	
 
 # Creates control menu buttons and labels
 func create_action_remap_items() -> void:

@@ -10,9 +10,19 @@ var settings 		# Variable to store a settingsMenu
 
 func _ready():
 	# Plays main menu music when main menu is created
+
+	var audio_settings = ConfigManager.load_audio()
+	PositionManager.masterVolume = audio_settings.master_volume
+	PositionManager.musicVolume = audio_settings.music_volume
+	PositionManager.sfxVolume = audio_settings.sfx_volume
+	PositionManager.dialogueVolume = audio_settings.dialogue_volume
+	
+	var gameplay_settings = ConfigManager.load_gameplay()
+	PositionManager.textSpd = gameplay_settings.text_speed
+	
+	AudioServer.set_bus_volume_db(MASTER_BUS_ID,linear_to_db(PositionManager.masterVolume))
 	AudioServer.set_bus_volume_db(MUSIC_BUS_ID,linear_to_db(PositionManager.musicVolume))
 	AudioServer.set_bus_volume_db(SFX_BUS_ID,linear_to_db(PositionManager.sfxVolume))
-	AudioServer.set_bus_volume_db(MASTER_BUS_ID,linear_to_db(PositionManager.masterVolume))
 	AudioServer.set_bus_volume_db(DIALOGUE_BUS_ID,linear_to_db(PositionManager.dialogueVolume))
 	GlobalAudioManager.play_menu_music()
 	

@@ -193,6 +193,24 @@ max_value = 1.0
 step = 0.05
 value = 0.5
 
+[node name="Alignment5" type="Label" parent="TabContainer/Sound"]
+layout_mode = 2
+
+[node name="Alignment6" type="Label" parent="TabContainer/Sound"]
+layout_mode = 2
+
+[node name="Alignment7" type="Label" parent="TabContainer/Sound"]
+layout_mode = 2
+
+[node name="Alignment8" type="Label" parent="TabContainer/Sound"]
+layout_mode = 2
+
+[node name="ResetSound" type="Button" parent="TabContainer/Sound"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 50
+text = "Reset to Default"
+
 [node name="Controls" type="VBoxContainer" parent="TabContainer"]
 visible = false
 layout_mode = 2
@@ -213,6 +231,18 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("7_4x3uy")
 columns = 2
+
+[node name="Alignment3" type="Label" parent="TabContainer/Controls"]
+layout_mode = 2
+
+[node name="Alignment4" type="Label" parent="TabContainer/Controls"]
+layout_mode = 2
+
+[node name="ResetControls" type="Button" parent="TabContainer/Controls"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 50
+text = "Reset to Default"
 
 [node name="Gameplay" type="VBoxContainer" parent="TabContainer"]
 visible = false
@@ -248,12 +278,35 @@ max_value = 2.0
 step = 0.1
 value = 1.0
 
+[node name="Alignment9" type="Label" parent="TabContainer/Gameplay"]
+layout_mode = 2
+
+[node name="Alignment10" type="Label" parent="TabContainer/Gameplay"]
+layout_mode = 2
+
+[node name="Alignment11" type="Label" parent="TabContainer/Gameplay"]
+layout_mode = 2
+
+[node name="Alignment12" type="Label" parent="TabContainer/Gameplay"]
+layout_mode = 2
+
+[node name="ResetGameplay" type="Button" parent="TabContainer/Gameplay"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 50
+text = "Reset to Default"
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 
 [connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="drag_ended" from="TabContainer/Sound/MasterHBox/MasterSlider" to="." method="_on_master_slider_drag_ended"]
 [connection signal="value_changed" from="TabContainer/Sound/MasterHBox/MasterSlider" to="TabContainer/Sound" method="_on_master_slider_value_changed"]
+[connection signal="drag_ended" from="TabContainer/Sound/MusicHBox/MusicSlider" to="." method="_on_music_slider_drag_ended"]
 [connection signal="value_changed" from="TabContainer/Sound/MusicHBox/MusicSlider" to="TabContainer/Sound" method="_on_music_slider_value_changed"]
+[connection signal="drag_ended" from="TabContainer/Sound/SFXHBox/SFXSlider" to="." method="_on_sfx_slider_drag_ended"]
 [connection signal="value_changed" from="TabContainer/Sound/SFXHBox/SFXSlider" to="TabContainer/Sound" method="_on_sfx_slider_value_changed"]
+[connection signal="drag_ended" from="TabContainer/Sound/DialogueHBox/DialogueSlider" to="." method="_on_dialogue_slider_drag_ended"]
 [connection signal="value_changed" from="TabContainer/Sound/DialogueHBox/DialogueSlider" to="TabContainer/Sound" method="_on_dialogue_slider_value_changed"]
+[connection signal="drag_ended" from="TabContainer/Gameplay/TextSpdHBox/TextSpdSlider" to="." method="_on_text_spd_slider_drag_ended"]
 [connection signal="value_changed" from="TabContainer/Gameplay/TextSpdHBox/TextSpdSlider" to="TabContainer/Gameplay" method="_on_text_spd_slider_value_changed"]
