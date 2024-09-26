@@ -42,3 +42,8 @@ func create_action_remap_items() -> void:
 		previous_item = button
 		
 		control_grid_container.add_child(button)
+
+
+func _on_reset_controls_pressed() -> void:
+	pass
+	

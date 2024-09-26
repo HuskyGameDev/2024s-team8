@@ -10,7 +10,8 @@ var settings 		# Variable to store a settingsMenu
 
 func _ready():
 	# Plays main menu music when main menu is created
-
+	load_keybindings_from_settings()
+	
 	var audio_settings = ConfigManager.load_audio()
 	PositionManager.masterVolume = audio_settings.master_volume
 	PositionManager.musicVolume = audio_settings.music_volume
@@ -56,3 +57,9 @@ func _on_settings_pressed():
 	
 	# Shows the nodes on screen once settings is closed
 	settings.tree_exited.connect(_show_nodes)
+
+func load_keybindings_from_settings():
+	var keybindings = ConfigManager.load_keybinding()
+	for action in keybindings.keys():
+		InputMap.action_erase_events(action)
+		InputMap.action_add_event(action, keybindings[action])
