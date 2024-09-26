@@ -51,7 +51,7 @@ func _on_dial_door_open_door() -> void:
 
 
 func _on_to_power_room_body_entered(body: Node2D) -> void:
-	if Input.is_action_pressed("RIGHT") && body.name == "Player":
+	if Input.is_action_pressed("LEFT") && body.name == "Player":
 		var POWER_ROOM = load("res://Scenes/Second floor rooms/Power Room/power_room.tscn")
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false)
