@@ -495,7 +495,6 @@ hframes = 16
 frame = 8
 
 [node name="InteractionParent" type="Area2D" parent="." groups=["InteractionParent"]]
-visible = false
 position = Vector2(0, 2)
 
 [node name="Interaction" type="CollisionShape2D" parent="InteractionParent"]

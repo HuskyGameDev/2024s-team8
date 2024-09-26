@@ -18,39 +18,35 @@ func _ready():
 		StairsDoor.queue_free()
 
 func _on_to_the_transitionary_hallway_body_entered(body):
-	count += 1
-	if count > 2:
-		if body.name == "Player":
-			var HALLWAY_TRANS = load("res://Scenes/Second floor rooms/Transition Hallway/hallway_transition.tscn")
-			$Player.hasAttention = false
-			$Player/AnimationTree.set("active", false)
-			StageManager.changeScene(HALLWAY_TRANS, 152, 118)
-			StageManager.changeCamera(304)
-			StageManager.scene_change = true
+	
+	if Input.is_action_pressed("DOWN") && body.name == "Player":
+		var HALLWAY_TRANS = load("res://Scenes/Second floor rooms/Transition Hallway/hallway_transition.tscn")
+		$Player.hasAttention = false
+		$Player/AnimationTree.set("active", false)
+		StageManager.changeScene(HALLWAY_TRANS, 152, 118)
+		StageManager.changeCamera(304)
+		StageManager.scene_change = true
 
 
 func _on_to_security_room_body_entered(body):
-	count += 1
-	if count > 2:
-		if body.name == "Player":
-			var SECURITY_ROOM = load("res://Scenes/Second floor rooms/Security Room/security_room.tscn")
-			$Player.hasAttention = false
-			$Player/AnimationTree.set("active", false)
-			StageManager.changeScene(SECURITY_ROOM, 204, 146)
-			StageManager.changeCamera(312)
-			StageManager.scene_change = true
+	if body.name == "Player" && Input.is_action_pressed("UP"):
+		var SECURITY_ROOM = load("res://Scenes/Second floor rooms/Security Room/security_room.tscn")
+		$Player.hasAttention = false
+		$Player/AnimationTree.set("active", false)
+		StageManager.changeScene(SECURITY_ROOM, 204, 146)
+		StageManager.changeCamera(312)
+		StageManager.scene_change = true
 
 
 func _on_to_stairs_body_entered(body):
-	count += 1
-	if count > 2:
-		if body.name == "Player":
-			var STAIRS = load("res://Scenes/Main floor rooms/Stairs/stairs.tscn")
-			$Player.hasAttention = false
-			$Player/AnimationTree.set("active", false)
-			StageManager.changeScene(STAIRS, 243, 144)
-			StageManager.changeCamera(312)
-			StageManager.scene_change = true
+	
+	if body.name == "Player" && Input.is_action_pressed("UP"):
+		var STAIRS = load("res://Scenes/Main floor rooms/Stairs/stairs.tscn")
+		$Player.hasAttention = false
+		$Player/AnimationTree.set("active", false)
+		StageManager.changeScene(STAIRS, 243, 144)
+		StageManager.changeCamera(312)
+		StageManager.scene_change = true
 
 func _on_combo_lock_open_door():
 	GlobalAudioManager.door_SFX() # Plays door opening SFX
