@@ -13,6 +13,8 @@ signal opening
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if PositionManager.hasClearedPipe:
+		interaction_area.queue_free()
 	if PositionManager.PipeVersion == 1:
 		minigameScene = minigameScene2
 	interaction_area.interact = Callable(self, "_on_interact")

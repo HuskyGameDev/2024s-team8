@@ -259,6 +259,7 @@ script = ExtResource("8_mycpo")
 shape = SubResource("RectangleShape2D_exq4k")
 
 [node name="Pipe" type="Node2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(95, 124)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("9_l2o1l")
