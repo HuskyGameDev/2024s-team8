@@ -4,6 +4,7 @@ var MASTER_BUS_ID = AudioServer.get_bus_index("Master")
 var MUSIC_BUS_ID = AudioServer.get_bus_index("Music")
 var SFX_BUS_ID = AudioServer.get_bus_index("SFX")
 var DIALOGUE_BUS_ID = AudioServer.get_bus_index("Dialogue")
+var defaultSound = 0.5
 @onready var masterSlider = %MasterSlider
 @onready var musicSlider = %MusicSlider
 @onready var sfxSlider = %SFXSlider
@@ -69,6 +70,20 @@ func play_audio(audio, bus):
 		new_audio_player.play()
 		await new_audio_player.finished
 		new_audio_player.queue_free()
-	
-	
-	
+
+
+func _on_reset_sound_pressed() -> void:
+	ConfigManager.save_audio("master_volume", defaultSound)
+	ConfigManager.save_audio("music_volume", defaultSound)
+	ConfigManager.save_audio("sfx_volume", defaultSound)
+	ConfigManager.save_audio("dialogue_volume", defaultSound)
+	PositionManager.masterVolume = defaultSound
+	PositionManager.musicVolume = defaultSound
+	PositionManager.sfxVolume = defaultSound
+	PositionManager.dialogueVolume = defaultSound
+	PositionManager.ConfigLoaded = false
+	masterSlider.value = defaultSound
+	musicSlider.value = defaultSound
+	sfxSlider.value = defaultSound
+	dialogueSlider.value = defaultSound
+	PositionManager.ConfigLoaded = true

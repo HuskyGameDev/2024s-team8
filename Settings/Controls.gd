@@ -45,5 +45,16 @@ func create_action_remap_items() -> void:
 
 
 func _on_reset_controls_pressed() -> void:
-	pass
+	for x in control_grid_container.get_children():
+		control_grid_container.remove_child(x)
+	InputMap.load_from_project_settings()
+	var i = 0
+	for action in InputMap.get_actions():
+		if i > 76:
+			ConfigManager.save_keybinding(action, InputMap.action_get_events(action)[0])
+		i += 1
+	load_keybindings_from_settings()
+	create_action_remap_items()
+	
+	
 	

@@ -75,10 +75,9 @@ offset_right = 1500.0
 offset_bottom = 930.0
 theme_override_fonts/font = ExtResource("5_xhqac")
 theme_override_font_sizes/font_size = 30
-current_tab = 1
+current_tab = 0
 
 [node name="Sound" type="VBoxContainer" parent="TabContainer"]
-visible = false
 layout_mode = 2
 size_flags_vertical = 4
 script = ExtResource("2_ufqym")
@@ -213,6 +212,7 @@ theme_override_font_sizes/font_size = 50
 text = "Reset to Default"
 
 [node name="Controls" type="VBoxContainer" parent="TabContainer"]
+visible = false
 layout_mode = 2
 script = ExtResource("6_1i75p")
 action_items = Array[String](["UP", "DOWN", "LEFT", "RIGHT", "INTERACT", "MENU", "MAP", "OBJECTIVE", "SHIFT"])
@@ -308,6 +308,8 @@ unique_name_in_owner = true
 [connection signal="value_changed" from="TabContainer/Sound/SFXHBox/SFXSlider" to="TabContainer/Sound" method="_on_sfx_slider_value_changed"]
 [connection signal="drag_ended" from="TabContainer/Sound/DialogueHBox/DialogueSlider" to="." method="_on_dialogue_slider_drag_ended"]
 [connection signal="value_changed" from="TabContainer/Sound/DialogueHBox/DialogueSlider" to="TabContainer/Sound" method="_on_dialogue_slider_value_changed"]
+[connection signal="pressed" from="TabContainer/Sound/ResetSound" to="TabContainer/Sound" method="_on_reset_sound_pressed"]
 [connection signal="pressed" from="TabContainer/Controls/ResetControls" to="TabContainer/Controls" method="_on_reset_controls_pressed"]
 [connection signal="drag_ended" from="TabContainer/Gameplay/TextSpdHBox/TextSpdSlider" to="." method="_on_text_spd_slider_drag_ended"]
 [connection signal="value_changed" from="TabContainer/Gameplay/TextSpdHBox/TextSpdSlider" to="TabContainer/Gameplay" method="_on_text_spd_slider_value_changed"]
+[connection signal="pressed" from="TabContainer/Gameplay/ResetGameplay" to="TabContainer/Gameplay" method="_on_reset_gameplay_pressed"]

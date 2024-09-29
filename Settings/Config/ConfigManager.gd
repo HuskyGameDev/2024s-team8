@@ -34,7 +34,7 @@ func _ready():
 func save_keybinding(action: StringName, event : InputEvent):
 	var event_str
 	if event is InputEventKey:
-		event_str = OS.get_keycode_string(event.physical_keycode)
+		event_str = OS.get_keycode_string(event.keycode)
 	elif event is InputEventMouseButton:
 		event_str = "mouse_" + str(event.button_index)
 	
