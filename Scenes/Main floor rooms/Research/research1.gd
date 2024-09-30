@@ -36,7 +36,7 @@ func _on_to_hall_right_body_entered(body: Node2D) -> void:
 		var HALLWAY_MAIN = load("res://Scenes/Main floor rooms/Main Hall/hallway_main.tscn")
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false)
-		StageManager.changeScene(HALLWAY_MAIN, 414, 150)
+		StageManager.changeScene(HALLWAY_MAIN, 414, 148)
 		StageManager.changeCamera(488)
 		StageManager.scene_change = true
 	pass # Replace with function body.

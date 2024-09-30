@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://c67llndhruew1"]
+[gd_scene load_steps=17 format=4 uid="uid://c67llndhruew1"]
 
 [ext_resource type="Script" path="res://Scenes/Second floor rooms/Boiler Room/boiler_room.gd" id="1_0df65"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="2_atjwr"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Scenes/Second floor rooms/Boiler Room/Note.gd" id="5_yip5h"]
 [ext_resource type="Texture2D" uid="uid://b64doeqvowr0m" path="res://Assets/paper_note_sprite.png" id="6_oev6b"]
 [ext_resource type="Script" path="res://Interaction/InteractionArea.gd" id="7_53ave"]
+[ext_resource type="Texture2D" uid="uid://bktlg1e0mqj16" path="res://Assets/furniture_boiler_room.png" id="8_1yf3l"]
 [ext_resource type="Script" path="res://Inventory/Valve.gd" id="8_fc2kb"]
 [ext_resource type="Texture2D" uid="uid://dpbcrop0gl3sv" path="res://Assets/valve_handle_singlesprite.png" id="9_fsjjk"]
 [ext_resource type="Texture2D" uid="uid://ccamcmvtc2hxf" path="res://Assets/steam cloud.png" id="10_8lpw5"]
@@ -28,6 +29,7 @@ offsets = PackedFloat32Array(0.52, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0.466181, 0.466181, 0.466181, 1)
 
 [node name="Boiler_Room" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_0df65")
 
 [node name="Collision" type="Node2D" parent="."]
@@ -74,7 +76,7 @@ position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_rs3x6")
 
 [node name="Note" type="Node2D" parent="." groups=["Note"]]
-position = Vector2(96, 128)
+position = Vector2(80, 149)
 script = ExtResource("5_yip5h")
 metadata/_edit_group_ = true
 
@@ -88,8 +90,15 @@ script = ExtResource("7_53ave")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Note/InteractionArea"]
 shape = SubResource("CircleShape2D_w72mb")
 
+[node name="Furniture" type="Node2D" parent="."]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture"]
+position = Vector2(176, 92)
+texture = ExtResource("8_1yf3l")
+
 [node name="Valve" type="Node2D" parent="."]
-position = Vector2(168, 104)
+position = Vector2(166, 101)
 script = ExtResource("8_fc2kb")
 metadata/_edit_group_ = true
 
@@ -115,7 +124,7 @@ position = Vector2(25, 0)
 shape = SubResource("RectangleShape2D_8xd2i")
 
 [node name="Fog" type="Node2D" parent="." groups=["Fog"]]
-position = Vector2(144, 150)
+position = Vector2(132, 167)
 metadata/_edit_group_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Fog"]

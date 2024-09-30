@@ -26,7 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://dffatps2amrdh" path="res://Assets/Character Poses/char_right_walk_sil.png" id="24_aa4so"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hv4va"]
-radius = 4.0
+radius = 3.0
 height = 14.0
 
 [sub_resource type="Gradient" id="Gradient_d13ed"]
@@ -465,7 +465,7 @@ mini_map_2nd_floor = ExtResource("4_w4vrd")
 metadata/_edit_horizontal_guides_ = [22.0]
 
 [node name="World collision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 12)
+position = Vector2(0, 13)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_hv4va")
 

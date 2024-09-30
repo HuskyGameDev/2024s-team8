@@ -1,18 +1,20 @@
-[gd_scene load_steps=8 format=4 uid="uid://daise62ngs48s"]
+[gd_scene load_steps=9 format=4 uid="uid://daise62ngs48s"]
 
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Mess Hall/mess_hall.gd" id="1_5lmt6"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="2_onope"]
 [ext_resource type="PackedScene" uid="uid://ny55otxbs0t" path="res://Scenes/tile_map.tscn" id="3_nky0x"]
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="4_s8k3y"]
 [ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="5_1jw8f"]
+[ext_resource type="Texture2D" uid="uid://dtps8va4sdhm0" path="res://Assets/mess-tables.png" id="6_f0e43"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iba8r"]
-size = Vector2(24, 8)
+size = Vector2(24, 5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_80vr4"]
 size = Vector2(16.5, 4)
 
 [node name="Mess_Hall" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_5lmt6")
 
 [node name="Collision" type="TileMap" parent="."]
@@ -50,7 +52,7 @@ position = Vector2(276, 140)
 [node name="To_Main" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="To_Main"]
-position = Vector2(236, 121)
+position = Vector2(236, 119.5)
 shape = SubResource("RectangleShape2D_iba8r")
 
 [node name="To_Main_Left" type="Area2D" parent="To_Main"]
@@ -58,6 +60,13 @@ shape = SubResource("RectangleShape2D_iba8r")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="To_Main/To_Main_Left"]
 position = Vector2(64.25, 120)
 shape = SubResource("RectangleShape2D_80vr4")
+
+[node name="Node2D" type="Node2D" parent="."]
+visible = false
+position = Vector2(176, 142)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+texture = ExtResource("6_f0e43")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." groups=["CanvasLayer"]]
 scale = Vector2(5, 5)
