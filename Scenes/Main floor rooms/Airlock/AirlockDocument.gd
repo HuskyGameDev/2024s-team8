@@ -5,10 +5,17 @@ extends Node2D
 @onready var speech_sound = preload("res://Assets/Dialogue blip5.mp3")
 
 
+#const lines: Array[String] = [
+	#"'Attention Staff!'",
+	#"'Due to the recent number of button-related accidents, we have decided to improve our airlock functionality.'",
+	#"'To open the opposite door, please press both of the buttons within the 5-second time interval.'"
+#]
+
+# Alternative explanation
 const lines: Array[String] = [
-	"'Attention Staff!'",
-	"'Due to the recent number of button-related accidents, we have decided to improve our airlock functionality.'",
-	"'To open the opposite door, please press both of the buttons within the 5-second time interval.'"
+	"'To ensure the safety of the crew:'",
+	"'One door must remained lock at a time.'",
+	"'To unlock the opposite door, please press both of the buttons within the 5-second time interval.'"
 ]
 
 # Called when the node enters the scene tree for the first time.

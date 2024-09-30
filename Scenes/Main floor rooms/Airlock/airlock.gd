@@ -24,6 +24,7 @@ func _ready():
 		PositionManager.Act = 1
 	if PositionManager.OpenedAirlock:
 		animPlayer.play("closed")
+		toPod.monitoring = true
 	else:
 		animPlayer.play("closing")
 		await animPlayer.animation_finished
@@ -51,11 +52,17 @@ func _on_to_hall_body_entered(body):
 func _on_to_pod_body_entered(body):
 	if Input.is_action_pressed("UP"):
 		if body.name == "Player":
-			var POD = load("res://Scenes/Main floor rooms/Pod/pod.tscn")
-			$Player.hasAttention = false
-			$Player/AnimationTree.set("active", false)
-			GlobalAudioManager.door_SFX() # Plays door opening SFX
-			animPlayer.play("opening") 
-			await animPlayer.animation_finished
-			StageManager.changeScene(POD, 148, 136, true)
-			StageManager.scene_change = true
+			if PositionManager.OpenedAirlock:
+				player._swap_attention()
+				DialogManager.start_dialog(global_position, lines, speech_sound)
+				await DialogManager.dialog_finished
+				player._swap_attention()
+			else:
+				var POD = load("res://Scenes/Main floor rooms/Pod/pod.tscn")
+				$Player.hasAttention = false
+				$Player/AnimationTree.set("active", false)
+				GlobalAudioManager.door_SFX() # Plays door opening SFX
+				animPlayer.play("opening") 
+				await animPlayer.animation_finished
+				StageManager.changeScene(POD, 148, 136, true)
+				StageManager.scene_change = true
