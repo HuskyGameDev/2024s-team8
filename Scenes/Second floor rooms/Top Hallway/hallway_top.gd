@@ -30,7 +30,7 @@ func _on_to_security_room_body_entered(body):
 
 func _on_to_stairs_body_entered(body):
 	
-	if body.name == "Player" && Input.is_action_pressed("UP") && !PositionManager.SecurityEnabled:
+	if body.name == "Player" && Input.is_action_pressed("UP") && PositionManager.SecurityEnabled:
 		var STAIRS = load("res://Scenes/Main floor rooms/Stairs/stairs.tscn")
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false)
