@@ -36,6 +36,8 @@ func _on_timer_1_timeout():
 func _on_interact():
 	player._swap_attention()
 	if Airlock.Button2:
+		Airlock.Button1 = false
+		Airlock.Button2 = false
 		PositionManager.OpenedAirlock = !PositionManager.OpenedAirlock
 		GlobalAudioManager.door_SFX() # Plays door opening SFX
 		DialogManager.start_dialog(global_position, lines2, speech_sound, false)

@@ -11,16 +11,22 @@ const lines: Array[String] = [
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	interaction_area.interact = Callable(self, "_on_interact")
-	pass # Replace with function body.
+	if PositionManager.HasOrb:
+		set_visible(false)
+		queue_free()
+	else:
+		interaction_area.interact = Callable(self, "_on_interact")
+	
 
 
 func _on_interact():
 	player._swap_attention()
+	PositionManager.HasOrb = true
 	PositionManager.Inventory.append("res://Assets/dial.png")
 	PositionManager.InventoryText.append("A cool orb you found on the ground")
 	DialogManager.start_dialog(global_position, lines, speech_sound, false)
 	await DialogManager.dialog_finished
+	set_visible(false)
 	queue_free()
 	player._swap_attention()
 	pass

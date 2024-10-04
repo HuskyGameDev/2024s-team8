@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://34w5h6a27u0w"]
+[gd_scene load_steps=20 format=4 uid="uid://34w5h6a27u0w"]
 
 [ext_resource type="PackedScene" uid="uid://ny55otxbs0t" path="res://Scenes/tile_map.tscn" id="1_hwk40"]
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Bunks/bunks.gd" id="1_uttu1"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="3_6cqsx"]
 [ext_resource type="Texture2D" uid="uid://dpakxqjcwsx3s" path="res://Assets/bunk_tiles.png" id="5_1d6nq"]
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Bunks/Bed.gd" id="7_06b1p"]
+[ext_resource type="Script" path="res://Scenes/Main floor rooms/Bunks/spacesuit.gd" id="7_h3hhc"]
+[ext_resource type="Texture2D" uid="uid://ckbjqglj3pcgi" path="res://Assets/Spacesuit PNG.png" id="7_pmeib"]
 [ext_resource type="Script" path="res://Interaction/InteractionArea.gd" id="8_jj0ge"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_emwc2"]
@@ -110,6 +112,9 @@ tile_size = Vector2i(8, 8)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_emwc2")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rawo3"]
+size = Vector2(13, 29)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ev6vh"]
 size = Vector2(24, 6)
 
@@ -129,6 +134,7 @@ size = Vector2(22.9276, 25.5279)
 size = Vector2(12.071, 3.41423)
 
 [node name="Bunks" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_uttu1")
 
 [node name="Collision" type="TileMap" parent="."]
@@ -172,6 +178,21 @@ tile_set = SubResource("TileSet_t474c")
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("3_6cqsx")]
 unique_name_in_owner = true
 position = Vector2(153, 136)
+
+[node name="Spacesuit" type="Node2D" parent="."]
+position = Vector2(52, 110)
+script = ExtResource("7_h3hhc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Spacesuit"]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("7_pmeib")
+
+[node name="InteractionArea" type="Area2D" parent="Spacesuit"]
+script = ExtResource("8_jj0ge")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spacesuit/InteractionArea"]
+position = Vector2(-1.5, 1.5)
+shape = SubResource("RectangleShape2D_rawo3")
 
 [node name="Door trigger hallway" type="Area2D" parent="."]
 position = Vector2(-192, 0)
@@ -219,6 +240,8 @@ rotation = 0.785398
 skew = -0.785398
 shape = SubResource("RectangleShape2D_1xmk8")
 
+[connection signal="area_entered" from="Spacesuit/InteractionArea" to="Spacesuit/InteractionArea" method="_on_area_entered"]
+[connection signal="area_exited" from="Spacesuit/InteractionArea" to="Spacesuit/InteractionArea" method="_on_area_exited"]
 [connection signal="body_entered" from="Door trigger hallway" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Door trigger hallway" to="." method="_on_area_2d_body_exited"]
 [connection signal="area_entered" from="Bed/InteractionArea" to="Bed/InteractionArea" method="_on_area_entered"]

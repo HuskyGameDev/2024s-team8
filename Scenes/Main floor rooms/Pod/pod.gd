@@ -14,6 +14,7 @@ var lines: Array[String] = [
 #Tells player to press G on startup
 #checks if act is between 1 and 0? if so sets it to 0
 func _ready():
+	
 	if PositionManager.Act < 1:
 		PositionManager.Act = 0
 	if !PositionManager.HasOpenedTutorial && PositionManager.StartFromBeginning:

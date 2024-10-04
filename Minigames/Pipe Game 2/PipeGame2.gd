@@ -20,6 +20,7 @@ var RowIndex0 = 0
 var ColIndex0 = 0
 var FlowFromDirection = 0
 var solved = false
+var recurseCounter = 0
 signal cleared
 
 func _process(_delta):
@@ -53,6 +54,10 @@ func _process(_delta):
 
 #Order, Left = 0, Up = 1, Right = 2, Down = 3
 func checkWinRecurse(RowIndex, ColIndex, FromDirection):
+	recurseCounter += 1
+	if recurseCounter > 50:
+		recurseCounter = 0
+		return false
 	FlowFromDirection = FromDirection
 	if RowIndex == 4 && ColIndex == 4:
 		return true

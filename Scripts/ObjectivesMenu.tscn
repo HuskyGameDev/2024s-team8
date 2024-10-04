@@ -221,6 +221,7 @@ theme_override_constants/margin_right = 90
 theme_override_constants/margin_bottom = 100
 
 [node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Inventory/MarginContainer"]
+clip_contents = false
 layout_mode = 2
 size_flags_vertical = 3
 

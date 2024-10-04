@@ -17,9 +17,13 @@ const lines2: Array[String] = [
 ]
 
 const lines3: Array[String] = [
-	"I've turned off the security. The ships command deck is now unlocked, lets get out of here!"
+	"I need to find a way to get rid of that monster!",
+	"Maybe I can make a decoy suit filled with warm meat, then lure it to the pod and eject it!"
 	]
-	
+
+const lines4: Array[String] = [
+	"I've defeated the monster! Time to get out of here."
+	]
 
 # Called when the node enters the scene tree for the first time.
 
@@ -27,11 +31,6 @@ func _ready():
 	
 	#sets camera limit
 	StageManager.changeCamera(304)
-	
-	#opens the command door
-	if PositionManager.Act == 3:
-		CommandDoor.queue_free()
-		$"Door areas/Bridge".monitoring = true
 	
 	InteractionManager.player = Player
 	
@@ -46,6 +45,17 @@ func _ready():
 		DialogManager.start_dialog(global_position, lines3, speech_sound, false, false)
 		await DialogManager.dialog_finished
 		Player._swap_attention()
+	elif PositionManager.HasHeatLamp && PositionManager.HasMeat && PositionManager.HasSpaceSuit:
+		if !PositionManager.HasReadEscapeText2:
+			Player._swap_attention()
+			PositionManager.HasReadEscapeText2 = true
+			DialogManager.start_dialog(global_position, lines4, speech_sound, false, false)
+			await DialogManager.dialog_finished
+			Player._swap_attention()
+			
+		#opens the commands door
+		CommandDoor.queue_free()
+		$"Door areas/Bridge".monitoring = true
 	
 
 #switches to the mess hall scene

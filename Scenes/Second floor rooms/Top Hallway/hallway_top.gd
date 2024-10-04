@@ -23,14 +23,13 @@ func _on_to_security_room_body_entered(body):
 		var SECURITY_ROOM = load("res://Scenes/Second floor rooms/Security Room/security_room.tscn")
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false)
-		StageManager.changeScene(SECURITY_ROOM, 204, 146)
+		StageManager.changeScene(SECURITY_ROOM, 141, 147)
 		StageManager.changeCamera(312)
 		StageManager.scene_change = true
 
 
-func _on_to_stairs_body_entered(body):
-	
-	if body.name == "Player" && Input.is_action_pressed("UP") && PositionManager.SecurityEnabled:
+func _on_to_stairs_body_entered(body):	
+	if body.name == "Player" && Input.is_action_pressed("UP") && !PositionManager.SecurityEnabled:
 		var STAIRS = load("res://Scenes/Main floor rooms/Stairs/stairs.tscn")
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false)

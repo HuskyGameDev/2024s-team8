@@ -12,12 +12,10 @@ signal open_door
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("READY")
 	interaction_area.interact = Callable(self, "_on_interact")
 	pass # Replace with function body.
 
 func _on_interact():
-	print("Interacting")
 	if minigame == null:
 		minigame = minigameScene.instantiate()
 		Canvas.add_child(minigame)
@@ -28,4 +26,5 @@ func _on_interact():
 
 func _on_solved():
 	PositionManager.hasClearedDial = true
+	interaction_area.queue_free()
 	open_door.emit()

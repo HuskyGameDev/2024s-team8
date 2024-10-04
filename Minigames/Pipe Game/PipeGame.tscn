@@ -1,15 +1,15 @@
 [gd_scene load_steps=12 format=3 uid="uid://mvq33x270ude"]
 
-[ext_resource type="Texture2D" uid="uid://bx4gu78dbksl7" path="res://Assets/puzzle_pipes/bottom_left/pipe_corner_bottom_left.png" id="1_eqbrj"]
 [ext_resource type="Script" path="res://Minigames/Pipe Game/PipeGame.gd" id="1_vysyd"]
 [ext_resource type="Script" path="res://Minigames/Pipe Game/Row1.gd" id="2_hi4ph"]
-[ext_resource type="Texture2D" uid="uid://b626lh7nf7ly2" path="res://Assets/puzzle_pipes/horizontal/pipe_horizontal.png" id="2_j70tm"]
+[ext_resource type="Texture2D" uid="uid://d2jae2uscsr2u" path="res://Assets/puzzle_pipes/New Pipes/000.png" id="4_j5mfu"]
 [ext_resource type="Script" path="res://Minigames/Pipe Game/Row2.gd" id="4_ltmbs"]
 [ext_resource type="Texture2D" uid="uid://dmlam2x8y2gjp" path="res://Assets/cursor_PNG45.png" id="4_o5eas"]
 [ext_resource type="Script" path="res://Minigames/Pipe Game/Row3.gd" id="5_wkup7"]
 [ext_resource type="Script" path="res://Minigames/Pipe Game/Row4.gd" id="6_odcdh"]
 [ext_resource type="Script" path="res://Minigames/Pipe Game/Row5.gd" id="7_k0omh"]
-[ext_resource type="Texture2D" uid="uid://4ly5f4um0l1k" path="res://Assets/puzzle_pipes/pipe_end.png" id="9_0mp7u"]
+[ext_resource type="Texture2D" uid="uid://dudyi5jbwdfgs" path="res://Assets/puzzle_pipes/New Pipes/003.png" id="8_rtnnm"]
+[ext_resource type="Texture2D" uid="uid://8hfqimxxm6ce" path="res://Assets/puzzle_pipes/New Pipes/010.png" id="9_47kjp"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_mcxtl"]
 
@@ -43,28 +43,28 @@ script = ExtResource("2_hi4ph")
 
 [node name="Sprite2D1" type="Sprite2D" parent="Row1"]
 position = Vector2(100, 30)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_eqbrj")
+scale = Vector2(2, 2)
+texture = ExtResource("4_j5mfu")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Row1"]
 position = Vector2(130, 30)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_eqbrj")
+scale = Vector2(2, 2)
+texture = ExtResource("4_j5mfu")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Row1"]
 position = Vector2(160, 30)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_eqbrj")
+scale = Vector2(2, 2)
+texture = ExtResource("4_j5mfu")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Row1"]
 position = Vector2(190, 30)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_eqbrj")
+scale = Vector2(2, 2)
+texture = ExtResource("4_j5mfu")
 
 [node name="Sprite2D5" type="Sprite2D" parent="Row1"]
 position = Vector2(220, 30)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_eqbrj")
+scale = Vector2(2, 2)
+texture = ExtResource("4_j5mfu")
 
 [node name="Row2" type="Node2D" parent="." groups=["Row2"]]
 position = Vector2(0.025, 0)
@@ -72,28 +72,28 @@ script = ExtResource("4_ltmbs")
 
 [node name="Sprite2D6" type="Sprite2D" parent="Row2"]
 position = Vector2(100, 62)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_eqbrj")
+scale = Vector2(2, 2)
+texture = ExtResource("4_j5mfu")
 
 [node name="Sprite2D7" type="Sprite2D" parent="Row2"]
 position = Vector2(130, 62)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_eqbrj")
+scale = Vector2(2, 2)
+texture = ExtResource("4_j5mfu")
 
 [node name="Sprite2D8" type="Sprite2D" parent="Row2"]
 position = Vector2(160, 62)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_eqbrj")
+scale = Vector2(2, 2)
+texture = ExtResource("4_j5mfu")
 
 [node name="Sprite2D9" type="Sprite2D" parent="Row2"]
 position = Vector2(190, 62)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_eqbrj")
+scale = Vector2(2, 2)
+texture = ExtResource("4_j5mfu")
 
 [node name="Sprite2D10" type="Sprite2D" parent="Row2"]
 position = Vector2(220, 62)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_eqbrj")
+scale = Vector2(2, 2)
+texture = ExtResource("4_j5mfu")
 
 [node name="Row3" type="Node2D" parent="." groups=["Row3"]]
 position = Vector2(0.025, 0)
@@ -101,28 +101,28 @@ script = ExtResource("5_wkup7")
 
 [node name="Sprite2D11" type="Sprite2D" parent="Row3"]
 position = Vector2(100, 90)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_eqbrj")
+scale = Vector2(2, 2)
+texture = ExtResource("4_j5mfu")
 
 [node name="Sprite2D12" type="Sprite2D" parent="Row3"]
 position = Vector2(130, 90)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_eqbrj")
+scale = Vector2(2, 2)
+texture = ExtResource("4_j5mfu")
 
 [node name="Sprite2D13" type="Sprite2D" parent="Row3"]
 position = Vector2(160, 90)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_eqbrj")
+scale = Vector2(2, 2)
+texture = ExtResource("4_j5mfu")
 
 [node name="Sprite2D14" type="Sprite2D" parent="Row3"]
 position = Vector2(190, 90)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_eqbrj")
+scale = Vector2(2, 2)
+texture = ExtResource("4_j5mfu")
 
 [node name="Sprite2D15" type="Sprite2D" parent="Row3"]
 position = Vector2(220, 90)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_eqbrj")
+scale = Vector2(2, 2)
+texture = ExtResource("4_j5mfu")
 
 [node name="Row4" type="Node2D" parent="." groups=["Row4"]]
 position = Vector2(0.025, 0)
@@ -130,28 +130,29 @@ script = ExtResource("6_odcdh")
 
 [node name="Sprite2D16" type="Sprite2D" parent="Row4"]
 position = Vector2(100, 120)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_eqbrj")
+scale = Vector2(2, 2)
+texture = ExtResource("4_j5mfu")
 
 [node name="Sprite2D17" type="Sprite2D" parent="Row4"]
 position = Vector2(130, 120)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_j70tm")
+rotation = 1.5708
+scale = Vector2(2, 2)
+texture = ExtResource("8_rtnnm")
 
 [node name="Sprite2D18" type="Sprite2D" parent="Row4"]
 position = Vector2(160, 120)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_eqbrj")
+scale = Vector2(2, 2)
+texture = ExtResource("4_j5mfu")
 
 [node name="Sprite2D19" type="Sprite2D" parent="Row4"]
 position = Vector2(190, 120)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_eqbrj")
+scale = Vector2(2, 2)
+texture = ExtResource("4_j5mfu")
 
 [node name="Sprite2D20" type="Sprite2D" parent="Row4"]
 position = Vector2(220, 120)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_eqbrj")
+scale = Vector2(2, 2)
+texture = ExtResource("4_j5mfu")
 
 [node name="Row5" type="Node2D" parent="." groups=["Row5"]]
 position = Vector2(0.025, 0)
@@ -159,39 +160,39 @@ script = ExtResource("7_k0omh")
 
 [node name="Sprite2D21" type="Sprite2D" parent="Row5"]
 position = Vector2(100, 150)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_eqbrj")
+scale = Vector2(2, 2)
+texture = ExtResource("4_j5mfu")
 
 [node name="Sprite2D22" type="Sprite2D" parent="Row5"]
 position = Vector2(130, 150)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_eqbrj")
+scale = Vector2(2, 2)
+texture = ExtResource("4_j5mfu")
 
 [node name="Sprite2D23" type="Sprite2D" parent="Row5"]
 position = Vector2(160, 150)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_eqbrj")
+scale = Vector2(2, 2)
+texture = ExtResource("4_j5mfu")
 
 [node name="Sprite2D24" type="Sprite2D" parent="Row5"]
 position = Vector2(190, 150)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_eqbrj")
+scale = Vector2(2, 2)
+texture = ExtResource("4_j5mfu")
 
 [node name="Sprite2D25" type="Sprite2D" parent="Row5"]
 position = Vector2(220, 150)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_eqbrj")
+scale = Vector2(2, 2)
+texture = ExtResource("4_j5mfu")
 
 [node name="Start" type="Sprite2D" parent="."]
 position = Vector2(69, 30)
 rotation = 3.14159
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("9_0mp7u")
+scale = Vector2(2, 2)
+texture = ExtResource("9_47kjp")
 
 [node name="End" type="Sprite2D" parent="."]
-position = Vector2(253, 150)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("9_0mp7u")
+position = Vector2(251, 150)
+scale = Vector2(2, 2)
+texture = ExtResource("9_47kjp")
 
 [node name="Cursor" type="Sprite2D" parent="." groups=["Cursor"]]
 position = Vector2(97, 35)

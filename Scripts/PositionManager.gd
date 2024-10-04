@@ -3,6 +3,10 @@ extends Node
 var Position = Vector2.ZERO
 var PrevPosition = Vector2.ZERO
 var HasCrowbar = false
+var HasOrb = false
+var HasSpaceSuit = false
+var HasHeatLamp = false
+var HasMeat = false
 var HasOpenedVent = false
 var StartFromBeginning = false
 var hasClearedPipe = false
@@ -19,6 +23,7 @@ var SecurityEnabled = true
 var hasCode = false
 var HasNote = false
 var HasReadEscapeText = false
+var HasReadEscapeText2 = false
 var textSpd = 1.0 # Factor for text speed
 var playTextSound = true
 var finished_displaying = true
@@ -35,6 +40,10 @@ var masterVolume = 0.5
 var musicVolume = 0.5
 var sfxVolume = 0.5
 var dialogueVolume = 0.5
+
+
+#func _process(delta):
+	#print(Act)
 
 #turns arrays that contain text to strings
 func array_to_string(arr: Array, skipLines: int = 0) -> String:
