@@ -18,8 +18,8 @@ func _process(_delta):
 func sceneChecker(node):
 	if node == "PowerRoom":
 		get_node("Background/Rooms/Power_Room/Outline").show()
-	elif node == "Hallway_transition_2f" or node == "Hallway_Top_2f" or node == "Hallway_bottom_2f":
-		get_node("Background/Rooms/Hallways/Outline").show()
+	elif node == "Hallway_Top_2f":
+		get_node("Background/Rooms/Hallway2/Outline").show()
 	elif node == "Bathroom_With_Toilet" or node == "Bathroom_with_shower":
 		get_node("Background/Rooms/Bathroom/Outline").show()
 	elif node == "Security_Room":
@@ -32,7 +32,7 @@ func sceneChecker(node):
 #hides all the outlines
 func hideAll():
 	get_node("Background/Rooms/Power_Room/Outline").hide()
-	get_node("Background/Rooms/Hallways/Outline").hide()
+	get_node("Background/Rooms/Hallway2/Outline").hide()
 	get_node("Background/Rooms/Bathroom/Outline").hide()
 	get_node("Background/Rooms/Security/Outline").hide()
 	get_node("Background/Rooms/BoilerRoom/Outline").hide()

@@ -25,14 +25,14 @@ texture = SubResource("CanvasTexture_curvx")
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
-scale = Vector2(1.15, 1.15)
+scale = Vector2(1.25, 1.25)
 
 [node name="Power_Room" type="ColorRect" parent="Background/Rooms"]
 layout_mode = 0
 offset_left = 61.0
-offset_top = 432.0
+offset_top = 342.0
 offset_right = 391.0
-offset_bottom = 632.0
+offset_bottom = 521.0
 color = Color(0.270588, 0.290196, 0.333333, 1)
 
 [node name="Label" type="Label" parent="Background/Rooms/Power_Room"]
@@ -57,9 +57,9 @@ vertical_alignment = 1
 [node name="Door" type="ColorRect" parent="Background/Rooms/Power_Room"]
 layout_mode = 0
 offset_left = 330.0
-offset_top = 100.0
+offset_top = 90.0
 offset_right = 351.0
-offset_bottom = 113.0
+offset_bottom = 103.0
 color = Color(0.247059, 0.247059, 0.454902, 1)
 
 [node name="Outline" type="Control" parent="Background/Rooms/Power_Room"]
@@ -75,14 +75,14 @@ layout_mode = 0
 offset_left = 61.0
 offset_top = 432.0
 offset_right = 65.0
-offset_bottom = 632.0
+offset_bottom = 612.0
 
 [node name="right" type="ColorRect" parent="Background/Rooms/Power_Room/Outline"]
 layout_mode = 0
 offset_left = 387.0
 offset_top = 432.0
 offset_right = 391.0
-offset_bottom = 632.0
+offset_bottom = 612.0
 
 [node name="top" type="ColorRect" parent="Background/Rooms/Power_Room/Outline"]
 layout_mode = 0
@@ -94,120 +94,12 @@ offset_bottom = 436.0
 [node name="bottom" type="ColorRect" parent="Background/Rooms/Power_Room/Outline"]
 layout_mode = 0
 offset_left = 61.0
-offset_top = 628.0
+offset_top = 608.0
 offset_right = 391.0
-offset_bottom = 632.0
-
-[node name="Hallways" type="Control" parent="Background/Rooms"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Hallway" type="ColorRect" parent="Background/Rooms/Hallways"]
-layout_mode = 0
-offset_left = 412.0
-offset_top = 232.0
-offset_right = 592.0
-offset_bottom = 832.0
-size_flags_horizontal = 0
-color = Color(0.270588, 0.290196, 0.333333, 1)
-
-[node name="Label" type="Label" parent="Background/Rooms/Hallways/Hallway"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -31.0
-offset_top = -11.5
-offset_right = 31.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_6hi0n")
-theme_override_font_sizes/font_size = 35
-text = "Hallway"
-
-[node name="Hallway3" type="ColorRect" parent="Background/Rooms/Hallways"]
-layout_mode = 0
-offset_left = 592.0
-offset_top = 652.0
-offset_right = 1456.0
-offset_bottom = 832.0
-color = Color(0.270588, 0.290196, 0.333333, 1)
-
-[node name="Hallway2" type="ColorRect" parent="Background/Rooms/Hallways"]
-layout_mode = 0
-offset_left = 592.0
-offset_top = 232.0
-offset_right = 1456.0
-offset_bottom = 412.0
-color = Color(0.270588, 0.290196, 0.333333, 1)
-
-[node name="Outline" type="Control" parent="Background/Rooms/Hallways"]
-visible = false
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="left" type="ColorRect" parent="Background/Rooms/Hallways/Outline"]
-layout_mode = 0
-offset_left = 412.0
-offset_top = 232.0
-offset_right = 416.0
-offset_bottom = 832.0
-
-[node name="right" type="ColorRect" parent="Background/Rooms/Hallways/Outline"]
-layout_mode = 0
-offset_left = 1452.0
-offset_top = 232.0
-offset_right = 1456.0
-offset_bottom = 412.0
-
-[node name="top" type="ColorRect" parent="Background/Rooms/Hallways/Outline"]
-layout_mode = 0
-offset_left = 412.0
-offset_top = 232.0
-offset_right = 1456.0
-offset_bottom = 236.0
-
-[node name="bottom" type="ColorRect" parent="Background/Rooms/Hallways/Outline"]
-layout_mode = 0
-offset_left = 412.0
-offset_top = 828.0
-offset_right = 1456.0
-offset_bottom = 832.0
-
-[node name="right2" type="ColorRect" parent="Background/Rooms/Hallways/Outline"]
-layout_mode = 0
-offset_left = 588.0
-offset_top = 408.0
-offset_right = 592.0
-offset_bottom = 656.0
-
-[node name="top2" type="ColorRect" parent="Background/Rooms/Hallways/Outline"]
-layout_mode = 0
-offset_left = 591.304
-offset_top = 652.174
-offset_right = 1456.3
-offset_bottom = 656.174
-
-[node name="bottom2" type="ColorRect" parent="Background/Rooms/Hallways/Outline"]
-layout_mode = 0
-offset_left = 592.0
-offset_top = 408.0
-offset_right = 1456.0
-offset_bottom = 412.0
-
-[node name="right3" type="ColorRect" parent="Background/Rooms/Hallways/Outline"]
-layout_mode = 0
-offset_left = 1452.17
-offset_top = 652.174
-offset_right = 1456.17
-offset_bottom = 832.174
+offset_bottom = 612.0
 
 [node name="Bathroom" type="ColorRect" parent="Background/Rooms"]
+visible = false
 layout_mode = 0
 offset_left = 612.0
 offset_top = 432.0
@@ -277,10 +169,10 @@ offset_bottom = 632.0
 
 [node name="Security" type="ColorRect" parent="Background/Rooms"]
 layout_mode = 0
-offset_left = 1078.0
-offset_top = 42.0
-offset_right = 1408.0
-offset_bottom = 212.0
+offset_left = 364.0
+offset_top = 152.0
+offset_right = 694.0
+offset_bottom = 322.0
 color = Color(0.270588, 0.290196, 0.333333, 1)
 
 [node name="Label" type="Label" parent="Background/Rooms/Security"]
@@ -346,10 +238,10 @@ offset_bottom = 212.0
 
 [node name="BoilerRoom" type="ColorRect" parent="Background/Rooms"]
 layout_mode = 0
-offset_left = 1078.0
-offset_top = 432.0
-offset_right = 1408.0
-offset_bottom = 632.0
+offset_left = 1115.2
+offset_top = 121.6
+offset_right = 1445.2
+offset_bottom = 321.6
 color = Color(0.270588, 0.290196, 0.333333, 1)
 
 [node name="Label" type="Label" parent="Background/Rooms/BoilerRoom"]
@@ -415,10 +307,10 @@ offset_bottom = 631.826
 
 [node name="Stairs" type="ColorRect" parent="Background/Rooms"]
 layout_mode = 0
-offset_left = 507.0
-offset_top = 41.0
-offset_right = 892.0
-offset_bottom = 211.0
+offset_left = 715.2
+offset_top = 151.2
+offset_right = 1100.2
+offset_bottom = 321.2
 color = Color(0.270588, 0.290196, 0.333333, 1)
 
 [node name="Label" type="Label" parent="Background/Rooms/Stairs"]
@@ -481,3 +373,64 @@ offset_left = 299.0
 offset_top = 5.0
 offset_right = 684.0
 offset_bottom = 9.0
+
+[node name="Hallway2" type="ColorRect" parent="Background/Rooms"]
+layout_mode = 0
+offset_left = 415.0
+offset_top = 342.0
+offset_right = 1456.0
+offset_bottom = 522.0
+color = Color(0.270588, 0.290196, 0.333333, 1)
+
+[node name="Label" type="Label" parent="Background/Rooms/Hallway2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.0
+offset_top = -18.0
+offset_right = 70.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_6hi0n")
+theme_override_font_sizes/font_size = 35
+text = "Hallway"
+
+[node name="Outline" type="Control" parent="Background/Rooms/Hallway2"]
+visible = false
+anchors_preset = 0
+offset_left = -415.0
+offset_top = -232.0
+offset_right = -375.0
+offset_bottom = -192.0
+
+[node name="left" type="ColorRect" parent="Background/Rooms/Hallway2/Outline"]
+layout_mode = 0
+offset_left = 412.0
+offset_top = 232.0
+offset_right = 416.0
+offset_bottom = 412.0
+
+[node name="right" type="ColorRect" parent="Background/Rooms/Hallway2/Outline"]
+layout_mode = 0
+offset_left = 1452.0
+offset_top = 232.0
+offset_right = 1456.0
+offset_bottom = 412.0
+
+[node name="top" type="ColorRect" parent="Background/Rooms/Hallway2/Outline"]
+layout_mode = 0
+offset_left = 412.0
+offset_top = 232.0
+offset_right = 1456.0
+offset_bottom = 236.0
+
+[node name="bottom2" type="ColorRect" parent="Background/Rooms/Hallway2/Outline"]
+layout_mode = 0
+offset_left = 416.0
+offset_top = 408.0
+offset_right = 1456.0
+offset_bottom = 412.0
