@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://coym0lkppx1o7"]
+[gd_scene load_steps=8 format=3 uid="uid://coym0lkppx1o7"]
 
-[ext_resource type="Texture2D" uid="uid://5qunm613wfra" path="res://Assets/puzzle_pipes/items/lamp.png" id="1_h8ikq"]
+[ext_resource type="Texture2D" uid="uid://xl6hmgkyhvad" path="res://Assets/light.png" id="1_g4o26"]
 
 [sub_resource type="Gradient" id="Gradient_w27id"]
 interpolation_mode = 2
@@ -16,14 +16,30 @@ metadata/_snap_enabled = true
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_vjflv"]
 polygon = PackedVector2Array(6, 25, -6, 25, -15, 26, -19, 27, -21, 28, -25, 32, -26, 34, -26, 37, -24, 37, -24, 34, -23, 32, -21, 30, -19, 29, -15, 28, -6, 27, 6, 27, 15, 28, 19, 29, 21, 30, 23, 32, 24, 34, 24, 37, 26, 37, 26, 34, 25, 32, 21, 28, 19, 27, 15, 26)
 
+[sub_resource type="Gradient" id="Gradient_i7gt5"]
+interpolation_mode = 2
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bym7w"]
+gradient = SubResource("Gradient_i7gt5")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.9, 0.9)
+metadata/_snap_enabled = true
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_qotlq"]
+polygon = PackedVector2Array(40, 0, 12, 0, 28, -24, 0, -24, -28, -24, -12, 0, -40, 0, -40, -40, 40, -40)
+
 [node name="Lamp" type="Node2D"]
 scale = Vector2(0.25, 0.25)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_h8ikq")
+visible = false
+texture = ExtResource("1_g4o26")
 
 [node name="Bulb" type="PointLight2D" parent="."]
-position = Vector2(0, 28)
+visible = false
+position = Vector2(0, 36)
 scale = Vector2(15, 5)
 color = Color(0.5, 0.8, 1, 0.662745)
 shadow_enabled = true
@@ -33,4 +49,31 @@ texture = SubResource("GradientTexture2D_ins7d")
 offset = Vector2(2.38419e-06, 25)
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+visible = false
+position = Vector2(0, -4)
+scale = Vector2(0.1, 0.1)
 occluder = SubResource("OccluderPolygon2D_vjflv")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+light_mask = 0
+position = Vector2(0, -8)
+scale = Vector2(10, 10)
+texture = ExtResource("1_g4o26")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+scale = Vector2(10, 10)
+texture = ExtResource("1_g4o26")
+
+[node name="Bulb2" type="PointLight2D" parent="."]
+position = Vector2(0, -20)
+scale = Vector2(100, 100)
+color = Color(0.2, 1, 1, 1)
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 0.1
+texture = SubResource("GradientTexture2D_bym7w")
+offset = Vector2(2.38419e-06, 25)
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+occluder = SubResource("OccluderPolygon2D_qotlq")

@@ -414,21 +414,25 @@ tile_map_data = PackedByteArray("AAAWABMAAAACAAAAAAAgABMAAAAKAAAAAAAyAAgAAAAGAAA
 tile_set = ExtResource("12_7hp2b")
 
 [node name="Lamps" type="Node2D" parent="."]
-visible = false
-
-[node name="Lamp" parent="Lamps" instance=ExtResource("16_kqwo2")]
-position = Vector2(404, 76)
-minBright = 0.25
-maxBright = 0.45
 
 [node name="Lamp2" parent="Lamps" instance=ExtResource("15_pr4ik")]
 position = Vector2(220, 76)
+scale = Vector2(0.1, 0.1)
 
 [node name="Lamp3" parent="Lamps" instance=ExtResource("15_pr4ik")]
-position = Vector2(180, 76)
+position = Vector2(131, 76)
+scale = Vector2(0.1, 0.1)
 
 [node name="Lamp4" parent="Lamps" instance=ExtResource("16_kqwo2")]
 position = Vector2(76, 76)
+scale = Vector2(0.1, 0.1)
+time = 3
+minBright = 0.6
+maxBright = 0.9
+
+[node name="Lamp5" parent="Lamps" instance=ExtResource("16_kqwo2")]
+position = Vector2(404, 77)
+scale = Vector2(0.1, 0.1)
 time = 3
 minBright = 0.6
 maxBright = 0.9
