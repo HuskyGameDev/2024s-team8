@@ -56,7 +56,6 @@ func _on_to_power_room_body_entered(body: Node2D) -> void:
 		$Player/AnimationTree.set("active", false)
 		StageManager.changeScene(POWER_ROOM, 269, 122)
 		StageManager.changeCamera(312)
-		StageManager.scene_change = true
 	pass # Replace with function body.
 
 
@@ -67,5 +66,5 @@ func _on_to_boiler_room_body_entered(body: Node2D) -> void:
 		$Player/AnimationTree.set("active", false)
 		StageManager.changeScene(BOILER_ROOM, 204, 146)
 		StageManager.changeCamera(304)
-		StageManager.scene_change = true
+
 	pass # Replace with function body.

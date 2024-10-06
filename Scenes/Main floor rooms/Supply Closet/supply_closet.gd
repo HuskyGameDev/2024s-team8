@@ -23,7 +23,7 @@ func _on_area_2d_body_entered(_body):
 		var HALLWAY_MAIN = load("res://Scenes/Main floor rooms/Main Hall/hallway_main.tscn")
 		StageManager.changeScene(HALLWAY_MAIN, 403, 120)
 		StageManager.changeCamera(488)
-		StageManager.scene_change = true
+
 
 
 func _on_area_2d_body_exited(_body):
@@ -37,5 +37,5 @@ func _on_area_2d_2_body_entered(body: Node2D) -> void:
 		var BUNK = load("res://Scenes/Main floor rooms/Bunks/bunks.tscn")
 		StageManager.changeScene(BUNK, 273, 130)
 		StageManager.changeCamera(304)
-		StageManager.scene_change = true
+
 	pass # Replace with function body.

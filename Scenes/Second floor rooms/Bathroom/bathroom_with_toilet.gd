@@ -10,4 +10,3 @@ func _on_door_body_entered(_body):
 		$Player/AnimationTree.set("active", false)
 		StageManager.changeScene(HALLWAY_TRANS, 228, 132)
 		StageManager.changeCamera(304)
-		StageManager.scene_change = true

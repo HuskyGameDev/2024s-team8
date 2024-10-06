@@ -96,7 +96,6 @@ shape = SubResource("RectangleShape2D_lp4n2")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Box/Collision"]
 position = Vector2(4, 9.99999)
 rotation = 0.785398
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_lgko7")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Box/Collision"]
@@ -115,7 +114,6 @@ texture = ExtResource("5_h26mk")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shelf/Collision"]
 position = Vector2(-0.110916, 3.61091)
 rotation = 0.785398
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_jh53t")
 
 [node name="Wrench" type="Node2D" parent="." groups=["Crowbar"]]

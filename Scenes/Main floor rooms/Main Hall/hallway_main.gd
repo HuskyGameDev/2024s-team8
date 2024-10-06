@@ -66,7 +66,7 @@ func _on_mess_hall_body_entered(body):
 			$Player.hasAttention = false
 			$Player/AnimationTree.set("active", false)
 			StageManager.changeScene(MESS, 232, 120)
-			StageManager.scene_change = true
+	
 
 func _on_mess_hall_body_exited(_body):
 	
@@ -80,7 +80,7 @@ func _on_research_room_body_entered(body):
 			$Player.hasAttention = false
 			$Player/AnimationTree.set("active", false)
 			StageManager.changeScene(RESEARCH, 80, 128)
-			StageManager.scene_change = true
+
 
 func _on_research_room_body_exited(_body):
 	
@@ -94,7 +94,7 @@ func _on_pod_body_entered(body):
 			$Player.hasAttention = false
 			$Player/AnimationTree.set("active", false)
 			StageManager.changeScene(AIRLOCK, 158, 126) 
-			StageManager.scene_change = true
+
 
 func _on_pod_body_exited(_body):
 	pass
@@ -107,7 +107,7 @@ func _on_bunks_body_entered(body):
 			$Player.hasAttention = false
 			$Player/AnimationTree.set("active", false)
 			StageManager.changeScene(BUNKS, 53, 144)
-			StageManager.scene_change = true
+
 	
 func _on_bunks_body_exited(_body):
 	pass # Replace with function body.
@@ -121,7 +121,7 @@ func _on_supply_closet_body_entered(body):
 			$Player.hasAttention = false
 			$Player/AnimationTree.set("active", false)
 			StageManager.changeScene(SUPPLY, 124, 116)
-			StageManager.scene_change = true
+
 
 func _on_supply_closet_body_exited(_body):
 	pass # Replace with function body.
@@ -134,7 +134,7 @@ func _on_stairs_body_entered(body):
 			$Player.hasAttention = false
 			$Player/AnimationTree.set("active", false)
 			StageManager.changeScene(STAIRS, 59, 89)
-			StageManager.scene_change = true
+
 		else:
 			Player._swap_attention()
 			DialogManager.start_dialog(global_position, lines, speech_sound, false)
@@ -155,7 +155,7 @@ func _on_bridge_body_entered(body):
 				$Player.hasAttention = false
 				$Player/AnimationTree.set("active", false)
 				StageManager.changeScene(COMMAND_DECK, 122, 128)
-				StageManager.scene_change = true
+
 			else: #Command deck locked for first act 
 				Player._swap_attention()
 				DialogManager.start_dialog(global_position, lines2, speech_sound2, false)
@@ -174,7 +174,7 @@ func _on_mess_hall_left_body_entered(body):
 			$Player.hasAttention = false
 			$Player/AnimationTree.set("active", false)
 			StageManager.changeScene(MESS, 61, 115)
-			StageManager.scene_change = true
+
 	pass # Replace with function body.
 
 
@@ -185,5 +185,5 @@ func _on_to_research_right_body_entered(body: Node2D) -> void:
 			$Player.hasAttention = false
 			$Player/AnimationTree.set("active", false)
 			StageManager.changeScene(RESEARCH, 225, 116)
-			StageManager.scene_change = true
+
 			pass # Replace with function body.

@@ -19,7 +19,7 @@ func _on_to_bottom_hallway_body_entered(_body):
 		$Player/AnimationTree.set("active", false)
 		StageManager.changeScene(HALLWAY_TOP, 401, 115)
 		StageManager.changeCamera(480)
-		StageManager.scene_change = true
+
 
 
 func _on_valve_clear_fog() -> void:

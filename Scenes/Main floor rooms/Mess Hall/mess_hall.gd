@@ -16,7 +16,7 @@ func _on_to_main_body_entered(body: Node2D) -> void:
 			var HALLWAY_MAIN = load("res://Scenes/Main floor rooms/Main Hall/hallway_main.tscn")
 			StageManager.changeScene(HALLWAY_MAIN, 180, 143)
 			StageManager.changeCamera(488)
-			StageManager.scene_change = true
+
 
 
 func _on_to_main_left_body_entered(body: Node2D) -> void:
@@ -26,4 +26,3 @@ func _on_to_main_left_body_entered(body: Node2D) -> void:
 			var HALLWAY_MAIN = load("res://Scenes/Main floor rooms/Main Hall/hallway_main.tscn")
 			StageManager.changeScene(HALLWAY_MAIN, 54, 143)
 			StageManager.changeCamera(488)
-			StageManager.scene_change = true

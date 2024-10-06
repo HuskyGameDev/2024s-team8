@@ -10,4 +10,3 @@ func _on_to_top_hallway_body_entered(_body):
 		$Player/AnimationTree.set("active", false)
 		StageManager.changeScene(HALLWAY_TOP, 86, 115)
 		StageManager.changeCamera(488)
-		StageManager.scene_change = true

@@ -18,6 +18,7 @@ const lines: Array[String] = [
 ]
 #turns off the monitoring of the toPod area when airlock is closed
 func _ready():
+	
 	StageManager.changeCamera(488)
 	toPod.monitoring = false
 	if PositionManager.Act < 1:
@@ -30,7 +31,9 @@ func _ready():
 		await animPlayer.animation_finished
 		toPod.monitoring = true
 
-
+func _process(delta: float) -> void:
+	pass
+		
 
 #switches to the main hall scene
 func _on_to_hall_body_entered(body):
@@ -41,7 +44,7 @@ func _on_to_hall_body_entered(body):
 				$Player.hasAttention = false
 				$Player/AnimationTree.set("active", false)
 				StageManager.changeScene(HALL, 76, 130)
-				StageManager.scene_change = true
+	
 			else:
 				player._swap_attention()
 				DialogManager.start_dialog(global_position, lines, speech_sound)
@@ -66,4 +69,4 @@ func _on_to_pod_body_entered(body):
 				animPlayer.play("opening") 
 				await animPlayer.animation_finished
 				StageManager.changeScene(POD, 148, 136, true)
-				StageManager.scene_change = true
+			

@@ -5,14 +5,11 @@ var player_position = Vector2.ZERO
 var right_camera_limit = 1000000000000000
 var scene_change = false
 var on_first_floor = true
+
 func _ready():
 	get_node("ColorRect").hide()
 
-#when canvas layer is called changes scene_change to false if True
-func _process(_delta):
-	if scene_change == true:
-		scene_change = false
-
+#when stagemanager is called switches players hasAttention to the opposite of scene change
 #fades out and in to the scene after changing scenes as well as changing player position
 func changeScene(stage_next, x, y, door = false):
 	var _stage = stage_next.instantiate()
@@ -26,6 +23,8 @@ func changeScene(stage_next, x, y, door = false):
 		GlobalAudioManager.door_SFX()
 	
 	get_node("AnimationPlayer").play("Fade_In")
+	scene_change = true
+	
 	await get_node("AnimationPlayer").animation_finished
 	
 	get_tree().change_scene_to_packed(stage_next)
@@ -33,6 +32,7 @@ func changeScene(stage_next, x, y, door = false):
 	get_node("AnimationPlayer").play("Fade_Out")
 	await get_node("AnimationPlayer").animation_finished
 	get_node("ColorRect").hide()
+	scene_change = false
 	
 	
 #changes the right camera limit

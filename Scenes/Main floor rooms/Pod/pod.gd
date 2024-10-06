@@ -32,13 +32,13 @@ func _process(_delta):
 
 #Switches to airlock scene
 func _on_to_hall_body_entered(body):
-	if HasLeft && body.name == "Player":
-		$Player.hasAttention = false
-		$Player/AnimationTree.set("active", false)
+	if Input.is_action_pressed("DOWN") && HasLeft && body.name == "Player":
+		$Player.hasAttention = !StageManager.scene_change
+		$Player/AnimationTree.set("active", !StageManager.scene_change)
 		var AIRLOCK = load("res://Scenes/Main floor rooms/Airlock/airlock.tscn")
 		StageManager.changeScene(AIRLOCK, 155, 110, true)
 		StageManager.changeCamera(304)
-		StageManager.scene_change = true
+
 
 
 

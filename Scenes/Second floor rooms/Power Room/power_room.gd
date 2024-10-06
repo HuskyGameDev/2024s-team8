@@ -31,7 +31,6 @@ func _on_door_body_entered(_body):
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false) 
 		StageManager.changeScene(HALLWAY_TOP, 32, 130)
-		StageManager.scene_change = true
 
 
 func _on_pipe_opening():
