@@ -172,6 +172,7 @@ scale = Vector2(6, 6)
 transform = Transform2D(6, 0, 0, 6, 0, 0)
 
 [node name="Flower" parent="." instance=ExtResource("6_35rce")]
+visible = false
 position = Vector2(156, 124)
 facing = false
 
@@ -185,6 +186,9 @@ libraries = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="To_Hall_Right"]
 position = Vector2(224, 120)
 shape = SubResource("RectangleShape2D_hcdg1")
+
+[node name="Flower2" parent="." instance=ExtResource("6_35rce")]
+position = Vector2(156, 124)
 
 [connection signal="body_entered" from="Door_to_Hallway" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Door_to_Hallway" to="." method="_on_door_to_hallway_body_exited"]

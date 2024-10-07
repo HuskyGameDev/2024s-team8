@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://bomb67l3jcmr5"]
+[gd_scene load_steps=29 format=4 uid="uid://bomb67l3jcmr5"]
 
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Pod/pod.gd" id="1_bvhxj"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="2_tvsd5"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Pod/Outside.gd" id="15_oe2i3"]
 [ext_resource type="Texture2D" uid="uid://dsav7uwsib2vs" path="res://Assets/meatsuit.png" id="16_dyq57"]
 [ext_resource type="TileSet" uid="uid://bq0bamhp4c4ng" path="res://Scenes/console_tileset.tres" id="16_gn7oi"]
+[ext_resource type="Texture2D" uid="uid://bq7i3gq5nox5k" path="res://Inventory/Helianth.png" id="17_o6isv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wekmh"]
 size = Vector2(24, 5)
@@ -39,6 +40,67 @@ size = Vector2(30, 7)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j3y1k"]
 size = Vector2(63, 7.5)
+
+[sub_resource type="Animation" id="Animation_6omfo"]
+resource_name = "approach"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Heli:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Heli:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(148, 120), Vector2(168, 96)]
+}
+
+[sub_resource type="Animation" id="Animation_syfbq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Heli:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Heli:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(148, 120)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o8l4t"]
+_data = {
+"RESET": SubResource("Animation_syfbq"),
+"approach": SubResource("Animation_6omfo")
+}
 
 [node name="Pod" type="Node2D"]
 y_sort_enabled = true
@@ -204,12 +266,27 @@ tile_set = ExtResource("16_gn7oi")
 
 [node name="Meat Suit" type="Node2D" parent="."]
 unique_name_in_owner = true
-visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Meat Suit"]
-position = Vector2(97, 127)
+position = Vector2(190, 123)
 texture = ExtResource("16_dyq57")
 
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(100, 134)
+
+[node name="Heli" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(148, 120)
+scale = Vector2(-1, 1)
+texture = ExtResource("17_o6isv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_o8l4t")
+}
+
+[connection signal="doneMoving" from="Player" to="." method="_on_player_done_moving"]
 [connection signal="body_entered" from="To_Hall" to="." method="_on_to_hall_body_entered"]
 [connection signal="body_exited" from="To_Hall" to="." method="_on_to_hall_body_exited"]
 [connection signal="area_entered" from="Chair/InteractionArea" to="Chair/InteractionArea" method="_on_area_entered"]

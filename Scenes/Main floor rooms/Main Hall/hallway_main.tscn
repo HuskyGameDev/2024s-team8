@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://cfl3tm624omie"]
+[gd_scene load_steps=35 format=4 uid="uid://cfl3tm624omie"]
 
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Main Hall/hallway_main.gd" id="1_uyxqv"]
 [ext_resource type="Texture2D" uid="uid://db5cscw8pfccj" path="res://Assets/room_tilemap_modular.png" id="2_kjoew"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://b68qnvvg3nd0x" path="res://Assets/vent-sprite.png" id="12_khwuv"]
 [ext_resource type="Texture2D" uid="uid://dj0lr4c3ty7f5" path="res://Assets/simple_diagonal_door.png" id="14_536ue"]
 [ext_resource type="PackedScene" uid="uid://coym0lkppx1o7" path="res://lamp.tscn" id="15_pr4ik"]
+[ext_resource type="PackedScene" uid="uid://bu52063b5h6qs" path="res://flowerEnemy.tscn" id="15_s2hx4"]
 [ext_resource type="PackedScene" uid="uid://cy74qcmqm8dhl" path="res://lampFlicker.tscn" id="16_kqwo2"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_nn5nj"]
@@ -137,6 +138,7 @@ texture_filter = 1
 tile_set = ExtResource("3_eku0h")
 rendering_quadrant_size = 64
 format = 2
+layer_0/tile_data = PackedInt32Array(1048634, 1048576, 0, 786490, 1048576, 0, 852026, 1048576, 0, 917562, 1048576, 0, 983098, 1048576, 0, 1114170, 1048576, 0)
 
 [node name="base color" type="TileMapLayer" parent="Background noncollision"]
 texture_filter = 1
@@ -442,6 +444,9 @@ maxBright = 0.9
 [node name="CollisionShape2D" type="CollisionShape2D" parent="To_Research_Right"]
 position = Vector2(412, 166.5)
 shape = SubResource("RectangleShape2D_h7vbu")
+
+[node name="Flower" parent="." instance=ExtResource("15_s2hx4")]
+position = Vector2(440, 232)
 
 [connection signal="area_entered" from="Locker/InteractionArea" to="Locker/InteractionArea" method="_on_area_entered"]
 [connection signal="area_exited" from="Locker/InteractionArea" to="Locker/InteractionArea" method="_on_area_exited"]

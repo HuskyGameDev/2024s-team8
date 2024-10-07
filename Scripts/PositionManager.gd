@@ -42,6 +42,9 @@ var masterVolume = 0.5
 var musicVolume = 0.5
 var sfxVolume = 0.5
 var dialogueVolume = 0.5
+var heliDistracted = false
+var lastKnownPos = Vector2()
+var heliDefeated = false
 
 
 #func _process(delta):

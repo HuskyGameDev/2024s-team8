@@ -53,7 +53,11 @@ func _ready():
 	
 
 func _process(delta: float) -> void:
-	pass
+	if Input.is_action_just_pressed("F") and PositionManager.heliDistracted and !PositionManager.HasDefeatedMonster and PositionManager.OpenedAirlock:
+		PositionManager.lastKnownPos.x = player.position.x
+		PositionManager.lastKnownPos.y = player.position.y
+		get_tree().change_scene_to_file("res://defeat.tscn")
+		StageManager.scene_change = true
 		
 
 #switches to the main hall scene

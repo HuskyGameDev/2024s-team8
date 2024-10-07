@@ -1,0 +1,147 @@
+[gd_scene load_steps=11 format=3 uid="uid://copjf0mjaepfx"]
+
+[ext_resource type="Script" path="res://defeat.gd" id="1_kgjxm"]
+[ext_resource type="PackedScene" uid="uid://ca1eqme7qndxw" path="res://Scenes/background.tscn" id="1_nu6xs"]
+[ext_resource type="Texture2D" uid="uid://mvetj5pcsap" path="res://Assets/icon.svg" id="2_t60ij"]
+[ext_resource type="Texture2D" uid="uid://0tik15ssrfpo" path="res://Assets/Circle.png" id="3_aps43"]
+
+[sub_resource type="Gradient" id="Gradient_k61bc"]
+offsets = PackedFloat32Array(0.52, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_xymvn"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 0.984314, 0, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_5g2kb"]
+
+[sub_resource type="Animation" id="Animation_h560j"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Small Ship:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Small Ship:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(15, 15)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nltbu"]
+resource_name = "flyAway"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Small Ship:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Small Ship:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(15, 15), Vector2(0.1, 0.1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 9, 9.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bf1l4"]
+_data = {
+"RESET": SubResource("Animation_h560j"),
+"flyAway": SubResource("Animation_nltbu")
+}
+
+[node name="defeat" type="Node2D"]
+script = ExtResource("1_kgjxm")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("1_nu6xs")]
+follow_viewport_enabled = true
+follow_viewport_scale = 2.0
+
+[node name="Small Ship" type="Node2D" parent="."]
+position = Vector2(480, 270)
+scale = Vector2(15, 15)
+metadata/_edit_group_ = true
+
+[node name="Small Ship Sprite" type="Sprite2D" parent="Small Ship"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_t60ij")
+
+[node name="Camera2D" type="Camera2D" parent="Small Ship"]
+zoom = Vector2(2, 2)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Small Ship"]
+visible = false
+show_behind_parent = true
+amount = 10
+lifetime = 0.75
+preprocess = 0.75
+texture = ExtResource("3_aps43")
+gravity = Vector2(980, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 50.0
+scale_amount_min = 0.2
+scale_amount_max = 0.8
+color_ramp = SubResource("Gradient_k61bc")
+color_initial_ramp = SubResource("Gradient_xymvn")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 0)
+offset_right = 1216.0
+offset_bottom = 1080.0
+texture = SubResource("CanvasTexture_5g2kb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bf1l4")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
