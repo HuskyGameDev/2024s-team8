@@ -10,11 +10,7 @@ domain_warp_fractal_octaves = 10
 domain_warp_fractal_lacunarity = 5.61
 domain_warp_fractal_gain = -0.115
 
-<<<<<<< Updated upstream
 [sub_resource type="Shader" id="Shader_qtnyc"]
-=======
-[sub_resource type="Shader" id="Shader_f68hd"]
->>>>>>> Stashed changes
 code = "shader_type canvas_item;
 #define CANVAS_ITEM
 #define DEFINE_OVERRIDE
@@ -34,11 +30,7 @@ code = "shader_type canvas_item;
 "
 
 [resource]
-<<<<<<< Updated upstream
 shader = SubResource("Shader_qtnyc")
-=======
-shader = SubResource("Shader_f68hd")
->>>>>>> Stashed changes
 shader_parameter/wdh = Vector3(1000, 1000, 512)
 shader_parameter/uvw = Vector3(1, 1, 1)
 shader_parameter/invert = false
