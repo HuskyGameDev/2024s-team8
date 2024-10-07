@@ -9,14 +9,15 @@ func _ready():
 	if PositionManager.Act == 1 and animPlayer != null:
 		door.monitoring = false
 		animPlayer.play("Closed")
-		if $Player.hasAttention != false:
+		if $Player.hasAttention == true:
 			$Player._swap_attention()
 		$Player/AnimationPlayer.play("Left")
 		animPlayer.play("Enter Act 2")
 		await animPlayer.animation_finished
 		animPlayer.play("Wake up")
 		await animPlayer.animation_finished
-		$Player._swap_attention()
+		if $Player.hasAttention == false:
+			$Player._swap_attention()
 	else:
 		print("Pooey")
 	
