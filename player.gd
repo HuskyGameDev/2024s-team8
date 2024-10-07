@@ -40,6 +40,7 @@ func _ready():
 	lights.show()
 	screen_size = get_viewport_rect().size
 	animationTree.set("parameters/Idle/blend_position", StageManager.player_facing)
+	
 	if StageManager.player_position != Vector2.ZERO:
 		position = StageManager.player_position
 	if PositionManager.StartFromBeginning:
