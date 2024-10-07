@@ -51,14 +51,12 @@ func _ready():
 
 
 #switches to the mess hall scene
-#sets the direction the character will be facing in the next scene
 func _on_mess_hall_body_entered(body):
 	if Input.is_action_pressed("DOWN"):
 		var MESS = load("res://Scenes/Main floor rooms/Mess Hall/mess_hall.tscn")
 		if body.name == "Player":
 			$Player.hasAttention = false
 			$Player/AnimationTree.set("active", false)
-			StageManager.player_facing = Vector2(0,1)
 			StageManager.changeScene(MESS, 232, 120)
 	
 
@@ -67,14 +65,12 @@ func _on_mess_hall_body_exited(_body):
 	pass # Replace with function body.
 
 #switches to the research room scene
-#sets the direction the character will be facing in the next scene
 func _on_research_room_body_entered(body):
 	if Input.is_action_pressed("DOWN"):
 		var RESEARCH = load("res://Scenes/Main floor rooms/Research/research1.tscn")
 		if body.name == "Player":
 			$Player.hasAttention = false
 			$Player/AnimationTree.set("active", false)
-			StageManager.player_facing = Vector2(0,1)
 			StageManager.changeScene(RESEARCH, 80, 128)
 
 
@@ -83,14 +79,12 @@ func _on_research_room_body_exited(_body):
 	pass # Replace with function body.
 
 #switches to the pod scene
-#sets the direction the character will be facing in the next scene
 func _on_pod_body_entered(body):
 	if Input.is_action_pressed("UP"):
 		var AIRLOCK = load("res://Scenes/Main floor rooms/Airlock/airlock.tscn")
 		if body.name == "Player":
 			$Player.hasAttention = false
 			$Player/AnimationTree.set("active", false)
-			StageManager.player_facing = Vector2(0,-1)
 			StageManager.changeScene(AIRLOCK, 158, 126) 
 
 
@@ -98,14 +92,12 @@ func _on_pod_body_exited(_body):
 	pass
 
 #switches to the bunks scene
-#sets the direction the character will be facing in the next scene
 func _on_bunks_body_entered(body):
 	if Input.is_action_pressed("UP"):
 		var BUNKS = load("res://Scenes/Main floor rooms/Bunks/bunks.tscn")
 		if body.name == "Player":
 			$Player.hasAttention = false
 			$Player/AnimationTree.set("active", false)
-			StageManager.player_facing = Vector2(0,-1)
 			StageManager.changeScene(BUNKS, 53, 144)
 
 	
@@ -114,14 +106,12 @@ func _on_bunks_body_exited(_body):
 
 
 #switches to the supply closet scene
-#sets the direction the character will be facing in the next scene
 func _on_supply_closet_body_entered(body):
 	if Input.is_action_pressed("UP"):
 		var SUPPLY = load("res://Scenes/Main floor rooms/Supply Closet/supply_closet.tscn")
 		if body.name == "Player":
 			$Player.hasAttention = false
 			$Player/AnimationTree.set("active", false)
-			StageManager.player_facing = Vector2(0,-1)
 			StageManager.changeScene(SUPPLY, 124, 116)
 
 
@@ -129,14 +119,12 @@ func _on_supply_closet_body_exited(_body):
 	pass # Replace with function body.
 
 #switches to the stairs scene
-#sets the direction the character will be facing in the next scene
 func _on_stairs_body_entered(body):
 	var STAIRS = load("res://Scenes/Main floor rooms/Stairs/stairs.tscn")
 	if body.name == "Player":
 		if PositionManager.Act != 1 && Input.is_action_pressed("UP"):
 			$Player.hasAttention = false
 			$Player/AnimationTree.set("active", false)
-			StageManager.player_facing = Vector2(0,-1)
 			StageManager.changeScene(STAIRS, 59, 89)
 
 		else:
@@ -151,7 +139,6 @@ func _on_stairs_body_exited(_body):
 
 
 #switches to the command deck scene
-#sets the direction the character will be facing in the next scene
 func _on_bridge_body_entered(body):
 	if Input.is_action_pressed("RIGHT"):
 		var COMMAND_DECK = load("res://Scenes/Main floor rooms/Command Deck/command_deck.tscn")
@@ -161,17 +148,6 @@ func _on_bridge_body_entered(body):
 			$Player/AnimationTree.set("active", false)
 			StageManager.changeScene(COMMAND_DECK, 122, 128)
 =======
-			if PositionManager.Act != 1:
-				$Player.hasAttention = false
-				$Player/AnimationTree.set("active", false)
-				StageManager.player_facing = Vector2(1,0)
-				StageManager.changeScene(COMMAND_DECK, 122, 128)
-
-			else: #Command deck locked for first act 
-				Player._swap_attention()
-				DialogManager.start_dialog(global_position, lines2, speech_sound2, false)
-				await DialogManager.dialog_finished
-				Player._swap_attention()
 >>>>>>> Stashed changes
 
 
@@ -185,7 +161,6 @@ func _on_mess_hall_left_body_entered(body):
 			var MESS = load("res://Scenes/Main floor rooms/Mess Hall/mess_hall.tscn")
 			$Player.hasAttention = false
 			$Player/AnimationTree.set("active", false)
-			StageManager.player_facing = Vector2(0,1)
 			StageManager.changeScene(MESS, 61, 115)
 
 	pass # Replace with function body.
@@ -197,7 +172,6 @@ func _on_to_research_right_body_entered(body: Node2D) -> void:
 			var RESEARCH = load("res://Scenes/Main floor rooms/Research/research1.tscn")
 			$Player.hasAttention = false
 			$Player/AnimationTree.set("active", false)
-			StageManager.player_facing = Vector2(0,1)
 			StageManager.changeScene(RESEARCH, 225, 116)
 
 			pass # Replace with function body.
