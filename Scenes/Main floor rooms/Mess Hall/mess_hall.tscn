@@ -6,7 +6,7 @@
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="4_s8k3y"]
 [ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="5_1jw8f"]
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Mess Hall/meat.gd" id="6_7sobo"]
-[ext_resource type="Texture2D" uid="uid://dvelbk02tflwn" path="res://Assets/RawMeat.png" id="6_h1vcu"]
+[ext_resource type="Texture2D" uid="uid://dwlpc37r5gdmw" path="res://Assets/Inventory Icons/inventory-meat.png" id="7_6xmba"]
 [ext_resource type="Script" path="res://Interaction/InteractionArea.gd" id="8_ebb8r"]
 [ext_resource type="Texture2D" uid="uid://cjuq6xa28ar70" path="res://Assets/mess-tables-2.png" id="9_oe7el"]
 [ext_resource type="Texture2D" uid="uid://5ylb05seiei" path="res://Assets/mess-serving_area.png" id="10_02a38"]
@@ -76,8 +76,7 @@ script = ExtResource("6_7sobo")
 
 [node name="Sprite2D" type="Sprite2D" parent="Meat"]
 position = Vector2(1, 33)
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("6_h1vcu")
+texture = ExtResource("7_6xmba")
 
 [node name="InteractionArea" type="Area2D" parent="Meat"]
 position = Vector2(1, 34)
