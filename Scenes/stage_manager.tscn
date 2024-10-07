@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://xqcx6dn4c4on"]
+[gd_scene load_steps=6 format=3 uid="uid://xqcx6dn4c4on"]
 
 [ext_resource type="Script" path="res://CanvasLayer.gd" id="1_r21gc"]
 
@@ -16,6 +16,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
 
 [sub_resource type="Animation" id="Animation_tbqob"]
 resource_name = "Fade_Out"
@@ -31,11 +43,27 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_yqcsd"]
+length = 0.001
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_akd7f"]
 _data = {
 "Fade_In": SubResource("Animation_a4mxj"),
-"Fade_Out": SubResource("Animation_tbqob")
+"Fade_Out": SubResource("Animation_tbqob"),
+"RESET": SubResource("Animation_yqcsd")
 }
 
 [node name="Stage_Manager" type="CanvasLayer"]
@@ -48,6 +76,7 @@ libraries = {
 speed_scale = 2.0
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 anchors_preset = -1
 anchor_right = 0.00989583
 anchor_bottom = 0.00277778
@@ -55,5 +84,5 @@ offset_right = 1919.0
 offset_bottom = 1079.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
-color = Color(0, 0, 0, 0)
+color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true

@@ -23,6 +23,7 @@ func _on_to_security_room_body_entered(body):
 		var SECURITY_ROOM = load("res://Scenes/Second floor rooms/Security Room/security_room.tscn")
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false)
+		StageManager.player_facing = Vector2(0,-1)
 		StageManager.changeScene(SECURITY_ROOM, 141, 147)
 		StageManager.changeCamera(312)
 		StageManager.scene_change = true
@@ -33,6 +34,7 @@ func _on_to_stairs_body_entered(body):
 		var STAIRS = load("res://Scenes/Main floor rooms/Stairs/stairs.tscn")
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false)
+		StageManager.player_facing = Vector2(0,-1)
 		StageManager.changeScene(STAIRS, 243, 144)
 		StageManager.changeCamera(312)
 		StageManager.scene_change = true
@@ -54,6 +56,7 @@ func _on_to_power_room_body_entered(body: Node2D) -> void:
 		var POWER_ROOM = load("res://Scenes/Second floor rooms/Power Room/power_room.tscn")
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false)
+		StageManager.player_facing = Vector2(-1,0)
 		StageManager.changeScene(POWER_ROOM, 269, 122)
 		StageManager.changeCamera(312)
 	pass # Replace with function body.
@@ -64,6 +67,7 @@ func _on_to_boiler_room_body_entered(body: Node2D) -> void:
 		var BOILER_ROOM = load("res://Scenes/Second floor rooms/Boiler Room/boiler_room.tscn")
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false)
+		StageManager.player_facing = Vector2(0,-1)
 		StageManager.changeScene(BOILER_ROOM, 204, 146)
 		StageManager.changeCamera(304)
 

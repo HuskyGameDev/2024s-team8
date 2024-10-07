@@ -38,6 +38,6 @@ func _on_animation_player_animation_finished(_anim_name):
 		await DialogManager.dialog_finished
 	# Plays act 1 music once intro animation finishes
 	GlobalAudioManager.play_act1_music()
-	
+	StageManager.player_facing = Vector2(0,1)
 	StageManager.changeScene(POD, 90, 126)
 	StageManager.changeCamera(304)

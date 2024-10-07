@@ -22,9 +22,10 @@ func _on_interact():
 		player._swap_attention()
 		PositionManager.HasOpenedVent = true
 		get_node("Sprite2D").queue_free()
+		StageManager.player_facing_x = 0
+		StageManager.player_facing_y = 1
 		StageManager.changeScene(POWER_ROOM, 184, 120)
 		StageManager.changeCamera(304)
-		StageManager.scene_change = true
 		StageManager.on_first_floor = false
 		PositionManager.PrevPosition = Vector2(220, 130)
 	elif(!PositionManager.HasCrowbar):#runs if player doesn't have crowbar

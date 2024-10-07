@@ -27,6 +27,8 @@ var emergencyLights = "584575"
 var normalLights = "ffffff"
 var InteractionOverride = false
 var pressedShift = false
+var usingSwap = false
+
 
 signal doneMoving
 
@@ -37,11 +39,17 @@ signal doneMoving
 func _ready():
 	lights.show()
 	screen_size = get_viewport_rect().size
+	animationTree.set("parameters/Idle/blend_position", StageManager.player_facing)
 	if StageManager.player_position != Vector2.ZERO:
 		position = StageManager.player_position
 	if PositionManager.StartFromBeginning:
 		get_node("Camera2D").limit_right = StageManager.right_camera_limit
-	animationTree.set("active", true)
+	if StageManager.scene_change && PositionManager.HasOpenedTutorial:
+		hasAttention = false
+		await StageManager.Scene_change 
+		hasAttention = true
+		animationTree.set("active", true)
+		
 	playerSpeed = 50
 
 #swaps the players attention to stop the player from moving and stops animations
@@ -50,10 +58,12 @@ func _swap_attention():
 	animationTree.set("active", hasAttention)
 
 
+
 #changes the color of the lights for different acts
 #switches player to pause menu when they press esc and to the map depending which floor they are on 
 #when they press m 
 func _process(_delta):
+
 	if PositionManager.Act == 1:
 		lights.color = emergencyLights
 	elif PositionManager.Act != 1:
@@ -65,6 +75,7 @@ func _process(_delta):
 		else:
 			CodeNotif.visible = false
 	if hasAttention:
+		
 		if Input.is_action_just_pressed("MENU"):
 			pause = pauseMenu.instantiate()
 			$PauseLayer.add_child(pause)

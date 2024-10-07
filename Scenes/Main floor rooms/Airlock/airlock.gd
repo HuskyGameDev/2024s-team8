@@ -68,6 +68,7 @@ func _on_to_hall_body_entered(body):
 				var HALL = load("res://Scenes/Main floor rooms/Main Hall/hallway_main.tscn")
 				$Player.hasAttention = false
 				$Player/AnimationTree.set("active", false)
+				StageManager.player_facing = Vector2(0,1)
 				StageManager.changeScene(HALL, 76, 130)
 			else:
 				player._swap_attention()
@@ -92,5 +93,6 @@ func _on_to_pod_body_entered(body):
 				GlobalAudioManager.door_SFX() # Plays door opening SFX
 				animPlayer.play("opening") 
 				await animPlayer.animation_finished
+				StageManager.player_facing = Vector2(0,-1)
 				StageManager.changeScene(POD, 148, 136, true)
 			

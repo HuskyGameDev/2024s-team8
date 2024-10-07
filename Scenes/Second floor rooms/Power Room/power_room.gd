@@ -9,7 +9,8 @@ func _ready():
 	if PositionManager.Act == 1 and animPlayer != null:
 		door.monitoring = false
 		animPlayer.play("Closed")
-		$Player._swap_attention()
+		if $Player.hasAttention != false:
+			$Player._swap_attention()
 		$Player/AnimationPlayer.play("Left")
 		animPlayer.play("Enter Act 2")
 		await animPlayer.animation_finished
@@ -30,6 +31,7 @@ func _on_door_body_entered(_body):
 		var HALLWAY_TOP = load("res://Scenes/Second floor rooms/Top Hallway/hallway_top.tscn")
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false) 
+		StageManager.player_facing = Vector2(1,0)
 		StageManager.changeScene(HALLWAY_TOP, 32, 130)
 
 

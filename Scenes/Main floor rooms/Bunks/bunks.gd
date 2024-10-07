@@ -18,8 +18,8 @@ func _on_area_2d_body_entered(_body):
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false)
 		var HALLWAY_MAIN = load("res://Scenes/Main floor rooms/Main Hall/hallway_main.tscn")
+		StageManager.player_facing = Vector2(0,1)
 		StageManager.changeScene(HALLWAY_MAIN, 225, 119)
-		StageManager.scene_change = true
 
 
 func _on_area_2d_body_exited(_body):
@@ -32,8 +32,8 @@ func _on_to_supply_closet_body_entered(body: Node2D) -> void:
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false)
 		var SUPPLY_CLOSET = load("res://Scenes/Main floor rooms/Supply Closet/supply_closet.tscn")
+		StageManager.player_facing = Vector2(1,0)
 		StageManager.changeScene(SUPPLY_CLOSET, 111, 108)
 		StageManager.changeCamera(304)
-		StageManager.scene_change = true
 		
 	pass # Replace with function body.
