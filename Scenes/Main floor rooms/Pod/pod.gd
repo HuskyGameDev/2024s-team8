@@ -28,7 +28,8 @@ func _ready():
 	if PositionManager.Act < 1:
 		PositionManager.Act = 0
 	if !PositionManager.HasOpenedTutorial && PositionManager.StartFromBeginning:
-		player._swap_attention()
+		if player.hasAttention == true:
+			player._swap_attention()
 		await get_tree().create_timer(1).timeout
 		DialogManager.start_dialog(global_position, lines, speech_sound, false, false, true)
 		await DialogManager.dialog_finished
@@ -56,6 +57,10 @@ func _ready():
 		player._swap_attention()
 		
 =======
+		if player.hasAttention == false:
+			player._swap_attention()
+		
+	pass # Replace with function body.
 >>>>>>> Stashed changes
 
 #sets the act to 0 if the player walks in the room if they're in act is 1
@@ -85,7 +90,12 @@ func _on_to_hall_body_entered(body):
 		$Player.hasAttention = StageManager.scene_change
 		$Player/AnimationTree.set("active", StageManager.scene_change)
 =======
+	if Input.is_action_pressed("DOWN") && HasLeft && body.name == "Player":
+		$Player.hasAttention = false
+		$Player/AnimationTree.set("active", false)
+>>>>>>> Stashed changes
 		var AIRLOCK = load("res://Scenes/Main floor rooms/Airlock/airlock.tscn")
+		StageManager.player_facing = Vector2(0,1)
 		StageManager.changeScene(AIRLOCK, 155, 110, true)
 		StageManager.changeCamera(304)
 

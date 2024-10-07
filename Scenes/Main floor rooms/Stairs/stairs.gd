@@ -37,6 +37,7 @@ func _on_to_first_floor_body_entered(body):
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false)
 		var HALLWAY_MAIN = load("res://Scenes/Main floor rooms/Main Hall/hallway_main.tscn")
+		StageManager.player_facing = Vector2(0,1)
 		StageManager.changeScene(HALLWAY_MAIN, 134, 113)
 
 		StageManager.on_first_floor = true
@@ -47,6 +48,7 @@ func _on_to_second_floor_body_entered(body):
 		$Player.hasAttention = StageManager.scene_change
 		$Player/AnimationTree.set("active", StageManager.scene_change)
 		var HALL = load("res://Scenes/Second floor rooms/Top Hallway/hallway_top.tscn")
+		StageManager.player_facing = Vector2(0,1)
 		StageManager.changeScene(HALL, 265, 117)
 		StageManager.on_first_floor = false
 
