@@ -55,7 +55,7 @@ func _process(_delta):
 #Order, Left = 0, Up = 1, Right = 2, Down = 3
 func checkWinRecurse(RowIndex, ColIndex, FromDirection):
 	recurseCounter += 1
-	if recurseCounter > 50:
+	if recurseCounter > 100:
 		recurseCounter = 0
 		return false
 	FlowFromDirection = FromDirection

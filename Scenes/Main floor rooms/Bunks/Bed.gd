@@ -7,7 +7,7 @@ extends Node2D
 
 const lines: Array[String] = [
 	"A twin-sized bed. Underneath lies a human-sized gap.",
-	"It looks like it hasn't been used for a while..."
+	"It looks like this bed hasn't been used for a while..."
 ]
 
 # Called when the node enters the scene tree for the first time.

@@ -3,6 +3,7 @@ extends Node2D
 
 @onready var player = get_tree().get_first_node_in_group("Player")
 @onready var speech_sound = preload("res://Assets/Dialogue blip5.mp3")
+@onready var speech_sound2 = preload("res://Assets/voice_sans.mp3")
 @onready var timer = get_tree().get_first_node_in_group("Timer")
 @onready var toPod = get_tree().get_first_node_in_group("to_pod")
 @onready var animPlayer = get_tree().get_first_node_in_group("AnimationPlayer")
@@ -16,10 +17,20 @@ var count = 0
 const lines: Array[String] = [
 	"The door is sealed shut."
 ]
+
+const lines2: Array[String] = [
+	"I've defeated the monster! Time to get out of here."
+]
+
+
 #turns off the monitoring of the toPod area when airlock is closed
 func _ready():
 	
+	if PositionManager.HasDefeatedMonster && !PositionManager.HasReadEscapeText2:
+		player._swap_attention()
+	
 	StageManager.changeCamera(488)
+	
 	toPod.monitoring = false
 	if PositionManager.Act < 1:
 		PositionManager.Act = 1
@@ -30,6 +41,16 @@ func _ready():
 		animPlayer.play("closing")
 		await animPlayer.animation_finished
 		toPod.monitoring = true
+	
+	if PositionManager.HasDefeatedMonster && !PositionManager.HasReadEscapeText2:
+		PositionManager.HasReadEscapeText2 = true
+		DialogManager.start_dialog(global_position, lines2, speech_sound2)
+		await DialogManager.dialog_finished
+		player._swap_attention()
+	
+	
+	
+	
 
 func _process(delta: float) -> void:
 	pass
@@ -44,7 +65,6 @@ func _on_to_hall_body_entered(body):
 				$Player.hasAttention = false
 				$Player/AnimationTree.set("active", false)
 				StageManager.changeScene(HALL, 76, 130)
-	
 			else:
 				player._swap_attention()
 				DialogManager.start_dialog(global_position, lines, speech_sound)

@@ -1,16 +1,15 @@
-[gd_scene load_steps=16 format=4 uid="uid://daise62ngs48s"]
+[gd_scene load_steps=15 format=4 uid="uid://daise62ngs48s"]
 
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Mess Hall/mess_hall.gd" id="1_5lmt6"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="2_onope"]
 [ext_resource type="PackedScene" uid="uid://ny55otxbs0t" path="res://Scenes/tile_map.tscn" id="3_nky0x"]
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="4_s8k3y"]
 [ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="5_1jw8f"]
-[ext_resource type="Script" path="res://Scenes/Main floor rooms/Mess Hall/meat.gd" id="6_7sobo"]
-[ext_resource type="Texture2D" uid="uid://dvelbk02tflwn" path="res://Assets/RawMeat.png" id="6_h1vcu"]
 [ext_resource type="Script" path="res://Interaction/InteractionArea.gd" id="8_ebb8r"]
 [ext_resource type="Texture2D" uid="uid://cjuq6xa28ar70" path="res://Assets/mess-tables-2.png" id="9_oe7el"]
 [ext_resource type="Texture2D" uid="uid://5ylb05seiei" path="res://Assets/mess-serving_area.png" id="10_02a38"]
-[ext_resource type="Texture2D" uid="uid://b81whllyrfnyy" path="res://Assets/mess-freezer_door.png" id="11_oulvk"]
+[ext_resource type="Script" path="res://Scenes/Main floor rooms/Mess Hall/freezer_door.gd" id="11_eb2pe"]
+[ext_resource type="Texture2D" uid="uid://c3yut4ccqyuxs" path="res://Assets/mess-freezer_door_closed.png" id="11_s5d1m"]
 [ext_resource type="Texture2D" uid="uid://chlcdlsomb42k" path="res://Assets/mess-freezer_door_open.png" id="12_6labj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iba8r"]
@@ -19,8 +18,8 @@ size = Vector2(24, 5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_80vr4"]
 size = Vector2(16.5, 4)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ksws"]
-size = Vector2(28, 20)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8bff8"]
+size = Vector2(12, 31)
 
 [node name="Mess_Hall" type="Node2D"]
 y_sort_enabled = true
@@ -55,7 +54,8 @@ format = 2
 layer_0/tile_data = PackedInt32Array(983070, 1048576, 0, 983069, 1048576, 0, 983068, 1048576, 0, 917532, 1048576, 0, 851996, 1048576, 0, 786460, 1048576, 0, 786461, 1048576, 0, 786462, 1048576, 0, 851998, 1048576, 0, 917534, 1048576, 0, 917533, 1048576, 0, 851997, 1048576, 0)
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("5_1jw8f")]
-position = Vector2(276, 140)
+unique_name_in_owner = true
+position = Vector2(72, 137)
 
 [node name="To_Main" type="Area2D" parent="."]
 
@@ -69,46 +69,81 @@ shape = SubResource("RectangleShape2D_iba8r")
 position = Vector2(64.25, 120)
 shape = SubResource("RectangleShape2D_80vr4")
 
-[node name="Meat" type="Node2D" parent="."]
-z_as_relative = false
-position = Vector2(111, 110)
-script = ExtResource("6_7sobo")
-
-[node name="Sprite2D" type="Sprite2D" parent="Meat"]
-position = Vector2(1, 33)
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("6_h1vcu")
-
-[node name="InteractionArea" type="Area2D" parent="Meat"]
-position = Vector2(1, 34)
-script = ExtResource("8_ebb8r")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Meat/InteractionArea"]
-shape = SubResource("RectangleShape2D_8ksws")
-
 [node name="Tables" type="Node2D" parent="."]
-position = Vector2(176, 142)
+position = Vector2(176, 128)
 
 [node name="Sprite2D" type="Sprite2D" parent="Tables"]
-position = Vector2(-24, -58)
+position = Vector2(-24, -44)
 texture = ExtResource("9_oe7el")
 
-[node name="Serving Area" type="Node2D" parent="."]
+[node name="Collision2" type="StaticBody2D" parent="Tables"]
+position = Vector2(0, 5)
 
-[node name="Sprite2D" type="Sprite2D" parent="Serving Area"]
-position = Vector2(152, 84)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tables/Collision2"]
+position = Vector2(-24, -49)
+build_mode = 1
+polygon = PackedVector2Array(0, 35, -15, 35, -19, 42, -21, 43, -23, 39, -23, 53, -30, 53, -30, 67, -26, 67, -23, 67, -20, 67, -15, 67, -11, 67, -10, 67, -9, 62, -6, 61, -3, 56, -1, 52, 0, 52, 1, 52, 5, 50, 7, 54, 9, 58, 9, 62, 12, 63, 12, 67, 14, 67, 18, 67, 23, 67, 25, 67, 27, 67, 28, 67, 30, 67, 30, 64, 30, 60, 32, 51, 38, 51, 40, 51, 40, 54, 42, 56, 42, 58, 42, 60, 45, 61, 47, 61, 50, 61, 50, 58, 50, 58, 50, 67, 51, 67, 57, 67, 62, 67, 66, 67, 68, 67, 68, 54, 70, 52, 68, 50, 63, 50, 63, 39, 60, 37, 64, 33.7, 61.5, 32.6, 58.6, 35.5, 57, 33.3, 57, 31, 38.4, 31, 33, 34.2, 30, 32.7, 30, 31, 11.3, 31, 6.8, 34.3, 3, 32.7, 3, 36)
+
+[node name="ServingAreaLeft" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(95, 136)
+
+[node name="Sprite2D" type="Sprite2D" parent="ServingAreaLeft"]
+position = Vector2(57, -52)
 texture = ExtResource("10_02a38")
 
-[node name="Freezer Door" type="Node2D" parent="."]
+[node name="Collision" type="StaticBody2D" parent="ServingAreaLeft"]
+position = Vector2(-95, -136)
 
-[node name="Freezer Door Closed" type="Sprite2D" parent="Freezer Door"]
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="ServingAreaLeft/Collision"]
 position = Vector2(152, 84)
-texture = ExtResource("11_oulvk")
+build_mode = 1
+polygon = PackedVector2Array(-48, 36, -55, 43, -61, 49, -69, 57, -72, 60, -72, 68, -57, 68, -55, 66, -33, 44, -33, 38, -34, 36, -42, 36)
 
-[node name="Freezer Door Open" type="Sprite2D" parent="Freezer Door"]
+[node name="ServingAreaRight" type="Node2D" parent="."]
+unique_name_in_owner = true
 visible = false
+position = Vector2(111, 107)
+
+[node name="Sprite2D" type="Sprite2D" parent="ServingAreaRight"]
+position = Vector2(41, -23)
+texture = ExtResource("10_02a38")
+
+[node name="Collision2" type="StaticBody2D" parent="ServingAreaRight"]
+position = Vector2(-111, -107)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="ServingAreaRight/Collision2"]
 position = Vector2(152, 84)
+build_mode = 1
+polygon = PackedVector2Array(-48, 36, -55, 43, -61, 49, -69, 57, -72, 60, -72, 68, -57, 68, -55, 66, -33, 44, -33, 38, -34, 36, -42, 36)
+
+[node name="Freezer Door" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("11_eb2pe")
+
+[node name="FreezerDoorClosed" type="Node2D" parent="Freezer Door"]
+unique_name_in_owner = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Freezer Door/FreezerDoorClosed"]
+position = Vector2(152, 84)
+texture = ExtResource("11_s5d1m")
+
+[node name="FreezerDoorOpen" type="Node2D" parent="Freezer Door"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(21, 168)
+
+[node name="Sprite2D" type="Sprite2D" parent="Freezer Door/FreezerDoorOpen"]
+position = Vector2(131, -84)
 texture = ExtResource("12_6labj")
+
+[node name="InteractionArea" type="Area2D" parent="Freezer Door"]
+position = Vector2(22, 130)
+script = ExtResource("8_ebb8r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Freezer Door/InteractionArea"]
+position = Vector2(3, -23)
+shape = SubResource("RectangleShape2D_8bff8")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." groups=["CanvasLayer"]]
 scale = Vector2(5, 5)
@@ -116,5 +151,5 @@ transform = Transform2D(5, 0, 0, 5, 0, 0)
 
 [connection signal="body_entered" from="To_Main" to="." method="_on_to_main_body_entered"]
 [connection signal="body_entered" from="To_Main/To_Main_Left" to="." method="_on_to_main_left_body_entered"]
-[connection signal="area_entered" from="Meat/InteractionArea" to="Meat/InteractionArea" method="_on_area_entered"]
-[connection signal="area_exited" from="Meat/InteractionArea" to="Meat/InteractionArea" method="_on_area_exited"]
+[connection signal="area_entered" from="Freezer Door/InteractionArea" to="Freezer Door/InteractionArea" method="_on_area_entered"]
+[connection signal="area_exited" from="Freezer Door/InteractionArea" to="Freezer Door/InteractionArea" method="_on_area_exited"]

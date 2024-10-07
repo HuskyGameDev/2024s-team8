@@ -22,8 +22,9 @@ func _ready():
 func _on_interact():
 	player._swap_attention()
 	PositionManager.HasOrb = true
-	PositionManager.Inventory.append("res://Assets/dial.png")
+	PositionManager.Inventory.append("Orb")
 	PositionManager.InventoryText.append("A cool orb you found on the ground")
+	PositionManager.InventorySprite.append("res://Assets/dial.png")
 	DialogManager.start_dialog(global_position, lines, speech_sound, false)
 	await DialogManager.dialog_finished
 	set_visible(false)

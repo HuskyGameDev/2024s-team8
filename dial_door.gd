@@ -4,7 +4,7 @@ extends Node2D
 @onready var person = get_tree().get_first_node_in_group("Player")
 @onready var minigameScene = preload("res://directionalLock.tscn")
 @onready var Canvas = get_tree().get_first_node_in_group("CanvasLayer2")
-@onready var player = get_node("AnimationPlayer")
+#@onready var player = get_node("AnimationPlayer")
 
 var minigame = null
 

@@ -3,11 +3,17 @@ var HasLeft = true
 
 @onready var player = get_tree().get_first_node_in_group("Player")
 @onready var speech_sound = preload("res://Assets/voice_sans.mp3")
+@onready var meatSuit = $"%Meat Suit"
+
 
 # REMINDER: Could replace G with + InputMap.action_get_events("OBJECTIVE")[0].as_text() +, after finding out how to remove "(physical)"
 var lines: Array[String] = [
 	"I should press '" + InputMap.action_get_events("OBJECTIVE")[0].as_text() + "' to look over my notes...", 
 	""
+]
+
+const lines2: Array[String] = [
+	"Time to make the decoy suit. Hopefully this works!"
 ]
 
 # Called when the node enters the scene tree for the first time.
@@ -23,7 +29,27 @@ func _ready():
 		DialogManager.start_dialog(global_position, lines, speech_sound, false, false, true)
 		await DialogManager.dialog_finished
 		player._swap_attention()
-	pass # Replace with function body.
+	
+	if PositionManager.HasDefeatedMonster:
+		meatSuit.visible = true
+	elif PositionManager.HasMeat && PositionManager.HasHeatLamp && PositionManager.HasSpaceSuit:
+		player._swap_attention()
+		DialogManager.start_dialog(global_position, lines2, speech_sound, false, false)
+		await DialogManager.dialog_finished
+		meatSuit.visible = true
+		PositionManager.HasDefeatedMonster = true
+		var i = 0
+		for item in PositionManager.Inventory:
+			if item == "SpaceSuit" or item == "Meat" or item == "HeatLamp":
+				PositionManager.InventoryText.remove_at(i)
+				PositionManager.InventorySprite.remove_at(i)
+				i -= 1
+			i += 1
+		PositionManager.Inventory.erase("SpaceSuit")
+		PositionManager.Inventory.erase("Meat")
+		PositionManager.Inventory.erase("HeatLamp")
+		player._swap_attention()
+		
 
 #sets the act to 0 if the player walks in the room if they're in act is 1
 func _process(_delta):
@@ -32,15 +58,9 @@ func _process(_delta):
 
 #Switches to airlock scene
 func _on_to_hall_body_entered(body):
-	if Input.is_action_pressed("DOWN") && HasLeft && body.name == "Player":
-		$Player.hasAttention = !StageManager.scene_change
-		$Player/AnimationTree.set("active", !StageManager.scene_change)
+	if Input.is_action_pressed("DOWN") && body.name == "Player":
+		$Player.hasAttention = StageManager.scene_change
+		$Player/AnimationTree.set("active", StageManager.scene_change)
 		var AIRLOCK = load("res://Scenes/Main floor rooms/Airlock/airlock.tscn")
 		StageManager.changeScene(AIRLOCK, 155, 110, true)
 		StageManager.changeCamera(304)
-
-
-
-
-func _on_to_hall_body_exited(_body):
-	HasLeft = true

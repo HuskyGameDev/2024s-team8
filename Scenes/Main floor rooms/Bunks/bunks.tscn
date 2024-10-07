@@ -8,8 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://dpakxqjcwsx3s" path="res://Assets/bunk_tiles.png" id="5_1d6nq"]
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Bunks/Bed.gd" id="7_06b1p"]
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Bunks/spacesuit.gd" id="7_h3hhc"]
-[ext_resource type="Texture2D" uid="uid://ckbjqglj3pcgi" path="res://Assets/Spacesuit PNG.png" id="7_pmeib"]
 [ext_resource type="Script" path="res://Interaction/InteractionArea.gd" id="8_jj0ge"]
+[ext_resource type="Texture2D" uid="uid://cmdbks8hx2vn4" path="res://Assets/Inventory Icons/inventory-suit.png" id="8_pn6jj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_emwc2"]
 texture = ExtResource("5_1d6nq")
@@ -113,7 +113,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_emwc2")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rawo3"]
-size = Vector2(13, 29)
+size = Vector2(26, 4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ev6vh"]
 size = Vector2(24, 6)
@@ -180,18 +180,17 @@ unique_name_in_owner = true
 position = Vector2(153, 136)
 
 [node name="Spacesuit" type="Node2D" parent="."]
-position = Vector2(52, 110)
+position = Vector2(75, 119)
 script = ExtResource("7_h3hhc")
 
 [node name="Sprite2D" type="Sprite2D" parent="Spacesuit"]
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_pmeib")
+texture = ExtResource("8_pn6jj")
 
 [node name="InteractionArea" type="Area2D" parent="Spacesuit"]
 script = ExtResource("8_jj0ge")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spacesuit/InteractionArea"]
-position = Vector2(-1.5, 1.5)
+position = Vector2(-4, -4)
 shape = SubResource("RectangleShape2D_rawo3")
 
 [node name="Door trigger hallway" type="Area2D" parent="."]
@@ -208,10 +207,12 @@ script = ExtResource("7_06b1p")
 [node name="InteractionArea" type="Area2D" parent="Bed"]
 script = ExtResource("8_jj0ge")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bed/InteractionArea"]
+[node name="SpaceSuitBedInteraction" type="CollisionShape2D" parent="Bed/InteractionArea"]
+unique_name_in_owner = true
 position = Vector2(1.34295, -0.286064)
 skew = 0.820305
 shape = SubResource("RectangleShape2D_ukpfj")
+disabled = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Bed/InteractionArea"]
 position = Vector2(53.977, -1)

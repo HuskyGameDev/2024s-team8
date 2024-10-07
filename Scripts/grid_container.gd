@@ -7,5 +7,5 @@ func _ready() -> void:
 	var i = 0
 	for x in PositionManager.InventoryText:
 		get_child(i).text = x
-		get_child(i).texture = load(PositionManager.Inventory[i])
+		get_child(i).texture = load(PositionManager.InventorySprite[i])
 		i = i + 1

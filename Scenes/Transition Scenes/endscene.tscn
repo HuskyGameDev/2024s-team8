@@ -31,7 +31,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0.7, 2.7),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(572, 0), Vector2(572, 100)]
+"values": [Vector2(572, 0), Vector2(572, 90)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -43,7 +43,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0.7, 2.7),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(721, 905), Vector2(721, 452.5)]
+"values": [Vector2(721, 905), Vector2(721, 800)]
 }
 
 [sub_resource type="Animation" id="Animation_cxyj4"]
@@ -100,9 +100,10 @@ script = ExtResource("1_7dbqx")
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 572.0
-offset_right = 1372.0
-offset_bottom = 76.0
+offset_left = -388.0
+offset_top = 90.0
+offset_right = 412.0
+offset_bottom = 166.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0.333333, 0.0313726, 0.603922, 1)
 theme_override_colors/font_shadow_color = Color(0, 0.972549, 0, 0.909804)
@@ -110,6 +111,30 @@ theme_override_fonts/font = ExtResource("5_vqna1")
 theme_override_font_sizes/font_size = 80
 text = "Project: Helianth"
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Credits" type="Label" parent="ParallaxBackground"]
+z_index = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -785.0
+offset_top = 233.0
+offset_right = 803.0
+offset_bottom = 734.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.572549)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.909804)
+theme_override_fonts/font = ExtResource("5_vqna1")
+theme_override_font_sizes/font_size = 64
+text = "Anakyn Saylor - Programmer / Animation
+Liam Shahid - Programmer
+Luke Leinonen - Programmer / Animation
+Tyler Gingras - Programmer
+Chris Sargent - Art
+Hailey Engel - Story / Art
+Aidan Conrade - Sound / Music
+Jonah Rady - Sound / Ambience"
 vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -130,9 +155,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 721.0
-offset_top = 452.5
+offset_top = 800.0
 offset_right = 1199.0
-offset_bottom = 627.5
+offset_bottom = 975.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("2_f1fm1")

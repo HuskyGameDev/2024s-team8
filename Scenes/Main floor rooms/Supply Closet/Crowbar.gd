@@ -17,8 +17,9 @@ func _ready():
 
 func _on_interact():
 	player._swap_attention()
-	PositionManager.Inventory.append("res://Assets/wrench-gray.png")
+	PositionManager.Inventory.append("Wrench")
 	PositionManager.InventoryText.append("An ordinary wrench")
+	PositionManager.InventorySprite.append("res://Assets/wrench-gray.png")
 	DialogManager.start_dialog(global_position, lines, speech_sound, false, false)
 	await DialogManager.dialog_finished
 	player._swap_attention()

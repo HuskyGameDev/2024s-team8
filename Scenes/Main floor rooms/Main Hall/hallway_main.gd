@@ -21,10 +21,6 @@ const lines3: Array[String] = [
 	"Maybe I can make a decoy suit filled with warm meat, then lure it to the pod and eject it!"
 	]
 
-const lines4: Array[String] = [
-	"I've defeated the monster! Time to get out of here."
-	]
-
 # Called when the node enters the scene tree for the first time.
 
 func _ready():
@@ -45,18 +41,14 @@ func _ready():
 		DialogManager.start_dialog(global_position, lines3, speech_sound, false, false)
 		await DialogManager.dialog_finished
 		Player._swap_attention()
-	elif PositionManager.HasHeatLamp && PositionManager.HasMeat && PositionManager.HasSpaceSuit:
-		if !PositionManager.HasReadEscapeText2:
-			Player._swap_attention()
-			PositionManager.HasReadEscapeText2 = true
-			DialogManager.start_dialog(global_position, lines4, speech_sound, false, false)
-			await DialogManager.dialog_finished
-			Player._swap_attention()
-			
+		
+	
+	if PositionManager.HasDefeatedMonster:
 		#opens the commands door
 		CommandDoor.queue_free()
 		$"Door areas/Bridge".monitoring = true
 	
+
 
 #switches to the mess hall scene
 func _on_mess_hall_body_entered(body):
@@ -151,16 +143,9 @@ func _on_bridge_body_entered(body):
 	if Input.is_action_pressed("RIGHT"):
 		var COMMAND_DECK = load("res://Scenes/Main floor rooms/Command Deck/command_deck.tscn")
 		if body.name == "Player":
-			if PositionManager.Act != 1:
-				$Player.hasAttention = false
-				$Player/AnimationTree.set("active", false)
-				StageManager.changeScene(COMMAND_DECK, 122, 128)
-
-			else: #Command deck locked for first act 
-				Player._swap_attention()
-				DialogManager.start_dialog(global_position, lines2, speech_sound2, false)
-				await DialogManager.dialog_finished
-				Player._swap_attention()
+			$Player.hasAttention = false
+			$Player/AnimationTree.set("active", false)
+			StageManager.changeScene(COMMAND_DECK, 122, 128)
 
 
 func _on_bridge_body_exited(_body):

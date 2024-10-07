@@ -1,34 +1,27 @@
-[gd_scene load_steps=28 format=4 uid="uid://c67llndhruew1"]
+[gd_scene load_steps=23 format=4 uid="uid://c67llndhruew1"]
 
 [ext_resource type="Script" path="res://Scenes/Second floor rooms/Boiler Room/boiler_room.gd" id="1_0df65"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="2_atjwr"]
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="3_obose"]
 [ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="4_62ril"]
-[ext_resource type="Script" path="res://Scenes/Main floor rooms/Mess Hall/heat_lamp.gd" id="5_uwyyr"]
-[ext_resource type="Script" path="res://Scenes/Second floor rooms/Boiler Room/Note.gd" id="5_yip5h"]
-[ext_resource type="Texture2D" uid="uid://cgw12ywu1ep1c" path="res://Assets/HeatLamp.png" id="6_g6c3m"]
-[ext_resource type="Texture2D" uid="uid://b64doeqvowr0m" path="res://Assets/paper_note_sprite.png" id="6_oev6b"]
 [ext_resource type="Script" path="res://Interaction/InteractionArea.gd" id="7_53ave"]
 [ext_resource type="Texture2D" uid="uid://bktlg1e0mqj16" path="res://Assets/furniture_boiler_room.png" id="8_1yf3l"]
+[ext_resource type="Script" path="res://Scenes/Second floor rooms/Boiler Room/tool_drawer.gd" id="8_7mv85"]
 [ext_resource type="Script" path="res://Inventory/Valve.gd" id="8_fc2kb"]
-[ext_resource type="Texture2D" uid="uid://dpbcrop0gl3sv" path="res://Assets/valve_handle_singlesprite.png" id="9_fsjjk"]
 [ext_resource type="Texture2D" uid="uid://ccamcmvtc2hxf" path="res://Assets/steam cloud.png" id="10_8lpw5"]
 [ext_resource type="Texture2D" uid="uid://ifwjxa6vj0ji" path="res://Assets/Steam Particles/steam-partical-atlas.png" id="14_olx0f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rs3x6"]
 size = Vector2(24, 4)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_34f7t"]
-size = Vector2(22, 20)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_w72mb"]
-radius = 3.16228
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5x4ln"]
+size = Vector2(18, 25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8xd2i"]
 size = Vector2(38, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pdl6s"]
-size = Vector2(10, 35)
+size = Vector2(4.99997, 35)
 
 [sub_resource type="Curve" id="Curve_pw7vr"]
 _data = [Vector2(0, 0.197802), 0.0, 2.9916, 0, 0, Vector2(0.123596, 0.43956), 1.8778, 1.8778, 0, 0, Vector2(0.297753, 0.747253), 1.09538, 1.09538, 0, 0, Vector2(0.752809, 1), -0.0528658, -0.0528658, 0, 0, Vector2(1, 0.076923), -8.04153, 0.0, 0, 0]
@@ -95,8 +88,7 @@ use_parent_material = true
 tile_set = ExtResource("3_obose")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("4_62ril")]
-z_index = 1
-position = Vector2(204, 137)
+position = Vector2(230, 129)
 
 [node name="Boiler" type="Area2D" parent="."]
 position = Vector2(204, 164)
@@ -105,39 +97,17 @@ position = Vector2(204, 164)
 position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_rs3x6")
 
-[node name="Heat Lamp" type="Node2D" parent="."]
-visible = false
-y_sort_enabled = true
-position = Vector2(94, 95)
-script = ExtResource("5_uwyyr")
+[node name="Tool Drawer" type="Node2D" parent="."]
+position = Vector2(79, 92)
+script = ExtResource("8_7mv85")
 
-[node name="Sprite2D" type="Sprite2D" parent="Heat Lamp"]
-position = Vector2(0.999996, 12)
-scale = Vector2(0.025, 0.025)
-texture = ExtResource("6_g6c3m")
-
-[node name="InteractionArea" type="Area2D" parent="Heat Lamp"]
+[node name="InteractionArea" type="Area2D" parent="Tool Drawer"]
+position = Vector2(0, -5)
 script = ExtResource("7_53ave")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Heat Lamp/InteractionArea"]
-z_index = 1
-position = Vector2(1, 12)
-shape = SubResource("RectangleShape2D_34f7t")
-
-[node name="Note" type="Node2D" parent="." groups=["Note"]]
-position = Vector2(33, 122)
-script = ExtResource("5_yip5h")
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Note"]
-texture_filter = 1
-texture = ExtResource("6_oev6b")
-
-[node name="InteractionArea" type="Area2D" parent="Note"]
-script = ExtResource("7_53ave")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Note/InteractionArea"]
-shape = SubResource("CircleShape2D_w72mb")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tool Drawer/InteractionArea"]
+position = Vector2(-3, 14.5)
+shape = SubResource("RectangleShape2D_5x4ln")
 
 [node name="Furniture" type="Node2D" parent="."]
 
@@ -149,23 +119,6 @@ texture = ExtResource("8_1yf3l")
 position = Vector2(178, 100)
 script = ExtResource("8_fc2kb")
 metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Valve"]
-visible = false
-texture_filter = 1
-texture = ExtResource("9_fsjjk")
-
-[node name="Sprite2D2" type="Sprite2D" parent="Valve"]
-visible = false
-texture_filter = 1
-position = Vector2(25, 0)
-texture = ExtResource("9_fsjjk")
-
-[node name="Sprite2D3" type="Sprite2D" parent="Valve"]
-visible = false
-texture_filter = 1
-position = Vector2(50, 0)
-texture = ExtResource("9_fsjjk")
 
 [node name="InteractionArea" type="Area2D" parent="Valve"]
 script = ExtResource("7_53ave")
@@ -180,15 +133,18 @@ rotation = 0.226893
 metadata/_edit_group_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Fog"]
+scale = Vector2(1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fog/StaticBody2D"]
-position = Vector2(5.76161, -103.961)
+position = Vector2(2.12637, -104.148)
 rotation = -0.226893
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_pdl6s")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Fog"]
 visible = false
-position = Vector2(0.513239, -128.786)
+position = Vector2(0.513229, -128.786)
+scale = Vector2(1, 1)
 amount = 6
 lifetime = 0.85
 preprocess = 1.0
@@ -218,7 +174,8 @@ hue_variation_min = 0.1
 hue_variation_max = 1.0
 
 [node name="CPUParticles2D2" type="CPUParticles2D" parent="Fog"]
-position = Vector2(1.24795, -129.994)
+position = Vector2(1.24796, -129.994)
+scale = Vector2(1, 1)
 amount = 4
 lifetime = 0.85
 preprocess = 1.0
@@ -247,7 +204,8 @@ color = Color(0.858824, 0.858824, 0.858824, 0.741176)
 color_ramp = SubResource("Gradient_85e8v")
 
 [node name="CPUParticles2D3" type="CPUParticles2D" parent="Fog"]
-position = Vector2(1.24795, -129.994)
+position = Vector2(1.24796, -129.994)
+scale = Vector2(1, 1)
 amount = 4
 lifetime = 0.85
 preprocess = 1.0
@@ -276,7 +234,8 @@ color = Color(0.858824, 0.858824, 0.858824, 0.741176)
 color_ramp = SubResource("Gradient_85e8v")
 
 [node name="CPUParticles2D4" type="CPUParticles2D" parent="Fog"]
-position = Vector2(1.24795, -129.994)
+position = Vector2(1.24796, -129.994)
+scale = Vector2(1, 1)
 amount = 4
 lifetime = 0.85
 preprocess = 1.0
@@ -305,7 +264,8 @@ color = Color(0.858824, 0.858824, 0.858824, 0.741176)
 color_ramp = SubResource("Gradient_85e8v")
 
 [node name="CPUParticles2D5" type="CPUParticles2D" parent="Fog"]
-position = Vector2(1.24795, -129.994)
+position = Vector2(1.24796, -129.994)
+scale = Vector2(1, 1)
 amount = 4
 lifetime = 0.85
 preprocess = 1.0
@@ -334,7 +294,8 @@ color = Color(0.858824, 0.858824, 0.858824, 0.741176)
 color_ramp = SubResource("Gradient_85e8v")
 
 [node name="CPUParticles2D6" type="CPUParticles2D" parent="Fog"]
-position = Vector2(1.24795, -129.994)
+position = Vector2(1.24796, -129.994)
+scale = Vector2(1, 1)
 amount = 4
 lifetime = 0.85
 preprocess = 120.0
@@ -363,7 +324,8 @@ color = Color(0.858824, 0.858824, 0.858824, 0.741176)
 color_ramp = SubResource("Gradient_85e8v")
 
 [node name="CPUParticles2D7" type="CPUParticles2D" parent="Fog"]
-position = Vector2(1.24795, -129.994)
+position = Vector2(1.24796, -129.994)
+scale = Vector2(1, 1)
 amount = 4
 lifetime = 0.85
 preprocess = 1.0
@@ -396,10 +358,8 @@ scale = Vector2(5, 5)
 transform = Transform2D(5, 0, 0, 5, 0, 0)
 
 [connection signal="body_entered" from="Boiler" to="." method="_on_to_bottom_hallway_body_entered"]
-[connection signal="area_entered" from="Heat Lamp/InteractionArea" to="Heat Lamp/InteractionArea" method="_on_area_entered"]
-[connection signal="area_exited" from="Heat Lamp/InteractionArea" to="Heat Lamp/InteractionArea" method="_on_area_exited"]
-[connection signal="area_entered" from="Note/InteractionArea" to="Note/InteractionArea" method="_on_area_entered"]
-[connection signal="area_exited" from="Note/InteractionArea" to="Note/InteractionArea" method="_on_area_exited"]
+[connection signal="area_entered" from="Tool Drawer/InteractionArea" to="Tool Drawer/InteractionArea" method="_on_area_entered"]
+[connection signal="area_exited" from="Tool Drawer/InteractionArea" to="Tool Drawer/InteractionArea" method="_on_area_exited"]
 [connection signal="clear_fog" from="Valve" to="." method="_on_valve_clear_fog"]
 [connection signal="area_entered" from="Valve/InteractionArea" to="Valve/InteractionArea" method="_on_area_entered"]
 [connection signal="area_exited" from="Valve/InteractionArea" to="Valve/InteractionArea" method="_on_area_exited"]

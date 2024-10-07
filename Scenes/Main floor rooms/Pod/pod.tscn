@@ -24,7 +24,7 @@ size = Vector2(24, 5)
 size = Vector2(16, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_amobr"]
-size = Vector2(17, 28.5)
+size = Vector2(13, 11)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2hs07"]
 radius = 27.0
@@ -32,13 +32,13 @@ radius = 27.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_b5dkt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c1qwr"]
-size = Vector2(34.2817, 43.8714)
+size = Vector2(34.2817, 44.2282)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ctkce"]
-size = Vector2(30, 24)
+size = Vector2(30, 7)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j3y1k"]
-size = Vector2(63, 11.5)
+size = Vector2(63, 7.5)
 
 [node name="Pod" type="Node2D"]
 y_sort_enabled = true
@@ -116,7 +116,7 @@ shape = SubResource("RectangleShape2D_5et5p")
 script = ExtResource("8_pijyp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chair/InteractionArea"]
-position = Vector2(0, 1.75)
+position = Vector2(0.5, 10.5)
 shape = SubResource("RectangleShape2D_amobr")
 
 [node name="Orb" type="Node2D" parent="."]
@@ -150,10 +150,11 @@ position = Vector2(215, 119)
 script = ExtResource("11_i2y8d")
 
 [node name="InteractionArea" type="Area2D" parent="Desk"]
+priority = 2
 script = ExtResource("8_pijyp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Desk/InteractionArea"]
-position = Vector2(25.4952, 16.625)
+position = Vector2(25.368, 16.5)
 skew = -0.794125
 shape = SubResource("RectangleShape2D_c1qwr")
 
@@ -171,6 +172,7 @@ texture = ExtResource("14_gc7et")
 script = ExtResource("8_pijyp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DogPoster/InteractionArea"]
+position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_ctkce")
 
 [node name="Outside" type="Node2D" parent="."]
@@ -179,10 +181,11 @@ position = Vector2(164, 93)
 script = ExtResource("15_oe2i3")
 
 [node name="InteractionArea" type="Area2D" parent="Outside"]
+priority = 1
 script = ExtResource("8_pijyp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Outside/InteractionArea"]
-position = Vector2(19.5, 4.25)
+position = Vector2(19.5, 2.25)
 shape = SubResource("RectangleShape2D_j3y1k")
 
 [node name="Controls" type="TileMap" parent="."]
@@ -199,10 +202,11 @@ use_parent_material = true
 tile_map_data = PackedByteArray("AAAaAA0AAAAAAAAAAAAbAA4AAAABAAAAAAAcAA8AAAAOAAAAAAAdABAAAAARAAAAAAAaAA4AAAACAAAAAAAbAA8AAAACAAAAAAAcABAAAAACAAAAAAAfABEAAAAFAAAAAAAeABEAAAAFAAAAAAAdABEAAAACAAAAAAAeAA8AAAAQAAAAAAAdAA4AAAAMAAAAAAAcAA0AAAAIAAAAAAAbAA0AAAAXAAAAAAAdAA8AAAAPAAAAAAAeABAAAAASAAAAAAAcAA4AAAALAAAAAAAfABAAAAADAAAAAAAdAA0AAAAJAAAAAAAeAA4AAAANAAAAAAA=")
 tile_set = ExtResource("16_gn7oi")
 
-[node name="meatsuit" type="Node2D" parent="."]
+[node name="Meat Suit" type="Node2D" parent="."]
+unique_name_in_owner = true
 visible = false
 
-[node name="Sprite2D" type="Sprite2D" parent="meatsuit"]
+[node name="Sprite2D" type="Sprite2D" parent="Meat Suit"]
 position = Vector2(97, 127)
 texture = ExtResource("16_dyq57")
 

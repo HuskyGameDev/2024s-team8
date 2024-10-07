@@ -1,6 +1,5 @@
-[gd_scene load_steps=4 format=3 uid="uid://3uswv3g7ylu5"]
+[gd_scene load_steps=3 format=3 uid="uid://3uswv3g7ylu5"]
 
-[ext_resource type="Texture2D" uid="uid://dmlam2x8y2gjp" path="res://Assets/cursor_PNG45.png" id="1_olfb0"]
 [ext_resource type="Script" path="res://Scripts/InventoryNode.gd" id="1_oy8sx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_foh2y"]
@@ -17,7 +16,6 @@ corner_radius_bottom_left = 15
 [node name="InventoryNode" type="TextureRect"]
 z_index = 1
 custom_minimum_size = Vector2(50, 50)
-texture = ExtResource("1_olfb0")
 expand_mode = 1
 script = ExtResource("1_oy8sx")
 
