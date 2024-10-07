@@ -12,15 +12,11 @@ const lines: Array[String] = [
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	StageManager.changeCamera(488)
-
 	#while (StageManager.scene_change == true):
 		#$Player.hasAttention = !StageManager.scene_change
 		#$Player/AnimationTree.set("active", !StageManager.scene_change)
 	#$Player.hasAttention = !StageManager.scene_change
 	#$Player/AnimationTree.set("active", !StageManager.scene_change)
-
-	
-
 	pass # Replace with function body.
 
 

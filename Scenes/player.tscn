@@ -481,12 +481,8 @@ color = Color(0.345098, 0.270588, 0.458824, 1)
 texture = ExtResource("14_5k8th")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Lighting"]
-<<<<<<< Updated upstream
 visible = false
 occluder = ExtResource("11_2q6xh")
-=======
-occluder = ExtResource("11_4jkc8")
->>>>>>> Stashed changes
 
 [node name="PointLight2DSource" type="PointLight2D" parent="Lighting"]
 position = Vector2(-7.15256e-07, 0)
