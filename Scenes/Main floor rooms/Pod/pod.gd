@@ -32,7 +32,6 @@ func _ready():
 		await get_tree().create_timer(1).timeout
 		DialogManager.start_dialog(global_position, lines, speech_sound, false, false, true)
 		await DialogManager.dialog_finished
-
 		player._swap_attention()
 	
 	if PositionManager.HasDefeatedMonster:
@@ -56,7 +55,6 @@ func _ready():
 		player._swap_attention()
 		
 
-
 #sets the act to 0 if the player walks in the room if they're in act is 1
 func _process(_delta):
 	if Input.is_action_just_pressed("F") and PositionManager.Act == 3:
@@ -79,11 +77,9 @@ func _process(_delta):
 
 #Switches to airlock scene
 func _on_to_hall_body_entered(body):
-
 	if Input.is_action_pressed("DOWN") && body.name == "Player":
 		$Player.hasAttention = StageManager.scene_change
 		$Player/AnimationTree.set("active", StageManager.scene_change)
-
 		var AIRLOCK = load("res://Scenes/Main floor rooms/Airlock/airlock.tscn")
 		StageManager.changeScene(AIRLOCK, 155, 110, true)
 		StageManager.changeCamera(304)
