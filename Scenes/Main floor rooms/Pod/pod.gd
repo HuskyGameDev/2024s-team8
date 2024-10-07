@@ -28,16 +28,19 @@ func _ready():
 	if PositionManager.Act < 1:
 		PositionManager.Act = 0
 	if !PositionManager.HasOpenedTutorial && PositionManager.StartFromBeginning:
-		player._swap_attention()
+		if $Player.hasAttention == true:
+			player._swap_attention()
 		await get_tree().create_timer(1).timeout
 		DialogManager.start_dialog(global_position, lines, speech_sound, false, false, true)
 		await DialogManager.dialog_finished
-		player._swap_attention()
+		if $Player.hasAttention == false:
+			player._swap_attention()
 	
 	if PositionManager.HasDefeatedMonster:
 		meatSuit.visible = true
 	elif PositionManager.HasMeat && PositionManager.HasHeatLamp && PositionManager.HasSpaceSuit:
-		player._swap_attention()
+		if $Player.hasAttention == true:
+			player._swap_attention()
 		DialogManager.start_dialog(global_position, lines2, speech_sound, false, false)
 		await DialogManager.dialog_finished
 		meatSuit.visible = true
@@ -52,13 +55,15 @@ func _ready():
 		PositionManager.Inventory.erase("SpaceSuit")
 		PositionManager.Inventory.erase("Meat")
 		PositionManager.Inventory.erase("HeatLamp")
-		player._swap_attention()
+		if $Player.hasAttention == false:
+			player._swap_attention()
 		
 
 #sets the act to 0 if the player walks in the room if they're in act is 1
 func _process(_delta):
 	if Input.is_action_just_pressed("F") and PositionManager.Act == 3:
-		player._swap_attention()
+		if $Player.hasAttention == true:
+			player._swap_attention()
 		player.animMove = true
 		meatSuit.visible = true
 	if PositionManager.Act == 1:
