@@ -57,6 +57,7 @@ func _on_mess_hall_body_entered(body):
 		if body.name == "Player":
 			$Player.hasAttention = false
 			$Player/AnimationTree.set("active", false)
+			StageManager.player_facing = Vector2(0, 1)
 			StageManager.changeScene(MESS, 232, 120)
 	
 
@@ -71,6 +72,7 @@ func _on_research_room_body_entered(body):
 		if body.name == "Player":
 			$Player.hasAttention = false
 			$Player/AnimationTree.set("active", false)
+			StageManager.player_facing = Vector2(0, 1)
 			StageManager.changeScene(RESEARCH, 80, 128)
 
 
@@ -85,6 +87,7 @@ func _on_pod_body_entered(body):
 		if body.name == "Player":
 			$Player.hasAttention = false
 			$Player/AnimationTree.set("active", false)
+			StageManager.player_facing = Vector2(0, -1)
 			StageManager.changeScene(AIRLOCK, 158, 126) 
 
 
@@ -98,6 +101,7 @@ func _on_bunks_body_entered(body):
 		if body.name == "Player":
 			$Player.hasAttention = false
 			$Player/AnimationTree.set("active", false)
+			StageManager.player_facing = Vector2(0, -1)
 			StageManager.changeScene(BUNKS, 53, 144)
 
 	
@@ -112,6 +116,7 @@ func _on_supply_closet_body_entered(body):
 		if body.name == "Player":
 			$Player.hasAttention = false
 			$Player/AnimationTree.set("active", false)
+			StageManager.player_facing = Vector2(0, -1)
 			StageManager.changeScene(SUPPLY, 124, 116)
 
 
@@ -125,6 +130,7 @@ func _on_stairs_body_entered(body):
 		if PositionManager.Act != 1 && Input.is_action_pressed("UP"):
 			$Player.hasAttention = false
 			$Player/AnimationTree.set("active", false)
+			StageManager.player_facing = Vector2(0, -1)
 			StageManager.changeScene(STAIRS, 59, 89)
 
 		else:
@@ -145,6 +151,7 @@ func _on_bridge_body_entered(body):
 		if body.name == "Player":
 			$Player.hasAttention = false
 			$Player/AnimationTree.set("active", false)
+			StageManager.player_facing = Vector2(1, 0)
 			StageManager.changeScene(COMMAND_DECK, 122, 128)
 
 
@@ -158,6 +165,7 @@ func _on_mess_hall_left_body_entered(body):
 			var MESS = load("res://Scenes/Main floor rooms/Mess Hall/mess_hall.tscn")
 			$Player.hasAttention = false
 			$Player/AnimationTree.set("active", false)
+			StageManager.player_facing = Vector2(0, 1)
 			StageManager.changeScene(MESS, 61, 115)
 
 	pass # Replace with function body.
@@ -169,6 +177,7 @@ func _on_to_research_right_body_entered(body: Node2D) -> void:
 			var RESEARCH = load("res://Scenes/Main floor rooms/Research/research1.tscn")
 			$Player.hasAttention = false
 			$Player/AnimationTree.set("active", false)
+			StageManager.player_facing = Vector2(0, 1)
 			StageManager.changeScene(RESEARCH, 225, 116)
 
 			pass # Replace with function body.

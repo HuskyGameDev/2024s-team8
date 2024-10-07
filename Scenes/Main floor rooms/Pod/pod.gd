@@ -81,6 +81,7 @@ func _on_to_hall_body_entered(body):
 		$Player.hasAttention = StageManager.scene_change
 		$Player/AnimationTree.set("active", StageManager.scene_change)
 		var AIRLOCK = load("res://Scenes/Main floor rooms/Airlock/airlock.tscn")
+		StageManager.player_facing = Vector2(0, 1)
 		StageManager.changeScene(AIRLOCK, 155, 110, true)
 		StageManager.changeCamera(304)
 
