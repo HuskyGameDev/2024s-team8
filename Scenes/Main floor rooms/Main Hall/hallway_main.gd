@@ -143,12 +143,11 @@ func _on_bridge_body_entered(body):
 	if Input.is_action_pressed("RIGHT"):
 		var COMMAND_DECK = load("res://Scenes/Main floor rooms/Command Deck/command_deck.tscn")
 		if body.name == "Player":
-<<<<<<< Updated upstream
+
 			$Player.hasAttention = false
 			$Player/AnimationTree.set("active", false)
 			StageManager.changeScene(COMMAND_DECK, 122, 128)
-=======
->>>>>>> Stashed changes
+
 
 
 func _on_bridge_body_exited(_body):
