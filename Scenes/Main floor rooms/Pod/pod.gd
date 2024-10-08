@@ -23,6 +23,7 @@ const lines2: Array[String] = [
 #checks if act is between 1 and 0? if so sets it to 0
 func _ready():
 	
+	PositionManager.hasDecoy = PositionManager.HasMeat and PositionManager.HasSpaceSuit and PositionManager.HasHeatLamp
 	$Heli.visible = false
 	meatSuit.visible = false
 	if PositionManager.Act < 1:
@@ -61,9 +62,8 @@ func _ready():
 
 #sets the act to 0 if the player walks in the room if they're in act is 1
 func _process(_delta):
-	if Input.is_action_just_pressed("F") and PositionManager.Act == 3:
-		if $Player.hasAttention == true:
-			player._swap_attention()
+	if Input.is_action_just_pressed("F") and PositionManager.Act == 3 and PositionManager.hasDecoy:
+		player._swap_attention()
 		player.animMove = true
 		meatSuit.visible = true
 	if PositionManager.Act == 1:

@@ -7,6 +7,7 @@ var HasOrb = false
 var HasSpaceSuit = false
 var HasHeatLamp = false
 var HasMeat = false
+var hasDecoy = false
 var HasOpenedVent = false
 var StartFromBeginning = false
 var hasClearedPipe = false
@@ -43,8 +44,7 @@ var musicVolume = 0.5
 var sfxVolume = 0.5
 var dialogueVolume = 0.5
 var heliDistracted = false
-var lastKnownPos = Vector2()
-var heliDefeated = false
+var lastKnownPos = Vector2.ZERO
 
 
 #func _process(delta):

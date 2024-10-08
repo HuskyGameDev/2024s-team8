@@ -165,5 +165,6 @@ func _physics_process(delta):
 		velocity = velocity.normalized() * playerSpeed
 	
 	#position += velocity * delta
-	move_and_collide(velocity * delta)
+	
+	move_and_slide() # Doesn't use delta, might cause differences between fps
 	#position = position.clamp(Vector2.ZERO, screen_size)
