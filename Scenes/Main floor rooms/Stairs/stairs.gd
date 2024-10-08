@@ -30,7 +30,6 @@ func _on_to_first_floor_body_entered(body):
 		var HALLWAY_MAIN = load("res://Scenes/Main floor rooms/Main Hall/hallway_main.tscn")
 		StageManager.player_facing = Vector2(0, 1)
 		StageManager.changeScene(HALLWAY_MAIN, 134, 113)
-
 		StageManager.on_first_floor = true
 
 

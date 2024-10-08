@@ -44,7 +44,7 @@ func _ready():
 		position = StageManager.player_position
 	if PositionManager.StartFromBeginning:
 		get_node("Camera2D").limit_right = StageManager.right_camera_limit
-	if StageManager.scene_change && PositionManager.HasOpenedTutorial:
+	if StageManager.scene_change && PositionManager.HasOpenedTutorial && PositionManager.HasReadEscapeText && !(PositionManager.HasMeat && PositionManager.HasHeatLamp && PositionManager.HasSpaceSuit):
 		hasAttention = false
 		await StageManager.Scene_change 
 		hasAttention = true

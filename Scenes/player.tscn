@@ -478,11 +478,11 @@ show_behind_parent = true
 visible = false
 position = Vector2(-7.15256e-07, 0)
 color = Color(0.345098, 0.270588, 0.458824, 1)
-texture = ExtResource("14_5k8th")
+texture = ExtResource("18_bc6bk")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Lighting"]
 visible = false
-occluder = ExtResource("11_2q6xh")
+occluder = ExtResource("11_4jkc8")
 
 [node name="PointLight2DSource" type="PointLight2D" parent="Lighting"]
 position = Vector2(-7.15256e-07, 0)
@@ -493,7 +493,6 @@ texture = SubResource("GradientTexture2D_m7p6r")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("7_kont8")
 hframes = 16
-frame = 8
 
 [node name="InteractionParent" type="Area2D" parent="." groups=["InteractionParent"]]
 position = Vector2(0, 2)
@@ -544,7 +543,7 @@ speed_scale = 0.35
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_mx38p")
 anim_player = NodePath("../AnimationPlayer")
-parameters/Idle/blend_position = Vector2(-0.263492, 0.0925109)
+parameters/Idle/blend_position = Vector2(-0.000789881, 0.408971)
 parameters/Moving/blend_position = Vector2(0.00105822, -0.0133333)
 
 [node name="PauseLayer" type="CanvasLayer" parent="."]
