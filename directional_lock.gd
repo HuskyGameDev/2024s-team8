@@ -1,6 +1,6 @@
 extends Control
 
-var poemCode = ['w', 'd', 'a', 'w', 'a']
+var poemCode = ['w', 'w', 'd', 's', 'w', 'a']
 var userInput = []
 var lockStates = []
 var currentIndex = 0

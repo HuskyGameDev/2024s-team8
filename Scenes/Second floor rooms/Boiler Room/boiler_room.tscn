@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://c67llndhruew1"]
+[gd_scene load_steps=26 format=4 uid="uid://c67llndhruew1"]
 
 [ext_resource type="Script" path="res://Scenes/Second floor rooms/Boiler Room/boiler_room.gd" id="1_0df65"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="2_atjwr"]
@@ -9,6 +9,8 @@
 [ext_resource type="Script" path="res://Scenes/Second floor rooms/Boiler Room/tool_drawer.gd" id="8_7mv85"]
 [ext_resource type="Script" path="res://Inventory/Valve.gd" id="8_fc2kb"]
 [ext_resource type="Texture2D" uid="uid://ccamcmvtc2hxf" path="res://Assets/steam cloud.png" id="10_8lpw5"]
+[ext_resource type="Script" path="res://Scenes/Second floor rooms/Boiler Room/poem.gd" id="11_d5d4h"]
+[ext_resource type="Texture2D" uid="uid://b64doeqvowr0m" path="res://Assets/paper_note_sprite.png" id="12_txjk0"]
 [ext_resource type="Texture2D" uid="uid://ifwjxa6vj0ji" path="res://Assets/Steam Particles/steam-partical-atlas.png" id="14_olx0f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rs3x6"]
@@ -55,6 +57,9 @@ region = Rect2(64, 0, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_3i5ej"]
 atlas = ExtResource("14_olx0f")
 region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d6ugu"]
+radius = 11.0
 
 [node name="Boiler_Room" type="Node2D"]
 y_sort_enabled = true
@@ -133,18 +138,14 @@ rotation = 0.226893
 metadata/_edit_group_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Fog"]
-scale = Vector2(1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fog/StaticBody2D"]
 position = Vector2(2.12637, -104.148)
 rotation = -0.226893
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_pdl6s")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Fog"]
-visible = false
 position = Vector2(0.513229, -128.786)
-scale = Vector2(1, 1)
 amount = 6
 lifetime = 0.85
 preprocess = 1.0
@@ -175,7 +176,6 @@ hue_variation_max = 1.0
 
 [node name="CPUParticles2D2" type="CPUParticles2D" parent="Fog"]
 position = Vector2(1.24796, -129.994)
-scale = Vector2(1, 1)
 amount = 4
 lifetime = 0.85
 preprocess = 1.0
@@ -205,7 +205,6 @@ color_ramp = SubResource("Gradient_85e8v")
 
 [node name="CPUParticles2D3" type="CPUParticles2D" parent="Fog"]
 position = Vector2(1.24796, -129.994)
-scale = Vector2(1, 1)
 amount = 4
 lifetime = 0.85
 preprocess = 1.0
@@ -235,7 +234,6 @@ color_ramp = SubResource("Gradient_85e8v")
 
 [node name="CPUParticles2D4" type="CPUParticles2D" parent="Fog"]
 position = Vector2(1.24796, -129.994)
-scale = Vector2(1, 1)
 amount = 4
 lifetime = 0.85
 preprocess = 1.0
@@ -265,7 +263,6 @@ color_ramp = SubResource("Gradient_85e8v")
 
 [node name="CPUParticles2D5" type="CPUParticles2D" parent="Fog"]
 position = Vector2(1.24796, -129.994)
-scale = Vector2(1, 1)
 amount = 4
 lifetime = 0.85
 preprocess = 1.0
@@ -295,7 +292,6 @@ color_ramp = SubResource("Gradient_85e8v")
 
 [node name="CPUParticles2D6" type="CPUParticles2D" parent="Fog"]
 position = Vector2(1.24796, -129.994)
-scale = Vector2(1, 1)
 amount = 4
 lifetime = 0.85
 preprocess = 120.0
@@ -325,7 +321,6 @@ color_ramp = SubResource("Gradient_85e8v")
 
 [node name="CPUParticles2D7" type="CPUParticles2D" parent="Fog"]
 position = Vector2(1.24796, -129.994)
-scale = Vector2(1, 1)
 amount = 4
 lifetime = 0.85
 preprocess = 1.0
@@ -357,9 +352,26 @@ color_ramp = SubResource("Gradient_85e8v")
 scale = Vector2(5, 5)
 transform = Transform2D(5, 0, 0, 5, 0, 0)
 
+[node name="Poem" type="Node2D" parent="." groups=["Poem"]]
+position = Vector2(32.5, 125)
+script = ExtResource("11_d5d4h")
+
+[node name="Sprite2D" type="Sprite2D" parent="Poem" groups=["Poem"]]
+rotation = -0.785398
+skew = -0.785398
+texture = ExtResource("12_txjk0")
+
+[node name="InteractionArea" type="Area2D" parent="Poem"]
+script = ExtResource("7_53ave")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Poem/InteractionArea"]
+shape = SubResource("CircleShape2D_d6ugu")
+
 [connection signal="body_entered" from="Boiler" to="." method="_on_to_bottom_hallway_body_entered"]
 [connection signal="area_entered" from="Tool Drawer/InteractionArea" to="Tool Drawer/InteractionArea" method="_on_area_entered"]
 [connection signal="area_exited" from="Tool Drawer/InteractionArea" to="Tool Drawer/InteractionArea" method="_on_area_exited"]
 [connection signal="clear_fog" from="Valve" to="." method="_on_valve_clear_fog"]
 [connection signal="area_entered" from="Valve/InteractionArea" to="Valve/InteractionArea" method="_on_area_entered"]
 [connection signal="area_exited" from="Valve/InteractionArea" to="Valve/InteractionArea" method="_on_area_exited"]
+[connection signal="area_entered" from="Poem/InteractionArea" to="Poem/InteractionArea" method="_on_area_entered"]
+[connection signal="area_exited" from="Poem/InteractionArea" to="Poem/InteractionArea" method="_on_area_exited"]

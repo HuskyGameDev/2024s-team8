@@ -12,7 +12,6 @@ signal clear_fog()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	StageManager.changeCamera(1000)
 	interaction_area.interact = Callable(self, "_on_interact")
 	pass # Replace with function body.
 

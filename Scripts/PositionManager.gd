@@ -2,6 +2,7 @@ extends Node
 
 var Position = Vector2.ZERO
 var PrevPosition = Vector2.ZERO
+var HasPoem = false
 var HasCrowbar = false
 var HasOrb = false
 var HasSpaceSuit = false

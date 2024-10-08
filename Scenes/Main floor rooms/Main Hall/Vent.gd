@@ -22,7 +22,7 @@ func _on_interact():
 		player._swap_attention()
 		PositionManager.HasOpenedVent = true
 		get_node("Sprite2D").queue_free()
-		StageManager.player_facing = Vector2(0, 1)
+		StageManager.player_facing = Vector2(-1, 0)
 		StageManager.changeScene(POWER_ROOM, 184, 120)
 		StageManager.changeCamera(304)
 		StageManager.on_first_floor = false

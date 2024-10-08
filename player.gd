@@ -44,7 +44,7 @@ func _ready():
 		position = StageManager.player_position
 	if PositionManager.StartFromBeginning:
 		get_node("Camera2D").limit_right = StageManager.right_camera_limit
-	if StageManager.scene_change && PositionManager.HasOpenedTutorial && PositionManager.HasReadEscapeText && !(PositionManager.HasMeat && PositionManager.HasHeatLamp && PositionManager.HasSpaceSuit):
+	if StageManager.scene_change && PositionManager.HasOpenedTutorial && PositionManager.HasReadEscapeText && !PositionManager.hasDecoy:
 		hasAttention = false
 		await StageManager.Scene_change 
 		hasAttention = true
@@ -109,7 +109,7 @@ func _process(_delta):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #allows player to collide with objects also deals with player movement and animation
-func _physics_process(delta):
+func _physics_process(_delta):
 	if animMove:
 		
 		if animVec == Vector2.ZERO:

@@ -12,7 +12,7 @@ extends Node2D
 var Button1 = false
 var Button2 = false
 
-var count = 0
+
 
 const lines: Array[String] = [
 	"The door is sealed shut."
@@ -52,7 +52,7 @@ func _ready():
 	
 	
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("F") and PositionManager.heliDistracted and !PositionManager.HasDefeatedMonster and PositionManager.OpenedAirlock:
 		PositionManager.lastKnownPos.x = player.position.x
 		PositionManager.lastKnownPos.y = player.position.y

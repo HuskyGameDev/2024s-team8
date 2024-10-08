@@ -20,7 +20,7 @@ size = Vector2(24, 32)
 size = Vector2(24, 5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1awhh"]
-size = Vector2(24, 4.5)
+size = Vector2(24, 5.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y5ilf"]
 size = Vector2(8, 10)
@@ -190,7 +190,7 @@ shape = SubResource("RectangleShape2D_7hcie")
 [node name="to_pod" type="Area2D" parent="." groups=["to_pod"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="to_pod"]
-position = Vector2(156, 109.75)
+position = Vector2(156, 110.25)
 shape = SubResource("RectangleShape2D_1awhh")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("4_2uors")]
