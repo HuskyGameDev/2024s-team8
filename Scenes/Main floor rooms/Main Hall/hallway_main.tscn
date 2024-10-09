@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://cfl3tm624omie"]
+[gd_scene load_steps=36 format=4 uid="uid://cfl3tm624omie"]
 
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Main Hall/hallway_main.gd" id="1_uyxqv"]
 [ext_resource type="Texture2D" uid="uid://db5cscw8pfccj" path="res://Assets/room_tilemap_modular.png" id="2_kjoew"]
@@ -25,7 +25,10 @@ size = Vector2(24, 46)
 size = Vector2(22.6274, 5.65685)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k20lw"]
-size = Vector2(20, 44)
+size = Vector2(20, 27)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kuo3m"]
+size = Vector2(16, 33)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4fyx4"]
 texture = ExtResource("2_kjoew")
@@ -211,7 +214,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" parent="Player" index="2" groups=["PlayerSprite"]]
 
 [node name="Locker" type="Node2D" parent="."]
-position = Vector2(302, 107)
+position = Vector2(302, 109)
 script = ExtResource("5_3gse4")
 
 [node name="Sprite2D" type="Sprite2D" parent="Locker"]
@@ -222,8 +225,14 @@ texture = ExtResource("6_kjlwu")
 script = ExtResource("7_browe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Locker/InteractionArea"]
-position = Vector2(-5, 6)
+position = Vector2(-5, -3.5)
 shape = SubResource("RectangleShape2D_k20lw")
+
+[node name="Collision" type="StaticBody2D" parent="Locker"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Locker/Collision"]
+position = Vector2(-5, 7.5)
+shape = SubResource("RectangleShape2D_kuo3m")
 
 [node name="Collision" type="TileMap" parent="."]
 visible = false

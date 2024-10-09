@@ -97,6 +97,7 @@ _data = {
 size = Vector2(104, 66)
 
 [node name="Flower" type="CharacterBody2D"]
+visible = false
 script = ExtResource("1_wo8lc")
 
 [node name="PhysicsCollision" type="CollisionPolygon2D" parent="."]
@@ -131,6 +132,7 @@ debug_color = Color(0.57, 0.52744, 0.4788, 0.435294)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2
+visible = false
 follow_viewport_enabled = true
 
 [node name="Node2D" parent="CanvasLayer" instance=ExtResource("3_lrjyn")]

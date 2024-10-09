@@ -197,7 +197,9 @@ tile_map_data = PackedByteArray("AAABABIAAAAPAAAAAAAhAA8AAAAHAAAAAAAiAAoAAAAHAAA
 tile_set = ExtResource("3_2402i")
 
 [node name="Line Detail" type="TileMapLayer" parent="Background2"]
+z_index = 3
 use_parent_material = true
+tile_map_data = PackedByteArray("AAAkAAsAAAARAAAAAAAkAAoAAAARAAAAAAAjAAoAAAARAAAAAAAkAAkAAAARAAAAAAAjAAkAAAARAAAAAAAiAAkAAAARAAAAAAAiAAgAAAARAAAAAAAjAAgAAAARAAAAAAAkAAgAAAARAAAAAAAkAAcAAAARAAAAAAAjAAcAAAARAAAAAAAiAAcAAAARAAAAAAAiAAYAAAARAAAAAAAjAAYAAAARAAAAAAAkAAYAAAARAAAAAAAkAAUAAAARAAAAAAAjAAUAAAARAAAAAAAiAAUAAAARAAAAAAAiAAQAAAARAAAAAAAjAAQAAAARAAAAAAAkAAQAAAARAAAAAAAkAAwAAAAHAAAAAAAjAAsAAAAHAAAAAAAiAAoAAAAHAAAAAAA=")
 tile_set = ExtResource("3_2402i")
 
 [node name="Door" type="Area2D" parent="."]
@@ -211,7 +213,7 @@ skew = -0.785398
 shape = SubResource("RectangleShape2D_53vpq")
 
 [node name="Powered Door" type="StaticBody2D" parent="." groups=["P-Door"]]
-position = Vector2(284, 120.5)
+position = Vector2(284, 120)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Powered Door"]
@@ -238,7 +240,9 @@ tile_map_data = PackedByteArray("AAAhAA8AAAAHAAAAAAAkABIAAAAHAAAAAAAiAAoAAAACAAA
 tile_set = ExtResource("3_2402i")
 
 [node name="Line Detail" type="TileMapLayer" parent="Background"]
+z_index = 3
 use_parent_material = true
+tile_map_data = PackedByteArray("AAAkABEAAAARAAAAAAAkABAAAAARAAAAAAAkAA8AAAARAAAAAAAkAA4AAAARAAAAAAAkAA0AAAARAAAAAAAkAAwAAAARAAAAAAA=")
 tile_set = ExtResource("3_2402i")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("5_hbqsc")]
@@ -296,6 +300,7 @@ scale = Vector2(3, 3)
 shape = SubResource("CircleShape2D_svskc")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." groups=["CanvasLayer"]]
+layer = 5
 scale = Vector2(5, 5)
 transform = Transform2D(5, 0, 0, 5, 0, 0)
 

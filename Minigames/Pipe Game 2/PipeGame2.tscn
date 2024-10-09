@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://Minigames/Pipe Game 2/Row4Two.gd" id="8_nsu76"]
 [ext_resource type="Script" path="res://Minigames/Pipe Game 2/Row5Two.gd" id="9_1k876"]
 [ext_resource type="Texture2D" uid="uid://8hfqimxxm6ce" path="res://Assets/puzzle_pipes/New Pipes/010.png" id="10_hqv0u"]
-[ext_resource type="Texture2D" uid="uid://dmlam2x8y2gjp" path="res://Assets/cursor_PNG45.png" id="10_smbww"]
+[ext_resource type="Texture2D" uid="uid://xedf5es1uqvk" path="res://Assets/arrow.png" id="11_du1wi"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_mcxtl"]
 
@@ -209,5 +209,4 @@ texture = ExtResource("10_hqv0u")
 
 [node name="Cursor" type="Sprite2D" parent="." groups=["Cursor"]]
 position = Vector2(97, 35)
-scale = Vector2(0.005, 0.005)
-texture = ExtResource("10_smbww")
+texture = ExtResource("11_du1wi")
