@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://defeat.gd" id="1_kgjxm"]
 [ext_resource type="PackedScene" uid="uid://ca1eqme7qndxw" path="res://Scenes/background.tscn" id="1_nu6xs"]
-[ext_resource type="Texture2D" uid="uid://mvetj5pcsap" path="res://Assets/icon.svg" id="2_t60ij"]
 [ext_resource type="Texture2D" uid="uid://0tik15ssrfpo" path="res://Assets/Circle.png" id="3_aps43"]
+[ext_resource type="Texture2D" uid="uid://kcjuf1nm0a2e" path="res://Assets/small_ship_empty.png" id="3_qiqkh"]
 
 [sub_resource type="Gradient" id="Gradient_k61bc"]
 offsets = PackedFloat32Array(0.52, 1)
@@ -112,8 +112,9 @@ scale = Vector2(15, 15)
 metadata/_edit_group_ = true
 
 [node name="Small Ship Sprite" type="Sprite2D" parent="Small Ship"]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_t60ij")
+scale = Vector2(2, 2)
+texture = ExtResource("3_qiqkh")
+flip_h = true
 
 [node name="Camera2D" type="Camera2D" parent="Small Ship"]
 zoom = Vector2(2, 2)

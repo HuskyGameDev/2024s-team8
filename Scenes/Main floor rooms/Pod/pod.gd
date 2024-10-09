@@ -36,16 +36,13 @@ func _ready():
 		await DialogManager.dialog_finished
 		if $Player.hasAttention == false:
 			player._swap_attention()
-	
-	if PositionManager.HasDefeatedMonster:
-		meatSuit.visible = true
-	elif PositionManager.HasMeat && PositionManager.HasHeatLamp && PositionManager.HasSpaceSuit:
-		if $Player.hasAttention == true:
+
+	if PositionManager.hasDecoy:
+		if $Player.hasAttention:
 			player._swap_attention()
 		DialogManager.start_dialog(global_position, lines2, speech_sound, false, false)
 		await DialogManager.dialog_finished
 		meatSuit.visible = true
-		PositionManager.HasDefeatedMonster = true
 		var i = 0
 		for item in PositionManager.Inventory:
 			if item == "SpaceSuit" or item == "Meat" or item == "HeatLamp":
@@ -56,16 +53,14 @@ func _ready():
 		PositionManager.Inventory.erase("SpaceSuit")
 		PositionManager.Inventory.erase("Meat")
 		PositionManager.Inventory.erase("HeatLamp")
-		if $Player.hasAttention == false:
-			player._swap_attention()
+		if !PositionManager.heliDistracted and PositionManager.Act == 3 and PositionManager.hasDecoy:
+			PositionManager.heliDistracted = true
+			player.animMove = true
+			meatSuit.visible = true
 		
 
 #sets the act to 0 if the player walks in the room if they're in act is 1
 func _process(_delta):
-	if Input.is_action_just_pressed("F") and PositionManager.Act == 3 and PositionManager.hasDecoy:
-		player._swap_attention()
-		player.animMove = true
-		meatSuit.visible = true
 	if PositionManager.Act == 1:
 		PositionManager.Act = 0
 	if player.animMove:

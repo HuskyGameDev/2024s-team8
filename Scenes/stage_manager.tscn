@@ -76,7 +76,6 @@ libraries = {
 speed_scale = 2.0
 
 [node name="ColorRect" type="ColorRect" parent="."]
-visible = false
 anchors_preset = -1
 anchor_right = 0.00989583
 anchor_bottom = 0.00277778
@@ -84,5 +83,5 @@ offset_right = 1919.0
 offset_bottom = 1079.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
-color = Color(0, 0, 0, 1)
+color = Color(0, 0, 0, 0)
 metadata/_edit_use_anchors_ = true

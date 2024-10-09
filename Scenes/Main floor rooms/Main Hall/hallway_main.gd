@@ -18,13 +18,17 @@ const lines2: Array[String] = [
 
 const lines3: Array[String] = [
 	"I need to find a way to get rid of that monster!",
-	"Maybe I can make a decoy suit filled with warm meat, then lure it to the pod and eject it!"
+	"Maybe I can make a decoy suit filled with warm meat, then lure it to the pod and eject it!",
+	"I'm pretty sure the heating lamp is in the boiler room.",
+	"And the frozen meat must be in the mess hall freezer.",
+	"And I think the spare spacesuit will be in the bunks!"
 	]
 
 # Called when the node enters the scene tree for the first time.
 
 func _ready():
 	
+	PositionManager.hasDecoy = PositionManager.HasMeat and PositionManager.HasSpaceSuit and PositionManager.HasHeatLamp
 	#sets camera limit
 	StageManager.changeCamera(304)
 	

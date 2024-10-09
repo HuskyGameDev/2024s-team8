@@ -22,6 +22,15 @@ const lines2: Array[String] = [
 	"I've defeated the monster! Time to get out of here."
 ]
 
+const lines3: Array[String] = [
+	"I definitely shouldn't go back in there! I better eject the pod and send that monster into space!"
+]
+
+const lines4: Array[String] = [
+	"What am I doing? I need to eject the pod and get that monster off this ship!"
+]
+
+
 
 #turns off the monitoring of the toPod area when airlock is closed
 func _ready():
@@ -48,28 +57,24 @@ func _ready():
 		await DialogManager.dialog_finished
 		player._swap_attention()
 	
-	
-	
-	
 
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("F") and PositionManager.heliDistracted and !PositionManager.HasDefeatedMonster and PositionManager.OpenedAirlock:
-		PositionManager.lastKnownPos.x = player.position.x
-		PositionManager.lastKnownPos.y = player.position.y
-		get_tree().change_scene_to_file("res://defeat.tscn")
-		StageManager.scene_change = true
-		
 
 #switches to the main hall scene
 func _on_to_hall_body_entered(body):
 	if Input.is_action_pressed("DOWN"):
 		if body.name == "Player":
 			if PositionManager.OpenedAirlock:
-				var HALL = load("res://Scenes/Main floor rooms/Main Hall/hallway_main.tscn")
-				$Player.hasAttention = false
-				$Player/AnimationTree.set("active", false)
-				StageManager.player_facing = Vector2(0,1)
-				StageManager.changeScene(HALL, 76, 130)
+				if PositionManager.heliDistracted && !PositionManager.HasDefeatedMonster:
+					player._swap_attention()
+					DialogManager.start_dialog(global_position, lines4, speech_sound2)
+					await DialogManager.dialog_finished
+					player._swap_attention()
+				else:
+					var HALL = load("res://Scenes/Main floor rooms/Main Hall/hallway_main.tscn")
+					$Player.hasAttention = false
+					$Player/AnimationTree.set("active", false)
+					StageManager.player_facing = Vector2(0,1)
+					StageManager.changeScene(HALL, 76, 130)
 			else:
 				player._swap_attention()
 				DialogManager.start_dialog(global_position, lines, speech_sound)
@@ -88,11 +93,22 @@ func _on_to_pod_body_entered(body):
 				player._swap_attention()
 			else:
 				var POD = load("res://Scenes/Main floor rooms/Pod/pod.tscn")
-				$Player.hasAttention = false
-				$Player/AnimationTree.set("active", false)
-				GlobalAudioManager.door_SFX() # Plays door opening SFX
-				animPlayer.play("opening") 
-				await animPlayer.animation_finished
-				StageManager.player_facing = Vector2(0,-1)
-				StageManager.changeScene(POD, 148, 136, true)
+				if !PositionManager.heliDistracted:
+					$Player.hasAttention = false
+					$Player/AnimationTree.set("active", false)
+					GlobalAudioManager.door_SFX() # Plays door opening SFX
+					animPlayer.play("opening") 
+					await animPlayer.animation_finished
+					StageManager.player_facing = Vector2(0,-1)
+					StageManager.changeScene(POD, 148, 136, true)
+				elif !PositionManager.HasDefeatedMonster:
+					player._swap_attention()
+					DialogManager.start_dialog(global_position, lines3, speech_sound2)
+					await DialogManager.dialog_finished
+					player._swap_attention()
+				else:
+					player._swap_attention()
+					DialogManager.start_dialog(global_position, lines, speech_sound)
+					await DialogManager.dialog_finished
+					player._swap_attention()
 			

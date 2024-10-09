@@ -25,5 +25,5 @@ func _on_door_body_entered(body):
 			$Player.hasAttention = false
 			$Player/AnimationTree.set("active", false)
 			StageManager.player_facing = Vector2(-1,0)
-			StageManager.changeScene(HALLWAY_MAIN, 462, 130)
+			StageManager.changeScene(HALLWAY_MAIN, 455, 130)
 			StageManager.changeCamera(488)

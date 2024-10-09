@@ -172,7 +172,6 @@ scale = Vector2(6, 6)
 transform = Transform2D(6, 0, 0, 6, 0, 0)
 
 [node name="Flower" parent="." instance=ExtResource("6_35rce")]
-visible = false
 position = Vector2(156, 124)
 facing = false
 
