@@ -5,6 +5,7 @@ extends Control
 @onready var LabelTab = get_tree().get_first_node_in_group("LabelTab")
 
 func _ready():
+	$TabContainer/Objectives.show()
 	if !PositionManager.HasOpenedTutorial:
 		PositionManager.HasOpenedTutorial = true
 	

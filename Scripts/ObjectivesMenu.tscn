@@ -75,11 +75,10 @@ offset_right = 1500.0
 offset_bottom = 930.0
 theme_override_fonts/font = ExtResource("4_73prb")
 theme_override_font_sizes/font_size = 30
-current_tab = 3
+current_tab = 0
 script = ExtResource("5_xg8tj")
 
 [node name="Objectives" type="VBoxContainer" parent="TabContainer"]
-visible = false
 layout_mode = 2
 size_flags_vertical = 4
 metadata/_tab_index = 0
@@ -324,6 +323,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Text" type="Control" parent="TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 3
 
