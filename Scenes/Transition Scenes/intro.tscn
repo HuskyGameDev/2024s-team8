@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://dqiajt1at1dt8"]
+[gd_scene load_steps=12 format=3 uid="uid://dqiajt1at1dt8"]
 
 [ext_resource type="Script" path="res://Scenes/Transition Scenes/intro.gd" id="1_etl3n"]
 [ext_resource type="PackedScene" uid="uid://ca1eqme7qndxw" path="res://Scenes/background.tscn" id="1_tefsg"]
-[ext_resource type="Texture2D" uid="uid://mvetj5pcsap" path="res://Assets/icon.svg" id="2_m1g78"]
+[ext_resource type="Texture2D" uid="uid://dhpnrpkq6w574" path="res://Assets/big_ship.png" id="3_8hsoo"]
+[ext_resource type="Texture2D" uid="uid://cyjc1dmjpaw55" path="res://Assets/small_ship.png" id="3_654t4"]
 [ext_resource type="Texture2D" uid="uid://0tik15ssrfpo" path="res://Assets/Circle.png" id="4_wyd4c"]
 
 [sub_resource type="Animation" id="Animation_0royp"]
@@ -34,7 +35,7 @@ tracks/1/keys = {
 }
 tracks/2/type = "value"
 tracks/2/imported = false
-tracks/2/enabled = true
+tracks/2/enabled = false
 tracks/2/path = NodePath("Small Ship:skew")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
@@ -102,18 +103,17 @@ follow_viewport_enabled = true
 follow_viewport_scale = 2.0
 
 [node name="Big Ship" type="Sprite2D" parent="."]
-position = Vector2(-128, 448)
-scale = Vector2(5, 5)
-texture = ExtResource("2_m1g78")
+position = Vector2(-164, 436)
+scale = Vector2(7.5, 7.5)
+texture = ExtResource("3_8hsoo")
 
 [node name="Small Ship" type="Node2D" parent="."]
 position = Vector2(1728, 512)
-skew = -0.174533
 metadata/_edit_group_ = true
 
 [node name="Small Ship Sprite" type="Sprite2D" parent="Small Ship"]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_m1g78")
+scale = Vector2(4, 4)
+texture = ExtResource("3_654t4")
 
 [node name="Camera2D" type="Camera2D" parent="Small Ship"]
 zoom = Vector2(2, 2)
