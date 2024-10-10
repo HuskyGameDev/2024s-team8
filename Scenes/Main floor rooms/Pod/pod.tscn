@@ -16,7 +16,7 @@
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Pod/Outside.gd" id="15_oe2i3"]
 [ext_resource type="Texture2D" uid="uid://dsav7uwsib2vs" path="res://Assets/meatsuit.png" id="16_dyq57"]
 [ext_resource type="TileSet" uid="uid://bq0bamhp4c4ng" path="res://Scenes/console_tileset.tres" id="16_gn7oi"]
-[ext_resource type="Texture2D" uid="uid://bq7i3gq5nox5k" path="res://Inventory/Helianth.png" id="17_o6isv"]
+[ext_resource type="Texture2D" uid="uid://770dlkhi06j6" path="res://Assets/image.png" id="17_a1lei"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wekmh"]
 size = Vector2(24, 5)
@@ -276,10 +276,9 @@ position = Vector2(100, 134)
 
 [node name="Heli" type="Sprite2D" parent="."]
 visible = false
-z_index = 1
 position = Vector2(148, 120)
-scale = Vector2(-1, 1)
-texture = ExtResource("17_o6isv")
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("17_a1lei")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
