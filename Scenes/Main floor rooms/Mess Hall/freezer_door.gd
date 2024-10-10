@@ -3,6 +3,7 @@ extends Node2D
 @onready var interaction_area: InteractionArea = $InteractionArea
 @onready var player = get_tree().get_first_node_in_group("Player")
 @onready var speech_sound = preload("res://Assets/Dialogue blip5.mp3")
+@onready var speech_sound2 = preload("res://Assets/voice_sans.mp3")
 
 @onready var freezerDoorClosed = $"%FreezerDoorClosed"
 @onready var freezerDoorOpen = $"%FreezerDoorOpen"
@@ -22,6 +23,10 @@ const lines3: Array[String] = [
 
 const lines4: Array[String] = [
 	"There's nothing in it."
+]
+
+const lines5: Array[String] = [
+	"Now that I have all of the components for the decoy, I can go to the pod and lure the monster in!"
 ]
 
 
@@ -54,6 +59,10 @@ func _on_interact():
 		DialogManager.start_dialog(global_position, lines4, speech_sound, false)
 		await DialogManager.dialog_finished
 	
+	if PositionManager.HasMeat && PositionManager.HasSpaceSuit && PositionManager.HasHeatLamp:
+		DialogManager.start_dialog(global_position, lines5, speech_sound2, false)
+		await DialogManager.dialog_finished
+		
 	freezerDoorOpen.visible = false
 	freezerDoorClosed.visible = true
 	player._swap_attention()

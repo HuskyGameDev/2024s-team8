@@ -16,6 +16,14 @@ const lines2: Array[String] = [
 	"This will work perfectly as a decoy person!"
 ]
 
+
+const lines5: Array[String] = [
+	"Now that I have all of the components for the decoy, I can go to the pod and lure the monster in!"
+]
+
+
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if PositionManager.HasSpaceSuit:
@@ -41,6 +49,10 @@ func _on_interact():
 		bedInteraction.disabled = false
 		set_visible(false)
 		queue_free()
+	
+	if PositionManager.HasMeat && PositionManager.HasSpaceSuit && PositionManager.HasHeatLamp:
+		DialogManager.start_dialog(global_position, lines5, speech_sound2, false)
+		await DialogManager.dialog_finished
 	
 	player._swap_attention()
 	

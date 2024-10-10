@@ -22,6 +22,10 @@ const lines4: Array[String] = [
 	"I don't think there is anything else here that will help me."
 ]
 
+const lines5: Array[String] = [
+	"Now that I have all of the components for the decoy, I can go to the pod and lure the monster in!"
+]
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -48,6 +52,10 @@ func _on_interact():
 		await DialogManager.dialog_finished
 	else:
 		DialogManager.start_dialog(global_position, lines4, speech_sound2, false)
+		await DialogManager.dialog_finished
+	
+	if PositionManager.HasMeat && PositionManager.HasSpaceSuit && PositionManager.HasHeatLamp:
+		DialogManager.start_dialog(global_position, lines5, speech_sound2, false)
 		await DialogManager.dialog_finished
 	
 	player._swap_attention()

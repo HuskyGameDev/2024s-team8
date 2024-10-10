@@ -19,7 +19,7 @@ const lines: Array[String] = [
 ]
 
 const lines2: Array[String] = [
-	"I've defeated the monster! Time to get out of here."
+	"I've defeated the monster! Time to go to the command deck and head back home!"
 ]
 
 const lines3: Array[String] = [
