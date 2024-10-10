@@ -2,7 +2,7 @@ extends Node
 
 
 var config = ConfigFile.new()
-const SETTINGS_FILE_PATH = "res://Settings/Config/setting.ini"
+const SETTINGS_FILE_PATH = "setting.ini"
 
 
 func _ready():
