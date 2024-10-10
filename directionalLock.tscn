@@ -87,6 +87,7 @@ script = ExtResource("1_su50g")
 
 [node name="Background" type="TextureRect" parent="."]
 self_modulate = Color(0.0627451, 0.0627451, 0.0627451, 0.431373)
+layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 texture = SubResource("CanvasTexture_w5u54")
