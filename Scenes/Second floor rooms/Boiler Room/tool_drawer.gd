@@ -34,7 +34,8 @@ func _ready():
 
 
 func _on_interact():
-	player._swap_attention()
+	if player.hasAttention:
+		player._swap_attention()
 	DialogManager.start_dialog(global_position, lines, speech_sound, false)
 	await DialogManager.dialog_finished
 	
@@ -58,5 +59,6 @@ func _on_interact():
 		DialogManager.start_dialog(global_position, lines5, speech_sound2, false)
 		await DialogManager.dialog_finished
 	
-	player._swap_attention()
+	if !player.hasAttention:
+		player._swap_attention()
 	

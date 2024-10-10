@@ -36,8 +36,10 @@ func _ready():
 	
 
 
+
 func _on_interact():
-	player._swap_attention()
+	if player.hasAttention:
+		player._swap_attention()
 	DialogManager.start_dialog(global_position, lines, speech_sound, false)
 	await DialogManager.dialog_finished
 	freezerDoorOpen.visible = true
@@ -65,5 +67,6 @@ func _on_interact():
 		
 	freezerDoorOpen.visible = false
 	freezerDoorClosed.visible = true
-	player._swap_attention()
+	if !player.hasAttention:
+		player._swap_attention()
 	

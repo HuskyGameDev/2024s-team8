@@ -29,13 +29,16 @@ func _ready():
 	if PositionManager.HasSpaceSuit:
 		bedInteraction.disabled = false
 		set_visible(false)
-		queue_free()
+		
 	else: 
 		interaction_area.interact = Callable(self, "_on_interact")
 
 
+
 func _on_interact():
-	player._swap_attention()
+	if player.hasAttention:
+		player._swap_attention()
+	
 	DialogManager.start_dialog(global_position, lines, speech_sound, false, false)
 	await DialogManager.dialog_finished
 	
@@ -44,15 +47,18 @@ func _on_interact():
 		PositionManager.Inventory.append("SpaceSuit")
 		PositionManager.InventoryText.append("A spare spacesuit")
 		PositionManager.InventorySprite.append("res://Assets/Inventory Icons/inventory-suit.png")
+		
 		DialogManager.start_dialog(global_position, lines2, speech_sound2, false, false)
 		await DialogManager.dialog_finished
-		bedInteraction.disabled = false
+		
 		set_visible(false)
-		queue_free()
+		bedInteraction.disabled = false
 	
 	if PositionManager.HasMeat && PositionManager.HasSpaceSuit && PositionManager.HasHeatLamp:
-		DialogManager.start_dialog(global_position, lines5, speech_sound2, false)
+		DialogManager.start_dialog(global_position, lines5, speech_sound2, false, false)
 		await DialogManager.dialog_finished
-	
-	player._swap_attention()
+		
+		
+	if !player.hasAttention:
+		player._swap_attention()
 	
