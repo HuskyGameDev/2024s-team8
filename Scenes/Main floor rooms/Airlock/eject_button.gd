@@ -36,7 +36,7 @@ func _on_interact():
 		PositionManager.lastKnownPos.y = player.position.y
 		get_tree().change_scene_to_file("res://defeat.tscn")
 		StageManager.scene_change = true
-	elif !PositionManager.OpenedAirlock:
+	elif PositionManager.heliDistracted && !PositionManager.HasDefeatedMonster && !PositionManager.OpenedAirlock:
 		
 		DialogManager.start_dialog(global_position, lines3, speech_sound2, false)
 		await DialogManager.dialog_finished
