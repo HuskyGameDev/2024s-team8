@@ -124,7 +124,7 @@ func _physics_process(_delta):
 		velocity = Vector2.ZERO
 		
 		if Input.is_action_just_pressed("SHIFT") or PositionManager.RetainPlayerSpeed:
-				playerSpeed = 80
+				playerSpeed = 90
 				PositionManager.RetainPlayerSpeed = true
 		if Input.is_action_just_released("SHIFT"):
 				playerSpeed = 50
