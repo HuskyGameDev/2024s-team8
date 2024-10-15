@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://3uswv3g7ylu5"]
+[gd_scene load_steps=4 format=3 uid="uid://3uswv3g7ylu5"]
 
-[ext_resource type="Script" path="res://Scripts/InventoryNode.gd" id="1_oy8sx"]
+[ext_resource type="Script" path="res://Scripts/ObjectivesMenu/InventoryNode.gd" id="1_oy8sx"]
+[ext_resource type="FontFile" uid="uid://eakijihfas2k" path="res://Assets/SFPixelate-Bold.ttf" id="2_n76rb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_foh2y"]
 border_width_left = 2
@@ -42,6 +43,7 @@ theme_override_constants/margin_bottom = 10
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_n76rb")
 theme_override_font_sizes/font_size = 100
 
 [node name="ColorRect" type="ColorRect" parent="."]

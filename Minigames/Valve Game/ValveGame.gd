@@ -35,34 +35,34 @@ func _process(_delta):
 	var Valve1Steam = (abs(Valve1Solution / 15 - float(Valve1Rotation) / 15))
 	var Valve2Steam = (abs(Valve2Solution / 15 - float(Valve2Rotation) / 15))
 	var Valve3Steam = (abs(Valve3Solution / 15 - float(Valve3Rotation) / 15))
+	Steam1.explosiveness = 1 - (float(Valve1Steam) / float(16))
+	Steam2.explosiveness = 1 - (float(Valve2Steam) / float(16))
+	Steam3.explosiveness = 1 - (float(Valve3Steam) / float(16))
+	
+	Steam1.explosiveness = 1 - (float(Valve1Steam) / float(16))
+	Steam2.explosiveness = 1 - (float(Valve2Steam) / float(16))
+	Steam3.explosiveness = 1 - (float(Valve3Steam) / float(16))
 	
 	if Valve1Steam > 1 :
-		Steam1.show()
-		if Steam1.amount != round(Valve1Steam):
-			Steam1.amount = round(Valve1Steam)
+		Steam1.emitting = true
 	else:
-		Steam1.hide()
+		Steam1.emitting = false
 		
 	if Valve2Steam > 1:
-		Steam2.show()
-		if Steam2.amount != round(Valve2Steam):
-			Steam2.amount = round(Valve2Steam)
+		Steam2.emitting = true
 	else:
-		Steam2.hide()
+		Steam2.emitting = false
 		
 	if Valve3Steam > 1:
-		Steam3.show()
-		if Steam3.amount != round(Valve3Steam):
-			Steam3.amount = round(Valve3Steam)
+		Steam3.emitting = true
 	else:
-		Steam3.hide()
+		Steam3.emitting = false
 	
 	if Valve1Rotation > Valve1Solution - 16 && Valve1Rotation < Valve1Solution + 16:
 		if Valve2Rotation >  Valve2Solution - 16 && Valve2Rotation <  Valve2Solution + 16:
 			if Valve3Rotation >  Valve3Solution - 16 && Valve3Rotation <  Valve3Solution + 16:
-				player.ValveMinigame = false
-				await get_tree().create_timer(2).timeout
 				PositionManager.HasClearedValve = true
+				await get_tree().create_timer(2).timeout
 				completed.emit()
 				queue_free()
 				player._swap_attention()
@@ -73,7 +73,7 @@ func _process(_delta):
 		
 
 func RotateValve():
-	if !player.hasAttention && player.ValveMinigame:
+	if !PositionManager.HasClearedValve:
 		if Input.is_action_pressed("DOWN"):
 			ValveArray[index].rotation_degrees += 1
 		else:
@@ -95,4 +95,4 @@ func RotateValve():
 				index -= 1
 				ArrowArray[index].visible = true
 				
-	pass
+	
