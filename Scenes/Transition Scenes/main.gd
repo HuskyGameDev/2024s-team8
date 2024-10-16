@@ -28,12 +28,17 @@ func _ready():
 	GlobalAudioManager.play_menu_music()
 	
 
+func _process(delta):
+	if Input.is_action_just_pressed("MENU") && $AnimationPlayer.current_animation == "ShipMoving":
+		_on_animation_player_animation_finished("ShipMoving")
+
 func _on_play_pressed():
-	get_tree().change_scene_to_file("res://Scenes/Transition Scenes/intro.tscn")
-	StageManager.scene_change = true
+	if !$AnimationPlayer.current_animation == "ShipMoving":
+		$AnimationPlayer.play("ShipMoving")
 
 func _on_quit_pressed():
-	get_tree().quit()
+	#if !$AnimationPlayer.current_animation == "ShipMoving":
+		get_tree().quit()
 	
 # Shows nodes in Main 
 func _show_nodes():
@@ -48,18 +53,27 @@ func _hide_nodes():
 	$Quit.hide()
 
 func _on_settings_pressed():
-	# Adds a settingsMenu instance to Main
-	settings = settingsMenu.instantiate()
-	$SettingsLayer.add_child(settings)
-	
-	# Hides the nodes currently on screen
-	_hide_nodes()
-	
-	# Shows the nodes on screen once settings is closed
-	settings.tree_exited.connect(_show_nodes)
+	if !$AnimationPlayer.current_animation == "ShipMoving":
+		# Adds a settingsMenu instance to Main
+		settings = settingsMenu.instantiate()
+		$SettingsLayer.add_child(settings)
+		
+		# Hides the nodes currently on screen
+		_hide_nodes()
+		
+		# Shows the nodes on screen once settings is closed
+		settings.tree_exited.connect(_show_nodes)
 
 func load_keybindings_from_settings():
 	var keybindings = ConfigManager.load_keybinding()
 	for action in keybindings.keys():
 		InputMap.action_erase_events(action)
 		InputMap.action_add_event(action, keybindings[action])
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "ShipMoving":
+		get_tree().change_scene_to_file("res://Scenes/Transition Scenes/intro.tscn")
+		StageManager.scene_change = true
+		
+		

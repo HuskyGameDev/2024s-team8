@@ -182,7 +182,8 @@ scale = Vector2(0.2, 0.2)
 zoom = Vector2(1.2, 1.2)
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Big Ship/Ship"]
-position = Vector2(-72.6, 1.59999)
+z_index = -1
+position = Vector2(-64.475, 1.6)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_rlg0l")
 gravity = Vector2(-980, 0)

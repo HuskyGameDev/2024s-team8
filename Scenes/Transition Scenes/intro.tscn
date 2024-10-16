@@ -108,7 +108,7 @@ scale = Vector2(7.5, 7.5)
 texture = ExtResource("3_8hsoo")
 
 [node name="Small Ship" type="Node2D" parent="."]
-position = Vector2(1728, 512)
+position = Vector2(232, 512)
 metadata/_edit_group_ = true
 
 [node name="Small Ship Sprite" type="Sprite2D" parent="Small Ship"]
@@ -120,6 +120,7 @@ zoom = Vector2(2, 2)
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Small Ship"]
 show_behind_parent = true
+emitting = false
 amount = 10
 lifetime = 0.75
 preprocess = 0.75
@@ -133,7 +134,7 @@ color_ramp = SubResource("Gradient_02slc")
 color_initial_ramp = SubResource("Gradient_0d4vl")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-modulate = Color(0, 0, 0, 0)
+modulate = Color(0, 0, 0, 1)
 offset_left = -448.0
 offset_right = 768.0
 offset_bottom = 1080.0

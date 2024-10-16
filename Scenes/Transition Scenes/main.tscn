@@ -1,14 +1,114 @@
-[gd_scene load_steps=6 format=3 uid="uid://bkrk6ere8vvqi"]
+[gd_scene load_steps=14 format=3 uid="uid://bkrk6ere8vvqi"]
 
 [ext_resource type="Script" path="res://Scenes/Transition Scenes/main.gd" id="1_tbkaj"]
 [ext_resource type="PackedScene" uid="uid://ca1eqme7qndxw" path="res://Scenes/background.tscn" id="2_i6f1w"]
 [ext_resource type="Texture2D" uid="uid://dym1ivtlsvpjd" path="res://Assets/menu_button_light.png" id="2_mujtj"]
 [ext_resource type="Texture2D" uid="uid://b5xruj8go3atr" path="res://Assets/menu_button_dark.png" id="3_ch3om"]
 [ext_resource type="FontFile" uid="uid://eakijihfas2k" path="res://Assets/SFPixelate-Bold.ttf" id="4_1q5f7"]
+[ext_resource type="Texture2D" uid="uid://cyjc1dmjpaw55" path="res://Assets/small_ship.png" id="6_srfy3"]
+[ext_resource type="Texture2D" uid="uid://0tik15ssrfpo" path="res://Assets/Circle.png" id="7_x76p5"]
+
+[sub_resource type="Gradient" id="Gradient_xpky2"]
+offsets = PackedFloat32Array(0.52, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_o11jc"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 0.984314, 0, 1)
+
+[sub_resource type="Animation" id="Animation_j1f5c"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_ewi28"]
+resource_name = "ShipMoving"
+length = 3.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ship:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1045, 470), Vector2(-200, 470)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.5, 3.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Ship/CPUParticles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.001),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_rwwsa"]
+resource_name = "Idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ship:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1045, 470), Vector2(1045, 475), Vector2(1045, 480), Vector2(1045, 475), Vector2(1045, 470)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o4diy"]
+_data = {
+"Idle": SubResource("Animation_rwwsa"),
+"RESET": SubResource("Animation_j1f5c"),
+"ShipMoving": SubResource("Animation_ewi28")
+}
 
 [node name="Main" type="Node2D"]
 scale = Vector2(1.6, 1.6)
 script = ExtResource("1_tbkaj")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+offset_right = 1206.0
+offset_bottom = 680.0
+color = Color(0, 0, 0, 1)
+
+[node name="Title" type="Label" parent="."]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 193.75
+offset_top = 43.125
+offset_right = 993.75
+offset_bottom = 153.125
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.333333, 0.0313726, 0.603922, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.972549, 0, 0.909804)
+theme_override_fonts/font = ExtResource("4_1q5f7")
+theme_override_font_sizes/font_size = 80
+text = "Project: Helianth"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Play" type="TextureButton" parent="."]
 offset_left = 428.125
@@ -36,6 +136,35 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("4_1q5f7")
 theme_override_font_sizes/font_size = 60
 text = "Play"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Settings" type="TextureButton" parent="."]
+offset_left = 431.25
+offset_top = 411.25
+offset_right = 775.25
+offset_bottom = 530.25
+texture_normal = ExtResource("2_mujtj")
+texture_pressed = ExtResource("3_ch3om")
+texture_hover = ExtResource("3_ch3om")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Settings"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -63.0
+offset_top = -41.5
+offset_right = 63.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_1q5f7")
+theme_override_font_sizes/font_size = 60
+text = "Settings"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -69,59 +198,45 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("2_i6f1w")]
+layer = -1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(600, 338.75)
 
-[node name="Title" type="Label" parent="."]
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_left = 193.75
-offset_top = 43.125
-offset_right = 993.75
-offset_bottom = 153.125
-grow_vertical = 2
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.333333, 0.0313726, 0.603922, 1)
-theme_override_colors/font_shadow_color = Color(0, 0.972549, 0, 0.909804)
-theme_override_fonts/font = ExtResource("4_1q5f7")
-theme_override_font_sizes/font_size = 80
-text = "Project: Helianth"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Ship" type="Node2D" parent="."]
+z_index = -1
+position = Vector2(1045, 470)
+scale = Vector2(4, 4)
 
-[node name="Settings" type="TextureButton" parent="."]
-offset_left = 431.25
-offset_top = 411.25
-offset_right = 775.25
-offset_bottom = 530.25
-texture_normal = ExtResource("2_mujtj")
-texture_pressed = ExtResource("3_ch3om")
-texture_hover = ExtResource("3_ch3om")
-stretch_mode = 0
+[node name="Sprite2D" type="Sprite2D" parent="Ship"]
+texture = ExtResource("6_srfy3")
 
-[node name="Label" type="Label" parent="Settings"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -63.0
-offset_top = -41.5
-offset_right = 63.0
-offset_bottom = 41.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("4_1q5f7")
-theme_override_font_sizes/font_size = 60
-text = "Settings"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Ship"]
+show_behind_parent = true
+emitting = false
+amount = 10
+lifetime = 0.75
+preprocess = 0.75
+texture = ExtResource("7_x76p5")
+gravity = Vector2(980, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 50.0
+scale_amount_min = 0.2
+scale_amount_max = 0.8
+color_ramp = SubResource("Gradient_xpky2")
+color_initial_ramp = SubResource("Gradient_o11jc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_o4diy")
+}
+autoplay = "Idle"
 
 [node name="SettingsLayer" type="CanvasLayer" parent="."]
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Quit" to="Quit" method="_on_pressed"]
-[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
