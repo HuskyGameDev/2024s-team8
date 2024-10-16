@@ -138,7 +138,7 @@ position = Vector2(131, -84)
 texture = ExtResource("12_6labj")
 
 [node name="InteractionArea" type="Area2D" parent="Freezer Door"]
-position = Vector2(22, 130)
+position = Vector2(22, 135)
 script = ExtResource("8_ebb8r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Freezer Door/InteractionArea"]

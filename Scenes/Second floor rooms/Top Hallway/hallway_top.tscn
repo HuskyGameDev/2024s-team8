@@ -401,6 +401,7 @@ script = ExtResource("7_51fjl")
 shape = SubResource("RectangleShape2D_1us0s")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." groups=["CanvasLayer"]]
+unique_name_in_owner = true
 scale = Vector2(5, 5)
 transform = Transform2D(5, 0, 0, 5, 0, 0)
 

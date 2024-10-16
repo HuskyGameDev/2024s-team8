@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://csu0u7tj1lgm2"]
+
+[ext_resource type="FontFile" uid="uid://eakijihfas2k" path="res://Assets/SFPixelate-Bold.ttf" id="1_50j11"]
+
+[sub_resource type="Animation" id="Animation_aoxhd"]
+resource_name = "Popup"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/NotificationLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 5, 7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_lflje"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/NotificationLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w6ljd"]
+_data = {
+"Popup": SubResource("Animation_aoxhd"),
+"RESET": SubResource("Animation_lflje")
+}
+
+[node name="Notification" type="Node2D"]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_top = 200.0
+offset_right = 384.0
+offset_bottom = 240.0
+scale = Vector2(0.25, 0.25)
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_bottom = 10
+
+[node name="NotificationLabel" type="Label" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_50j11")
+theme_override_font_sizes/font_size = 30
+text = "New Document Added"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_w6ljd")
+}
+autoplay = "Popup"

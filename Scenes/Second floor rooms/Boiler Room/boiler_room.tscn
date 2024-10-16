@@ -348,10 +348,6 @@ scale_amount_curve = SubResource("Curve_pw7vr")
 color = Color(0.858824, 0.858824, 0.858824, 0.741176)
 color_ramp = SubResource("Gradient_85e8v")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." groups=["CanvasLayer"]]
-scale = Vector2(5, 5)
-transform = Transform2D(5, 0, 0, 5, 0, 0)
-
 [node name="Poem" type="Node2D" parent="." groups=["Poem"]]
 position = Vector2(32.5, 125)
 script = ExtResource("11_d5d4h")
@@ -366,6 +362,11 @@ script = ExtResource("7_53ave")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Poem/InteractionArea"]
 shape = SubResource("CircleShape2D_d6ugu")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." groups=["CanvasLayer"]]
+unique_name_in_owner = true
+scale = Vector2(5, 5)
+transform = Transform2D(5, 0, 0, 5, 0, 0)
 
 [connection signal="body_entered" from="Boiler" to="." method="_on_to_bottom_hallway_body_entered"]
 [connection signal="area_entered" from="Tool Drawer/InteractionArea" to="Tool Drawer/InteractionArea" method="_on_area_entered"]

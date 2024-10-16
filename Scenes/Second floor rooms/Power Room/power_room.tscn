@@ -300,6 +300,7 @@ scale = Vector2(3, 3)
 shape = SubResource("CircleShape2D_svskc")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." groups=["CanvasLayer"]]
+unique_name_in_owner = true
 layer = 5
 scale = Vector2(5, 5)
 transform = Transform2D(5, 0, 0, 5, 0, 0)

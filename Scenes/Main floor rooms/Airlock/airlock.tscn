@@ -182,10 +182,6 @@ tile_set = ExtResource("3_277va")
 use_parent_material = true
 tile_set = ExtResource("3_277va")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." groups=["CanvasLayer"]]
-scale = Vector2(5, 5)
-transform = Transform2D(5, 0, 0, 5, 0, 0)
-
 [node name="to_Hall" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="to_Hall"]
@@ -338,6 +334,11 @@ script = ExtResource("7_iopdc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Eject Button/InteractionArea"]
 shape = SubResource("CircleShape2D_x4c7k")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." groups=["CanvasLayer"]]
+unique_name_in_owner = true
+scale = Vector2(5, 5)
+transform = Transform2D(5, 0, 0, 5, 0, 0)
 
 [connection signal="body_entered" from="to_Hall" to="." method="_on_to_hall_body_entered"]
 [connection signal="body_entered" from="to_pod" to="." method="_on_to_pod_body_entered"]

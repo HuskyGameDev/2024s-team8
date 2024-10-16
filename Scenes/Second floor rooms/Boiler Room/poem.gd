@@ -1,13 +1,13 @@
 extends Node2D
 @onready var interaction_area: InteractionArea = $InteractionArea
 @onready var speech_sound = preload("res://Assets/Dialogue blip5.mp3")
+@onready var speech_sound2 = preload("res://Assets/voice_sans.mp3")
 @onready var player = $"../Player"
+@onready var notificationScene = preload("res://Scripts/Notifications/Notification.tscn")
+
 
 const lines: Array[String] = [
-	"Its a poem the mechanic wrote to his wife, I wonder why he left it here?"
-]
-
-const lines1: Array[String] = [
+	"It's a poem the mechanic wrote to his wife, I wonder why he left it here?",
 	"Maybe this relates somehow to the code to the Security room, I'm going to put this in my Documents."
 ]
 
@@ -34,14 +34,14 @@ func _ready() -> void:
 
 func _on_interact():
 	player._swap_attention()
-	DialogManager.start_dialog(global_position, lines, speech_sound, false)
-	await DialogManager.dialog_finished
-	DialogManager.start_dialog(global_position, lines1, speech_sound, false)
+	DialogManager.start_dialog(global_position, lines, speech_sound2, false)
 	await DialogManager.dialog_finished
 	
 	if PositionManager.Documents.find("Poem") == -1:
 		PositionManager.Documents.append("Poem")
 		PositionManager.DocumentsText.append(PositionManager.array_to_string(lines2))
+		var notification = notificationScene.instantiate()
+		%CanvasLayer.add_child(notification)
 	
 	player._swap_attention()
 	PositionManager.HasPoem = true
