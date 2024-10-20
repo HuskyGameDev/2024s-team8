@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://bomb67l3jcmr5"]
+[gd_scene load_steps=32 format=4 uid="uid://bomb67l3jcmr5"]
 
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Pod/pod.gd" id="1_bvhxj"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="2_tvsd5"]
@@ -13,7 +13,9 @@
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Pod/Desk.gd" id="11_i2y8d"]
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Pod/DogPoster.gd" id="13_u2fhw"]
 [ext_resource type="Texture2D" uid="uid://bkg443ij7dow5" path="res://Assets/frost.jpg" id="14_gc7et"]
+[ext_resource type="Texture2D" uid="uid://b64doeqvowr0m" path="res://Assets/paper_note_sprite.png" id="15_dmddt"]
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Pod/Outside.gd" id="15_oe2i3"]
+[ext_resource type="Script" path="res://Scenes/Main floor rooms/Pod/tutorial_document.gd" id="15_wtfop"]
 [ext_resource type="Texture2D" uid="uid://dsav7uwsib2vs" path="res://Assets/meatsuit.png" id="16_dyq57"]
 [ext_resource type="TileSet" uid="uid://bq0bamhp4c4ng" path="res://Scenes/console_tileset.tres" id="16_gn7oi"]
 [ext_resource type="Texture2D" uid="uid://770dlkhi06j6" path="res://Assets/image.png" id="17_a1lei"]
@@ -40,6 +42,9 @@ size = Vector2(30, 7)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j3y1k"]
 size = Vector2(63, 7.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ng013"]
+size = Vector2(4, 5)
 
 [sub_resource type="Animation" id="Animation_syfbq"]
 length = 0.001
@@ -146,17 +151,13 @@ transform = Transform2D(0.16, 0, 0, 0.16, 0, 0)
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("5_pgn6b")]
 z_index = 1
-position = Vector2(218, 130)
+position = Vector2(223, 136)
 
 [node name="To_Hall" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="To_Hall"]
 position = Vector2(148, 157.5)
 shape = SubResource("RectangleShape2D_wekmh")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." groups=["CanvasLayer"]]
-scale = Vector2(5, 5)
-transform = Transform2D(5, 0, 0, 5, 0, 0)
 
 [node name="Chair" type="Node2D" parent="."]
 z_index = 1
@@ -250,6 +251,21 @@ script = ExtResource("8_pijyp")
 position = Vector2(19.5, 2.25)
 shape = SubResource("RectangleShape2D_j3y1k")
 
+[node name="TutorialDocument" type="Node2D" parent="."]
+position = Vector2(136, 129)
+rotation = 0.392699
+script = ExtResource("15_wtfop")
+
+[node name="Sprite2D" type="Sprite2D" parent="TutorialDocument"]
+texture = ExtResource("15_dmddt")
+
+[node name="InteractionArea" type="Area2D" parent="TutorialDocument"]
+script = ExtResource("8_pijyp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TutorialDocument/InteractionArea"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_ng013")
+
 [node name="Controls" type="TileMap" parent="."]
 tile_set = ExtResource("16_gn7oi")
 format = 2
@@ -280,6 +296,11 @@ position = Vector2(148, 120)
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("17_a1lei")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." groups=["CanvasLayer"]]
+unique_name_in_owner = true
+scale = Vector2(5, 5)
+transform = Transform2D(5, 0, 0, 5, 0, 0)
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_o8l4t")
@@ -298,3 +319,5 @@ libraries = {
 [connection signal="area_exited" from="DogPoster/InteractionArea" to="DogPoster/InteractionArea" method="_on_area_exited"]
 [connection signal="area_entered" from="Outside/InteractionArea" to="Outside/InteractionArea" method="_on_area_entered"]
 [connection signal="area_exited" from="Outside/InteractionArea" to="Outside/InteractionArea" method="_on_area_exited"]
+[connection signal="area_entered" from="TutorialDocument/InteractionArea" to="TutorialDocument/InteractionArea" method="_on_area_entered"]
+[connection signal="area_exited" from="TutorialDocument/InteractionArea" to="TutorialDocument/InteractionArea" method="_on_area_exited"]

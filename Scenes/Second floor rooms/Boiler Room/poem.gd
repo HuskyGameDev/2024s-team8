@@ -3,8 +3,6 @@ extends Node2D
 @onready var speech_sound = preload("res://Assets/Dialogue blip5.mp3")
 @onready var speech_sound2 = preload("res://Assets/voice_sans.mp3")
 @onready var player = $"../Player"
-@onready var notificationScene = preload("res://Scripts/Notifications/Notification.tscn")
-
 
 const lines: Array[String] = [
 	"It's a poem the mechanic wrote to his wife, I wonder why he left it here?",
@@ -40,8 +38,7 @@ func _on_interact():
 	if PositionManager.Documents.find("Poem") == -1:
 		PositionManager.Documents.append("Poem")
 		PositionManager.DocumentsText.append(PositionManager.array_to_string(lines2))
-		var notification = notificationScene.instantiate()
-		%CanvasLayer.add_child(notification)
+		PositionManager.play_notification("Document")
 	
 	player._swap_attention()
 	PositionManager.HasPoem = true

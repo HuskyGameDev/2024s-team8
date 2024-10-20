@@ -3,7 +3,7 @@ extends TabContainer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	set_tab_hidden(3, true)
+	set_tab_hidden(4, true)
 	pass # Replace with function body.
 
 

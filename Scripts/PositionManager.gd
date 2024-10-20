@@ -1,7 +1,27 @@
 extends Node
 
+@onready var notificationScene = preload("res://Scripts/Notifications/Notification.tscn")
+
+var Canvas = null
+
 var Position = Vector2.ZERO
 var PrevPosition = Vector2.ZERO
+
+#Default Minigames
+var comboCode := [0,0,0,0,1]
+var valveCode := [9,6,3]
+var PipeVersion = 1
+
+#Game Progression
+var Act = 0
+var HasOpenedTutorial = false
+var OpenedAirlock = false
+var ConfigLoaded = false
+var SecurityEnabled = true
+var hasCode = false
+var HasNote = false
+var HasReadEscapeText = false
+var HasReadEscapeText2 = false
 var HasPoem = false
 var HasCrowbar = false
 var HasOrb = false
@@ -14,42 +34,43 @@ var StartFromBeginning = false
 var hasClearedPipe = false
 var HasClearedValve = false
 var hasClearedDial = false
+var heliDistracted = false
 var HasDefeatedMonster = false
-var Act = 0
-var comboCode := [0,0,0,0,1]
-var valveCode := [9,6,3]
-var PipeVersion = 1
-var HasOpenedTutorial = false
-var OpenedAirlock = false
-var ConfigLoaded = false
-var SecurityEnabled = true
-var hasCode = false
-var HasNote = false
-var HasReadEscapeText = false
-var HasReadEscapeText2 = false
+
+#Default Settings
+var masterVolume = 0.5
+var musicVolume = 0.5
+var sfxVolume = 0.5
+var dialogueVolume = 0.5
 var textSpd = 1.0 # Factor for text speed
 var playTextSound = true
 var finished_displaying = true
+
+#ObjectivesMenu Information 
+var Objectives = []
+var ObjectivesText = []
 var Documents = []
 var DocumentsText = []
 var Inventory = []
 var InventoryText = []
 var InventorySprite = []
+
+
 var redLight = "3f0000"
 var pinkLight = "cba3ff"
 var purpleLight = "0f0073"
 var RetainPlayerSpeed = false
 var pinkLamp = "f187ff8c"
-var masterVolume = 0.5
-var musicVolume = 0.5
-var sfxVolume = 0.5
-var dialogueVolume = 0.5
-var heliDistracted = false
+
 var lastKnownPos = Vector2.ZERO
 
 
-#func _process(delta):
-	#print(Act)
+func _process(delta):
+	if (get_tree().get_current_scene() != null):
+		if (get_tree().get_current_scene().get_node("%CanvasLayer") != null):
+			Canvas = get_tree().get_current_scene().get_node("%CanvasLayer")
+	
+
 
 #turns arrays that contain text to strings
 func array_to_string(arr: Array, skipLines: int = 0) -> String:
@@ -58,3 +79,27 @@ func array_to_string(arr: Array, skipLines: int = 0) -> String:
 		string += str(arr[i])
 		string += " "
 	return string
+
+
+func add_objective(objective: String, text : String):
+	Objectives.append(objective)
+	ObjectivesText.append(text)
+	
+
+func remove_objective(objective: String):
+	var i = 0
+	while (i < Objectives.size()):
+		if Objectives[i] == objective:
+			Objectives.remove_at(i)
+			ObjectivesText.remove_at(i)
+			return
+		i += 1
+
+func play_notification(type: String):
+	var notification = notificationScene.instantiate()
+	if type == "Objective":
+		notification.get_child(0).get_child(0).text = "Objectives Updated"
+	elif type == "Document":
+		notification.get_child(0).get_child(0).text = "New Document Added"
+	if Canvas != null:
+		Canvas.add_child(notification)

@@ -1,5 +1,6 @@
 extends Control
 
+@onready var Objectives = get_tree().get_first_node_in_group("Objectives")
 @onready var Documents = get_tree().get_first_node_in_group("Documents")
 @onready var TabContain = get_tree().get_first_node_in_group("TabContainer")
 @onready var LabelTab = get_tree().get_first_node_in_group("LabelTab")
@@ -9,8 +10,9 @@ func _ready():
 	if !PositionManager.HasOpenedTutorial:
 		PositionManager.HasOpenedTutorial = true
 	
-	setLabels()
+	setObjectives()
 	setDocuments()
+	setControls()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -24,20 +26,32 @@ func _on_exit_button_pressed():
 	queue_free()
 
 func _on_document_button_pressed(extra_arg_0: int) -> void:
-	TabContain.current_tab = 3
+	TabContain.current_tab = 4
 	LabelTab.text = PositionManager.DocumentsText[extra_arg_0-1]
-	pass # Replace with function body.
-
 
 
 # Sets the labels to current keybinds
-func setLabels():
-	%Label.text = "\n - Use '" + InputMap.action_get_events("UP")[0].as_text() + InputMap.action_get_events("LEFT")[0].as_text() + InputMap.action_get_events("DOWN")[0].as_text() + InputMap.action_get_events("RIGHT")[0].as_text() +"' to move.\n"
-	%Label2.text = "\n - Press '" + InputMap.action_get_events("INTERACT")[0].as_text() + "' to interact.\n"  
-	%Label5.text = "\n - Hold '" + InputMap.action_get_events("SHIFT")[0].as_text() + "' to sprint.\n"
-	%Label3.text = "\n - Press '" + InputMap.action_get_events("MAP")[0].as_text() + "' to open the map.\n"
-	%Label6.text = "\n - Press '" + InputMap.action_get_events("OBJECTIVE")[0].as_text() + "' to open the objectives.\n"
+func setControls():
+	%Label.text = "\n - Use '" + InputMap.action_get_events("UP")[0].as_text() + InputMap.action_get_events("LEFT")[0].as_text() + InputMap.action_get_events("DOWN")[0].as_text() + InputMap.action_get_events("RIGHT")[0].as_text() +"' to move."
+	%Label2.text = " - Press '" + InputMap.action_get_events("INTERACT")[0].as_text() + "' to interact."  
+	%Label3.text = " - Hold '" + InputMap.action_get_events("SHIFT")[0].as_text() + "' to sprint."
+	%Label4.text = " - Press '" + InputMap.action_get_events("MAP")[0].as_text() + "' to open the map."
+	%Label5.text = " - Press '" + InputMap.action_get_events("OBJECTIVE")[0].as_text() + "' to open the objectives."
+	%Label6.text = " - Use '" + InputMap.action_get_events("MENU")[0].as_text() + "' to exit dialogues,\n   cutscenes, and menus."
 
+
+#Set Objectives Text
+func setObjectives():
+	var i = 0
+	for x in PositionManager.ObjectivesText:
+		if i == 0:
+			Objectives.get_child(i).text = "\n - " + x
+		else: 
+			Objectives.get_child(i).text = " - " + x
+		Objectives.get_child(i).visible = true
+		i += 1
+
+#Set Document Buttons
 func setDocuments():
 	var i = 0
 	for x in PositionManager.Documents:

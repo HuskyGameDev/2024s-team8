@@ -123,4 +123,9 @@ rotation = 0.872665
 skew = -0.698132
 shape = SubResource("RectangleShape2D_wv1o1")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+scale = Vector2(5, 5)
+transform = Transform2D(5, 0, 0, 5, 0, 0)
+
 [connection signal="body_entered" from="Door" to="." method="_on_door_body_entered"]

@@ -78,65 +78,60 @@ theme_override_font_sizes/font_size = 30
 current_tab = 0
 script = ExtResource("5_xg8tj")
 
-[node name="Objectives" type="VBoxContainer" parent="TabContainer"]
+[node name="Objectives" type="VBoxContainer" parent="TabContainer" groups=["Objectives"]]
 layout_mode = 2
 size_flags_vertical = 4
+theme_override_constants/separation = 65
 metadata/_tab_index = 0
 
-[node name="Label" type="Label" parent="TabContainer/Objectives"]
-unique_name_in_owner = true
+[node name="Objective1" type="Label" parent="TabContainer/Objectives"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_73prb")
 theme_override_font_sizes/font_size = 37
 text = " 
- - Use 'WASD' to move.
+ - Explore the ship."
 
-"
-
-[node name="Label2" type="Label" parent="TabContainer/Objectives"]
-unique_name_in_owner = true
+[node name="Objective2" type="Label" parent="TabContainer/Objectives"]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_73prb")
 theme_override_font_sizes/font_size = 37
-text = " - Press 'F' to interact.
+text = " - Explore the ship."
 
-"
-
-[node name="Label5" type="Label" parent="TabContainer/Objectives"]
-unique_name_in_owner = true
+[node name="Objective3" type="Label" parent="TabContainer/Objectives"]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_73prb")
 theme_override_font_sizes/font_size = 37
-text = " - Hold 'Shift' to sprint.
+text = " - Explore the ship."
 
-"
-
-[node name="Label3" type="Label" parent="TabContainer/Objectives"]
-unique_name_in_owner = true
+[node name="Objective4" type="Label" parent="TabContainer/Objectives"]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_73prb")
 theme_override_font_sizes/font_size = 37
-text = " - Press 'M' to open the map.
+text = " - Explore the ship."
 
-"
-
-[node name="Label6" type="Label" parent="TabContainer/Objectives"]
-unique_name_in_owner = true
+[node name="Objective5" type="Label" parent="TabContainer/Objectives"]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_73prb")
 theme_override_font_sizes/font_size = 37
-text = " - Press 'G' to open the objectives.
+text = " - Explore the ship."
 
-"
-
-[node name="Label4" type="Label" parent="TabContainer/Objectives"]
+[node name="Objective6" type="Label" parent="TabContainer/Objectives"]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_73prb")
 theme_override_font_sizes/font_size = 37
-text = "
- - Explore the ship.
+text = " - Explore the ship."
 
-"
+[node name="Objective7" type="Label" parent="TabContainer/Objectives"]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_73prb")
+theme_override_font_sizes/font_size = 37
+text = " - Explore the ship."
 
 [node name="Documents" type="VBoxContainer" parent="TabContainer" groups=["Documents"]]
 visible = false
@@ -332,6 +327,72 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="Controls" type="VBoxContainer" parent="TabContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 65
+metadata/_tab_index = 3
+
+[node name="Label" type="Label" parent="TabContainer/Controls"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_73prb")
+theme_override_font_sizes/font_size = 37
+text = " 
+ - Use 'WASD' to move."
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="TabContainer/Controls"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_73prb")
+theme_override_font_sizes/font_size = 37
+text = " - Press 'F' to interact."
+autowrap_mode = 3
+
+[node name="Label3" type="Label" parent="TabContainer/Controls"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_73prb")
+theme_override_font_sizes/font_size = 37
+text = " - Hold 'Shift' to sprint."
+autowrap_mode = 3
+
+[node name="Label4" type="Label" parent="TabContainer/Controls"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_73prb")
+theme_override_font_sizes/font_size = 37
+text = " - Press 'M' to open the map."
+autowrap_mode = 3
+
+[node name="Label5" type="Label" parent="TabContainer/Controls"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_73prb")
+theme_override_font_sizes/font_size = 37
+text = " - Press 'G' to open the objectives.
+"
+autowrap_mode = 3
+
+[node name="Label6" type="Label" parent="TabContainer/Controls"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+theme_override_constants/line_spacing = 20
+theme_override_fonts/font = ExtResource("4_73prb")
+theme_override_font_sizes/font_size = 37
+text = " - Use 'Escape' to exit dialogues, 
+   menus, and cutscenes
+"
+autowrap_mode = 3
+
 [node name="Text" type="MarginContainer" parent="TabContainer"]
 visible = false
 layout_mode = 2
@@ -339,7 +400,7 @@ theme_override_constants/margin_left = 25
 theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 25
-metadata/_tab_index = 3
+metadata/_tab_index = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Text"]
 layout_mode = 2

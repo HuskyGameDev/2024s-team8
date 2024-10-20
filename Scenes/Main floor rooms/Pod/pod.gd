@@ -8,10 +8,9 @@ var HasLeft = true
 @onready var animPlayer = $AnimationPlayer
 
 
-# REMINDER: Could replace G with + InputMap.action_get_events("OBJECTIVE")[0].as_text() +, after finding out how to remove "(physical)"
+
 var lines: Array[String] = [
-	"I should press '" + InputMap.action_get_events("OBJECTIVE")[0].as_text() + "' to look over my notes...", 
-	""
+	"No matter how many times I do this, it's still difficult getting used to my new 'home'."
 ]
 
 const lines2: Array[String] = [
@@ -32,8 +31,11 @@ func _ready():
 		if $Player.hasAttention == true:
 			player._swap_attention()
 		await get_tree().create_timer(1).timeout
-		DialogManager.start_dialog(global_position, lines, speech_sound, false, false, true)
+		DialogManager.start_dialog(global_position, lines, speech_sound, false, false)
 		await DialogManager.dialog_finished
+		PositionManager.add_objective("Explore Ship", "Get accustomed to your new home.")
+		PositionManager.add_objective("Meet Crewmates", "Meet the fellow crewmates.")
+		PositionManager.play_notification("Objective")
 		if $Player.hasAttention == false:
 			player._swap_attention()
 
