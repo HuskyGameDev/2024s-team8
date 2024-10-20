@@ -56,7 +56,7 @@ func _on_settings_pressed():
 	if !$AnimationPlayer.current_animation == "ShipMoving":
 		# Adds a settingsMenu instance to Main
 		settings = settingsMenu.instantiate()
-		$SettingsLayer.add_child(settings)
+		$CanvasLayer.add_child(settings)
 		
 		# Hides the nodes currently on screen
 		_hide_nodes()

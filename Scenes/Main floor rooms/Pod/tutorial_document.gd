@@ -12,10 +12,10 @@ var lines: Array[String] = [
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if PositionManager.Documents.find("Tutorial Document") == 1:
-		queue_free()
-	else: 
+	if PositionManager.Documents.find("Tutorial Document") == -1:
 		interaction_area.interact = Callable(self, "_on_interact")
+	else: 
+		queue_free()
 
 
 func _on_interact():
