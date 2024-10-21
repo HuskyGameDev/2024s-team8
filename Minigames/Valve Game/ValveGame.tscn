@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Minigames/Valve Game/ValveGame.gd" id="1_n4vlg"]
 [ext_resource type="Texture2D" uid="uid://74nx00g3wh4o" path="res://Assets/valve_handle_singlesprite_indicator.png" id="2_m88r4"]
 [ext_resource type="Texture2D" uid="uid://xedf5es1uqvk" path="res://Assets/arrow.png" id="3_mcx1x"]
-[ext_resource type="Texture2D" uid="uid://4ly5f4um0l1k" path="res://Assets/puzzle_pipes/pipe_end.png" id="4_11sef"]
+[ext_resource type="Texture2D" uid="uid://b45oipiu5uygc" path="res://Assets/puzzle_pipes/pipe_end.png" id="4_11sef"]
 [ext_resource type="Texture2D" uid="uid://ccamcmvtc2hxf" path="res://Assets/steam cloud.png" id="5_0wo15"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_ois1y"]

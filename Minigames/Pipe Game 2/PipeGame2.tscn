@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" path="res://Minigames/Pipe Game 2/PipeGame2.gd" id="1_gs2ep"]
 [ext_resource type="Script" path="res://Minigames/Pipe Game 2/Row1Two.gd" id="2_734jp"]
-[ext_resource type="Texture2D" uid="uid://dudyi5jbwdfgs" path="res://Assets/puzzle_pipes/New Pipes/003.png" id="3_ypfwj"]
-[ext_resource type="Texture2D" uid="uid://d2jae2uscsr2u" path="res://Assets/puzzle_pipes/New Pipes/000.png" id="4_e2ejq"]
+[ext_resource type="Texture2D" uid="uid://dudyi5jbwdfgs" path="res://Assets/puzzle_pipes/003.png" id="3_ypfwj"]
+[ext_resource type="Texture2D" uid="uid://d2jae2uscsr2u" path="res://Assets/puzzle_pipes/000.png" id="4_e2ejq"]
 [ext_resource type="Script" path="res://Minigames/Pipe Game 2/Row2Two.gd" id="6_3jnel"]
-[ext_resource type="Texture2D" uid="uid://b0awd851kk4pm" path="res://Assets/puzzle_pipes/New Pipes/002.png" id="7_ap7ei"]
+[ext_resource type="Texture2D" uid="uid://b0awd851kk4pm" path="res://Assets/puzzle_pipes/002.png" id="7_ap7ei"]
 [ext_resource type="Script" path="res://Minigames/Pipe Game 2/Row3Two.gd" id="7_t268m"]
 [ext_resource type="Script" path="res://Minigames/Pipe Game 2/Row4Two.gd" id="8_nsu76"]
 [ext_resource type="Script" path="res://Minigames/Pipe Game 2/Row5Two.gd" id="9_1k876"]
-[ext_resource type="Texture2D" uid="uid://8hfqimxxm6ce" path="res://Assets/puzzle_pipes/New Pipes/010.png" id="10_hqv0u"]
+[ext_resource type="Texture2D" uid="uid://8hfqimxxm6ce" path="res://Assets/puzzle_pipes/010.png" id="10_hqv0u"]
 [ext_resource type="Texture2D" uid="uid://xedf5es1uqvk" path="res://Assets/arrow.png" id="11_du1wi"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_mcxtl"]

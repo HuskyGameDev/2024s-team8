@@ -36,7 +36,8 @@ const lines4: Array[String] = [
 func _ready():
 	
 	if PositionManager.HasDefeatedMonster && !PositionManager.HasReadEscapeText2:
-		player._swap_attention()
+		if player.hasAttention:
+			player._swap_attention()
 	
 	StageManager.changeCamera(488)
 	
