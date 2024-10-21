@@ -25,7 +25,7 @@ func _on_to_security_room_body_entered(body):
 		$Player/AnimationTree.set("active", false)
 		StageManager.player_facing = Vector2(0,-1)
 		StageManager.changeScene(SECURITY_ROOM, 141, 147)
-		StageManager.changeCamera(312)
+		StageManager.changeCamera(304)
 		StageManager.scene_change = true
 
 
@@ -57,9 +57,9 @@ func _on_to_power_room_body_entered(body: Node2D) -> void:
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false)
 		StageManager.player_facing = Vector2(-1,0)
-		StageManager.changeScene(POWER_ROOM, 269, 122)
+		StageManager.changeScene(POWER_ROOM, 274, 122)
 		StageManager.changeCamera(312)
-	pass # Replace with function body.
+
 
 
 func _on_to_boiler_room_body_entered(body: Node2D) -> void:
@@ -68,7 +68,5 @@ func _on_to_boiler_room_body_entered(body: Node2D) -> void:
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false)
 		StageManager.player_facing = Vector2(0,-1)
-		StageManager.changeScene(BOILER_ROOM, 204, 146)
+		StageManager.changeScene(BOILER_ROOM, 204, 140)
 		StageManager.changeCamera(304)
-
-	pass # Replace with function body.

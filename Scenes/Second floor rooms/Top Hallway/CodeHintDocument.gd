@@ -13,8 +13,10 @@ const lines: Array[String] = [
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	interaction_area.interact = Callable(self, "_on_interact")
-	pass # Replace with function body.
+	if PositionManager.Documents.find("Handwritten Note") == -1:
+		interaction_area.interact = Callable(self, "_on_interact")
+	else: 
+		queue_free()
 
 
 func _on_interact():
@@ -25,6 +27,7 @@ func _on_interact():
 		PositionManager.Documents.append("Handwritten Note")
 		PositionManager.DocumentsText.append(PositionManager.array_to_string(lines))
 		PositionManager.play_notification("Document")
+		queue_free()
 	player._swap_attention()
 	
 	

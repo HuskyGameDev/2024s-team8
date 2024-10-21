@@ -19,7 +19,7 @@ func _on_interact():
 
 
 func _on_door_body_entered(body):
-	if Input.is_action_pressed("LEFT"):
+	if Input.is_action_pressed("LEFT") or Input.is_action_pressed("UP"):
 		var HALLWAY_MAIN = load("res://Scenes/Main floor rooms/Main Hall/hallway_main.tscn")
 		if body.name == "Player":
 			$Player.hasAttention = false

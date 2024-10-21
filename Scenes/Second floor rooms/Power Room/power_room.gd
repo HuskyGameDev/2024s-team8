@@ -18,8 +18,6 @@ func _ready():
 		await animPlayer.animation_finished
 		if $Player.hasAttention == false:
 			$Player._swap_attention()
-	else:
-		print("Pooey")
 	
 	if PositionManager.hasClearedPipe:
 		if poweredDoor != null:

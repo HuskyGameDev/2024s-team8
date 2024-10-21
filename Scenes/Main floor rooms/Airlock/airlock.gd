@@ -55,7 +55,8 @@ func _ready():
 		PositionManager.HasReadEscapeText2 = true
 		DialogManager.start_dialog(global_position, lines2, speech_sound2)
 		await DialogManager.dialog_finished
-		player._swap_attention()
+		if !player.hasAttention:
+			player._swap_attention()
 	
 
 
@@ -74,7 +75,7 @@ func _on_to_hall_body_entered(body):
 					$Player.hasAttention = false
 					$Player/AnimationTree.set("active", false)
 					StageManager.player_facing = Vector2(0,1)
-					StageManager.changeScene(HALL, 76, 130)
+					StageManager.changeScene(HALL, 76, 115)
 			else:
 				player._swap_attention()
 				DialogManager.start_dialog(global_position, lines, speech_sound)
@@ -101,6 +102,7 @@ func _on_to_pod_body_entered(body):
 					await animPlayer.animation_finished
 					StageManager.player_facing = Vector2(0,-1)
 					StageManager.changeScene(POD, 148, 136, true)
+					StageManager.changeCamera(304)
 				elif !PositionManager.HasDefeatedMonster:
 					player._swap_attention()
 					DialogManager.start_dialog(global_position, lines3, speech_sound2)

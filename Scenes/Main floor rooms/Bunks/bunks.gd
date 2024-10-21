@@ -22,18 +22,11 @@ func _on_area_2d_body_entered(_body):
 		StageManager.changeScene(HALLWAY_MAIN, 225, 119)
 
 
-func _on_area_2d_body_exited(_body):
-	
-	pass # Replace with function body.
-
-
 func _on_to_supply_closet_body_entered(body: Node2D) -> void:
 	if Input.is_action_pressed("RIGHT") && body.name == "Player":
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false)
 		var SUPPLY_CLOSET = load("res://Scenes/Main floor rooms/Supply Closet/supply_closet.tscn")
 		StageManager.player_facing = Vector2(1,0)
-		StageManager.changeScene(SUPPLY_CLOSET, 111, 108)
+		StageManager.changeScene(SUPPLY_CLOSET, 109, 106)
 		StageManager.changeCamera(304)
-		
-	pass # Replace with function body.

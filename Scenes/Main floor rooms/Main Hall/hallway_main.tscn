@@ -267,6 +267,7 @@ position = Vector2(1, 1)
 shape = SubResource("CapsuleShape2D_a0fl2")
 
 [node name="Notes" type="Label" parent="."]
+visible = false
 offset_left = 7.0
 offset_top = -92.0
 offset_right = 294.0
@@ -426,6 +427,7 @@ tile_map_data = PackedByteArray("AAAWABMAAAACAAAAAAAgABMAAAAKAAAAAAAyAAgAAAAGAAA
 tile_set = ExtResource("12_7hp2b")
 
 [node name="Lamps" type="Node2D" parent="."]
+unique_name_in_owner = true
 
 [node name="Lamp2" parent="Lamps" instance=ExtResource("15_pr4ik")]
 position = Vector2(220, 76)

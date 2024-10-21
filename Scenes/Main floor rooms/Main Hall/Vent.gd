@@ -27,7 +27,7 @@ func _on_interact():
 		StageManager.changeCamera(304)
 		StageManager.on_first_floor = false
 		PositionManager.PrevPosition = Vector2(220, 130)
-	elif(!PositionManager.HasCrowbar):#runs if player doesn't have crowbar
+	elif (!PositionManager.HasCrowbar):#runs if player doesn't have crowbar
 		player._swap_attention()
 		DialogManager.start_dialog(global_position, lines, speech_sound, false)
 		await DialogManager.dialog_finished

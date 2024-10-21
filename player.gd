@@ -44,11 +44,17 @@ func _ready():
 		position = StageManager.player_position
 	if PositionManager.StartFromBeginning:
 		get_node("Camera2D").limit_right = StageManager.right_camera_limit
-	if StageManager.scene_change && PositionManager.HasOpenedTutorial && PositionManager.HasReadEscapeText && !PositionManager.hasDecoy:
-		hasAttention = false
-		await StageManager.Scene_change 
-		hasAttention = true
-		animationTree.set("active", true)
+	
+	if StageManager.scene_change && PositionManager.HasOpenedTutorial && !PositionManager.performingDecoy:
+		if hasAttention:
+			hasAttention = false
+		
+		await StageManager.Scene_change
+		if DialogManager.is_dialog_active:
+			await DialogManager.dialog_finished
+		
+		if !hasAttention:
+			hasAttention = true
 		
 	playerSpeed = 50
 
@@ -63,7 +69,7 @@ func _swap_attention():
 #switches player to pause menu when they press esc and to the map depending which floor they are on 
 #when they press m 
 func _process(_delta):
-
+	
 	if PositionManager.Act == 1:
 		lights.color = emergencyLights
 	elif PositionManager.Act != 1:

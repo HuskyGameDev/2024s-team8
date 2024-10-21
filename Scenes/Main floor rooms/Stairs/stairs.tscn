@@ -6,10 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="2_p6e2w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_omm81"]
-size = Vector2(24, 5)
+size = Vector2(24, 4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_exbm7"]
-size = Vector2(23.9844, 5.25)
+size = Vector2(23.9844, 5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ab7vd"]
 size = Vector2(73.5391, 39.598)
@@ -45,18 +45,18 @@ use_parent_material = true
 tile_set = ExtResource("1_30vsc")
 
 [node name="Player" parent="." instance=ExtResource("2_p6e2w")]
-position = Vector2(202, 141)
+position = Vector2(202, 142)
 
 [node name="to_first_floor" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="to_first_floor"]
-position = Vector2(60, 109.5)
+position = Vector2(60, 110)
 shape = SubResource("RectangleShape2D_omm81")
 
 [node name="to_second_floor" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="to_second_floor"]
-position = Vector2(244, 166)
+position = Vector2(244, 165.5)
 shape = SubResource("RectangleShape2D_exbm7")
 
 [node name="Starea" type="Area2D" parent="."]
@@ -71,8 +71,8 @@ shape = SubResource("RectangleShape2D_ab7vd")
 scale = Vector2(5, 5)
 transform = Transform2D(5, 0, 0, 5, 0, 0)
 
-[connection signal="body_entered" from="to_first_floor" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="to_first_floor" to="." method="_on_to_first_floor_body_entered"]
+[connection signal="body_entered" from="to_first_floor" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="to_second_floor" to="." method="_on_to_second_floor_body_entered"]
 [connection signal="body_entered" from="Starea" to="." method="_on_starea_body_entered"]
 [connection signal="body_exited" from="Starea" to="." method="_on_starea_body_exited"]

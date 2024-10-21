@@ -26,10 +26,6 @@ func _on_area_2d_body_entered(_body):
 		StageManager.changeCamera(488)
 
 
-
-func _on_area_2d_body_exited(_body):
-	pass # Replace with function body.
-
 #sets the direction the character will be facing in the next scene
 func _on_area_2d_2_body_entered(body: Node2D) -> void:
 	if Input.is_action_pressed("LEFT") && body.name == "Player":
@@ -37,7 +33,5 @@ func _on_area_2d_2_body_entered(body: Node2D) -> void:
 		$Player/AnimationTree.set("active", false)
 		var BUNK = load("res://Scenes/Main floor rooms/Bunks/bunks.tscn")
 		StageManager.player_facing = Vector2(-1,0)
-		StageManager.changeScene(BUNK, 273, 130)
+		StageManager.changeScene(BUNK, 273, 128)
 		StageManager.changeCamera(304)
-
-	pass # Replace with function body.

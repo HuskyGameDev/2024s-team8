@@ -252,6 +252,7 @@ position = Vector2(19.5, 2.25)
 shape = SubResource("RectangleShape2D_j3y1k")
 
 [node name="TutorialDocument" type="Node2D" parent="."]
+y_sort_enabled = true
 position = Vector2(136, 129)
 rotation = 0.392699
 script = ExtResource("15_wtfop")

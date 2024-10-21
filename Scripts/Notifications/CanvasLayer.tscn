@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bj22tl7x72iur"]
+
+[node name="Canvas" type="Node2D"]
+z_index = 5
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+layer = 2
+scale = Vector2(5, 5)
+transform = Transform2D(5, 0, 0, 5, 0, 0)

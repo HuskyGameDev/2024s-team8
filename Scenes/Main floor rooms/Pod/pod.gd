@@ -27,12 +27,13 @@ func _ready():
 	meatSuit.visible = false
 	if PositionManager.Act < 1:
 		PositionManager.Act = 0
-	if !PositionManager.HasOpenedTutorial && PositionManager.StartFromBeginning:
+	if PositionManager.StartFromBeginning && !PositionManager.HasOpenedTutorial:
 		if $Player.hasAttention == true:
 			player._swap_attention()
 		await get_tree().create_timer(1).timeout
 		DialogManager.start_dialog(global_position, lines, speech_sound, false, false)
 		await DialogManager.dialog_finished
+		PositionManager.HasOpenedTutorial = true
 		PositionManager.add_objective("Explore Ship", "Get accustomed to your new home.")
 		PositionManager.add_objective("Meet Crewmates", "Meet the fellow crewmates.")
 		PositionManager.play_notification("Objective")
@@ -40,6 +41,7 @@ func _ready():
 			player._swap_attention()
 
 	if PositionManager.hasDecoy:
+		PositionManager.performingDecoy = true
 		if $Player.hasAttention:
 			player._swap_attention()
 		DialogManager.start_dialog(global_position, lines2, speech_sound, false, false)
@@ -65,6 +67,8 @@ func _ready():
 func _process(_delta):
 	if PositionManager.Act == 1:
 		PositionManager.Act = 0
+	
+	
 	if player.animMove:
 		var vector = Vector2.ZERO
 		var x = marker.position.x - player.position.x
@@ -94,4 +98,6 @@ func _on_player_done_moving() -> void:
 	animPlayer.play("approach")
 	await animPlayer.animation_finished
 	PositionManager.heliDistracted = true
-	player._swap_attention()
+	PositionManager.performingDecoy = false
+	if !player.hasAttention:
+		player._swap_attention()

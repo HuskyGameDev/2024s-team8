@@ -7,8 +7,6 @@ extends Control
 
 func _ready():
 	$TabContainer/Objectives.show()
-	if !PositionManager.HasOpenedTutorial:
-		PositionManager.HasOpenedTutorial = true
 	
 	setObjectives()
 	setDocuments()

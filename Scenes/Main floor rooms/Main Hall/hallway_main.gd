@@ -28,6 +28,9 @@ const lines3: Array[String] = [
 
 func _ready():
 	
+	if PositionManager.Act == 3:
+		%Lamps.hide()
+	
 	PositionManager.hasDecoy = PositionManager.HasMeat and PositionManager.HasSpaceSuit and PositionManager.HasHeatLamp
 	#sets camera limit
 	StageManager.changeCamera(304)
@@ -64,12 +67,21 @@ func _on_mess_hall_body_entered(body):
 			$Player.hasAttention = false
 			$Player/AnimationTree.set("active", false)
 			StageManager.player_facing = Vector2(0, 1)
-			StageManager.changeScene(MESS, 232, 120)
+			StageManager.changeScene(MESS, 232, 115)
 	
 
-func _on_mess_hall_body_exited(_body):
-	
-	pass # Replace with function body.
+
+func _on_mess_hall_left_body_entered(body):
+	if Input.is_action_pressed("DOWN"):
+		if body.name == "Player":
+			var MESS = load("res://Scenes/Main floor rooms/Mess Hall/mess_hall.tscn")
+			$Player.hasAttention = false
+			$Player/AnimationTree.set("active", false)
+			StageManager.player_facing = Vector2(0, 1)
+			StageManager.changeScene(MESS, 61, 115)
+
+
+
 
 #switches to the research room scene
 func _on_research_room_body_entered(body):
@@ -86,9 +98,22 @@ func _on_research_room_body_entered(body):
 			#StageManager.changeScene(RESEARCH, 80, 128)
 
 
-func _on_research_room_body_exited(_body):
-	
-	pass # Replace with function body.
+
+#small bug when leaving the airlock if you hold down you go into this door somehow
+func _on_to_research_right_body_entered(body: Node2D) -> void:
+		if body.name == "Player" && Input.is_action_pressed("DOWN"):
+			$Player._swap_attention()
+			DialogManager.start_dialog(global_position, lines2, speech_sound2, false)
+			await DialogManager.dialog_finished
+			$Player._swap_attention()
+			#var RESEARCH = load("res://Scenes/Main floor rooms/Research/research1.tscn")
+			#$Player.hasAttention = false
+			#$Player/AnimationTree.set("active", false)
+			#StageManager.player_facing = Vector2(0, 1)
+			#StageManager.changeScene(RESEARCH, 225, 116)
+
+
+
 
 #switches to the pod scene
 func _on_pod_body_entered(body):
@@ -98,11 +123,8 @@ func _on_pod_body_entered(body):
 			$Player.hasAttention = false
 			$Player/AnimationTree.set("active", false)
 			StageManager.player_facing = Vector2(0, -1)
-			StageManager.changeScene(AIRLOCK, 158, 126) 
+			StageManager.changeScene(AIRLOCK, 158, 130) 
 
-
-func _on_pod_body_exited(_body):
-	pass
 
 #switches to the bunks scene
 func _on_bunks_body_entered(body):
@@ -114,10 +136,6 @@ func _on_bunks_body_entered(body):
 			StageManager.player_facing = Vector2(0, -1)
 			StageManager.changeScene(BUNKS, 53, 144)
 
-	
-func _on_bunks_body_exited(_body):
-	pass # Replace with function body.
-
 
 #switches to the supply closet scene
 func _on_supply_closet_body_entered(body):
@@ -127,11 +145,10 @@ func _on_supply_closet_body_entered(body):
 			$Player.hasAttention = false
 			$Player/AnimationTree.set("active", false)
 			StageManager.player_facing = Vector2(0, -1)
-			StageManager.changeScene(SUPPLY, 124, 116)
+			StageManager.changeScene(SUPPLY, 124, 123)
 
 
-func _on_supply_closet_body_exited(_body):
-	pass # Replace with function body.
+
 
 #switches to the stairs scene
 func _on_stairs_body_entered(body):
@@ -150,9 +167,6 @@ func _on_stairs_body_entered(body):
 			Player._swap_attention()
 
 
-func _on_stairs_body_exited(_body):
-	pass
-
 
 #switches to the command deck scene
 func _on_bridge_body_entered(body):
@@ -162,36 +176,4 @@ func _on_bridge_body_entered(body):
 			$Player.hasAttention = false
 			$Player/AnimationTree.set("active", false)
 			StageManager.player_facing = Vector2(1, 0)
-			StageManager.changeScene(COMMAND_DECK, 122, 128)
-
-
-func _on_bridge_body_exited(_body):
-	pass
-
-
-func _on_mess_hall_left_body_entered(body):
-	if Input.is_action_pressed("DOWN"):
-		if body.name == "Player":
-			var MESS = load("res://Scenes/Main floor rooms/Mess Hall/mess_hall.tscn")
-			$Player.hasAttention = false
-			$Player/AnimationTree.set("active", false)
-			StageManager.player_facing = Vector2(0, 1)
-			StageManager.changeScene(MESS, 61, 115)
-
-	pass # Replace with function body.
-
-
-#small bug when leaving the airlock if you hold down you go into this door somehow
-func _on_to_research_right_body_entered(body: Node2D) -> void:
-		if body.name == "Player" && Input.is_action_pressed("DOWN"):
-			$Player._swap_attention()
-			DialogManager.start_dialog(global_position, lines2, speech_sound2, false)
-			await DialogManager.dialog_finished
-			$Player._swap_attention()
-			#var RESEARCH = load("res://Scenes/Main floor rooms/Research/research1.tscn")
-			#$Player.hasAttention = false
-			#$Player/AnimationTree.set("active", false)
-			#StageManager.player_facing = Vector2(0, 1)
-			#StageManager.changeScene(RESEARCH, 225, 116)
-
-			pass # Replace with function body.
+			StageManager.changeScene(COMMAND_DECK, 119, 123)

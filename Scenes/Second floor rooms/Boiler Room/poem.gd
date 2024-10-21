@@ -27,7 +27,10 @@ const lines2: Array[String] = [
 ]
 
 func _ready() -> void:
-	interaction_area.interact = Callable(self, "_on_interact")
+	if PositionManager.Documents.find("Poem") == -1:
+		interaction_area.interact = Callable(self, "_on_interact")
+	else: 
+		queue_free()
 	
 
 func _on_interact():
@@ -39,7 +42,8 @@ func _on_interact():
 		PositionManager.Documents.append("Poem")
 		PositionManager.DocumentsText.append(PositionManager.array_to_string(lines2))
 		PositionManager.play_notification("Document")
-	
+		PositionManager.HasPoem = true
+		queue_free()
+		
 	player._swap_attention()
-	PositionManager.HasPoem = true
-	$".".queue_free()
+	

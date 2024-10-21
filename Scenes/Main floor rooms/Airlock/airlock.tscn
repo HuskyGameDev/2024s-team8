@@ -19,7 +19,7 @@
 size = Vector2(24, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7hcie"]
-size = Vector2(24, 5)
+size = Vector2(24, 4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1awhh"]
 size = Vector2(16, 5.5)
@@ -38,6 +38,9 @@ size = Vector2(8, 15)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6r7ue"]
 polygon = PackedVector2Array(-1, -5, -1, -4, -2, -4, -2, -3, -3, -3, -3, -2, -4, -2, -4, 16, 4, 16, 4, -2, 3, -2, 3, -3, 2, -3, 2, -4, 1, -4, 1, -5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x4c7k"]
+radius = 2.23607
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ba3ga"]
 size = Vector2(16, 7)
@@ -118,9 +121,6 @@ metadata/_snap_enabled = true
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_mrrnj"]
 polygon = PackedVector2Array(-2.90909, 0, -1.45455, 2, -1.45455, 0, 1.45454, 0, 1.45454, 2, 2.90909, 0, 1.45454, -2, -1.45455, -2)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_x4c7k"]
-radius = 2.23607
-
 [node name="Airlock" type="Node2D" groups=["Airlock"]]
 y_sort_enabled = true
 script = ExtResource("1_tr7se")
@@ -185,7 +185,7 @@ tile_set = ExtResource("3_277va")
 [node name="to_Hall" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="to_Hall"]
-position = Vector2(156, 149.5)
+position = Vector2(156, 150)
 shape = SubResource("RectangleShape2D_7hcie")
 
 [node name="to_pod" type="Area2D" parent="." groups=["to_pod"]]
@@ -255,6 +255,20 @@ shape = SubResource("RectangleShape2D_7qvgi")
 show_behind_parent = true
 occluder = SubResource("OccluderPolygon2D_6r7ue")
 
+[node name="Eject Button" type="Node2D" parent="."]
+position = Vector2(182, 98)
+script = ExtResource("13_22k51")
+
+[node name="Sprite2D" type="Sprite2D" parent="Eject Button"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("13_re4lm")
+
+[node name="InteractionArea" type="Area2D" parent="Eject Button"]
+script = ExtResource("7_iopdc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Eject Button/InteractionArea"]
+shape = SubResource("CircleShape2D_x4c7k")
+
 [node name="AirlockDocument" type="Node2D" parent="."]
 position = Vector2(119, 95)
 script = ExtResource("8_ldlo2")
@@ -321,20 +335,6 @@ position = Vector2(0, 0)
 scale = Vector2(9, 3)
 energy = 0.5
 
-[node name="Eject Button" type="Node2D" parent="."]
-position = Vector2(182, 98)
-script = ExtResource("13_22k51")
-
-[node name="Sprite2D" type="Sprite2D" parent="Eject Button"]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("13_re4lm")
-
-[node name="InteractionArea" type="Area2D" parent="Eject Button"]
-script = ExtResource("7_iopdc")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Eject Button/InteractionArea"]
-shape = SubResource("CircleShape2D_x4c7k")
-
 [node name="CanvasLayer" type="CanvasLayer" parent="." groups=["CanvasLayer"]]
 unique_name_in_owner = true
 scale = Vector2(5, 5)
@@ -348,9 +348,9 @@ transform = Transform2D(5, 0, 0, 5, 0, 0)
 [connection signal="timeout" from="Button2/Timer2" to="Button2" method="_on_timer_timeout"]
 [connection signal="area_entered" from="Button2/InteractionArea" to="Button2/InteractionArea" method="_on_area_entered"]
 [connection signal="area_exited" from="Button2/InteractionArea" to="Button2/InteractionArea" method="_on_area_exited"]
-[connection signal="area_entered" from="AirlockDocument/InteractionArea" to="AirlockDocument/InteractionArea" method="_on_area_entered"]
-[connection signal="area_exited" from="AirlockDocument/InteractionArea" to="AirlockDocument/InteractionArea" method="_on_area_exited"]
 [connection signal="area_entered" from="Eject Button/InteractionArea" to="Eject Button/InteractionArea" method="_on_area_entered"]
 [connection signal="area_exited" from="Eject Button/InteractionArea" to="Eject Button/InteractionArea" method="_on_area_exited"]
+[connection signal="area_entered" from="AirlockDocument/InteractionArea" to="AirlockDocument/InteractionArea" method="_on_area_entered"]
+[connection signal="area_exited" from="AirlockDocument/InteractionArea" to="AirlockDocument/InteractionArea" method="_on_area_exited"]
 
 [editable path="Lamp4"]

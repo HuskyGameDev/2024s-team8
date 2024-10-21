@@ -29,6 +29,7 @@ var HasSpaceSuit = false
 var HasHeatLamp = false
 var HasMeat = false
 var hasDecoy = false
+var performingDecoy = false
 var HasOpenedVent = false
 var StartFromBeginning = false
 var hasClearedPipe = false
@@ -66,9 +67,7 @@ var lastKnownPos = Vector2.ZERO
 
 
 func _process(delta):
-	if (get_tree().get_current_scene() != null):
-		if (get_tree().get_current_scene().get_node("%CanvasLayer") != null):
-			Canvas = get_tree().get_current_scene().get_node("%CanvasLayer")
+	Canvas = GlobalCanvasLayer.get_child(0)
 	
 
 
@@ -96,10 +95,13 @@ func remove_objective(objective: String):
 		i += 1
 
 func play_notification(type: String):
+	
 	var notification = notificationScene.instantiate()
 	if type == "Objective":
 		notification.get_child(0).get_child(0).text = "Objectives Updated"
 	elif type == "Document":
 		notification.get_child(0).get_child(0).text = "New Document Added"
 	if Canvas != null:
+		if Canvas.get_child_count() > 0:
+			Canvas.get_child(0).queue_free()
 		Canvas.add_child(notification)

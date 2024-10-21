@@ -6,9 +6,14 @@ extends Node2D
 func _ready() -> void:
 	animPlayer.play("flyAway")
 
+func _process(delta):
+	if Input.is_action_just_pressed("MENU"):
+		_on_animation_player_animation_finished("flyAway")
+
 
 func _on_animation_player_animation_finished(_anim_name) -> void:
 	PositionManager.HasDefeatedMonster = true
+	PositionManager.performingDecoy = false
 	var airLock = load("res://Scenes/Main floor rooms/Airlock/airlock.tscn")
 	
 	StageManager.changeScene(airLock, PositionManager.lastKnownPos.x, PositionManager.lastKnownPos.y)
