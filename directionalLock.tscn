@@ -96,6 +96,7 @@ texture = SubResource("CanvasTexture_w5u54")
 libraries = {
 "": SubResource("AnimationLibrary_83561")
 }
+speed_scale = 2.0
 
 [node name="Backplate" type="Sprite2D" parent="."]
 self_modulate = Color(0.388235, 0.388235, 0.388235, 1)

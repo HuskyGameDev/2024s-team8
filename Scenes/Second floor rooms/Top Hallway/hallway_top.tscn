@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://b0u5oq1ep04bc"]
+[gd_scene load_steps=33 format=4 uid="uid://b0u5oq1ep04bc"]
 
 [ext_resource type="Script" path="res://Scenes/Second floor rooms/Top Hallway/hallway_top.gd" id="1_js6sa"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="1_wa6ms"]
@@ -13,6 +13,7 @@
 [ext_resource type="TileSet" uid="uid://b57dw6av5xyw3" path="res://door_icon_tileset.tres" id="9_4cxew"]
 [ext_resource type="Script" path="res://Scenes/Second floor rooms/Top Hallway/CodeHintDocument.gd" id="10_bssee"]
 [ext_resource type="Texture2D" uid="uid://b64doeqvowr0m" path="res://Assets/paper_note_sprite.png" id="10_j0oca"]
+[ext_resource type="PackedScene" uid="uid://koortbv6bmhv" path="res://theHelianth.tscn" id="14_ra4c5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_23g7b"]
 size = Vector2(20, 45)
@@ -270,18 +271,14 @@ script = ExtResource("7_51fjl")
 position = Vector2(-4, 12)
 shape = SubResource("RectangleShape2D_jeqwj")
 
-[node name="Collision" type="TileMap" parent="."]
-tile_set = ExtResource("1_wa6ms")
-format = 2
+[node name="Collision" type="Node2D" parent="."]
 
 [node name="Layer1" type="TileMapLayer" parent="Collision"]
 use_parent_material = true
 tile_map_data = PackedByteArray("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")
 tile_set = ExtResource("1_wa6ms")
 
-[node name="Background" type="TileMap" parent="."]
-tile_set = ExtResource("2_gssjo")
-format = 2
+[node name="Background" type="Node2D" parent="."]
 
 [node name="flat color" type="TileMapLayer" parent="Background"]
 use_parent_material = true
@@ -340,9 +337,7 @@ shape = SubResource("RectangleShape2D_23g7b")
 texture = ExtResource("5_b7ej4")
 offset = Vector2(0, 2)
 
-[node name="background over doors" type="TileMap" parent="."]
-tile_set = ExtResource("2_gssjo")
-format = 2
+[node name="background over doors" type="Node2D" parent="."]
 
 [node name="flat color" type="TileMapLayer" parent="background over doors"]
 use_parent_material = true
@@ -360,7 +355,7 @@ tile_set = ExtResource("2_gssjo")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("3_j2e1i")]
 z_index = 1
-position = Vector2(187, 127)
+position = Vector2(84, 127)
 
 [node name="To Security Room" type="Area2D" parent="." groups=["Security Door"]]
 position = Vector2(88, 119)
@@ -380,10 +375,10 @@ libraries = {
 "": SubResource("AnimationLibrary_s80lg")
 }
 
-[node name="Door Icons" type="TileMap" parent="."]
+[node name="Door Icons" type="TileMapLayer" parent="."]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAAyAAgAAAADAAAAAAAKAAgAAAAEAAAAAAAhAAgAAAAAAAAAAAA=")
 tile_set = ExtResource("9_4cxew")
-format = 2
-layer_0/tile_data = PackedInt32Array(524338, 196608, 0, 524298, 262144, 0, 524321, 0, 0)
 
 [node name="CodeHintDocument" type="Node2D" parent="."]
 position = Vector2(441, 140)
@@ -426,6 +421,23 @@ shape = SubResource("RectangleShape2D_jn25u")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="To_Boiler_room"]
 position = Vector2(400, 120.625)
 shape = SubResource("RectangleShape2D_hw8co")
+
+[node name="Pathing" type="Node2D" parent="."]
+
+[node name="Left Point" type="Marker2D" parent="Pathing"]
+position = Vector2(112, 144)
+
+[node name="Right Point" type="Marker2D" parent="Pathing"]
+position = Vector2(368, 144)
+
+[node name="Door Stop" type="Marker2D" parent="Pathing"]
+position = Vector2(268, 144)
+
+[node name="Door Point" type="Marker2D" parent="Pathing"]
+position = Vector2(268, 124)
+
+[node name="Flower" parent="." instance=ExtResource("14_ra4c5")]
+position = Vector2(200, 140)
 
 [connection signal="open_door" from="Combo Lock" to="." method="_on_combo_lock_open_door"]
 [connection signal="area_entered" from="Combo Lock/InteractionArea" to="Combo Lock/InteractionArea" method="_on_area_entered"]
