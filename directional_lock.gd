@@ -33,14 +33,14 @@ func _process(_delta: float) -> void:
 
 func lockProcess() -> void:
 	await playAnim(userInput[currentIndex])
-	if userInput.size() > currentIndex:
+	if userInput.size() > currentIndex and poemCode.size() > currentIndex:
 		if poemCode[currentIndex] == userInput[currentIndex]:
 			lockStates.append(0)
 		else:
 			lockStates.append(1)
 		currentIndex += 1
 		
-	if currentIndex == 5:
+	if currentIndex == poemCode.size():
 		if lockStates.all(func(element): return element == 0):
 			print("Success!")
 			state.modulate = "22FF22"

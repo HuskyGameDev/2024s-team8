@@ -18,7 +18,7 @@
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Pod/tutorial_document.gd" id="15_wtfop"]
 [ext_resource type="Texture2D" uid="uid://dsav7uwsib2vs" path="res://Assets/meatsuit.png" id="16_dyq57"]
 [ext_resource type="TileSet" uid="uid://bq0bamhp4c4ng" path="res://Scenes/console_tileset.tres" id="16_gn7oi"]
-[ext_resource type="Texture2D" uid="uid://770dlkhi06j6" path="res://Assets/image.png" id="17_a1lei"]
+[ext_resource type="Texture2D" uid="uid://dhc88kyqp31a1" path="res://Assets/Monster Poses/monster_idle_walk_run_sprites.png" id="19_tv182"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wekmh"]
 size = Vector2(24, 5)
@@ -294,8 +294,9 @@ position = Vector2(100, 134)
 [node name="Heli" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(148, 120)
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("17_a1lei")
+texture = ExtResource("19_tv182")
+hframes = 5
+vframes = 5
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." groups=["CanvasLayer"]]
 unique_name_in_owner = true

@@ -4,8 +4,15 @@ extends Node2D
 @onready var SecurityDoor = get_node("dialDoor")
 @onready var StairsDoor = get_tree().get_first_node_in_group("Stairs Door")
 @onready var animPlayer = get_node("AnimationPlayer")
+@onready var lP = $"Pathing/Left Point"
+@onready var rP = $"Pathing/Right Point"
+@onready var dS = $"Pathing/Door Stop"
+@onready var dP = $"Pathing/Door Point"
+@onready var flower = $Flower
 
 var count = 0
+var loops = 0
+var facing = 1
 
 func _ready():
 	if PositionManager.hasClearedDial:
@@ -16,7 +23,35 @@ func _ready():
 	
 	if !PositionManager.SecurityEnabled:
 		StairsDoor.queue_free()
+		flower.visible = true
 
+func _process(_delta):
+	
+	if !PositionManager.SecurityEnabled:
+		moving()
+
+func moving():
+	
+	var dir = Vector2()
+	
+	if loops < 2:
+		if facing:
+			
+			dir = lP.position - flower.position
+			if abs(dir.x) < 0.1:
+				loops += 1
+				facing = 0
+			
+		else:
+			
+			dir = rP.position - flower.position
+			if abs(dir.x) < 0.1:
+				facing = 1
+	else:
+		loops = 0
+		
+	flower.dir = dir
+	await get_tree().create_timer(1.0).timeout
 
 func _on_to_security_room_body_entered(body):
 	if body.name == "Player" && Input.is_action_pressed("UP") && PositionManager.hasClearedDial:
