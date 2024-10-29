@@ -10,16 +10,16 @@ extends Node2D
 
 
 const lines: Array[String] = [
-	"A twin-sized bed. Underneath lies a human-sized gap.",
-	"It looks like this bed hasn't been used for a while..."
+	"A large supply box.",
+	"You notice some cleaning supplies scattered across the bottom."
 ]
 
 const lines2: Array[String] = [
-	"I'm going to hide under this bed!"
+	"I'm going to hide in this box!"
 ]
 
 const lines3: Array[String] = [
-	"I'm going to stop hiding under this bed!"
+	"I'm going to stop hiding in this box!"
 ]
 
 

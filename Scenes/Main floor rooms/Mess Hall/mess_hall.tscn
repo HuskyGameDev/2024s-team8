@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=4 uid="uid://daise62ngs48s"]
+[gd_scene load_steps=19 format=4 uid="uid://daise62ngs48s"]
 
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Mess Hall/mess_hall.gd" id="1_5lmt6"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="2_onope"]
 [ext_resource type="PackedScene" uid="uid://ny55otxbs0t" path="res://Scenes/tile_map.tscn" id="3_nky0x"]
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="4_s8k3y"]
 [ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="5_1jw8f"]
+[ext_resource type="Texture2D" uid="uid://ifwjxa6vj0ji" path="res://Assets/Steam Particles/steam-partical-atlas.png" id="8_01uox"]
 [ext_resource type="Script" path="res://Interaction/InteractionArea.gd" id="8_ebb8r"]
 [ext_resource type="Texture2D" uid="uid://cjuq6xa28ar70" path="res://Assets/mess-tables-2.png" id="9_oe7el"]
 [ext_resource type="Texture2D" uid="uid://5ylb05seiei" path="res://Assets/mess-serving_area.png" id="10_02a38"]
@@ -17,6 +18,19 @@ size = Vector2(24, 5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_80vr4"]
 size = Vector2(16.5, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eowgu"]
+atlas = ExtResource("8_01uox")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="Curve" id="Curve_jwsvq"]
+_data = [Vector2(0, 0.197802), 0.0, 2.9916, 0, 0, Vector2(0.123596, 0.43956), 1.8778, 1.8778, 0, 0, Vector2(0.297753, 0.747253), 1.09538, 1.09538, 0, 0, Vector2(0.752809, 1), -0.0528658, -0.0528658, 0, 0, Vector2(1, 0.076923), -8.04153, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="Gradient" id="Gradient_3dsoo"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.0866667, 0.666667, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1.00968, 1.00968, 1.00968, 1.01815, 1, 1, 1, 1, 0.466667, 0.466667, 0.466667, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8bff8"]
 size = Vector2(12, 31)
@@ -120,6 +134,93 @@ polygon = PackedVector2Array(-48, 36, -55, 43, -61, 49, -69, 57, -72, 60, -72, 6
 [node name="Freezer Door" type="Node2D" parent="."]
 y_sort_enabled = true
 script = ExtResource("11_eb2pe")
+
+[node name="FreezerParticles" type="CPUParticles2D" parent="Freezer Door"]
+unique_name_in_owner = true
+position = Vector2(21, 119)
+emitting = false
+amount = 4
+lifetime = 1.1
+preprocess = 1.0
+speed_scale = 0.75
+randomness = 1.0
+lifetime_randomness = 0.38
+draw_order = 1
+texture = SubResource("AtlasTexture_eowgu")
+emission_shape = 1
+emission_sphere_radius = 2.0
+direction = Vector2(0, 1)
+spread = 7.0
+gravity = Vector2(100, 0)
+angular_velocity_min = -150.0
+angular_velocity_max = 150.0
+linear_accel_min = 50.0
+linear_accel_max = 70.0
+radial_accel_min = 14.14
+radial_accel_max = 32.32
+damping_min = 75.0
+damping_max = 75.0
+scale_amount_curve = SubResource("Curve_jwsvq")
+color = Color(0.858824, 0.858824, 0.858824, 0.741176)
+color_ramp = SubResource("Gradient_3dsoo")
+
+[node name="FreezerParticles2" type="CPUParticles2D" parent="Freezer Door"]
+unique_name_in_owner = true
+position = Vector2(23, 132)
+emitting = false
+amount = 4
+lifetime = 1.1
+preprocess = 1.0
+speed_scale = 0.75
+randomness = 1.0
+lifetime_randomness = 0.38
+draw_order = 1
+texture = SubResource("AtlasTexture_eowgu")
+emission_shape = 1
+emission_sphere_radius = 2.0
+direction = Vector2(0, 1)
+spread = 7.0
+gravity = Vector2(100, 0)
+angular_velocity_min = -150.0
+angular_velocity_max = 150.0
+linear_accel_min = 50.0
+linear_accel_max = 70.0
+radial_accel_min = 14.14
+radial_accel_max = 32.32
+damping_min = 75.0
+damping_max = 75.0
+scale_amount_curve = SubResource("Curve_jwsvq")
+color = Color(0.858824, 0.858824, 0.858824, 0.741176)
+color_ramp = SubResource("Gradient_3dsoo")
+
+[node name="FreezerParticles3" type="CPUParticles2D" parent="Freezer Door"]
+unique_name_in_owner = true
+position = Vector2(20, 143)
+emitting = false
+amount = 4
+lifetime = 1.1
+preprocess = 1.0
+speed_scale = 0.75
+randomness = 1.0
+lifetime_randomness = 0.38
+draw_order = 1
+texture = SubResource("AtlasTexture_eowgu")
+emission_shape = 1
+emission_sphere_radius = 2.0
+direction = Vector2(0, 1)
+spread = 7.0
+gravity = Vector2(100, 0)
+angular_velocity_min = -150.0
+angular_velocity_max = 150.0
+linear_accel_min = 50.0
+linear_accel_max = 70.0
+radial_accel_min = 14.14
+radial_accel_max = 32.32
+damping_min = 75.0
+damping_max = 75.0
+scale_amount_curve = SubResource("Curve_jwsvq")
+color = Color(0.858824, 0.858824, 0.858824, 0.741176)
+color_ramp = SubResource("Gradient_3dsoo")
 
 [node name="FreezerDoorClosed" type="Node2D" parent="Freezer Door"]
 unique_name_in_owner = true

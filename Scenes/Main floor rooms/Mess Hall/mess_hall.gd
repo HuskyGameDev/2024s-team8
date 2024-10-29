@@ -23,7 +23,7 @@ func _process(delta):
 #switches to main hall
 #sets the direction the character will be facing in the next scene
 func _on_to_main_body_entered(body: Node2D) -> void:
-		if Input.is_action_pressed("UP"):
+		if Input.is_action_pressed("UP") && body.name == "Player":
 			$Player.hasAttention = false
 			$Player/AnimationTree.set("active", false)
 			var HALLWAY_MAIN = load("res://Scenes/Main floor rooms/Main Hall/hallway_main.tscn")
@@ -34,7 +34,7 @@ func _on_to_main_body_entered(body: Node2D) -> void:
 #switches to main hall
 #sets the direction the character will be facing in the next scene
 func _on_to_main_left_body_entered(body: Node2D) -> void:
-		if Input.is_action_pressed("UP"):
+		if Input.is_action_pressed("UP") && body.name == "Player":
 			$Player.hasAttention = false
 			$Player/AnimationTree.set("active", false)
 			var HALLWAY_MAIN = load("res://Scenes/Main floor rooms/Main Hall/hallway_main.tscn")

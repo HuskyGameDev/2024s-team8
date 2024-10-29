@@ -25,6 +25,11 @@ func _ready():
 			door.monitoring = true
 		
 
+func _process(delta):
+	if animPlayer.is_playing():
+		if animPlayer.current_animation != "Door_Opening":
+			$Player.hasAttention = false
+
 func _on_door_body_entered(_body):
 	if Input.is_action_pressed("RIGHT") && _body.name == "Player":
 		var HALLWAY_TOP = load("res://Scenes/Second floor rooms/Top Hallway/hallway_top.tscn")
@@ -32,6 +37,7 @@ func _on_door_body_entered(_body):
 		$Player/AnimationTree.set("active", false) 
 		StageManager.player_facing = Vector2(1,0)
 		StageManager.changeScene(HALLWAY_TOP, 32, 130)
+		StageManager.changeCamera(480)
 
 
 func _on_pipe_opening():

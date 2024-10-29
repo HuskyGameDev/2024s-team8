@@ -53,6 +53,7 @@ func _on_interact():
 		
 		set_visible(false)
 		bedInteraction.disabled = false
+		interaction_area.get_child(0).disabled = true
 	
 	if PositionManager.HasMeat && PositionManager.HasSpaceSuit && PositionManager.HasHeatLamp:
 		DialogManager.start_dialog(global_position, lines5, speech_sound2, false, false)

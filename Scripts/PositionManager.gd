@@ -35,6 +35,7 @@ var StartFromBeginning = false
 var hasClearedPipe = false
 var HasClearedValve = false
 var hasClearedDial = false
+var hasActivatedHeli = false
 var heliDistracted = false
 var HasDefeatedMonster = false
 
@@ -95,7 +96,6 @@ func remove_objective(objective: String):
 		i += 1
 
 func play_notification(type: String):
-	
 	var notification = notificationScene.instantiate()
 	if type == "Objective":
 		notification.get_child(0).get_child(0).text = "Objectives Updated"
@@ -105,3 +105,14 @@ func play_notification(type: String):
 		if Canvas.get_child_count() > 0:
 			Canvas.get_child(0).queue_free()
 		Canvas.add_child(notification)
+
+
+func getDirection(rotation : float):
+	if rotation == 0:
+		return Vector2(-1, 0)
+	elif rotation == 90:
+		return Vector2(0, -1)
+	elif rotation == 180:
+		return Vector2(1, 0)
+	elif rotation == 270:
+		return  Vector2(0, 1)

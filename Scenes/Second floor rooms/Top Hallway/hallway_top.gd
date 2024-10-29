@@ -105,3 +105,13 @@ func _on_to_boiler_room_body_entered(body: Node2D) -> void:
 		StageManager.player_facing = Vector2(0,-1)
 		StageManager.changeScene(BOILER_ROOM, 204, 140)
 		StageManager.changeCamera(304)
+
+
+func _on_to_greenhouse_body_entered(body: Node2D) -> void:
+	if Input.is_action_pressed("RIGHT") && body.name == "Player":
+		var GREENHOUSE = load("res://Scenes/Second floor rooms/Greenhouse/greenhouse.tscn")
+		$Player.hasAttention = false
+		$Player/AnimationTree.set("active", false)
+		StageManager.player_facing = Vector2(1,0)
+		StageManager.changeScene(GREENHOUSE, 93, 122)
+		StageManager.changeCamera(304)

@@ -27,6 +27,7 @@ var emergencyLights = "584575"
 var normalLights = "ffffff"
 var InteractionOverride = false
 var pressedShift = false
+var hiding = false
 var usingSwap = false
 
 

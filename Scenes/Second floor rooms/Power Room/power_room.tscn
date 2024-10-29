@@ -246,7 +246,7 @@ tile_map_data = PackedByteArray("AAAkABEAAAARAAAAAAAkABAAAAARAAAAAAAkAA8AAAARAAA
 tile_set = ExtResource("3_2402i")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("5_hbqsc")]
-position = Vector2(204, 125)
+position = Vector2(200, 126)
 playerSpeed = 60
 
 [node name="PowerRoomDocument" type="Node2D" parent="."]
@@ -313,7 +313,7 @@ libraries = {
 [node name="Black Out" type="TextureRect" parent="."]
 self_modulate = Color(0, 0, 0, 0)
 top_level = true
-z_index = 1
+z_index = 4
 offset_left = 4.0
 offset_top = -4.0
 offset_right = 300.0

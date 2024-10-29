@@ -7,6 +7,9 @@ extends Node2D
 
 @onready var freezerDoorClosed = $"%FreezerDoorClosed"
 @onready var freezerDoorOpen = $"%FreezerDoorOpen"
+@onready var particles1 = $FreezerParticles
+@onready var particles2 = $FreezerParticles2
+@onready var particles3 = $FreezerParticles3
 
 
 const lines: Array[String] = [
@@ -42,6 +45,10 @@ func _on_interact():
 		player._swap_attention()
 	DialogManager.start_dialog(global_position, lines, speech_sound, false)
 	await DialogManager.dialog_finished
+	
+	particles1.emitting = true
+	particles2.emitting = true
+	particles3.emitting = true
 	freezerDoorOpen.visible = true
 	freezerDoorClosed.visible = false
 	
@@ -65,6 +72,9 @@ func _on_interact():
 		DialogManager.start_dialog(global_position, lines5, speech_sound2, false)
 		await DialogManager.dialog_finished
 		
+	particles1.emitting = false
+	particles2.emitting = false
+	particles3.emitting = false
 	freezerDoorOpen.visible = false
 	freezerDoorClosed.visible = true
 	if !player.hasAttention:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://piw1ffh2ljly"]
+[gd_scene load_steps=22 format=4 uid="uid://piw1ffh2ljly"]
 
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Supply Closet/supply_closet.gd" id="1_0dtoi"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="2_tomo4"]
@@ -8,8 +8,10 @@
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Supply Closet/Crowbar.gd" id="5_h7fjr"]
 [ext_resource type="Texture2D" uid="uid://bonk2cgv3tdm6" path="res://Assets/closet_shelving.png" id="5_h26mk"]
 [ext_resource type="Texture2D" uid="uid://c7x26vcppgodw" path="res://Assets/box_open.png" id="5_jwujx"]
+[ext_resource type="Script" path="res://Scenes/Main floor rooms/Supply Closet/box.gd" id="6_jevfd"]
 [ext_resource type="Texture2D" uid="uid://bfx5otn34ye1d" path="res://Assets/wrench-blue.png" id="6_ulac0"]
 [ext_resource type="Script" path="res://Interaction/InteractionArea.gd" id="7_j4w0r"]
+[ext_resource type="Script" path="res://Scenes/Main floor rooms/Supply Closet/shelf.gd" id="9_4hc82"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p4nn5"]
 size = Vector2(11.3137, 4.00001)
@@ -25,6 +27,12 @@ size = Vector2(9.89948, 9.89949)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e5g8g"]
 size = Vector2(10, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_du7rf"]
+size = Vector2(19, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v2hpx"]
+size = Vector2(62.2254, 21.3137)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jh53t"]
 size = Vector2(68.5894, 30.0919)
@@ -90,6 +98,7 @@ shape = SubResource("RectangleShape2D_cm6d2")
 
 [node name="Box" type="Node2D" parent="."]
 position = Vector2(133, 94)
+script = ExtResource("6_jevfd")
 
 [node name="Sprite2D" type="Sprite2D" parent="Box"]
 position = Vector2(19, -10)
@@ -117,12 +126,29 @@ position = Vector2(6, 2)
 shape = SubResource("RectangleShape2D_e5g8g")
 disabled = true
 
+[node name="InteractionArea" type="Area2D" parent="Box"]
+script = ExtResource("7_j4w0r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box/InteractionArea"]
+position = Vector2(-0.5, -10)
+shape = SubResource("RectangleShape2D_du7rf")
+
 [node name="Shelf" type="Node2D" parent="."]
 position = Vector2(192, 101)
+script = ExtResource("9_4hc82")
 
 [node name="Sprite2D" type="Sprite2D" parent="Shelf"]
 position = Vector2(-40, -17)
 texture = ExtResource("5_h26mk")
+
+[node name="InteractionArea" type="Area2D" parent="Shelf"]
+script = ExtResource("7_j4w0r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shelf/InteractionArea"]
+position = Vector2(6.53554, -1.53554)
+rotation = 0.785398
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_v2hpx")
 
 [node name="Collision" type="StaticBody2D" parent="Shelf"]
 visible = false
@@ -156,5 +182,9 @@ transform = Transform2D(5, 0, 0, 5, 0, 0)
 [connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="area_entered" from="Box/InteractionArea" to="Box/InteractionArea" method="_on_area_entered"]
+[connection signal="area_exited" from="Box/InteractionArea" to="Box/InteractionArea" method="_on_area_exited"]
+[connection signal="area_entered" from="Shelf/InteractionArea" to="Shelf/InteractionArea" method="_on_area_entered"]
+[connection signal="area_exited" from="Shelf/InteractionArea" to="Shelf/InteractionArea" method="_on_area_exited"]
 [connection signal="area_entered" from="Wrench/InteractionArea" to="Wrench/InteractionArea" method="_on_area_entered"]
 [connection signal="area_exited" from="Wrench/InteractionArea" to="Wrench/InteractionArea" method="_on_area_exited"]

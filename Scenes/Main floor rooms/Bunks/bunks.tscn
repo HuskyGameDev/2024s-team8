@@ -116,20 +116,20 @@ sources/0 = SubResource("TileSetAtlasSource_emwc2")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rawo3"]
 size = Vector2(26, 4)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ev6vh"]
-size = Vector2(24, 6)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ukpfj"]
-size = Vector2(22.2171, 24.0015)
+size = Vector2(28.4342, 13.8865)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rsrhm"]
-size = Vector2(21, 20)
+size = Vector2(25.9079, 12.2159)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r6neu"]
-size = Vector2(21.477, 20)
+size = Vector2(26.3844, 11.1079)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oxwhd"]
-size = Vector2(22.9276, 25.5279)
+size = Vector2(28.7533, 14.2302)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ev6vh"]
+size = Vector2(24, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1xmk8"]
 size = Vector2(12.071, 3.41423)
@@ -201,13 +201,6 @@ script = ExtResource("8_jj0ge")
 position = Vector2(-4, -4)
 shape = SubResource("RectangleShape2D_rawo3")
 
-[node name="Door trigger hallway" type="Area2D" parent="."]
-position = Vector2(-192, 0)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door trigger hallway"]
-position = Vector2(244, 165)
-shape = SubResource("RectangleShape2D_ev6vh")
-
 [node name="Bed" type="Node2D" parent="."]
 position = Vector2(75, 120)
 script = ExtResource("7_06b1p")
@@ -217,29 +210,33 @@ script = ExtResource("8_jj0ge")
 
 [node name="SpaceSuitBedInteraction" type="CollisionShape2D" parent="Bed/InteractionArea"]
 unique_name_in_owner = true
-position = Vector2(1.34295, -0.286064)
+position = Vector2(1.93322, -3.73528)
 skew = 0.820305
 shape = SubResource("RectangleShape2D_ukpfj")
 disabled = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Bed/InteractionArea"]
-position = Vector2(53.977, -1)
+position = Vector2(53.1986, -4.51292)
 skew = 0.445059
 shape = SubResource("RectangleShape2D_rsrhm")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Bed/InteractionArea"]
-position = Vector2(100.262, 0)
+position = Vector2(100.802, -4.01292)
 skew = -0.445059
 shape = SubResource("RectangleShape2D_r6neu")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Bed/InteractionArea"]
-position = Vector2(152, -2.98023e-08)
+position = Vector2(150.782, -3.85249)
+scale = Vector2(1, 1)
 skew = -0.820305
 shape = SubResource("RectangleShape2D_oxwhd")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." groups=["CanvasLayer"]]
-scale = Vector2(5, 5)
-transform = Transform2D(5, 0, 0, 5, 0, 0)
+[node name="Door trigger hallway" type="Area2D" parent="."]
+position = Vector2(-192, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door trigger hallway"]
+position = Vector2(244, 165)
+shape = SubResource("RectangleShape2D_ev6vh")
 
 [node name="To_Supply_Closet" type="Area2D" parent="."]
 
@@ -249,10 +246,14 @@ rotation = 0.785398
 skew = -0.785398
 shape = SubResource("RectangleShape2D_1xmk8")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." groups=["CanvasLayer"]]
+scale = Vector2(5, 5)
+transform = Transform2D(5, 0, 0, 5, 0, 0)
+
 [connection signal="area_entered" from="Spacesuit/InteractionArea" to="Spacesuit/InteractionArea" method="_on_area_entered"]
 [connection signal="area_exited" from="Spacesuit/InteractionArea" to="Spacesuit/InteractionArea" method="_on_area_exited"]
-[connection signal="body_entered" from="Door trigger hallway" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Door trigger hallway" to="." method="_on_area_2d_body_exited"]
 [connection signal="area_entered" from="Bed/InteractionArea" to="Bed/InteractionArea" method="_on_area_entered"]
 [connection signal="area_exited" from="Bed/InteractionArea" to="Bed/InteractionArea" method="_on_area_exited"]
+[connection signal="body_entered" from="Door trigger hallway" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Door trigger hallway" to="." method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="To_Supply_Closet" to="." method="_on_to_supply_closet_body_entered"]

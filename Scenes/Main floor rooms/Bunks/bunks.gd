@@ -13,8 +13,8 @@ func _process(_delta):
 	pass
 
 
-func _on_area_2d_body_entered(_body):
-	if Input.is_action_pressed("DOWN"):
+func _on_area_2d_body_entered(body):
+	if Input.is_action_pressed("DOWN") && body.name == "Player":
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false)
 		var HALLWAY_MAIN = load("res://Scenes/Main floor rooms/Main Hall/hallway_main.tscn")

@@ -412,7 +412,7 @@ shape = SubResource("CapsuleShape2D_310n3")
 position = Vector2(0, -24)
 texture = ExtResource("2_0wqrp")
 hframes = 5
-vframes = 5
+vframes = 7
 
 [node name="BodyArea" type="Area2D" parent="FlowerSprite"]
 collision_layer = 2
