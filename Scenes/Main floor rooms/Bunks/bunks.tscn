@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://34w5h6a27u0w"]
+[gd_scene load_steps=21 format=4 uid="uid://34w5h6a27u0w"]
 
 [ext_resource type="PackedScene" uid="uid://ny55otxbs0t" path="res://Scenes/tile_map.tscn" id="1_hwk40"]
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Bunks/bunks.gd" id="1_uttu1"]
@@ -6,6 +6,7 @@
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="2_ppfll"]
 [ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="3_6cqsx"]
 [ext_resource type="Texture2D" uid="uid://dpakxqjcwsx3s" path="res://Assets/bunk_tiles.png" id="5_1d6nq"]
+[ext_resource type="Texture2D" uid="uid://d3q0ysmvuf6aa" path="res://Assets/Room Backgrounds/bunks.png" id="5_tgyps"]
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Bunks/Bed.gd" id="7_06b1p"]
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Bunks/spacesuit.gd" id="7_h3hhc"]
 [ext_resource type="Script" path="res://Interaction/InteractionArea.gd" id="8_jj0ge"]
@@ -163,6 +164,13 @@ tile_set = ExtResource("2_ppfll")
 use_parent_material = true
 tile_map_data = PackedByteArray("AAAjABEAAAAEAAAAAAA=")
 tile_set = ExtResource("2_ppfll")
+
+[node name="Detail" type="Node2D" parent="background"]
+position = Vector2(152, 85)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="background/Detail"]
+texture = ExtResource("5_tgyps")
 
 [node name="furniture" type="TileMap" parent="."]
 texture_filter = 1

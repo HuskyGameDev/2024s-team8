@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=4 uid="uid://piw1ffh2ljly"]
+[gd_scene load_steps=18 format=4 uid="uid://piw1ffh2ljly"]
 
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Supply Closet/supply_closet.gd" id="1_0dtoi"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="2_tomo4"]
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="3_lwea3"]
 [ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="4_kuhmd"]
+[ext_resource type="Texture2D" uid="uid://crh311nsberle" path="res://Assets/Room Backgrounds/supply_closet.png" id="4_qqdgq"]
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Supply Closet/Crowbar.gd" id="5_h7fjr"]
 [ext_resource type="Texture2D" uid="uid://bonk2cgv3tdm6" path="res://Assets/closet_shelving.png" id="5_h26mk"]
 [ext_resource type="Texture2D" uid="uid://c7x26vcppgodw" path="res://Assets/box_open.png" id="5_jwujx"]
@@ -62,9 +63,16 @@ tile_set = ExtResource("3_lwea3")
 use_parent_material = true
 tile_set = ExtResource("3_lwea3")
 
+[node name="Details" type="Node2D" parent="."]
+position = Vector2(152, 85)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Details"]
+texture = ExtResource("4_qqdgq")
+
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("4_kuhmd")]
 z_index = 1
-position = Vector2(103, 119)
+position = Vector2(157, 109)
 
 [node name="Area2D2" type="Area2D" parent="."]
 
