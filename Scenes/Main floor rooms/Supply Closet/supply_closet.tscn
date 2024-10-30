@@ -147,7 +147,6 @@ script = ExtResource("7_j4w0r")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shelf/InteractionArea"]
 position = Vector2(6.53554, -1.53554)
 rotation = 0.785398
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_v2hpx")
 
 [node name="Collision" type="StaticBody2D" parent="Shelf"]

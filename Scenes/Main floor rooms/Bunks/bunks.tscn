@@ -227,7 +227,6 @@ shape = SubResource("RectangleShape2D_r6neu")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Bed/InteractionArea"]
 position = Vector2(150.782, -3.85249)
-scale = Vector2(1, 1)
 skew = -0.820305
 shape = SubResource("RectangleShape2D_oxwhd")
 
