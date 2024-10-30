@@ -25,15 +25,15 @@ texture = SubResource("CanvasTexture_curvx")
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
-scale = Vector2(1.25, 1.25)
 
 [node name="Power_Room" type="ColorRect" parent="Background/Rooms"]
 layout_mode = 0
 offset_left = 61.0
-offset_top = 342.0
+offset_top = 451.0
 offset_right = 391.0
-offset_bottom = 521.0
+offset_bottom = 630.0
 color = Color(0.270588, 0.290196, 0.333333, 1)
+metadata/_edit_group_ = true
 
 [node name="Label" type="Label" parent="Background/Rooms/Power_Room"]
 layout_mode = 1
@@ -106,6 +106,7 @@ offset_top = 432.0
 offset_right = 942.0
 offset_bottom = 632.0
 color = Color(0.270588, 0.290196, 0.333333, 1)
+metadata/_edit_group_ = true
 
 [node name="Label" type="Label" parent="Background/Rooms/Bathroom"]
 layout_mode = 1
@@ -170,10 +171,11 @@ offset_bottom = 632.0
 [node name="Security" type="ColorRect" parent="Background/Rooms"]
 layout_mode = 0
 offset_left = 364.0
-offset_top = 152.0
+offset_top = 261.0
 offset_right = 694.0
-offset_bottom = 322.0
+offset_bottom = 431.0
 color = Color(0.270588, 0.290196, 0.333333, 1)
+metadata/_edit_group_ = true
 
 [node name="Label" type="Label" parent="Background/Rooms/Security"]
 layout_mode = 1
@@ -239,10 +241,11 @@ offset_bottom = 212.0
 [node name="BoilerRoom" type="ColorRect" parent="Background/Rooms"]
 layout_mode = 0
 offset_left = 1115.2
-offset_top = 121.6
+offset_top = 230.6
 offset_right = 1445.2
-offset_bottom = 321.6
+offset_bottom = 430.6
 color = Color(0.270588, 0.290196, 0.333333, 1)
+metadata/_edit_group_ = true
 
 [node name="Label" type="Label" parent="Background/Rooms/BoilerRoom"]
 layout_mode = 1
@@ -308,10 +311,11 @@ offset_bottom = 631.826
 [node name="Stairs" type="ColorRect" parent="Background/Rooms"]
 layout_mode = 0
 offset_left = 715.2
-offset_top = 151.2
+offset_top = 260.2
 offset_right = 1100.2
-offset_bottom = 321.2
+offset_bottom = 430.2
 color = Color(0.270588, 0.290196, 0.333333, 1)
+metadata/_edit_group_ = true
 
 [node name="Label" type="Label" parent="Background/Rooms/Stairs"]
 layout_mode = 1
@@ -377,10 +381,11 @@ offset_bottom = 9.0
 [node name="Hallway2" type="ColorRect" parent="Background/Rooms"]
 layout_mode = 0
 offset_left = 415.0
-offset_top = 342.0
+offset_top = 451.0
 offset_right = 1456.0
-offset_bottom = 522.0
+offset_bottom = 631.0
 color = Color(0.270588, 0.290196, 0.333333, 1)
+metadata/_edit_group_ = true
 
 [node name="Label" type="Label" parent="Background/Rooms/Hallway2"]
 layout_mode = 1
@@ -434,3 +439,64 @@ offset_left = 416.0
 offset_top = 408.0
 offset_right = 1456.0
 offset_bottom = 412.0
+
+[node name="GreenHouse" type="ColorRect" parent="Background/Rooms"]
+layout_mode = 0
+offset_left = 1478.0
+offset_top = 451.0
+offset_right = 1897.0
+offset_bottom = 631.0
+color = Color(0.270588, 0.290196, 0.333333, 1)
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Background/Rooms/GreenHouse"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_6hi0n")
+theme_override_font_sizes/font_size = 32
+text = "GreenHouse"
+
+[node name="door" type="ColorRect" parent="Background/Rooms/GreenHouse"]
+layout_mode = 0
+offset_left = -22.0
+offset_top = 80.0
+offset_bottom = 93.0
+color = Color(0.247059, 0.247059, 0.454902, 1)
+
+[node name="Outline" type="Control" parent="Background/Rooms/GreenHouse"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="left" type="ColorRect" parent="Background/Rooms/GreenHouse/Outline"]
+layout_mode = 0
+offset_right = 4.0
+offset_bottom = 180.0
+
+[node name="top" type="ColorRect" parent="Background/Rooms/GreenHouse/Outline"]
+layout_mode = 0
+offset_right = 419.0
+offset_bottom = 4.0
+
+[node name="bottom" type="ColorRect" parent="Background/Rooms/GreenHouse/Outline"]
+layout_mode = 0
+offset_top = 176.0
+offset_right = 419.0
+offset_bottom = 180.0
+
+[node name="right" type="ColorRect" parent="Background/Rooms/GreenHouse/Outline"]
+layout_mode = 0
+offset_left = 419.0
+offset_right = 423.0
+offset_bottom = 180.0

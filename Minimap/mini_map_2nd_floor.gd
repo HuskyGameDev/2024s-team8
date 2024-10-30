@@ -28,6 +28,8 @@ func sceneChecker(node):
 		get_node("Background/Rooms/BoilerRoom/Outline").show()
 	elif node == "Stairs":
 		get_node("Background/Rooms/Stairs/Outline").show()
+	elif node == "Greenhouse":
+		get_node("Background/Rooms/GreenHouse/Outline").show()
 		
 #hides all the outlines
 func hideAll():
@@ -36,4 +38,5 @@ func hideAll():
 	get_node("Background/Rooms/Bathroom/Outline").hide()
 	get_node("Background/Rooms/Security/Outline").hide()
 	get_node("Background/Rooms/BoilerRoom/Outline").hide()
+	get_node("Background/Rooms/GreenHouse/Outline").hide()
 	get_node("Background/Rooms/Stairs/Outline").hide()
