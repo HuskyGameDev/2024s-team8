@@ -5,8 +5,8 @@ extends Node2D
 @onready var CommandDoor = get_tree().get_first_node_in_group("Command Door")
 @onready var speech_sound = preload("res://Assets/voice_sans.mp3")
 @onready var speech_sound2 = preload("res://Assets/Dialogue blip5.mp3")
-
-
+@onready var flower = $Flower
+@onready var path = $FlowerPath
 
 const lines: Array[String] = [
 	"This door is locked! I must find another way to reach the second floor."
@@ -28,8 +28,18 @@ const lines3: Array[String] = [
 
 func _ready():
 	
+	path.visible = false
 	if PositionManager.Act == 3:
+		PositionManager.paused = false
 		%Lamps.hide()
+		flower.position = path.points[PositionManager.destOrder[PositionManager.dest]] - PositionManager.HelianthRelativePosition
+		if PositionManager.destOrder[PositionManager.dest] < 8:
+			flower.visible = false
+		else:
+			flower.visible = true
+			flower.monitoring = true
+	else:
+		flower.visible = false
 	
 	PositionManager.hasDecoy = PositionManager.HasMeat and PositionManager.HasSpaceSuit and PositionManager.HasHeatLamp
 	#sets camera limit
@@ -57,13 +67,34 @@ func _ready():
 		CommandDoor.queue_free()
 		$"Door areas/Bridge".monitoring = true
 	
+func _process(_delta):
+	
+	if PositionManager.Act == 3:
+		if !PositionManager.paused:
+			moving()
+		else:
+			flower.dir = Vector2.ZERO
 
+func moving():
+	
+	var destCoord = path.points[PositionManager.destOrder[PositionManager.dest]]
+	PositionManager.HelianthRelativePosition = destCoord - flower.position
+	if PositionManager.HelianthRelativePosition.length() < 1:
+		if PositionManager.destOrder[PositionManager.dest] == 8:
+			flower.visible = !flower.visible
+		PositionManager.dest += 1
+		PositionManager.dest = PositionManager.dest % PositionManager.destOrder.size()
+		
+	flower.dir = PositionManager.HelianthRelativePosition
+	
+	await get_tree().create_timer(1.0).timeout
 
 #switches to the mess hall scene
 func _on_mess_hall_body_entered(body):
 	if Input.is_action_pressed("DOWN"):
 		var MESS = load("res://Scenes/Main floor rooms/Mess Hall/mess_hall.tscn")
 		if body.name == "Player":
+			PositionManager.paused = true
 			$Player.hasAttention = false
 			$Player/AnimationTree.set("active", false)
 			StageManager.player_facing = Vector2(0, 1)
@@ -75,6 +106,7 @@ func _on_mess_hall_left_body_entered(body):
 	if Input.is_action_pressed("DOWN"):
 		if body.name == "Player":
 			var MESS = load("res://Scenes/Main floor rooms/Mess Hall/mess_hall.tscn")
+			PositionManager.paused = true
 			$Player.hasAttention = false
 			$Player/AnimationTree.set("active", false)
 			StageManager.player_facing = Vector2(0, 1)
@@ -120,6 +152,7 @@ func _on_pod_body_entered(body):
 	if Input.is_action_pressed("UP"):
 		var AIRLOCK = load("res://Scenes/Main floor rooms/Airlock/airlock.tscn")
 		if body.name == "Player":
+			PositionManager.paused = true
 			$Player.hasAttention = false
 			$Player/AnimationTree.set("active", false)
 			StageManager.player_facing = Vector2(0, -1)
@@ -131,6 +164,7 @@ func _on_bunks_body_entered(body):
 	if Input.is_action_pressed("UP"):
 		var BUNKS = load("res://Scenes/Main floor rooms/Bunks/bunks.tscn")
 		if body.name == "Player":
+			PositionManager.paused = true
 			$Player.hasAttention = false
 			$Player/AnimationTree.set("active", false)
 			StageManager.player_facing = Vector2(0, -1)
@@ -142,6 +176,7 @@ func _on_supply_closet_body_entered(body):
 	if Input.is_action_pressed("UP"):
 		var SUPPLY = load("res://Scenes/Main floor rooms/Supply Closet/supply_closet.tscn")
 		if body.name == "Player":
+			PositionManager.paused = true
 			$Player.hasAttention = false
 			$Player/AnimationTree.set("active", false)
 			StageManager.player_facing = Vector2(0, -1)
@@ -155,6 +190,7 @@ func _on_stairs_body_entered(body):
 	var STAIRS = load("res://Scenes/Main floor rooms/Stairs/stairs.tscn")
 	if body.name == "Player":
 		if PositionManager.Act != 1 && Input.is_action_pressed("UP"):
+			PositionManager.paused = true
 			$Player.hasAttention = false
 			$Player/AnimationTree.set("active", false)
 			StageManager.player_facing = Vector2(0, -1)
@@ -173,6 +209,7 @@ func _on_bridge_body_entered(body):
 	if Input.is_action_pressed("RIGHT"):
 		var COMMAND_DECK = load("res://Scenes/Main floor rooms/Command Deck/command_deck.tscn")
 		if body.name == "Player":
+			PositionManager.paused = true
 			$Player.hasAttention = false
 			$Player/AnimationTree.set("active", false)
 			StageManager.player_facing = Vector2(1, 0)

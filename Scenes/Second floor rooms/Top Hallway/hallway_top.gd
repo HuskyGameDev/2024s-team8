@@ -8,13 +8,12 @@ extends Node2D
 @onready var rP = $"Pathing/Right Point"
 @onready var dS = $"Pathing/Door Stop"
 @onready var dP = $"Pathing/Door Point"
+@onready var path = $FlowerPath
 @onready var flower = $Flower
 
-var count = 0
-var loops = 0
-var facing = 1
-
 func _ready():
+	
+	path.visible = false
 	if PositionManager.hasClearedDial:
 		if SecurityDoor != null:
 			SecurityDoor.queue_free()
@@ -23,34 +22,36 @@ func _ready():
 	
 	if !PositionManager.SecurityEnabled:
 		StairsDoor.queue_free()
-		flower.visible = true
+		PositionManager.paused = false
+		flower.position = path.points[PositionManager.destOrder[PositionManager.dest]] - PositionManager.HelianthRelativePosition
+		if PositionManager.destOrder[PositionManager.dest] > 3:
+			flower.visible = false
+		else:
+			flower.visible = true
+			flower.monitoring = true
+	else:
+		flower.visible = false
 
 func _process(_delta):
 	
 	if !PositionManager.SecurityEnabled:
-		moving()
+		if !PositionManager.paused:
+			moving()
+		else:
+			flower.dir = Vector2.ZERO
 
 func moving():
 	
-	var dir = Vector2()
-	
-	if loops < 2:
-		if facing:
-			
-			dir = lP.position - flower.position
-			if abs(dir.x) < 0.1:
-				loops += 1
-				facing = 0
-			
-		else:
-			
-			dir = rP.position - flower.position
-			if abs(dir.x) < 0.1:
-				facing = 1
-	else:
-		loops = 0
+	var destCoord = path.points[PositionManager.destOrder[PositionManager.dest]]
+	PositionManager.HelianthRelativePosition = destCoord - flower.position
+	if PositionManager.HelianthRelativePosition.length() < 1:
+		if PositionManager.destOrder[PositionManager.dest] == 3:
+			flower.visible = !flower.visible
+		PositionManager.dest += 1
+		PositionManager.dest = PositionManager.dest % PositionManager.destOrder.size()
 		
-	flower.dir = dir
+	flower.dir = PositionManager.HelianthRelativePosition
+	
 	await get_tree().create_timer(1.0).timeout
 
 func _on_to_security_room_body_entered(body):
@@ -89,6 +90,7 @@ func _on_dial_door_open_door() -> void:
 func _on_to_power_room_body_entered(body: Node2D) -> void:
 	if Input.is_action_pressed("LEFT") && body.name == "Player":
 		var POWER_ROOM = load("res://Scenes/Second floor rooms/Power Room/power_room.tscn")
+		PositionManager.paused = true
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false)
 		StageManager.player_facing = Vector2(-1,0)
@@ -100,6 +102,7 @@ func _on_to_power_room_body_entered(body: Node2D) -> void:
 func _on_to_boiler_room_body_entered(body: Node2D) -> void:
 	if Input.is_action_pressed("UP") && body.name == "Player":
 		var BOILER_ROOM = load("res://Scenes/Second floor rooms/Boiler Room/boiler_room.tscn")
+		PositionManager.paused = true
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false)
 		StageManager.player_facing = Vector2(0,-1)
@@ -110,6 +113,7 @@ func _on_to_boiler_room_body_entered(body: Node2D) -> void:
 func _on_to_greenhouse_body_entered(body: Node2D) -> void:
 	if Input.is_action_pressed("RIGHT") && body.name == "Player":
 		var GREENHOUSE = load("res://Scenes/Second floor rooms/Greenhouse/greenhouse.tscn")
+		PositionManager.paused = true
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false)
 		StageManager.player_facing = Vector2(1,0)

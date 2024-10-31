@@ -14,8 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://b68qnvvg3nd0x" path="res://Assets/vent-sprite.png" id="12_khwuv"]
 [ext_resource type="Texture2D" uid="uid://dj0lr4c3ty7f5" path="res://Assets/simple_diagonal_door.png" id="14_536ue"]
 [ext_resource type="PackedScene" uid="uid://coym0lkppx1o7" path="res://lamp.tscn" id="15_pr4ik"]
-[ext_resource type="PackedScene" uid="uid://bu52063b5h6qs" path="res://flowerEnemy.tscn" id="15_s2hx4"]
 [ext_resource type="PackedScene" uid="uid://cy74qcmqm8dhl" path="res://lampFlicker.tscn" id="16_kqwo2"]
+[ext_resource type="PackedScene" uid="uid://koortbv6bmhv" path="res://theHelianth.tscn" id="16_skyul"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_nn5nj"]
 
@@ -586,8 +586,15 @@ maxBright = 0.9
 position = Vector2(412, 166.5)
 shape = SubResource("RectangleShape2D_h7vbu")
 
-[node name="Flower" parent="." instance=ExtResource("15_s2hx4")]
-position = Vector2(440, 232)
+[node name="Flower" parent="." instance=ExtResource("16_skyul")]
+visible = false
+position = Vector2(408, 144)
+
+[node name="FlowerPath" type="Line2D" parent="."]
+top_level = true
+z_index = 3
+points = PackedVector2Array(448, 200, 136, 200, 316, 200, 316, 192, 316, 188, 260, 188, 196, 132, 132, 132, 132, 136, 132, 144, 80, 144, 416, 144)
+width = 1.0
 
 [connection signal="area_entered" from="Locker/InteractionArea" to="Locker/InteractionArea" method="_on_area_entered"]
 [connection signal="area_exited" from="Locker/InteractionArea" to="Locker/InteractionArea" method="_on_area_exited"]

@@ -5,11 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://c8xyinyqaujbw" path="res://death.tscn" id="3_c2dju"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_310n3"]
-radius = 8.0
-height = 48.0
+radius = 6.0
+height = 34.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c0im8"]
-size = Vector2(67, 66)
+size = Vector2(64, 66)
 
 [sub_resource type="Animation" id="Animation_6w6qh"]
 length = 0.001
@@ -174,7 +174,7 @@ tracks/3/keys = {
 resource_name = "run_left"
 length = 0.6
 loop_mode = 1
-step = 1.0
+step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -228,7 +228,7 @@ tracks/3/keys = {
 resource_name = "run_right"
 length = 0.6
 loop_mode = 1
-step = 1.0
+step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -282,7 +282,7 @@ tracks/3/keys = {
 resource_name = "walk_left"
 length = 1.5
 loop_mode = 1
-step = 1.0
+step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -404,6 +404,7 @@ size = Vector2(104, 66)
 script = ExtResource("1_l2f1w")
 
 [node name="PhysicsCollision" type="CollisionShape2D" parent="."]
+position = Vector2(-9, 2)
 rotation = 1.5708
 scale = Vector2(1, -1)
 shape = SubResource("CapsuleShape2D_310n3")
@@ -416,9 +417,10 @@ vframes = 7
 
 [node name="BodyArea" type="Area2D" parent="FlowerSprite"]
 collision_layer = 2
+monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FlowerSprite/BodyArea"]
-position = Vector2(-0.5, 1)
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_c0im8")
 debug_color = Color(1, 0.00999999, 0.0595002, 0.207843)
 

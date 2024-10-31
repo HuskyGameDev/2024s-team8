@@ -33,6 +33,7 @@ func _on_interact():
 		playerSprite.hide()
 		player.hiding = true
 		InLocker = true
+		PositionManager.paused = false
 		
 		await get_tree().create_timer(1.0).timeout
 		player.InteractionOverride = true
@@ -48,4 +49,5 @@ func _on_interact():
 			player.hiding = false
 			InLocker = false
 			player.InteractionOverride = false
+			PositionManager.paused = false
 		

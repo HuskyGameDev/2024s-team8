@@ -17,6 +17,7 @@ extends CharacterBody2D
 @export var onStairs = false
 @export var animMove = false
 @export var animVec = Vector2.ZERO
+@export var hiding = false
 var screen_size
 var pause
 var ValveMinigame = false
@@ -27,7 +28,6 @@ var emergencyLights = "584575"
 var normalLights = "ffffff"
 var InteractionOverride = false
 var pressedShift = false
-var hiding = false
 var usingSwap = false
 
 
@@ -62,6 +62,7 @@ func _ready():
 #swaps the players attention to stop the player from moving and stops animations
 func _swap_attention():
 	hasAttention = !hasAttention
+	PositionManager.paused = !hasAttention
 	animationTree.set("active", hasAttention)
 
 
@@ -70,6 +71,11 @@ func _swap_attention():
 #switches player to pause menu when they press esc and to the map depending which floor they are on 
 #when they press m 
 func _process(_delta):
+	
+	if $Sprite2D.visible:
+		$"World collision".disabled = false
+	else:
+		$"World collision".disabled = true
 	
 	if PositionManager.Act == 1:
 		lights.color = emergencyLights

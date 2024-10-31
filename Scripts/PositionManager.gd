@@ -6,6 +6,7 @@ var Canvas = null
 
 var Position = Vector2.ZERO
 var PrevPosition = Vector2.ZERO
+var HelianthRelativePosition = Vector2(88-400, 144-144)
 
 #Default Minigames
 var comboCode := [0,0,0,0,1]
@@ -63,6 +64,9 @@ var pinkLight = "cba3ff"
 var purpleLight = "0f0073"
 var RetainPlayerSpeed = false
 var pinkLamp = "f187ff8c"
+var paused = false
+@onready var dest = 0
+@onready var destOrder = [1, 0, 1, 0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 10, 11, 9, 8, 7, 6, 5, 4, 3, 2, 0]
 
 var lastKnownPos = Vector2.ZERO
 

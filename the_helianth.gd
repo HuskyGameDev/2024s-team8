@@ -11,12 +11,14 @@ var playing = true
 @onready var pCollide = $PhysicsCollision
 @export var dir := Vector2()
 @export var walkin = true
+@export var monitoring = false
 
 func _process(_delta: float) -> void:
 	if visible:
 		pCollide.disabled = false
 	else:
 		pCollide.disabled = true
+	$FlowerSprite/BodyArea.monitoring = monitoring
 		
 
 func _physics_process(delta: float) -> void:
@@ -49,7 +51,7 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 
 func _on_body_area_body_entered(body: Node2D) -> void:
-	if body.name == "Player" and visible:
+	if body.name == "Player" and visible and !body.hiding and ((body.position - position).length() < 100):
 		playing = false
 		animPlayer.stop()
 		touched.emit()

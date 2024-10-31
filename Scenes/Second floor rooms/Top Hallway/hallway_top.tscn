@@ -397,6 +397,29 @@ shape = SubResource("RectangleShape2D_5grd4")
 position = Vector2(-5, 7.5)
 shape = SubResource("RectangleShape2D_a8u1v")
 
+[node name="Locker5" type="Node2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(176, 109)
+script = ExtResource("7_yxck1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Locker5"]
+position = Vector2(-5, 6)
+texture = ExtResource("8_oq6w7")
+
+[node name="InteractionArea" type="Area2D" parent="Locker5"]
+script = ExtResource("7_51fjl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Locker5/InteractionArea"]
+position = Vector2(-2.5, -3.5)
+shape = SubResource("RectangleShape2D_5grd4")
+
+[node name="Collision" type="StaticBody2D" parent="Locker5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Locker5/Collision"]
+position = Vector2(-5, 7.5)
+shape = SubResource("RectangleShape2D_a8u1v")
+
 [node name="Background" type="Node2D" parent="."]
 
 [node name="flat color" type="TileMapLayer" parent="Background"]
@@ -569,8 +592,15 @@ position = Vector2(268, 144)
 position = Vector2(268, 124)
 
 [node name="Flower" parent="." instance=ExtResource("14_ra4c5")]
+visible = false
 z_index = 1
-position = Vector2(200, 140)
+position = Vector2(400, 144)
+
+[node name="FlowerPath" type="Line2D" parent="."]
+top_level = true
+z_index = 3
+points = PackedVector2Array(400, 144, 88, 144, 268, 144, 268, 136, 268, 132, 212, 132, 148, 76, 84, 76, 84, 80, 84, 88, 32, 88, 368, 88)
+width = 1.0
 
 [connection signal="open_door" from="Combo Lock" to="." method="_on_combo_lock_open_door"]
 [connection signal="area_entered" from="Combo Lock/InteractionArea" to="Combo Lock/InteractionArea" method="_on_area_entered"]
@@ -583,6 +613,8 @@ position = Vector2(200, 140)
 [connection signal="area_exited" from="Locker3/InteractionArea" to="Locker3/InteractionArea" method="_on_area_exited"]
 [connection signal="area_entered" from="Locker4/InteractionArea" to="Locker4/InteractionArea" method="_on_area_entered"]
 [connection signal="area_exited" from="Locker4/InteractionArea" to="Locker4/InteractionArea" method="_on_area_exited"]
+[connection signal="area_entered" from="Locker5/InteractionArea" to="Locker5/InteractionArea" method="_on_area_entered"]
+[connection signal="area_exited" from="Locker5/InteractionArea" to="Locker5/InteractionArea" method="_on_area_exited"]
 [connection signal="open_door" from="dialDoor" to="." method="_on_dial_door_open_door"]
 [connection signal="area_entered" from="dialDoor/InteractionArea" to="dialDoor/InteractionArea" method="_on_area_entered"]
 [connection signal="area_exited" from="dialDoor/InteractionArea" to="dialDoor/InteractionArea" method="_on_area_exited"]
