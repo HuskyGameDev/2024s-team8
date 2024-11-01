@@ -7,6 +7,7 @@ var SFX_BUS_ID = AudioServer.get_bus_index("SFX")
 var DIALOGUE_BUS_ID = AudioServer.get_bus_index("Dialogue")
 
 var settings 		# Variable to store a settingsMenu 
+var swap = false
 
 func _ready():
 	# Plays main menu music when main menu is created
@@ -31,6 +32,13 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("MENU") && $AnimationPlayer.current_animation == "ShipMoving":
 		_on_animation_player_animation_finished("ShipMoving")
+	if Input.is_action_just_pressed("INTERACT"):
+		if !swap:
+			GlobalAudioManager.play_menu_music_concept()
+			swap = !swap
+		elif swap:
+			GlobalAudioManager.play_menu_music()
+			swap = !swap
 
 func _on_play_pressed():
 	if !$AnimationPlayer.current_animation == "ShipMoving":

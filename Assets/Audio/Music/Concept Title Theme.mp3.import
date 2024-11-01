@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cdgfjpul38bd7"
+path="res://.godot/imported/Concept Title Theme.mp3-cacfb6be1b10ab61dec706b813a9123e.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Music/Concept Title Theme.mp3"
+dest_files=["res://.godot/imported/Concept Title Theme.mp3-cacfb6be1b10ab61dec706b813a9123e.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

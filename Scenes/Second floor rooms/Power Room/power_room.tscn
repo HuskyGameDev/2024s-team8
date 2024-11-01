@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://bol5kinu2mfrd"]
+[gd_scene load_steps=27 format=4 uid="uid://bol5kinu2mfrd"]
 
 [ext_resource type="Script" path="res://Scenes/Second floor rooms/Power Room/power_room.gd" id="1_fl60y"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="2_rn253"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://Interaction/InteractionArea.gd" id="8_mycpo"]
 [ext_resource type="Script" path="res://Scenes/Second floor rooms/Power Room/Pipe.gd" id="9_l2o1l"]
 [ext_resource type="Texture2D" uid="uid://coeynjk8i66ff" path="res://Assets/reactor.png" id="10_x6nct"]
+[ext_resource type="AudioStream" uid="uid://ck5m3syb38y3l" path="res://Assets/Audio/Music/BED_shipengine_LP.wav" id="11_i1g7e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_53vpq"]
 size = Vector2(14.1422, 6.99999)
@@ -331,6 +332,12 @@ offset_right = 224.0
 offset_bottom = 16.0
 texture = SubResource("CanvasTexture_igcop")
 metadata/_edit_lock_ = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("11_i1g7e")
+autoplay = true
+bus = &"Music"
 
 [connection signal="body_entered" from="Door" to="." method="_on_door_body_entered"]
 [connection signal="area_entered" from="PowerRoomDocument/InteractionArea" to="PowerRoomDocument/InteractionArea" method="_on_area_entered"]

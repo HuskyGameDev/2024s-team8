@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c8qc7wp2f7st7"
+path="res://.godot/imported/PC_footstepMetal3.mp3-ed2e40860a766064374e9b9e3e898d25.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Sound Effects/PC_footstepMetal3.mp3"
+dest_files=["res://.godot/imported/PC_footstepMetal3.mp3-ed2e40860a766064374e9b9e3e898d25.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

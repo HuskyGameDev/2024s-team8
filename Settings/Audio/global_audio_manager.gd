@@ -5,8 +5,8 @@ extends AudioStreamPlayer
 const act1_music = preload("res://Assets/Audio/Music/Pro-Hel_Ambiance.mp3")
 const act2_music = preload("res://Assets/Audio/Music/Pro-Hel_Ambiance_Act_2.wav")
 const menu_music = preload("res://Assets/Audio/Music/Menu Music.wav")
+const menu_music_concept = preload("res://Assets/Audio/Music/Concept Title Theme.mp3")
 const door_sfx = preload("res://Assets/Audio/Sound Effects/PS_pneumaDoor2.mp3")
-
 
 # Plays the inputted audio stream if it isn't currently playing that stream
 func _play_music(music: AudioStream):
@@ -33,7 +33,13 @@ func play_menu_music():
 	_play_music(menu_music)
 	
 	check_bus()
+
+func play_menu_music_concept():
+	_play_music(menu_music_concept)
 	
+	check_bus()
+
+
 func check_bus():
 	# Guarantees current bus is Music
 	if(get_bus() != 'Music'):  

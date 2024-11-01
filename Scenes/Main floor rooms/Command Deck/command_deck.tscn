@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://bqyk0q8fbouna"]
+[gd_scene load_steps=15 format=4 uid="uid://bqyk0q8fbouna"]
 
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Command Deck/command_deck.gd" id="1_4wny3"]
 [ext_resource type="PackedScene" uid="uid://ny55otxbs0t" path="res://Scenes/tile_map.tscn" id="1_ofowq"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cvv6dpruk6gro" path="res://Assets/Room Backgrounds/command_deck.png" id="6_wrvh4"]
 [ext_resource type="PackedScene" uid="uid://ca1eqme7qndxw" path="res://Scenes/background.tscn" id="7_7iuag"]
 [ext_resource type="PackedScene" uid="uid://bwmuhr4im6pbt" path="res://Interaction/InteractionArea.tscn" id="8_64hh3"]
+[ext_resource type="AudioStream" uid="uid://ck5m3syb38y3l" path="res://Assets/Audio/Music/BED_shipengine_LP.wav" id="10_em56c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hdvmr"]
 texture = ExtResource("5_d7slj")
@@ -57,7 +58,7 @@ format = 2
 
 [node name="Layer1" type="TileMapLayer" parent="Collision"]
 use_parent_material = true
-tile_map_data = PackedByteArray("AAALABMAAQAIAAAAAAAMABIAAQAIAAAAAAANABAAAQAIAAAAAAAOAA8AAQAIAAAAAAAPAA8AAQAIAAAAAAAQAA4AAQAQAAAAAAARAA4AAQAQAAAAAAASAA4AAQAQAAAAAAATAA4AAQAQAAAAAAAVAA0AAQAQAAAAAAAUAA4AAQAEAAAAAAAVAA8AAQAEAAAAAAAWABAAAQAEAAAAAAAXABEAAQAEAAAAAAAYABIAAQAQAAAAAAAYABMAAQAQAAAAAAAXABMAAQAQAAAAAAAXABAAAQAQAAAAAAAWAA8AAQAQAAAAAAAYABEAAQAQAAAAAAAVAA4AAQAQAAAAAAAXABQAAQAQAAAAAAAWABQAAQAQAAAAAAAVABQAAQAQAAAAAAAUABQAAQAQAAAAAAATABQAAQAQAAAAAAASABQAAQAQAAAAAAARABQAAQAQAAAAAAAQABQAAQAQAAAAAAAPABQAAQAQAAAAAAAOABQAAQAQAAAAAAANABQAAQAQAAAAAAAMABQAAQAQAAAAAAALABQAAQAQAAAAAAAKABQAAQAQAAAAAAAMABEAAQAQAAAAAAA=")
+tile_map_data = PackedByteArray("AAALABMAAQAIAAAAAAAMABIAAQAIAAAAAAANABAAAQAIAAAAAAAOAA8AAQAIAAAAAAAPAA8AAQAIAAAAAAAQAA4AAQAQAAAAAAARAA4AAQAQAAAAAAASAA4AAQAQAAAAAAATAA4AAQAQAAAAAAAVAA0AAQAQAAAAAAAUAA4AAQAEAAAAAAAVAA8AAQAEAAAAAAAWABAAAQAEAAAAAAAXABEAAQAEAAAAAAAYABIAAQAQAAAAAAAYABMAAQAQAAAAAAAXABAAAQAQAAAAAAAWAA8AAQAQAAAAAAAYABEAAQAQAAAAAAAVAA4AAQAQAAAAAAAXABQAAQAQAAAAAAAWABQAAQAQAAAAAAAVABQAAQAQAAAAAAAUABQAAQAQAAAAAAATABQAAQAQAAAAAAASABQAAQAQAAAAAAARABQAAQAQAAAAAAAQABQAAQAQAAAAAAAPABQAAQAQAAAAAAAOABQAAQAQAAAAAAANABQAAQAQAAAAAAAMABQAAQAQAAAAAAALABQAAQAQAAAAAAAKABQAAQAQAAAAAAAMABEAAQAQAAAAAAAUAA8AAQAEAAAAAAAVABAAAQAEAAAAAAAWABEAAQAEAAAAAAAXABIAAQAEAAAAAAA=")
 tile_set = ExtResource("2_hnavc")
 
 [node name="background" parent="." instance=ExtResource("1_ofowq")]
@@ -137,5 +138,11 @@ shape = SubResource("RectangleShape2D_wv1o1")
 unique_name_in_owner = true
 scale = Vector2(5, 5)
 transform = Transform2D(5, 0, 0, 5, 0, 0)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("10_em56c")
+autoplay = true
+bus = &"Music"
 
 [connection signal="body_entered" from="Door" to="." method="_on_door_body_entered"]

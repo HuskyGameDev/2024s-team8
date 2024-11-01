@@ -12,7 +12,7 @@ var defaultSound = 0.5
 @onready var audio_player = %AudioStreamPlayer
 @onready var speech_sound = preload("res://Assets/voice_sans.mp3")
 @onready var blip_sound = preload("res://Assets/Dialogue blip5.mp3")
-@onready var sfx_sound = preload("res://Assets/Audio/Sound Effects/PS_pneumaDoor2.mp3")
+@onready var sfx_sound = preload("res://Assets/Audio/Sound Effects/PC_footstepMetal1.mp3")
 @onready var music_sound = preload("res://Assets/Dialogue blip5.mp3")
 
 

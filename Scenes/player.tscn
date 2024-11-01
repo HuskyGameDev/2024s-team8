@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://d3smthgcyvtgq"]
+[gd_scene load_steps=56 format=3 uid="uid://d3smthgcyvtgq"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_8m3b3"]
 [ext_resource type="PackedScene" uid="uid://bba3405jkew8f" path="res://Settings/pauseMenu.tscn" id="2_li7mv"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://dohvmfct5tpvg" path="res://Assets/Character Poses/char_face_walk2_sil.png" id="20_cm4x0"]
 [ext_resource type="Texture2D" uid="uid://mu7q6tehyygx" path="res://Assets/Character Poses/char_left_walk_sil.png" id="22_458yd"]
 [ext_resource type="Texture2D" uid="uid://dffatps2amrdh" path="res://Assets/Character Poses/char_right_walk_sil.png" id="24_aa4so"]
+[ext_resource type="Script" path="res://Scenes/metallic_walking.gd" id="26_oio5y"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hv4va"]
 radius = 3.0
@@ -249,6 +250,20 @@ tracks/2/keys = {
 "update": 1,
 "values": [ExtResource("18_bc6bk"), ExtResource("19_j4irb"), ExtResource("18_bc6bk"), ExtResource("20_cm4x0")]
 }
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MetallicWalking")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_play_footstep_audio"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_gpvhp"]
 resource_name = "Walk_Forward"
@@ -289,6 +304,20 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [ExtResource("18_bc6bk"), ExtResource("19_j4irb"), ExtResource("18_bc6bk"), ExtResource("20_cm4x0")]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MetallicWalking")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_play_footstep_audio"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_0su6q"]
@@ -331,6 +360,20 @@ tracks/2/keys = {
 "update": 1,
 "values": [ExtResource("14_5k8th"), ExtResource("22_458yd"), ExtResource("14_5k8th"), ExtResource("22_458yd")]
 }
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MetallicWalking")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_play_footstep_audio"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_sgj7n"]
 resource_name = "Walk_Right"
@@ -371,6 +414,20 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [ExtResource("16_k1veb"), ExtResource("24_aa4so"), ExtResource("16_k1veb"), ExtResource("24_aa4so")]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MetallicWalking")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_play_footstep_audio"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0ee0h"]
@@ -478,11 +535,11 @@ show_behind_parent = true
 visible = false
 position = Vector2(-7.15256e-07, 0)
 color = Color(0.345098, 0.270588, 0.458824, 1)
-texture = ExtResource("18_bc6bk")
+texture = ExtResource("16_k1veb")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Lighting"]
 visible = false
-occluder = ExtResource("11_4jkc8")
+occluder = ExtResource("11_p1uok")
 
 [node name="PointLight2DSource" type="PointLight2D" parent="Lighting"]
 position = Vector2(-7.15256e-07, 0)
@@ -493,6 +550,7 @@ texture = SubResource("GradientTexture2D_m7p6r")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("7_kont8")
 hframes = 16
+frame = 12
 
 [node name="InteractionParent" type="Area2D" parent="." groups=["InteractionParent"]]
 position = Vector2(0, 2)
@@ -561,3 +619,7 @@ drag_and_drop_selection_enabled = false
 virtual_keyboard_enabled = false
 middle_mouse_paste_enabled = false
 autowrap_mode = 1
+
+[node name="MetallicWalking" type="AudioStreamPlayer2D" parent="."]
+bus = &"SFX"
+script = ExtResource("26_oio5y")
