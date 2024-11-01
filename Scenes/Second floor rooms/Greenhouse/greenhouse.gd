@@ -15,15 +15,17 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	
+	if PositionManager.hasActivatedHeli && !PositionManager.hasEscapedGreenhouse:
+		if Input.is_action_just_pressed("MENU"):
+			leave_room()
 	if player.animMove && !usingMarker2:
 		var vector = Vector2.ZERO
 		var x = marker.position.x - player.position.x
 		var y = marker.position.y - player.position.y
 	
-		if absf(x) > 0.5:
+		if absf(x) > 0.4:
 			vector.x = x
-		if absf(y) > 0.5:
+		if absf(y) > 0.4:
 			vector.y = y
 			
 		player.animVec = vector
@@ -43,6 +45,11 @@ func _process(delta: float) -> void:
 	if leavingRoom:
 		leave_room()
 
+func _swap_marker():
+	usingMarker2 = true
+
+func toggle_animMove():
+	player.animMove = !player.animMove
 
 func _on_to_hallway_body_entered(body: Node2D) -> void:
 	if (Input.is_action_pressed("LEFT") or Input.is_action_pressed("UP")) && body.name == "Player":
