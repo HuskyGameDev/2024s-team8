@@ -10,6 +10,19 @@ extends Node2D
 @onready var dP = $"Pathing/Door Point"
 @onready var path = $FlowerPath
 @onready var flower = $Flower
+@onready var speech_sound = preload("res://Assets/voice_sans.mp3")
+@onready var player = get_node("Player")
+@onready var monsterCutscene = $"%HelianthCutscene"
+@onready var cutsceneMonster = $"%CutsceneMonster"
+
+const lines: Array[String] = [
+	"I need to find somewhere to hide!"
+]
+
+const lines2: Array[String] = [
+	"What am I doing? I need to hide from that monster!"
+]
+
 
 func _ready():
 	
@@ -31,14 +44,29 @@ func _ready():
 			flower.monitoring = true
 	else:
 		flower.visible = false
+	
+	if PositionManager.hasActivatedHeli && !PositionManager.hasEscapedGreenhouse:
+		if player.hasAttention:
+			player._swap_attention()
+		DialogManager.start_dialog(global_position, lines, speech_sound, false)
+		await DialogManager.dialog_finished
+		if !player.hasAttention:
+			player._swap_attention()
+	
+	if PositionManager.hasActivatedHeli && PositionManager.hasEscapedGreenhouse:
+		cutsceneMonster.queue_free()
 
 func _process(_delta):
-	
 	if !PositionManager.SecurityEnabled:
 		if !PositionManager.paused:
 			moving()
 		else:
 			flower.dir = Vector2.ZERO
+	
+	if PositionManager.hasActivatedHeli && !PositionManager.hasEscapedGreenhouse:
+		if player.hiding && !monsterCutscene.is_playing():
+			await get_tree().create_timer(1).timeout
+			monsterCutscene.play("MonsterRunPast")
 
 func moving():
 	
@@ -55,6 +83,15 @@ func moving():
 	await get_tree().create_timer(1.0).timeout
 
 func _on_to_security_room_body_entered(body):
+	if body.name == "Player":
+		if PositionManager.hasActivatedHeli && !PositionManager.hasEscapedGreenhouse:
+			if player.hasAttention:
+				player._swap_attention()
+			DialogManager.start_dialog(global_position, lines2, speech_sound, false)
+			await DialogManager.dialog_finished
+			if !player.hasAttention:
+				player._swap_attention()
+			return
 	if body.name == "Player" && Input.is_action_pressed("UP") && PositionManager.hasClearedDial:
 		var SECURITY_ROOM = load("res://Scenes/Second floor rooms/Security Room/security_room.tscn")
 		$Player.hasAttention = false
@@ -66,6 +103,15 @@ func _on_to_security_room_body_entered(body):
 
 
 func _on_to_stairs_body_entered(body):	
+	if body.name == "Player":
+		if PositionManager.hasActivatedHeli && !PositionManager.hasEscapedGreenhouse:
+			if player.hasAttention:
+				player._swap_attention()
+			DialogManager.start_dialog(global_position, lines2, speech_sound, false)
+			await DialogManager.dialog_finished
+			if !player.hasAttention:
+				player._swap_attention()
+			return
 	if body.name == "Player" && Input.is_action_pressed("UP") && !PositionManager.SecurityEnabled:
 		var STAIRS = load("res://Scenes/Main floor rooms/Stairs/stairs.tscn")
 		$Player.hasAttention = false
@@ -88,6 +134,15 @@ func _on_dial_door_open_door() -> void:
 
 
 func _on_to_power_room_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		if PositionManager.hasActivatedHeli && !PositionManager.hasEscapedGreenhouse:
+			if player.hasAttention:
+				player._swap_attention()
+			DialogManager.start_dialog(global_position, lines2, speech_sound, false)
+			await DialogManager.dialog_finished
+			if !player.hasAttention:
+				player._swap_attention()
+			return
 	if Input.is_action_pressed("LEFT") && body.name == "Player":
 		var POWER_ROOM = load("res://Scenes/Second floor rooms/Power Room/power_room.tscn")
 		PositionManager.paused = true
@@ -100,6 +155,15 @@ func _on_to_power_room_body_entered(body: Node2D) -> void:
 
 
 func _on_to_boiler_room_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		if PositionManager.hasActivatedHeli && !PositionManager.hasEscapedGreenhouse:
+			if player.hasAttention:
+				player._swap_attention()
+			DialogManager.start_dialog(global_position, lines2, speech_sound, false)
+			await DialogManager.dialog_finished
+			if !player.hasAttention:
+				player._swap_attention()
+			return
 	if Input.is_action_pressed("UP") && body.name == "Player":
 		var BOILER_ROOM = load("res://Scenes/Second floor rooms/Boiler Room/boiler_room.tscn")
 		PositionManager.paused = true
@@ -111,6 +175,15 @@ func _on_to_boiler_room_body_entered(body: Node2D) -> void:
 
 
 func _on_to_greenhouse_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		if PositionManager.hasActivatedHeli && !PositionManager.hasEscapedGreenhouse:
+			if player.hasAttention:
+				player._swap_attention()
+			DialogManager.start_dialog(global_position, lines2, speech_sound, false)
+			await DialogManager.dialog_finished
+			if !player.hasAttention:
+				player._swap_attention()
+			return
 	if Input.is_action_pressed("RIGHT") && body.name == "Player":
 		var GREENHOUSE = load("res://Scenes/Second floor rooms/Greenhouse/greenhouse.tscn")
 		PositionManager.paused = true
@@ -119,3 +192,10 @@ func _on_to_greenhouse_body_entered(body: Node2D) -> void:
 		StageManager.player_facing = Vector2(1,0)
 		StageManager.changeScene(GREENHOUSE, 93, 122)
 		StageManager.changeCamera(304)
+
+
+func _on_helianth_cutscene_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "MonsterRunPast":
+		cutsceneMonster.queue_free()
+		PositionManager.hasEscapedGreenhouse = true
+		

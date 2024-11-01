@@ -300,7 +300,7 @@ position = Vector2(155, 129)
 
 [node name="Marker2D2" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(87, 123)
+position = Vector2(83, 123)
 
 [node name="Screen Shake" type="Node2D" parent="."]
 script = ExtResource("2_cpr6j")

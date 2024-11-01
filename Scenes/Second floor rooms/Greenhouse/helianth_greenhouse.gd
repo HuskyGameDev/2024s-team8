@@ -4,16 +4,26 @@ extends Node2D
 @onready var player = get_tree().get_first_node_in_group("Player")
 @onready var speech_sound = preload("res://Assets/Dialogue blip5.mp3")
 @onready var animPlayer = $MonsterPlayer
+@onready var collision = $MonsterCollision
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	player.backingUp = false
 	if PositionManager.hasActivatedHeli:
 		set_visible(false)
 		queue_free()
 	else:
 		interaction_area.interact = Callable(self, "_on_interact")
 	
+
+func _process(delta):
+	if !player.hasAttention && animPlayer.current_animation != "Idle" && PositionManager.hasActivatedHeli:
+		if player.position.x < position.x:
+			player.backingUp = true
+		else:
+			player.backingUp = false
+
 
 
 func _on_interact():
@@ -22,15 +32,17 @@ func _on_interact():
 		if player.hasAttention:
 			player.hasAttention = false
 		
-		animPlayer.play("Jumpscare")
-	
+		collision.get_child(0).disabled = true
+		animPlayer.play("DecoyInteract")
 	
 
 
 func _on_monster_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "DecoyInteract":
+		animPlayer.play("Jumpscare")
 	if anim_name == "Jumpscare":
 		animPlayer.play("IdleTransition")
 	if anim_name == "IdleTransition":
+		player.backingUp = false
 		animPlayer.play("Idle")
-		if !player.hasAttention:
-			player.hasAttention = true
+		collision.get_child(0).disabled = false

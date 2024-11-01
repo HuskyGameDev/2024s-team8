@@ -26,5 +26,3 @@ func _process(_delta):
 	#propertyArray[noiseSeedIndex] = seed
 	material.set("shader_parameter/seed", seed)
 	Seed+=1
-
-	

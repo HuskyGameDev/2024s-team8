@@ -1,14 +1,47 @@
 extends Node2D
 
 
-# Called when the node enters the scene tree for the first time.
+@export var usingMarker2 = false
+@export var leavingRoom = false
+
+@onready var marker = $Marker2D
+@onready var marker2 = $Marker2D2
+@onready var player = get_node("Player")
+
+
 func _ready() -> void:
-	pass # Replace with function body.
+	player.backingUp = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	
+	if player.animMove && !usingMarker2:
+		var vector = Vector2.ZERO
+		var x = marker.position.x - player.position.x
+		var y = marker.position.y - player.position.y
+	
+		if absf(x) > 0.5:
+			vector.x = x
+		if absf(y) > 0.5:
+			vector.y = y
+			
+		player.animVec = vector
+	elif player.animMove && usingMarker2:
+		player.playerSpeed = 125
+		var vector = Vector2.ZERO
+		var x = marker2.position.x - player.position.x
+		var y = marker2.position.y - player.position.y
+	
+		if absf(x) > 0.5:
+			vector.x = x
+		if absf(y) > 0.5:
+			vector.y = y
+			
+		player.animVec = vector
+	
+	if leavingRoom:
+		leave_room()
 
 
 func _on_to_hallway_body_entered(body: Node2D) -> void:
@@ -19,3 +52,13 @@ func _on_to_hallway_body_entered(body: Node2D) -> void:
 		StageManager.player_facing = Vector2(-1,0)
 		StageManager.changeScene(HALLWAY, 456, 128)
 		StageManager.changeCamera(480)
+	elif body.name == "Player" && !player.hasAttention:
+		leave_room()
+
+func leave_room( ):
+	var HALLWAY = load("res://Scenes/Second floor rooms/Top Hallway/hallway_top.tscn")
+	$Player.hasAttention = false
+	$Player/AnimationTree.set("active", false)
+	StageManager.player_facing = Vector2(-1,0)
+	StageManager.changeScene(HALLWAY, 456, 128)
+	StageManager.changeCamera(480)

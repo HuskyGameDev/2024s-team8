@@ -18,6 +18,7 @@ extends CharacterBody2D
 @export var animMove = false
 @export var animVec = Vector2.ZERO
 @export var hiding = false
+@export var backingUp = false
 var screen_size
 var pause
 var ValveMinigame = false
@@ -29,7 +30,6 @@ var normalLights = "ffffff"
 var InteractionOverride = false
 var pressedShift = false
 var usingSwap = false
-
 
 signal doneMoving
 
@@ -167,9 +167,13 @@ func _physics_process(_delta):
 			velocity = velocity.rotated((PI)/4)
 			
 			
-	if velocity != Vector2.ZERO:
+	if velocity != Vector2.ZERO && !backingUp:
 		animationTree.set("parameters/Idle/blend_position", velocity.normalized())
 		animationTree.set("parameters/Moving/blend_position", velocity.normalized())
+		animationState.travel("Moving")
+	elif velocity != Vector2.ZERO && backingUp:
+		animationTree.set("parameters/Idle/blend_position", -velocity.normalized())
+		animationTree.set("parameters/Moving/blend_position", -velocity.normalized())
 		animationState.travel("Moving")
 	else:
 		animationState.travel("Idle")

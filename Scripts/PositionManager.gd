@@ -37,6 +37,7 @@ var hasClearedPipe = false
 var HasClearedValve = false
 var hasClearedDial = false
 var hasActivatedHeli = false
+var hasEscapedGreenhouse = false
 var heliDistracted = false
 var HasDefeatedMonster = false
 
