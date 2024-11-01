@@ -117,32 +117,33 @@ func _on_mess_hall_left_body_entered(body):
 
 #switches to the research room scene
 func _on_research_room_body_entered(body):
-	if Input.is_action_pressed("DOWN"):
-		if body.name == "Player":
-			$Player._swap_attention()
-			DialogManager.start_dialog(global_position, lines2, speech_sound2, false)
-			await DialogManager.dialog_finished
-			$Player._swap_attention()
-			#var RESEARCH = load("res://Scenes/Main floor rooms/Research/research1.tscn")
-			#$Player.hasAttention = false
-			#$Player/AnimationTree.set("active", false)
-			#StageManager.player_facing = Vector2(0, 1)
-			#StageManager.changeScene(RESEARCH, 80, 128)
+	if Input.is_action_pressed("DOWN") && body.name == "Player":
+			#$Player._swap_attention()
+			#DialogManager.start_dialog(global_position, lines2, speech_sound2, false)
+			#await DialogManager.dialog_finished
+			#$Player._swap_attention()
+			var RESEARCH = load("res://Scenes/Main floor rooms/Research/research1.tscn")
+			PositionManager.paused = true
+			$Player.hasAttention = false
+			$Player/AnimationTree.set("active", false)
+			StageManager.player_facing = Vector2(0, 1)
+			StageManager.changeScene(RESEARCH, 84, 120)
 
 
 
 #small bug when leaving the airlock if you hold down you go into this door somehow
 func _on_to_research_right_body_entered(body: Node2D) -> void:
 		if body.name == "Player" && Input.is_action_pressed("DOWN"):
-			$Player._swap_attention()
-			DialogManager.start_dialog(global_position, lines2, speech_sound2, false)
-			await DialogManager.dialog_finished
-			$Player._swap_attention()
-			#var RESEARCH = load("res://Scenes/Main floor rooms/Research/research1.tscn")
-			#$Player.hasAttention = false
-			#$Player/AnimationTree.set("active", false)
-			#StageManager.player_facing = Vector2(0, 1)
-			#StageManager.changeScene(RESEARCH, 225, 116)
+			#$Player._swap_attention()
+			#DialogManager.start_dialog(global_position, lines2, speech_sound2, false)
+			#await DialogManager.dialog_finished
+			#$Player._swap_attention()
+			var RESEARCH = load("res://Scenes/Main floor rooms/Research/research1.tscn")
+			PositionManager.paused = true
+			$Player.hasAttention = false
+			$Player/AnimationTree.set("active", false)
+			StageManager.player_facing = Vector2(0, 1)
+			StageManager.changeScene(RESEARCH, 225, 116)
 
 
 

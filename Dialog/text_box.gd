@@ -62,13 +62,8 @@ func display_letter():
 				timer.start(float(letter_time) / PositionManager.textSpd) 
 			
 	else:
-		match text[letter_index]:
-			"!", ".", ",", "?":
-				timer.start(0.000000001)
-			" ":
-				timer.start(0.000000001)
-			_:
-				timer.start(0.000000001) 
+		_on_letter_display_timer_timeout()
+	
 	var new_audio_player = audio_player.duplicate()
 	#new_audio_player.volume_db = 20.0
 	get_tree().root.add_child(new_audio_player)

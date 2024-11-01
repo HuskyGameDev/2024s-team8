@@ -8,23 +8,15 @@ func _ready():
 	get_node("AnimationPlayer").play("pace")
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
-
-
-func _on_area_2d_body_entered(_body):
-	if Input.is_action_pressed("UP"):
+func _on_area_2d_body_entered(body):
+	if Input.is_action_pressed("UP") && body.name == "Player":
 		var HALLWAY_MAIN = load("res://Scenes/Main floor rooms/Main Hall/hallway_main.tscn")
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false)
 		StageManager.changeScene(HALLWAY_MAIN, 260, 144)
 		StageManager.changeCamera(488)
+		StageManager.player_facing = Vector2(0, -1)
 		StageManager.scene_change = true
-
-
-func _on_door_to_hallway_body_exited(_body):
-	pass # Replace with function body.
 
 
 func _on_flower_touched() -> void:
@@ -32,11 +24,11 @@ func _on_flower_touched() -> void:
 
 
 func _on_to_hall_right_body_entered(body: Node2D) -> void:
-	if Input.is_action_pressed("UP"):
+	if Input.is_action_pressed("UP") && body.name == "Player":
 		var HALLWAY_MAIN = load("res://Scenes/Main floor rooms/Main Hall/hallway_main.tscn")
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false)
 		StageManager.changeScene(HALLWAY_MAIN, 414, 148)
 		StageManager.changeCamera(488)
+		StageManager.player_facing = Vector2(0, -1)
 		StageManager.scene_change = true
-	pass # Replace with function body.
