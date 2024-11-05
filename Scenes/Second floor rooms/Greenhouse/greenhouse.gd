@@ -61,7 +61,8 @@ func _swap_marker():
 	vector = Vector2(x,y)
 	usingMarker2 = true
 
-
+func monster_roar():
+	$MonsterRoar.play()
 
 func _on_to_hallway_body_entered(body: Node2D) -> void:
 	if (Input.is_action_pressed("LEFT") or Input.is_action_pressed("UP")) && body.name == "Player":

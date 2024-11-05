@@ -41,8 +41,8 @@ func _on_monster_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "DecoyInteract":
 		animPlayer.play("Jumpscare")
 	if anim_name == "Jumpscare":
-		animPlayer.play("IdleTransition")
-	if anim_name == "IdleTransition":
+		animPlayer.play("Roar")
+	if anim_name == "Roar":
 		player.backingUp = false
 		animPlayer.play("Idle")
 		collision.get_child(0).disabled = false
