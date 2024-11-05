@@ -38,6 +38,7 @@ offset_right = 99.9999
 offset_bottom = 98.0
 scale = Vector2(1.7, 1.7)
 color = Color(0.270588, 0.290196, 0.333333, 1)
+metadata/_edit_group_ = true
 
 [node name="Outline" type="CanvasLayer" parent="Background/Rooms/Pod"]
 layer = 2
@@ -102,6 +103,7 @@ offset_right = 623.001
 offset_bottom = 138.667
 scale = Vector2(1.7, 1.7)
 color = Color(0.270588, 0.290196, 0.333333, 1)
+metadata/_edit_group_ = true
 
 [node name="Door4" type="ColorRect" parent="Background/Rooms/Bunks"]
 layout_mode = 0
@@ -167,6 +169,7 @@ offset_right = 1002.35
 offset_bottom = 346.05
 scale = Vector2(1.7, 1.7)
 color = Color(0.270588, 0.290196, 0.333333, 1)
+metadata/_edit_group_ = true
 
 [node name="Door6" type="ColorRect" parent="Background/Rooms/Command_Deck"]
 layout_mode = 0
@@ -229,6 +232,7 @@ offset_right = 359.0
 offset_bottom = 169.667
 scale = Vector2(1.7, 1.7)
 color = Color(0.270588, 0.290196, 0.333333, 1)
+metadata/_edit_group_ = true
 
 [node name="Door3" type="ColorRect" parent="Background/Rooms/Stairs"]
 layout_mode = 0
@@ -293,6 +297,7 @@ offset_right = 693.534
 offset_bottom = 546.2
 scale = Vector2(1.7, 1.7)
 color = Color(0.270588, 0.290196, 0.333333, 1)
+metadata/_edit_group_ = true
 
 [node name="Door" type="ColorRect" parent="Background/Rooms/Research"]
 layout_mode = 0
@@ -361,6 +366,7 @@ offset_right = 799.266
 offset_bottom = 168.6
 scale = Vector2(1.7, 1.7)
 color = Color(0.270588, 0.290196, 0.333333, 1)
+metadata/_edit_group_ = true
 
 [node name="Door5" type="ColorRect" parent="Background/Rooms/Supply"]
 layout_mode = 0
@@ -440,6 +446,7 @@ grow_horizontal = 0
 grow_vertical = 2
 scale = Vector2(1.7, 1.7)
 color = Color(0.270588, 0.290196, 0.333333, 1)
+metadata/_edit_group_ = true
 
 [node name="Outline" type="CanvasLayer" parent="Background/Rooms/Main_Hall"]
 layer = 2
@@ -497,6 +504,7 @@ offset_top = 476.32
 offset_right = 479.68
 offset_bottom = 656.32
 color = Color(0.270588, 0.290196, 0.333333, 1)
+metadata/_edit_group_ = true
 
 [node name="Door2" type="ColorRect" parent="Background/Rooms/Mess_Hall"]
 layout_mode = 0
@@ -567,6 +575,7 @@ offset_top = 166.0
 offset_right = 149.667
 offset_bottom = 206.0
 color = Color(0.270588, 0.290196, 0.333333, 1)
+metadata/_edit_group_ = true
 
 [node name="Label" type="Label" parent="Background/Rooms/Airlock"]
 layout_mode = 1

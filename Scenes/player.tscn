@@ -535,11 +535,11 @@ show_behind_parent = true
 visible = false
 position = Vector2(-7.15256e-07, 0)
 color = Color(0.345098, 0.270588, 0.458824, 1)
-texture = ExtResource("16_k1veb")
+texture = ExtResource("18_bc6bk")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Lighting"]
 visible = false
-occluder = ExtResource("11_p1uok")
+occluder = ExtResource("11_4jkc8")
 
 [node name="PointLight2DSource" type="PointLight2D" parent="Lighting"]
 position = Vector2(-7.15256e-07, 0)
@@ -550,7 +550,6 @@ texture = SubResource("GradientTexture2D_m7p6r")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("7_kont8")
 hframes = 16
-frame = 12
 
 [node name="InteractionParent" type="Area2D" parent="." groups=["InteractionParent"]]
 position = Vector2(0, 2)

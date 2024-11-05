@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=4 uid="uid://b0u5oq1ep04bc"]
+[gd_scene load_steps=57 format=4 uid="uid://b0u5oq1ep04bc"]
 
 [ext_resource type="Script" path="res://Scenes/Second floor rooms/Top Hallway/hallway_top.gd" id="1_js6sa"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="1_wa6ms"]
@@ -13,8 +13,6 @@
 [ext_resource type="Script" path="res://dial_door.gd" id="8_mom2l"]
 [ext_resource type="Texture2D" uid="uid://h4sy0m4qq4k" path="res://Assets/locker_sprites.png" id="8_oq6w7"]
 [ext_resource type="TileSet" uid="uid://b57dw6av5xyw3" path="res://door_icon_tileset.tres" id="9_4cxew"]
-[ext_resource type="Script" path="res://Scenes/Second floor rooms/Top Hallway/CodeHintDocument.gd" id="10_bssee"]
-[ext_resource type="Texture2D" uid="uid://b64doeqvowr0m" path="res://Assets/paper_note_sprite.png" id="10_j0oca"]
 [ext_resource type="PackedScene" uid="uid://koortbv6bmhv" path="res://theHelianth.tscn" id="14_ra4c5"]
 [ext_resource type="Script" path="res://Scenes/Second floor rooms/Top Hallway/cutscene_monster.gd" id="16_r0mjm"]
 [ext_resource type="Texture2D" uid="uid://dhc88kyqp31a1" path="res://Assets/Monster Poses/monster_idle_walk_run_sprites.png" id="17_rekn6"]
@@ -184,9 +182,6 @@ _data = {
 "open": SubResource("Animation_eth1a"),
 "opening": SubResource("Animation_bpj75")
 }
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1us0s"]
-size = Vector2(6, 10)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_310n3"]
 radius = 6.0
@@ -906,22 +901,6 @@ libraries = {
 "": SubResource("AnimationLibrary_xyewc")
 }
 
-[node name="CodeHintDocument" type="Node2D" parent="."]
-position = Vector2(419, 148)
-rotation = 0.568977
-scale = Vector2(1.5, 1.5)
-skew = -0.179769
-script = ExtResource("10_bssee")
-
-[node name="Sprite2D" type="Sprite2D" parent="CodeHintDocument"]
-texture = ExtResource("10_j0oca")
-
-[node name="InteractionArea" type="Area2D" parent="CodeHintDocument"]
-script = ExtResource("7_51fjl")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CodeHintDocument/InteractionArea"]
-shape = SubResource("RectangleShape2D_1us0s")
-
 [node name="CanvasLayer" type="CanvasLayer" parent="." groups=["CanvasLayer"]]
 unique_name_in_owner = true
 scale = Vector2(5, 5)
@@ -1053,8 +1032,6 @@ width = 1.0
 [connection signal="area_exited" from="dialDoor/InteractionArea" to="dialDoor/InteractionArea" method="_on_area_exited"]
 [connection signal="body_entered" from="To Security Room" to="." method="_on_to_security_room_body_entered"]
 [connection signal="body_entered" from="To_Stairs" to="." method="_on_to_stairs_body_entered"]
-[connection signal="area_entered" from="CodeHintDocument/InteractionArea" to="CodeHintDocument/InteractionArea" method="_on_area_entered"]
-[connection signal="area_exited" from="CodeHintDocument/InteractionArea" to="CodeHintDocument/InteractionArea" method="_on_area_exited"]
 [connection signal="body_entered" from="CutsceneMonster/FlowerSprite/BodyArea" to="CutsceneMonster" method="_on_body_area_body_entered"]
 [connection signal="body_entered" from="CutsceneMonster/VisionCone" to="CutsceneMonster" method="_on_vision_cone_body_entered"]
 [connection signal="body_exited" from="CutsceneMonster/VisionCone" to="CutsceneMonster" method="_on_vision_cone_body_exited"]
