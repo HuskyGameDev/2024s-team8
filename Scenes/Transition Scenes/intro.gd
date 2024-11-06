@@ -17,7 +17,7 @@ func _ready():
 	for n in range(0,5):
 		PositionManager.comboCode[n] = randi_range(0,9)
 	for n in range(0,3):
-		PositionManager.valveCode[n] = randi_range(1,23)
+		PositionManager.valveCode[n] = randi_range(2,22)
 	PositionManager.PipeVersion = randi_range(0,2)
 		
 	DialogManager.start_dialog(global_position, lines, speech_sound, false, true)

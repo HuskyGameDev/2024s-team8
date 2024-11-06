@@ -73,6 +73,7 @@ func _on_to_hallway_body_entered(body: Node2D) -> void:
 		StageManager.changeScene(HALLWAY, 456, 128)
 		StageManager.changeCamera(480)
 	elif body.name == "Player" && !player.hasAttention:
+		player.animMove = false
 		leave_room()
 
 func leave_room( ):

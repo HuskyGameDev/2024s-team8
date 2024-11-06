@@ -11,7 +11,7 @@ var HelianthRelativePosition = Vector2(88-400, 144-144)
 #Default Minigames
 var comboCode := [0,0,0,0,1]
 var valveCode := [9,6,3]
-var PipeVersion = 1
+var PipeVersion = 0
 
 #Game Progression
 var Act = 0

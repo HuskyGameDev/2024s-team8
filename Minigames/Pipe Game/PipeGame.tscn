@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://mvq33x270ude"]
+[gd_scene load_steps=14 format=3 uid="uid://mvq33x270ude"]
 
 [ext_resource type="Script" path="res://Minigames/Pipe Game/PipeGame.gd" id="1_vysyd"]
 [ext_resource type="Script" path="res://Minigames/Pipe Game/Row1.gd" id="2_hi4ph"]
+[ext_resource type="Shader" path="res://Assets/Screen Effect/screen_effect.gdshader" id="2_rocon"]
 [ext_resource type="Texture2D" uid="uid://d2jae2uscsr2u" path="res://Assets/puzzle_pipes/000.png" id="4_j5mfu"]
 [ext_resource type="Script" path="res://Minigames/Pipe Game/Row2.gd" id="4_ltmbs"]
 [ext_resource type="Script" path="res://Minigames/Pipe Game/Row3.gd" id="5_wkup7"]
@@ -11,7 +12,12 @@
 [ext_resource type="Texture2D" uid="uid://8hfqimxxm6ce" path="res://Assets/puzzle_pipes/010.png" id="9_47kjp"]
 [ext_resource type="Texture2D" uid="uid://xedf5es1uqvk" path="res://Assets/arrow.png" id="10_sv11a"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_mcxtl"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rr05t"]
+shader = ExtResource("2_rocon")
+
+[sub_resource type="QuadMesh" id="QuadMesh_07lkm"]
+size = Vector2(1920, 1080)
+center_offset = Vector3(960, 540, 0)
 
 [node name="PipeGame" type="Control"]
 z_index = 1
@@ -21,21 +27,53 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.2, 1.2)
+scale = Vector2(5.9, 5.9)
 script = ExtResource("1_vysyd")
 
-[node name="Background" type="TextureRect" parent="."]
-modulate = Color(0, 0, 0, 1)
-self_modulate = Color(0, 0, 0, 0.431373)
-top_level = true
-z_index = -1
-layout_mode = 0
-offset_left = -12.0
-offset_top = -12.0
-offset_right = 320.0
+[node name="Background" type="ColorRect" parent="."]
+z_index = -2
+offset_right = 325.0
 offset_bottom = 183.0
-scale = Vector2(1.2, 1.2)
-texture = SubResource("CanvasTexture_mcxtl")
+color = Color(0.215686, 0.215686, 0.215686, 1)
+
+[node name="ScreenColor" type="ColorRect" parent="."]
+z_index = -1
+offset_left = 43.0
+offset_right = 277.0
+offset_bottom = 183.0
+color = Color(0.443137, 0.780392, 0.901961, 1)
+
+[node name="ScreenLeftEdge" type="ColorRect" parent="."]
+z_index = -1
+offset_left = 28.0
+offset_right = 43.0
+offset_bottom = 183.0
+color = Color(0.321569, 0.321569, 0.32549, 1)
+
+[node name="ScreenRightEdge" type="ColorRect" parent="."]
+z_index = -1
+offset_left = 277.0
+offset_right = 292.0
+offset_bottom = 183.0
+color = Color(0.321569, 0.321569, 0.32549, 1)
+
+[node name="ScreenUpEdge" type="ColorRect" parent="."]
+z_index = -1
+offset_left = 292.0
+offset_top = -1.0
+offset_right = 303.0
+offset_bottom = 249.0
+rotation = 1.5708
+color = Color(0.321569, 0.321569, 0.32549, 1)
+
+[node name="ScreenDownEdge" type="ColorRect" parent="."]
+z_index = -1
+offset_left = 292.0
+offset_top = 172.0
+offset_right = 303.0
+offset_bottom = 422.0
+rotation = 1.5708
+color = Color(0.321569, 0.321569, 0.32549, 1)
 
 [node name="Row1" type="Node2D" parent="." groups=["Row1"]]
 position = Vector2(0.025, 0)
@@ -197,3 +235,9 @@ texture = ExtResource("9_47kjp")
 [node name="Cursor" type="Sprite2D" parent="." groups=["Cursor"]]
 position = Vector2(97, 35)
 texture = ExtResource("10_sv11a")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_rr05t")
+mesh = SubResource("QuadMesh_07lkm")
