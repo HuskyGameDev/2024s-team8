@@ -365,7 +365,7 @@ script = ExtResource("1_wbr31")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(153, 129)
+position = Vector2(143, 129)
 
 [node name="Marker2D2" type="Marker2D" parent="."]
 unique_name_in_owner = true
