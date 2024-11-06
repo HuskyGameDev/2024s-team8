@@ -28,32 +28,22 @@ func _process(delta: float) -> void:
 		
 	player.animVec = vector
 	if player.animMove && !usingMarker2:
-		
-		if absf(vector.x) <= 1 && absf(vector.y) <= 1:
-			player.animationTree.set("parameters/Idle/blend_position", Vector2(0,1))
-			player.animVec = Vector2.ZERO
-			
-		else:
-			x = marker.position.x - player.position.x
-			y = marker.position.y - player.position.y
-			vector = Vector2(x,y)
-		
-		#player.animVec = vector
-		#player.animVec = Vector2.ZERO
+		_move_player_to_marker(marker)
 	elif player.animMove && usingMarker2:
 		player.playerSpeed = 125
+		_move_player_to_marker(marker2)
 		
-		if absf(vector.x) <= 1 && absf(vector.y) <= 1:
-			player.animVec = Vector2.ZERO
-			vector = Vector2.ZERO
-		else:
-			x = marker2.position.x - player.position.x
-			y = marker2.position.y - player.position.y
-			vector = Vector2(x,y)
-		#player.animVec = vector
-		#player.animVec = Vector2.ZERO
 	
 	
+
+func _move_player_to_marker(m: Node2D)->void:
+	if absf(vector.x) <= 1 && absf(vector.y) <= 1:
+		player.animVec = Vector2.ZERO
+		vector = Vector2.ZERO
+	else:
+		x = m.position.x - player.position.x
+		y = m.position.y - player.position.y
+		vector = Vector2(x,y)
 
 func _swap_marker():
 	var x = marker2.position.x - player.position.x
