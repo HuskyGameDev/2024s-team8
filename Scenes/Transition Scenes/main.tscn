@@ -238,6 +238,7 @@ autoplay = "Idle"
 unique_name_in_owner = true
 
 [node name="CRT Effect" parent="." instance=ExtResource("8_ypyhu")]
+visible = false
 scale = Vector2(5, 5)
 transform = Transform2D(5, 0, 0, 5, 0, 0)
 
