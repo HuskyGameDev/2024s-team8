@@ -23,6 +23,7 @@ func _ready():
 		config.set_value("audio", "dialogue_volume", 0.5)
 		
 		config.set_value("gameplay", "text_speed", 1)
+		config.set_value("gameplay", "crt_effect", 0)
 		
 		config.save(SETTINGS_FILE_PATH)
 		

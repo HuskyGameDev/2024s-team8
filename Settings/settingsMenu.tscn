@@ -278,6 +278,31 @@ max_value = 2.0
 step = 0.1
 value = 1.0
 
+[node name="Alignment13" type="Label" parent="TabContainer/Gameplay"]
+layout_mode = 2
+
+[node name="Alignment14" type="Label" parent="TabContainer/Gameplay"]
+layout_mode = 2
+
+[node name="CRT Effect HBox" type="HBoxContainer" parent="TabContainer/Gameplay"]
+layout_mode = 2
+
+[node name="CRT Effect Label" type="Label" parent="TabContainer/Gameplay/CRT Effect HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("5_xhqac")
+theme_override_font_sizes/font_size = 50
+text = "CRT Effect:"
+horizontal_alignment = 1
+
+[node name="CRTEffectSlider" type="HSlider" parent="TabContainer/Gameplay/CRT Effect HBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 1.0
+
 [node name="Alignment9" type="Label" parent="TabContainer/Gameplay"]
 layout_mode = 2
 
@@ -312,4 +337,6 @@ unique_name_in_owner = true
 [connection signal="pressed" from="TabContainer/Controls/ResetControls" to="TabContainer/Controls" method="_on_reset_controls_pressed"]
 [connection signal="drag_ended" from="TabContainer/Gameplay/TextSpdHBox/TextSpdSlider" to="." method="_on_text_spd_slider_drag_ended"]
 [connection signal="value_changed" from="TabContainer/Gameplay/TextSpdHBox/TextSpdSlider" to="TabContainer/Gameplay" method="_on_text_spd_slider_value_changed"]
+[connection signal="drag_ended" from="TabContainer/Gameplay/CRT Effect HBox/CRTEffectSlider" to="." method="_on_crt_effect_check_drag_ended"]
+[connection signal="value_changed" from="TabContainer/Gameplay/CRT Effect HBox/CRTEffectSlider" to="TabContainer/Gameplay" method="_on_crt_effect_slider_value_changed"]
 [connection signal="pressed" from="TabContainer/Gameplay/ResetGameplay" to="TabContainer/Gameplay" method="_on_reset_gameplay_pressed"]

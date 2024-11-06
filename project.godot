@@ -24,6 +24,7 @@ DialogManager="*res://Dialog/DialogManager.gd"
 GlobalAudioManager="*res://Settings/Audio/global_audio_manager.tscn"
 ConfigManager="*res://Settings/Config/ConfigManager.gd"
 GlobalCanvasLayer="*res://Scripts/Notifications/CanvasLayer.tscn"
+CrtEffect="*res://Assets/Screen Effect/crt_effect.tscn"
 
 [display]
 

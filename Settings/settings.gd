@@ -14,6 +14,7 @@ func _ready():
 	
 	var gameplay_settings = ConfigManager.load_gameplay()
 	$"%TextSpdSlider".value = gameplay_settings.text_speed
+	$"%CRTEffectSlider".value = gameplay_settings.crt_effect
 	
 	PositionManager.ConfigLoaded = true
 
@@ -51,3 +52,7 @@ func _on_dialogue_slider_drag_ended(value_changed: bool) -> void:
 func _on_text_spd_slider_drag_ended(value_changed: bool) -> void:
 	if value_changed:
 		ConfigManager.save_gameplay("text_speed", $"%TextSpdSlider".value)
+
+func _on_crt_effect_check_drag_ended(value_changed: bool) -> void:
+	if value_changed:
+		ConfigManager.save_gameplay("crt_effect", $"%CRTEffectSlider".value)

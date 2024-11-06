@@ -47,6 +47,7 @@ var musicVolume = 0.5
 var sfxVolume = 0.5
 var dialogueVolume = 0.5
 var textSpd = 1.0 # Factor for text speed
+var crt_effect = 0
 var playTextSound = true
 var finished_displaying = true
 

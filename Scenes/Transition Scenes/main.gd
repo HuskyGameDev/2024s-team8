@@ -21,6 +21,7 @@ func _ready():
 	
 	var gameplay_settings = ConfigManager.load_gameplay()
 	PositionManager.textSpd = gameplay_settings.text_speed
+	PositionManager.crt_effect = gameplay_settings.crt_effect
 	
 	AudioServer.set_bus_volume_db(MASTER_BUS_ID,linear_to_db(PositionManager.masterVolume))
 	AudioServer.set_bus_volume_db(MUSIC_BUS_ID,linear_to_db(PositionManager.musicVolume))

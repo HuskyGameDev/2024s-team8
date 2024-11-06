@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bkrk6ere8vvqi"]
+[gd_scene load_steps=15 format=3 uid="uid://bkrk6ere8vvqi"]
 
 [ext_resource type="Script" path="res://Scenes/Transition Scenes/main.gd" id="1_tbkaj"]
 [ext_resource type="PackedScene" uid="uid://ca1eqme7qndxw" path="res://Scenes/background.tscn" id="2_i6f1w"]
@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://eakijihfas2k" path="res://Assets/SFPixelate-Bold.ttf" id="4_1q5f7"]
 [ext_resource type="Texture2D" uid="uid://cyjc1dmjpaw55" path="res://Assets/small_ship.png" id="6_srfy3"]
 [ext_resource type="Texture2D" uid="uid://0tik15ssrfpo" path="res://Assets/Circle.png" id="7_x76p5"]
+[ext_resource type="PackedScene" uid="uid://dvc265eeddex7" path="res://Assets/Screen Effect/crt_effect.tscn" id="8_ypyhu"]
 
 [sub_resource type="Gradient" id="Gradient_xpky2"]
 offsets = PackedFloat32Array(0.52, 1)
@@ -235,6 +236,10 @@ autoplay = "Idle"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
+
+[node name="CRT Effect" parent="." instance=ExtResource("8_ypyhu")]
+scale = Vector2(5, 5)
+transform = Transform2D(5, 0, 0, 5, 0, 0)
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
