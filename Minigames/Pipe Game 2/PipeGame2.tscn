@@ -33,12 +33,14 @@ script = ExtResource("1_gs2ep")
 
 [node name="Background" type="ColorRect" parent="."]
 z_index = -2
+layout_mode = 0
 offset_right = 325.0
 offset_bottom = 183.0
 color = Color(0.215686, 0.215686, 0.215686, 1)
 
 [node name="ScreenColor" type="ColorRect" parent="."]
 z_index = -1
+layout_mode = 0
 offset_left = 43.0
 offset_right = 277.0
 offset_bottom = 183.0
@@ -46,6 +48,7 @@ color = Color(0.443137, 0.780392, 0.901961, 1)
 
 [node name="ScreenLeftEdge" type="ColorRect" parent="."]
 z_index = -1
+layout_mode = 0
 offset_left = 28.0
 offset_right = 43.0
 offset_bottom = 183.0
@@ -53,6 +56,7 @@ color = Color(0.321569, 0.321569, 0.32549, 1)
 
 [node name="ScreenRightEdge" type="ColorRect" parent="."]
 z_index = -1
+layout_mode = 0
 offset_left = 277.0
 offset_right = 292.0
 offset_bottom = 183.0
@@ -60,6 +64,7 @@ color = Color(0.321569, 0.321569, 0.32549, 1)
 
 [node name="ScreenUpEdge" type="ColorRect" parent="."]
 z_index = -1
+layout_mode = 0
 offset_left = 292.0
 offset_top = -1.0
 offset_right = 303.0
@@ -69,6 +74,7 @@ color = Color(0.321569, 0.321569, 0.32549, 1)
 
 [node name="ScreenDownEdge" type="ColorRect" parent="."]
 z_index = -1
+layout_mode = 0
 offset_left = 292.0
 offset_top = 172.0
 offset_right = 303.0
