@@ -1,5 +1,7 @@
 extends Control
 
+@onready var documentScene = preload("res://Scripts/ObjectivesMenu/document.tscn")
+
 @onready var player = get_tree().get_first_node_in_group("Player")
 @onready var Cursor = get_tree().get_first_node_in_group("Cursor")
 @onready var Row1Node = get_tree().get_first_node_in_group("Row1")
@@ -22,6 +24,8 @@ var FlowFromDirection = 0
 var solved = false
 var recurseCounter = 0
 signal cleared
+
+var instructionsOpened = false
 
 func _process(_delta):
 	if !solved:
@@ -47,9 +51,11 @@ func _process(_delta):
 			RowIndex0 = RowIndex0 + 1 if RowIndex0 < 4 else 0
 		Cursor.position = Rows[RowIndex0][ColIndex0].position
 	
-	if Input.is_action_just_pressed("MENU"):
+	if Input.is_action_just_pressed("MENU") && !instructionsOpened:
 		queue_free()
 		player._swap_attention()
+	elif Input.is_action_just_pressed("MENU") && instructionsOpened:
+		$CanvasLayer.get_child(0)._on_document_exit_pressed()
 
 
 #Order, Left = 0, Up = 1, Right = 2, Down = 3
@@ -92,6 +98,14 @@ func alternateDirection(Direction):
 	elif Direction == 3:
 		return 1
 	
-	
-	
-	
+
+func _on_canvas_layer_child_exiting_tree(node: Node) -> void:
+	if node.name == "Documents":
+		instructionsOpened = false
+
+func _on_info_button_pressed() -> void:
+	var document = documentScene.instantiate()
+	document.get_node("Document").get_node("TextLabel").text = InputMap.action_get_events("UP")[0].as_text() + "/" + InputMap.action_get_events("DOWN")[0].as_text() + " = move up/down\n" + InputMap.action_get_events("LEFT")[0].as_text() + "/" + InputMap.action_get_events("RIGHT")[0].as_text() + " = move left/right\n" + InputMap.action_get_events("INTERACT")[0].as_text() + " = rotate piece clockwise"
+	$CanvasLayer.add_child(document)
+	#$"%Paper Sound".play()
+	instructionsOpened = true

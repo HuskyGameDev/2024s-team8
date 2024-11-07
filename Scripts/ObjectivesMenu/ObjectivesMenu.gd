@@ -22,7 +22,6 @@ func _process(_delta):
 		_on_exit_button_pressed()
 	
 	if (Input.is_action_just_pressed("MENU") or Input.is_action_just_pressed("OBJECTIVE")) && documentOpened:
-		documentOpened = false
 		$CanvasLayer.get_child(0)._on_document_exit_pressed()
 
 # Closes settingsMenu if exit button is pressed
@@ -67,3 +66,8 @@ func setDocuments():
 		i += 1
 		
 	
+
+
+func _on_canvas_layer_child_exiting_tree(node: Node) -> void:
+	if node.name == "Documents":
+		documentOpened = false
