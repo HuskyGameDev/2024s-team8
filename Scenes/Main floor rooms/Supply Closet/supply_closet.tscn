@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://piw1ffh2ljly"]
+[gd_scene load_steps=23 format=4 uid="uid://piw1ffh2ljly"]
 
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Supply Closet/supply_closet.gd" id="1_0dtoi"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="2_tomo4"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Supply Closet/box.gd" id="6_jevfd"]
 [ext_resource type="Texture2D" uid="uid://bfx5otn34ye1d" path="res://Assets/wrench-blue.png" id="6_ulac0"]
 [ext_resource type="Script" path="res://Interaction/InteractionArea.gd" id="7_j4w0r"]
+[ext_resource type="Texture2D" uid="uid://fyurk88ppuhy" path="res://Assets/box_closed.png" id="8_ifesw"]
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Supply Closet/shelf.gd" id="9_4hc82"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p4nn5"]
@@ -100,9 +101,16 @@ shape = SubResource("RectangleShape2D_cm6d2")
 position = Vector2(133, 94)
 script = ExtResource("6_jevfd")
 
-[node name="Sprite2D" type="Sprite2D" parent="Box"]
+[node name="BoxOpen" type="Sprite2D" parent="Box"]
+unique_name_in_owner = true
 position = Vector2(19, -10)
 texture = ExtResource("5_jwujx")
+
+[node name="BoxClosed" type="Sprite2D" parent="Box"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(19, -10)
+texture = ExtResource("8_ifesw")
 
 [node name="Collision" type="StaticBody2D" parent="Box"]
 visible = false

@@ -1,0 +1,127 @@
+[gd_scene load_steps=8 format=3 uid="uid://75gj4e70f7mc"]
+
+[ext_resource type="Script" path="res://Scripts/ObjectivesMenu/document.gd" id="1_40yku"]
+[ext_resource type="FontFile" uid="uid://eakijihfas2k" path="res://Assets/SFPixelate-Bold.ttf" id="1_xshpw"]
+[ext_resource type="Texture2D" uid="uid://xedf5es1uqvk" path="res://Assets/arrow.png" id="3_plb83"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ntveb"]
+
+[sub_resource type="Animation" id="Animation_f2360"]
+resource_name = "Popup"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Document:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_udd60"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Document:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_poax8"]
+_data = {
+"Popup": SubResource("Animation_f2360"),
+"RESET": SubResource("Animation_udd60")
+}
+
+[node name="Documents" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_40yku")
+
+[node name="Background" type="TextureRect" parent="."]
+self_modulate = Color(0.0627451, 0.0627451, 0.0627451, 0.431373)
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = SubResource("CanvasTexture_ntveb")
+
+[node name="Document" type="Control" parent="."]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = 950.0
+offset_top = 494.0
+offset_right = 990.0
+offset_bottom = 534.0
+
+[node name="ColorRect" type="ColorRect" parent="Document"]
+layout_mode = 0
+offset_left = -318.0
+offset_top = -390.0
+offset_right = 357.0
+offset_bottom = 483.529
+color = Color(0.886261, 0.886262, 0.886261, 1)
+
+[node name="TextLabel" type="Label" parent="Document"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -294.0
+offset_top = -334.0
+offset_right = 1276.0
+offset_bottom = 1561.0
+scale = Vector2(0.4, 0.4)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 32
+theme_override_fonts/font = ExtResource("1_xshpw")
+theme_override_font_sizes/font_size = 70
+autowrap_mode = 2
+
+[node name="DocumentExit" type="TextureButton" parent="Document"]
+layout_mode = 0
+offset_left = 302.0
+offset_top = -383.0
+offset_right = 350.0
+offset_bottom = -335.0
+texture_normal = ExtResource("3_plb83")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Document/DocumentExit"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -14.0
+offset_right = 29.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("1_xshpw")
+theme_override_font_sizes/font_size = 50
+text = "X
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_poax8")
+}
+autoplay = "Popup"
+
+[connection signal="pressed" from="Document/DocumentExit" to="." method="_on_document_exit_pressed"]

@@ -18,4 +18,3 @@ void fragment() {
 	screen_color -= vignette * vignette_multiplier;
 	COLOR = vec4(screen_color, 1.0);
 }
-

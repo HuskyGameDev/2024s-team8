@@ -10,18 +10,18 @@ const lines: Array[String] = [
 ]
 
 const lines2: Array[String] = [
-	"To me, you are the sun
-	You brighten up my day
-	The navigator tells me we use the stars to guide our journey
+	"To me, you are the sun.
+	You brighten up my day.
+	The navigator tells me we use the stars to guide our journey.
 	“We follow the north star” he says,
-	I don’t fully understand 
-	In this dim moist basement, I don’t see any stars
+	I don’t fully understand.
+	In this dim moist basement, I don’t see any stars.
 	All there is here is metal and must.       	           	
 	I’ve heard the sun rises in the east
 	so maybe you can guide me
-	back to you
+	back to you.
 	These incandescent bulbs have brought me down
-	but your light will lift me up
+	but your light will lift me up.
 	For now, I keep your picture in my left pocket
 	and await our reunion."
 ]

@@ -26,7 +26,6 @@ const lines3: Array[String] = [
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	interaction_area.interact = Callable(self, "_on_interact")
-	pass # Replace with function body.
 
 
 func _on_interact():
@@ -42,6 +41,8 @@ func _on_interact():
 			await DialogManager.dialog_finished
 			playerOccluder.hide()
 			playerSprite.hide()
+			$BoxOpen.hide()
+			$BoxClosed.show()
 			player.hiding = true
 			
 			await get_tree().create_timer(1.0).timeout
@@ -54,6 +55,8 @@ func _on_interact():
 				player.get_node("AnimationTree").set("parameters/Idle/blend_position", -PositionManager.getDirection(player.get_node("InteractionParent").rotation_degrees))
 				playerOccluder.show()
 				playerSprite.show()
+				$BoxClosed.hide()
+				$BoxOpen.show()
 				player._swap_attention()
 				player.hiding = false
 				player.InteractionOverride = false

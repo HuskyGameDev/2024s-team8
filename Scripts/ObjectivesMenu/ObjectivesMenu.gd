@@ -3,7 +3,9 @@ extends Control
 @onready var Objectives = get_tree().get_first_node_in_group("Objectives")
 @onready var Documents = get_tree().get_first_node_in_group("Documents")
 @onready var TabContain = get_tree().get_first_node_in_group("TabContainer")
-@onready var LabelTab = get_tree().get_first_node_in_group("LabelTab")
+@onready var documentScene = preload("res://Scripts/ObjectivesMenu/document.tscn")
+
+var documentOpened = false
 
 func _ready():
 	$TabContainer/Objectives.show()
@@ -16,16 +18,23 @@ func _ready():
 func _process(_delta):
 	
 	# Closes settings Menu if "MENU" is pressed
-	if Input.is_action_just_pressed("MENU") or Input.is_action_just_pressed("OBJECTIVE"):
+	if (Input.is_action_just_pressed("MENU") or Input.is_action_just_pressed("OBJECTIVE")) && !documentOpened:
 		_on_exit_button_pressed()
+	
+	if (Input.is_action_just_pressed("MENU") or Input.is_action_just_pressed("OBJECTIVE")) && documentOpened:
+		documentOpened = false
+		$CanvasLayer.get_child(0)._on_document_exit_pressed()
 
 # Closes settingsMenu if exit button is pressed
 func _on_exit_button_pressed():
 	queue_free()
 
 func _on_document_button_pressed(extra_arg_0: int) -> void:
-	TabContain.current_tab = 4
-	LabelTab.text = PositionManager.DocumentsText[extra_arg_0-1]
+	var document = documentScene.instantiate()
+	document.get_node("Document").get_node("TextLabel").text = PositionManager.DocumentsText[extra_arg_0-1]
+	$CanvasLayer.add_child(document)
+	$"%Paper Sound".play()
+	documentOpened = true
 
 
 # Sets the labels to current keybinds

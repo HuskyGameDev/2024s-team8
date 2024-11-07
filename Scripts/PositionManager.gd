@@ -75,7 +75,6 @@ var lastKnownPos = Vector2.ZERO
 
 func _process(delta):
 	Canvas = GlobalCanvasLayer.get_child(0)
-	
 
 
 #turns arrays that contain text to strings
@@ -90,7 +89,7 @@ func array_to_string(arr: Array, skipLines: int = 0) -> String:
 func add_objective(objective: String, text : String):
 	Objectives.append(objective)
 	ObjectivesText.append(text)
-	
+	play_notification("Objective")
 
 func remove_objective(objective: String):
 	var i = 0

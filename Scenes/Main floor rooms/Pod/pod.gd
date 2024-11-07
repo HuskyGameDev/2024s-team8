@@ -10,7 +10,8 @@ var HasLeft = true
 
 
 var lines: Array[String] = [
-	"No matter how many times I do this, it's still difficult getting used to my new 'home'."
+	"No matter how many times I do this, it's still difficult getting used to my new 'home'.",
+	"That reminds me, I better make sure to press '" + InputMap.action_get_events("INTERACT")[0].as_text() + "' to interact with objects around me."
 ]
 
 const lines2: Array[String] = [
@@ -36,7 +37,6 @@ func _ready():
 		PositionManager.HasOpenedTutorial = true
 		PositionManager.add_objective("Explore Ship", "Get accustomed to your new home.")
 		PositionManager.add_objective("Meet Crewmates", "Meet the fellow crewmates.")
-		PositionManager.play_notification("Objective")
 		if $Player.hasAttention == false:
 			player._swap_attention()
 

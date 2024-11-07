@@ -28,6 +28,11 @@ const lines3: Array[String] = [
 
 func _ready():
 	
+	if PositionManager.Objectives.find("Explore Ship") != -1 && PositionManager.Objectives.find("Turn Power On") == -1:
+		PositionManager.add_objective("Turn Power On", "Find out how to turn the power back on.")
+	
+	
+	
 	path.visible = false
 	if PositionManager.Act == 3:
 		PositionManager.paused = false
@@ -68,7 +73,6 @@ func _ready():
 		$"Door areas/Bridge".monitoring = true
 	
 func _process(_delta):
-	
 	if PositionManager.Act == 3:
 		if !PositionManager.paused:
 			moving()
