@@ -30,7 +30,7 @@ func _ready():
 	GlobalAudioManager.play_menu_music()
 	
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("MENU") && $AnimationPlayer.current_animation == "ShipMoving":
 		_on_animation_player_animation_finished("ShipMoving")
 	if Input.is_action_just_pressed("INTERACT"):

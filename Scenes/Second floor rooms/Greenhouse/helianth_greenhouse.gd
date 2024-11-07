@@ -17,7 +17,7 @@ func _ready():
 		interaction_area.interact = Callable(self, "_on_interact")
 	
 
-func _process(delta):
+func _process(_delta):
 	if !player.hasAttention && animPlayer.current_animation != "Idle" && PositionManager.hasActivatedHeli:
 		if player.position.x < position.x:
 			player.backingUp = true

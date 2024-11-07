@@ -16,7 +16,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	#print(player.animMove)
 	if PositionManager.hasActivatedHeli && !PositionManager.hasEscapedGreenhouse:
 		if Input.is_action_just_pressed("MENU"):
@@ -46,8 +46,8 @@ func _move_player_to_marker(m: Node2D)->void:
 		vector = Vector2(x,y)
 
 func _swap_marker():
-	var x = marker2.position.x - player.position.x
-	var y = marker2.position.y - player.position.y
+	x = marker2.position.x - player.position.x
+	y = marker2.position.y - player.position.y
 	vector = Vector2(x,y)
 	usingMarker2 = true
 

@@ -73,7 +73,7 @@ var paused = false
 var lastKnownPos = Vector2.ZERO
 
 
-func _process(delta):
+func _process(_delta):
 	Canvas = GlobalCanvasLayer.get_child(0)
 
 

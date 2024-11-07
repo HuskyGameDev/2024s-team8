@@ -25,7 +25,7 @@ func _ready():
 			door.monitoring = true
 		
 
-func _process(delta):
+func _process(_delta):
 	if animPlayer.is_playing():
 		if animPlayer.current_animation != "Door_Opening":
 			$Player.hasAttention = false
