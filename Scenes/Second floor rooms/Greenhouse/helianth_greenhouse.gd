@@ -18,11 +18,15 @@ func _ready():
 	
 
 func _process(_delta):
-	if !player.hasAttention && animPlayer.current_animation != "Idle" && PositionManager.hasActivatedHeli:
+	
+	if !player.hasAttention && (animPlayer.current_animation == "DecoyInteract" || animPlayer.current_animation == "Jumpscare")  && PositionManager.hasActivatedHeli:
 		if player.position.x < position.x:
 			player.backingUp = true
 		else:
 			player.backingUp = false
+	
+	if animPlayer.current_animation == "Roar":
+		player.backingUp = false
 
 
 
