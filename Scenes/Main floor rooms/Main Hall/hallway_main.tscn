@@ -1,11 +1,12 @@
-[gd_scene load_steps=43 format=4 uid="uid://cfl3tm624omie"]
+[gd_scene load_steps=44 format=4 uid="uid://cfl3tm624omie"]
 
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Main Hall/hallway_main.gd" id="1_uyxqv"]
 [ext_resource type="Texture2D" uid="uid://db5cscw8pfccj" path="res://Assets/room_tilemap_modular.png" id="2_kjoew"]
+[ext_resource type="Texture2D" uid="uid://blbemxiktkwix" path="res://Assets/Room Backgrounds/hallway1.png" id="3_3exfa"]
 [ext_resource type="Texture2D" uid="uid://dr1le2hugw8mv" path="res://Assets/simple_door2.png" id="3_5oow4"]
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="3_eku0h"]
-[ext_resource type="Texture2D" uid="uid://cyjytwf83pdsm" path="res://Assets/Room Backgrounds/hallway1-layer.png" id="3_ov0o7"]
 [ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="4_iar2e"]
+[ext_resource type="Texture2D" uid="uid://dex1ajbymnsfs" path="res://Assets/Room Backgrounds/Main_Hallway_DoorCover.png" id="4_xpai2"]
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Main Hall/Locker.gd" id="5_3gse4"]
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Main Hall/Vent.gd" id="5_vak2t"]
 [ext_resource type="Texture2D" uid="uid://h4sy0m4qq4k" path="res://Assets/locker_sprites.png" id="6_kjlwu"]
@@ -306,7 +307,12 @@ metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Details"]
 position = Vector2(17, -137)
-texture = ExtResource("3_ov0o7")
+texture = ExtResource("3_3exfa")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Details"]
+z_index = 2
+position = Vector2(249, -103)
+texture = ExtResource("4_xpai2")
 
 [node name="Stairs Door" type="StaticBody2D" parent="." groups=["Stairs Door"]]
 z_index = -1
@@ -323,7 +329,6 @@ texture = ExtResource("3_5oow4")
 offset = Vector2(0, 0.95652)
 
 [node name="Command Door" type="StaticBody2D" parent="." groups=["Command Door"]]
-z_index = -1
 position = Vector2(467, 123.465)
 metadata/_edit_group_ = true
 

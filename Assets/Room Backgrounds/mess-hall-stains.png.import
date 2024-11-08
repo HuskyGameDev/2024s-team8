@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ujhqiaueh73g"
-path="res://.godot/imported/mess-hall-stains.png-b209c609f261743b03291c7d99d61755.ctex"
+path="res://.godot/imported/mess-hall-stains.png-5fc415190eea542a1e0146f2b382cdf0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/mess-hall-stains.png"
-dest_files=["res://.godot/imported/mess-hall-stains.png-b209c609f261743b03291c7d99d61755.ctex"]
+source_file="res://Assets/Room Backgrounds/mess-hall-stains.png"
+dest_files=["res://.godot/imported/mess-hall-stains.png-5fc415190eea542a1e0146f2b382cdf0.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dl7gf6hue2u4d"
-path="res://.godot/imported/boiler-room.png-022425615203491491cfb6dfdf1a9a9f.ctex"
+uid="uid://dkfwbsqpi85hs"
+path="res://.godot/imported/mess-hall.png-7f9ab54cb1fb06885db9d1711f0ab0bd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/boiler-room.png"
-dest_files=["res://.godot/imported/boiler-room.png-022425615203491491cfb6dfdf1a9a9f.ctex"]
+source_file="res://Assets/Room Backgrounds/mess-hall.png"
+dest_files=["res://.godot/imported/mess-hall.png-7f9ab54cb1fb06885db9d1711f0ab0bd.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://j5iec5jw5bat"
-path="res://.godot/imported/greenhouse-stuff.png-1ef8affac36e21856c7f9ec58198a245.ctex"
+uid="uid://b8wr5eexv7o4n"
+path="res://.godot/imported/greenhouse-table.png-f17824c876af466d5f174eb909ec74ba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/greenhouse-stuff.png"
-dest_files=["res://.godot/imported/greenhouse-stuff.png-1ef8affac36e21856c7f9ec58198a245.ctex"]
+source_file="res://Assets/Room Backgrounds/greenhouse-table.png"
+dest_files=["res://.godot/imported/greenhouse-table.png-f17824c876af466d5f174eb909ec74ba.ctex"]
 
 [params]
 

@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="2_tvsd5"]
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="3_i5ylh"]
 [ext_resource type="PackedScene" uid="uid://ca1eqme7qndxw" path="res://Scenes/background.tscn" id="4_vwbbb"]
-[ext_resource type="Texture2D" uid="uid://dlf3yvfecgbk" path="res://Assets/pod.png" id="4_xslbh"]
+[ext_resource type="Texture2D" uid="uid://dlf3yvfecgbk" path="res://Assets/Room Backgrounds/pod.png" id="4_xslbh"]
 [ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="5_pgn6b"]
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Pod/Chair.gd" id="6_mghl4"]
 [ext_resource type="Texture2D" uid="uid://7sxx34fi7udt" path="res://Assets/chair_sprite_1.png" id="7_x3dav"]

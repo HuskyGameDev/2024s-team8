@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cyjytwf83pdsm"
-path="res://.godot/imported/hallway1-layer.png-eec47c770b59a7a323970c76e9019fb1.ctex"
+uid="uid://dex1ajbymnsfs"
+path="res://.godot/imported/Main_Hallway_DoorCover.png-914276d48b5f33d18caab0c40c7952db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Room Backgrounds/hallway1-layer.png"
-dest_files=["res://.godot/imported/hallway1-layer.png-eec47c770b59a7a323970c76e9019fb1.ctex"]
+source_file="res://Assets/Room Backgrounds/Main_Hallway_DoorCover.png"
+dest_files=["res://.godot/imported/Main_Hallway_DoorCover.png-914276d48b5f33d18caab0c40c7952db.ctex"]
 
 [params]
 

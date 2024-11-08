@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkfwbsqpi85hs"
-path="res://.godot/imported/mess-hall.png-5a946ee36771c8364bac72073bc39a06.ctex"
+uid="uid://bxnp2hyk0m6x2"
+path="res://.godot/imported/icons-tiles.png-f7ba0fd86dce8f70707dba7a8f991f33.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/mess-hall.png"
-dest_files=["res://.godot/imported/mess-hall.png-5a946ee36771c8364bac72073bc39a06.ctex"]
+source_file="res://Assets/Room Backgrounds/icons-tiles.png"
+dest_files=["res://.godot/imported/icons-tiles.png-f7ba0fd86dce8f70707dba7a8f991f33.ctex"]
 
 [params]
 

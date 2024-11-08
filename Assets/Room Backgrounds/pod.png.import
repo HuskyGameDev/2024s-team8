@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccynfvrgmu8rv"
-path="res://.godot/imported/greenhouse.png-8703649e3b37383d85629a31e0eb2850.ctex"
+uid="uid://dlf3yvfecgbk"
+path="res://.godot/imported/pod.png-48380ec6ef7e51b41313fb759d8dc5ab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/greenhouse.png"
-dest_files=["res://.godot/imported/greenhouse.png-8703649e3b37383d85629a31e0eb2850.ctex"]
+source_file="res://Assets/Room Backgrounds/pod.png"
+dest_files=["res://.godot/imported/pod.png-48380ec6ef7e51b41313fb759d8dc5ab.ctex"]
 
 [params]
 
