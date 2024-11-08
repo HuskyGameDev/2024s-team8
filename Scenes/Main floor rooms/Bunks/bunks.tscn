@@ -138,6 +138,51 @@ size = Vector2(12.071, 3.41423)
 y_sort_enabled = true
 script = ExtResource("1_uttu1")
 
+[node name="FixLines" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="FixLines"]
+z_index = 5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 176.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="FixLines"]
+z_index = 5
+offset_left = 296.0
+offset_top = -8.0
+offset_right = 313.0
+offset_bottom = 176.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="FixLines"]
+z_index = 5
+offset_left = 313.0
+offset_top = 157.0
+offset_right = 332.0
+offset_bottom = 406.0
+rotation = 1.5708
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="FixLines"]
+z_index = 5
+offset_left = 313.0
+offset_top = -8.0
+offset_right = 327.0
+offset_bottom = 313.0
+rotation = 1.5708
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="FixLines"]
+z_index = 5
+offset_left = 40.0
+offset_top = 157.0
+offset_right = 59.0
+offset_bottom = 205.0
+rotation = 1.5708
+color = Color(0, 0, 0, 1)
+
 [node name="Collision" type="TileMap" parent="."]
 tile_set = ExtResource("2_0jfma")
 format = 2

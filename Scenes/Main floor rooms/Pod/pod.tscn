@@ -112,6 +112,42 @@ _data = {
 y_sort_enabled = true
 script = ExtResource("1_bvhxj")
 
+[node name="FixLines" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="FixLines"]
+z_index = 5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 48.0
+offset_bottom = 176.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="FixLines"]
+z_index = 5
+offset_left = 256.0
+offset_top = -8.0
+offset_right = 313.0
+offset_bottom = 176.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="FixLines"]
+z_index = 5
+offset_left = 298.0
+offset_top = 160.0
+offset_right = 314.0
+offset_bottom = 430.0
+rotation = 1.5708
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="FixLines"]
+z_index = 5
+offset_left = 271.0
+offset_top = -8.0
+offset_right = 295.0
+offset_bottom = 221.0
+rotation = 1.5708
+color = Color(0, 0, 0, 1)
+
 [node name="Collision" type="TileMap" parent="."]
 tile_set = ExtResource("2_tvsd5")
 format = 2
@@ -156,7 +192,7 @@ transform = Transform2D(0.16, 0, 0, 0.16, 0, 0)
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("5_pgn6b")]
 z_index = 1
-position = Vector2(223, 136)
+position = Vector2(177, 129)
 
 [node name="To_Hall" type="Area2D" parent="."]
 
@@ -189,7 +225,7 @@ shape = SubResource("RectangleShape2D_amobr")
 
 [node name="Orb" type="Node2D" parent="."]
 y_sort_enabled = true
-position = Vector2(83, 139)
+position = Vector2(86, 139)
 scale = Vector2(0.15, 0.15)
 script = ExtResource("9_pvm8x")
 
@@ -272,6 +308,7 @@ position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_ng013")
 
 [node name="Controls" type="TileMap" parent="."]
+visible = false
 tile_set = ExtResource("16_gn7oi")
 format = 2
 

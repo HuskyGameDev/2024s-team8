@@ -102,6 +102,42 @@ _data = {
 y_sort_enabled = true
 script = ExtResource("1_tr7se")
 
+[node name="FixLines" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="FixLines"]
+z_index = 5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 64.0
+offset_bottom = 176.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="FixLines"]
+z_index = 5
+offset_left = 240.0
+offset_top = -8.0
+offset_right = 313.0
+offset_bottom = 176.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="FixLines"]
+z_index = 5
+offset_left = 249.0
+offset_top = 152.0
+offset_right = 273.0
+offset_bottom = 345.0
+rotation = 1.5708
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="FixLines"]
+z_index = 5
+offset_left = 257.0
+offset_top = -8.0
+offset_right = 289.0
+offset_bottom = 197.0
+rotation = 1.5708
+color = Color(0, 0, 0, 1)
+
 [node name="Collision" type="TileMap" parent="."]
 tile_set = ExtResource("2_sam63")
 format = 2

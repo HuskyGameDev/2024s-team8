@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://cgyqxujimmsm6"]
+[gd_scene load_steps=31 format=4 uid="uid://cgyqxujimmsm6"]
 
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="1_add43"]
 [ext_resource type="Script" path="res://Scenes/Second floor rooms/Greenhouse/greenhouse.gd" id="1_wbr31"]
@@ -444,10 +444,59 @@ size = Vector2(3.53553, 17.7782)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_blqma"]
 size = Vector2(6, 10)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_rjmva"]
+radius = 4.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ey540"]
+radius = 5.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ifehp"]
+size = Vector2(168, 7)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uxrof"]
+radius = 13.0
+height = 38.0
+
 [node name="Greenhouse" type="Node2D"]
 y_sort_enabled = true
 texture_filter = 1
 script = ExtResource("1_wbr31")
+
+[node name="FixLines" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="FixLines"]
+z_index = 5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 64.0
+offset_bottom = 176.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="FixLines"]
+z_index = 5
+offset_left = 241.0
+offset_top = -8.0
+offset_right = 313.0
+offset_bottom = 176.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="FixLines"]
+z_index = 5
+offset_left = 249.0
+offset_top = 160.0
+offset_right = 265.0
+offset_bottom = 353.0
+rotation = 1.5708
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="FixLines"]
+z_index = 5
+offset_left = 245.0
+offset_top = -8.0
+offset_right = 262.0
+offset_bottom = 185.0
+rotation = 1.5708
+color = Color(0, 0, 0, 1)
 
 [node name="Marker2D" type="Marker2D" parent="."]
 unique_name_in_owner = true
@@ -484,7 +533,7 @@ texture = ExtResource("5_gvduu")
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_4gc4b")]
 unique_name_in_owner = true
 z_index = 1
-position = Vector2(121, 121)
+position = Vector2(117, 119)
 
 [node name="HelianthGreenhouse" type="Node2D" parent="."]
 position = Vector2(193, 130)
@@ -560,10 +609,11 @@ scale = Vector2(5, 5)
 transform = Transform2D(5, 0, 0, 5, 0, 0)
 
 [node name="CodeHintDocument" type="Node2D" parent="."]
-position = Vector2(95, 148)
-rotation = 0.568977
-scale = Vector2(1.5, 1.5)
-skew = -0.179769
+z_index = 2
+position = Vector2(112, 146.66)
+rotation = 0.228638
+scale = Vector2(0.9, 0.9)
+skew = 0.310669
 script = ExtResource("11_whup6")
 metadata/_edit_group_ = true
 
@@ -571,6 +621,7 @@ metadata/_edit_group_ = true
 texture = ExtResource("12_5juqx")
 
 [node name="InteractionArea" type="Area2D" parent="CodeHintDocument"]
+visible = false
 script = ExtResource("5_2sqyx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CodeHintDocument/InteractionArea"]
@@ -585,13 +636,40 @@ unique_name_in_owner = true
 position = Vector2(152, 84)
 texture = ExtResource("14_0absl")
 
+[node name="Collision" type="StaticBody2D" parent="Flowers"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flowers/Collision"]
+position = Vector2(136, 118)
+shape = SubResource("CircleShape2D_rjmva")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Flowers/Collision"]
+position = Vector2(104, 122)
+shape = SubResource("CircleShape2D_rjmva")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Flowers/Collision"]
+position = Vector2(167, 119)
+shape = SubResource("CircleShape2D_ey540")
+
 [node name="Table" type="Node2D" parent="."]
+z_index = 2
 
 [node name="Greenhouse-table" type="Sprite2D" parent="Table"]
 position = Vector2(152, 84)
 texture = ExtResource("15_1da53")
 
+[node name="Collision" type="StaticBody2D" parent="Table"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table/Collision"]
+position = Vector2(156, 156.5)
+shape = SubResource("RectangleShape2D_ifehp")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Table/Collision"]
+position = Vector2(215, 146)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_uxrof")
+
 [node name="TableObjects" type="Node2D" parent="."]
+z_index = 2
 
 [node name="Greenhouse-stuff" type="Sprite2D" parent="TableObjects"]
 position = Vector2(152, 84)
