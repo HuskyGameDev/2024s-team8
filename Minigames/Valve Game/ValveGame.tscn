@@ -222,6 +222,7 @@ hue_variation_min = 0.1
 hue_variation_max = 1.0
 
 [node name="Info Button" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 300.0
 offset_top = 2.5
 offset_right = 316.0

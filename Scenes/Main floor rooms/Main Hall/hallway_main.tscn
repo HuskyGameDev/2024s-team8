@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://cfl3tm624omie"]
+[gd_scene load_steps=43 format=4 uid="uid://cfl3tm624omie"]
 
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Main Hall/hallway_main.gd" id="1_uyxqv"]
 [ext_resource type="Texture2D" uid="uid://db5cscw8pfccj" path="res://Assets/room_tilemap_modular.png" id="2_kjoew"]
@@ -10,7 +10,9 @@
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Main Hall/Vent.gd" id="5_vak2t"]
 [ext_resource type="Texture2D" uid="uid://h4sy0m4qq4k" path="res://Assets/locker_sprites.png" id="6_kjlwu"]
 [ext_resource type="Script" path="res://Interaction/InteractionArea.gd" id="7_browe"]
+[ext_resource type="Texture2D" uid="uid://bs5new57kw4m" path="res://Assets/WallMap.png" id="12_3ua04"]
 [ext_resource type="TileSet" uid="uid://b57dw6av5xyw3" path="res://door_icon_tileset.tres" id="12_7hp2b"]
+[ext_resource type="Script" path="res://Scenes/Main floor rooms/Main Hall/wall_map.gd" id="12_ap8ei"]
 [ext_resource type="Texture2D" uid="uid://b68qnvvg3nd0x" path="res://Assets/vent-sprite.png" id="12_khwuv"]
 [ext_resource type="Texture2D" uid="uid://dj0lr4c3ty7f5" path="res://Assets/simple_diagonal_door.png" id="14_536ue"]
 [ext_resource type="PackedScene" uid="uid://coym0lkppx1o7" path="res://lamp.tscn" id="15_pr4ik"]
@@ -41,6 +43,11 @@ size = Vector2(9, 27)
 size = Vector2(21, 43)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a0fl2"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_y5rjl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_shiuc"]
+size = Vector2(40, 14)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4fyx4"]
 texture = ExtResource("2_kjoew")
@@ -136,10 +143,9 @@ y_sort_enabled = true
 script = ExtResource("1_uyxqv")
 
 [node name="FixLines" type="Node2D" parent="."]
-z_index = -10
+z_index = 1
 
 [node name="ColorRect" type="ColorRect" parent="FixLines"]
-z_index = 5
 offset_left = -8.0
 offset_top = -8.0
 offset_right = 8.0
@@ -147,7 +153,6 @@ offset_bottom = 176.0
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="FixLines"]
-z_index = 5
 offset_left = 480.0
 offset_top = -8.0
 offset_right = 496.0
@@ -155,7 +160,6 @@ offset_bottom = 176.0
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="FixLines"]
-z_index = 5
 offset_left = 168.0
 offset_top = 160.0
 offset_right = 184.0
@@ -164,7 +168,6 @@ rotation = 1.5708
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect4" type="ColorRect" parent="FixLines"]
-z_index = 5
 offset_left = 496.0
 offset_top = -8.0
 offset_right = 512.0
@@ -172,8 +175,23 @@ offset_bottom = 481.0
 rotation = 1.5708
 color = Color(0, 0, 0, 1)
 
+[node name="ColorRect14" type="ColorRect" parent="FixLines"]
+offset_left = 463.0
+offset_top = -8.0
+offset_right = 495.0
+offset_bottom = 430.0
+rotation = 1.5708
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect15" type="ColorRect" parent="FixLines"]
+offset_left = 448.0
+offset_top = -8.0
+offset_right = 496.0
+offset_bottom = 400.0
+rotation = 1.5708
+color = Color(0, 0, 0, 1)
+
 [node name="ColorRect5" type="ColorRect" parent="FixLines"]
-z_index = 5
 offset_left = 40.0
 offset_top = 160.0
 offset_right = 56.0
@@ -182,7 +200,6 @@ rotation = 1.5708
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect6" type="ColorRect" parent="FixLines"]
-z_index = 5
 offset_left = 496.0
 offset_top = 168.0
 offset_right = 504.0
@@ -191,7 +208,6 @@ rotation = 1.5708
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect7" type="ColorRect" parent="FixLines"]
-z_index = 5
 offset_left = 400.0
 offset_top = 160.0
 offset_right = 416.0
@@ -200,7 +216,6 @@ rotation = 1.5708
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect8" type="ColorRect" parent="FixLines"]
-z_index = 5
 offset_left = 496.0
 offset_top = 160.0
 offset_right = 512.0
@@ -209,7 +224,6 @@ rotation = 1.5708
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect9" type="ColorRect" parent="FixLines"]
-z_index = 5
 offset_left = 248.0
 offset_top = 160.0
 offset_right = 264.0
@@ -218,7 +232,6 @@ rotation = 1.5708
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect10" type="ColorRect" parent="FixLines"]
-z_index = 5
 offset_left = 88.0
 offset_top = 80.0
 offset_right = 128.0
@@ -227,7 +240,6 @@ rotation = 1.5708
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect11" type="ColorRect" parent="FixLines"]
-z_index = 5
 offset_left = 232.0
 offset_top = 80.0
 offset_right = 272.0
@@ -236,7 +248,6 @@ rotation = 1.5708
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect12" type="ColorRect" parent="FixLines"]
-z_index = 5
 offset_left = 408.0
 offset_top = 80.0
 offset_right = 448.0
@@ -244,7 +255,7 @@ offset_bottom = 96.0
 rotation = 1.5708
 color = Color(0, 0, 0, 1)
 
-[node name="ColorRect13" type="ColorRect" parent="FixLines"]
+[node name="ColorRect13" type="ColorRect" parent="."]
 z_index = -1
 offset_left = 144.0
 offset_top = 80.0
@@ -345,6 +356,7 @@ tile_map_data = PackedByteArray("AAASAA8AAAASAAAAAAATAA8AAAASAAAAAAAPAA8AAAAPAAA
 tile_set = ExtResource("3_eku0h")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("4_iar2e")]
+z_index = 1
 position = Vector2(329, 133)
 playerSpeed = 60
 metadata/_edit_group_ = true
@@ -499,6 +511,30 @@ shape = SubResource("RectangleShape2D_bmb1c")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vent/To_Power_Room"]
 position = Vector2(1, 1)
 shape = SubResource("CapsuleShape2D_a0fl2")
+
+[node name="WallMap" type="Node2D" parent="."]
+position = Vector2(183, 101)
+script = ExtResource("12_ap8ei")
+
+[node name="Sprite2D" type="Sprite2D" parent="WallMap"]
+position = Vector2(-7, 0.899997)
+scale = Vector2(0.296875, 0.298437)
+texture = ExtResource("12_3ua04")
+
+[node name="Background" type="TextureRect" parent="WallMap"]
+self_modulate = Color(0.0627451, 0.0627451, 0.0627451, 0.431373)
+offset_left = -27.0
+offset_top = -10.0
+offset_right = 13.0
+offset_bottom = 20.0
+texture = SubResource("CanvasTexture_y5rjl")
+
+[node name="InteractionArea" type="Area2D" parent="WallMap"]
+script = ExtResource("7_browe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallMap/InteractionArea"]
+position = Vector2(-7, -3)
+shape = SubResource("RectangleShape2D_shiuc")
 
 [node name="Collision" type="TileMap" parent="."]
 visible = false
@@ -662,6 +698,9 @@ unique_name_in_owner = true
 scale = Vector2(5, 5)
 transform = Transform2D(5, 0, 0, 5, 0, 0)
 
+[node name="CanvasLayer2" type="CanvasLayer" parent="." groups=["CanvasLayer"]]
+unique_name_in_owner = true
+
 [node name="Door Icon Tiles" type="TileMap" parent="."]
 tile_set = ExtResource("12_7hp2b")
 format = 2
@@ -729,6 +768,8 @@ width = 1.0
 [connection signal="area_exited" from="Vent/InteractionArea" to="Vent/InteractionArea" method="_on_area_exited"]
 [connection signal="body_entered" from="Vent/To_Power_Room" to="." method="_on_to_power_room_body_entered"]
 [connection signal="body_exited" from="Vent/To_Power_Room" to="." method="_on_to_power_room_body_exited"]
+[connection signal="area_entered" from="WallMap/InteractionArea" to="WallMap/InteractionArea" method="_on_area_entered"]
+[connection signal="area_exited" from="WallMap/InteractionArea" to="WallMap/InteractionArea" method="_on_area_exited"]
 [connection signal="body_entered" from="Door areas/Mess_Hall_Left" to="." method="_on_mess_hall_left_body_entered"]
 [connection signal="body_entered" from="Door areas/Mess_Hall" to="." method="_on_mess_hall_body_entered"]
 [connection signal="body_exited" from="Door areas/Mess_Hall" to="." method="_on_mess_hall_body_exited"]
@@ -744,6 +785,7 @@ width = 1.0
 [connection signal="body_exited" from="Door areas/Stairs" to="." method="_on_stairs_body_exited"]
 [connection signal="body_entered" from="Door areas/Bridge" to="." method="_on_bridge_body_entered"]
 [connection signal="body_exited" from="Door areas/Bridge" to="." method="_on_bridge_body_exited"]
+[connection signal="child_exiting_tree" from="CanvasLayer2" to="WallMap" method="_on_canvas_layer_child_exiting_tree"]
 [connection signal="body_entered" from="To_Research_Right" to="." method="_on_to_research_right_body_entered"]
 
 [editable path="Player"]
