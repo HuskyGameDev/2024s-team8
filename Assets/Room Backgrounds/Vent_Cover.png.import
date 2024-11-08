@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbkwbxfsg6u7q"
-path="res://.godot/imported/Vent.png-1c4fe07d9dde102d7cbd6bcfc6ef1c79.ctex"
+uid="uid://blwjps2esplwy"
+path="res://.godot/imported/Vent_Cover.png-0427763e34f78451919250cc95fe69b3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Inventory/Vent.png"
-dest_files=["res://.godot/imported/Vent.png-1c4fe07d9dde102d7cbd6bcfc6ef1c79.ctex"]
+source_file="res://Assets/Room Backgrounds/Vent_Cover.png"
+dest_files=["res://.godot/imported/Vent_Cover.png-0427763e34f78451919250cc95fe69b3.ctex"]
 
 [params]
 
