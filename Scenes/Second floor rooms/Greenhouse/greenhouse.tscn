@@ -1,21 +1,21 @@
-[gd_scene load_steps=31 format=4 uid="uid://cgyqxujimmsm6"]
+[gd_scene load_steps=32 format=4 uid="uid://cgyqxujimmsm6"]
 
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="1_add43"]
 [ext_resource type="Script" path="res://Scenes/Second floor rooms/Greenhouse/greenhouse.gd" id="1_wbr31"]
 [ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="2_4gc4b"]
 [ext_resource type="Script" path="res://Scenes/Second floor rooms/Greenhouse/screen_shake.gd" id="2_cpr6j"]
-[ext_resource type="PackedScene" uid="uid://ca1eqme7qndxw" path="res://Scenes/background.tscn" id="2_yic8y"]
 [ext_resource type="Script" path="res://Scenes/Second floor rooms/Greenhouse/helianth_greenhouse.gd" id="4_tmxdv"]
 [ext_resource type="Texture2D" uid="uid://dooejdtcpkbf4" path="res://Assets/Monster Poses/monster_intro-Sheet.png" id="4_urmtx"]
 [ext_resource type="Script" path="res://Interaction/InteractionArea.gd" id="5_2sqyx"]
-[ext_resource type="Texture2D" uid="uid://ccynfvrgmu8rv" path="res://Assets/greenhouse.png" id="5_gvduu"]
+[ext_resource type="Texture2D" uid="uid://ccynfvrgmu8rv" path="res://Assets/Room Backgrounds/greenhouse.png" id="5_gvduu"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="5_vnx0f"]
 [ext_resource type="Texture2D" uid="uid://dhc88kyqp31a1" path="res://Assets/Monster Poses/monster_idle_walk_run_sprites.png" id="6_tmste"]
 [ext_resource type="Script" path="res://Scenes/Second floor rooms/Top Hallway/CodeHintDocument.gd" id="11_whup6"]
 [ext_resource type="Texture2D" uid="uid://b64doeqvowr0m" path="res://Assets/paper_note_sprite.png" id="12_5juqx"]
-[ext_resource type="Texture2D" uid="uid://d4d03qafd6snc" path="res://Assets/greenhouse-flowers.png" id="14_0absl"]
-[ext_resource type="Texture2D" uid="uid://b8wr5eexv7o4n" path="res://Assets/greenhouse-table.png" id="15_1da53"]
-[ext_resource type="Texture2D" uid="uid://j5iec5jw5bat" path="res://Assets/greenhouse-stuff.png" id="16_kvsln"]
+[ext_resource type="Texture2D" uid="uid://d4d03qafd6snc" path="res://Assets/Room Backgrounds/greenhouse-flowers.png" id="14_0absl"]
+[ext_resource type="Texture2D" uid="uid://b8wr5eexv7o4n" path="res://Assets/Room Backgrounds/greenhouse-table.png" id="15_1da53"]
+[ext_resource type="Texture2D" uid="uid://j5iec5jw5bat" path="res://Assets/Room Backgrounds/greenhouse-stuff.png" id="16_kvsln"]
+[ext_resource type="Texture2D" uid="uid://dtkeb50nbdbwc" path="res://Assets/star_background.png" id="16_qajh1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_veavu"]
 size = Vector2(6, 9)
@@ -457,6 +457,17 @@ size = Vector2(168, 7)
 radius = 13.0
 height = 38.0
 
+[sub_resource type="GDScript" id="GDScript_ijx1d"]
+script/source = "extends ParallaxBackground
+
+
+@export var scrollingSpeed = 40
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	scroll_base_offset.x -= delta * scrollingSpeed
+"
+
 [node name="Greenhouse" type="Node2D"]
 y_sort_enabled = true
 texture_filter = 1
@@ -599,10 +610,6 @@ position = Vector2(-1.03554, 0.535538)
 rotation = 0.785398
 shape = SubResource("RectangleShape2D_omvmo")
 
-[node name="ParallaxBackground" parent="." instance=ExtResource("2_yic8y")]
-scale = Vector2(0.16, 0.16)
-transform = Transform2D(0.16, 0, 0, 0.16, 0, 0)
-
 [node name="CanvasLayer" type="CanvasLayer" parent="." groups=["CanvasLayer"]]
 unique_name_in_owner = true
 scale = Vector2(5, 5)
@@ -674,6 +681,20 @@ z_index = 2
 [node name="Greenhouse-stuff" type="Sprite2D" parent="TableObjects"]
 position = Vector2(152, 84)
 texture = ExtResource("16_kvsln")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scale = Vector2(0.16, 0.16)
+transform = Transform2D(0.16, 0, 0, 0.16, 0, 0)
+script = SubResource("GDScript_ijx1d")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(4, 4)
+motion_mirroring = Vector2(1920.26, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(962.5, 543.75)
+scale = Vector2(8.001, 6.748)
+texture = ExtResource("16_qajh1")
 
 [connection signal="area_entered" from="HelianthGreenhouse/InteractionArea" to="HelianthGreenhouse/InteractionArea" method="_on_area_entered"]
 [connection signal="area_exited" from="HelianthGreenhouse/InteractionArea" to="HelianthGreenhouse/InteractionArea" method="_on_area_exited"]

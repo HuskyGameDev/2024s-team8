@@ -1,10 +1,10 @@
-[gd_scene load_steps=33 format=4 uid="uid://bomb67l3jcmr5"]
+[gd_scene load_steps=34 format=4 uid="uid://bomb67l3jcmr5"]
 
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Pod/pod.gd" id="1_bvhxj"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="2_tvsd5"]
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="3_i5ylh"]
-[ext_resource type="PackedScene" uid="uid://ca1eqme7qndxw" path="res://Scenes/background.tscn" id="4_vwbbb"]
 [ext_resource type="Texture2D" uid="uid://dlf3yvfecgbk" path="res://Assets/Room Backgrounds/pod.png" id="4_xslbh"]
+[ext_resource type="Texture2D" uid="uid://dtkeb50nbdbwc" path="res://Assets/star_background.png" id="5_2epij"]
 [ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="5_pgn6b"]
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Pod/Chair.gd" id="6_mghl4"]
 [ext_resource type="Texture2D" uid="uid://7sxx34fi7udt" path="res://Assets/chair_sprite_1.png" id="7_x3dav"]
@@ -20,6 +20,17 @@
 [ext_resource type="Texture2D" uid="uid://dsav7uwsib2vs" path="res://Assets/meatsuit.png" id="16_dyq57"]
 [ext_resource type="TileSet" uid="uid://bq0bamhp4c4ng" path="res://Scenes/console_tileset.tres" id="16_gn7oi"]
 [ext_resource type="Texture2D" uid="uid://dhc88kyqp31a1" path="res://Assets/Monster Poses/monster_idle_walk_run_sprites.png" id="19_tv182"]
+
+[sub_resource type="GDScript" id="GDScript_ysyyt"]
+script/source = "extends ParallaxBackground
+
+
+@export var scrollingSpeed = 40
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	scroll_base_offset.x -= delta * scrollingSpeed
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wekmh"]
 size = Vector2(24, 5)
@@ -186,9 +197,19 @@ tile_set = ExtResource("3_i5ylh")
 position = Vector2(152, 88)
 texture = ExtResource("4_xslbh")
 
-[node name="ParallaxBackground" parent="." instance=ExtResource("4_vwbbb")]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scale = Vector2(0.16, 0.16)
 transform = Transform2D(0.16, 0, 0, 0.16, 0, 0)
+script = SubResource("GDScript_ysyyt")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(4, 4)
+motion_mirroring = Vector2(1920.26, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(962.5, 543.75)
+scale = Vector2(8.001, 6.748)
+texture = ExtResource("5_2epij")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("5_pgn6b")]
 z_index = 1

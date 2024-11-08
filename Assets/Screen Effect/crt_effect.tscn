@@ -11,7 +11,7 @@ size = Vector2(1920, 1080)
 center_offset = Vector3(960, 540, 0)
 
 [node name="CRT Effect" type="CanvasLayer"]
-layer = 2
+layer = 100
 script = ExtResource("1_i46lh")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]

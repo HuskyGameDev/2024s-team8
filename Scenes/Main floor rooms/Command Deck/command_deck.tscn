@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://bqyk0q8fbouna"]
+[gd_scene load_steps=16 format=4 uid="uid://bqyk0q8fbouna"]
 
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Command Deck/command_deck.gd" id="1_4wny3"]
 [ext_resource type="PackedScene" uid="uid://ny55otxbs0t" path="res://Scenes/tile_map.tscn" id="1_ofowq"]
@@ -7,8 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://b0wp5jn5h8v82" path="res://Assets/command_deck_tiles.png" id="5_d7slj"]
 [ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="6_0wx3g"]
 [ext_resource type="Texture2D" uid="uid://cvv6dpruk6gro" path="res://Assets/Room Backgrounds/command_deck.png" id="6_wrvh4"]
-[ext_resource type="PackedScene" uid="uid://ca1eqme7qndxw" path="res://Scenes/background.tscn" id="7_7iuag"]
 [ext_resource type="PackedScene" uid="uid://bwmuhr4im6pbt" path="res://Interaction/InteractionArea.tscn" id="8_64hh3"]
+[ext_resource type="Texture2D" uid="uid://dtkeb50nbdbwc" path="res://Assets/star_background.png" id="10_8rkvm"]
 [ext_resource type="AudioStream" uid="uid://ck5m3syb38y3l" path="res://Assets/Audio/Music/BED_shipengine_LP.wav" id="10_em56c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hdvmr"]
@@ -48,6 +48,17 @@ size = Vector2(16.9706, 9)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wv1o1"]
 size = Vector2(14.5874, 3.87129)
+
+[sub_resource type="GDScript" id="GDScript_1ch6n"]
+script/source = "extends ParallaxBackground
+
+
+@export var scrollingSpeed = 40
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	scroll_base_offset.x -= delta * scrollingSpeed
+"
 
 [node name="Command_Deck" type="Node2D"]
 script = ExtResource("1_4wny3")
@@ -121,10 +132,6 @@ rotation = -0.785398
 skew = 0.785398
 shape = SubResource("RectangleShape2D_hubel")
 
-[node name="ParallaxBackground" parent="." instance=ExtResource("7_7iuag")]
-scale = Vector2(0.16, 0.16)
-transform = Transform2D(0.16, 0, 0, 0.16, 0, 0)
-
 [node name="InteractionArea" parent="." instance=ExtResource("8_64hh3")]
 position = Vector2(0, 0)
 
@@ -144,5 +151,19 @@ unique_name_in_owner = true
 stream = ExtResource("10_em56c")
 autoplay = true
 bus = &"Music"
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scale = Vector2(0.16, 0.16)
+transform = Transform2D(0.16, 0, 0, 0.16, 0, 0)
+script = SubResource("GDScript_1ch6n")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(4, 4)
+motion_mirroring = Vector2(1920.26, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(962.5, 543.75)
+scale = Vector2(8.001, 6.748)
+texture = ExtResource("10_8rkvm")
 
 [connection signal="body_entered" from="Door" to="." method="_on_door_body_entered"]

@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="2_rn253"]
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="3_2402i"]
 [ext_resource type="Texture2D" uid="uid://dj0lr4c3ty7f5" path="res://Assets/simple_diagonal_door.png" id="4_8dpo0"]
-[ext_resource type="Texture2D" uid="uid://bknm4l2fq8qnc" path="res://Assets/power-room.png" id="5_2x36v"]
+[ext_resource type="Texture2D" uid="uid://bknm4l2fq8qnc" path="res://Assets/Room Backgrounds/power-room.png" id="5_2x36v"]
 [ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="5_hbqsc"]
 [ext_resource type="Script" path="res://Scenes/Second floor rooms/Power Room/PowerRoomDocument.gd" id="6_0ol0d"]
 [ext_resource type="Texture2D" uid="uid://7h3gnmd8xbdb" path="res://Assets/info_poster_sprite.png" id="7_teq10"]
