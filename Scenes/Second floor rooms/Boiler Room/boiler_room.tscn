@@ -1,9 +1,10 @@
-[gd_scene load_steps=26 format=4 uid="uid://c67llndhruew1"]
+[gd_scene load_steps=27 format=4 uid="uid://c67llndhruew1"]
 
 [ext_resource type="Script" path="res://Scenes/Second floor rooms/Boiler Room/boiler_room.gd" id="1_0df65"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="2_atjwr"]
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="3_obose"]
 [ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="4_62ril"]
+[ext_resource type="Texture2D" uid="uid://dl7gf6hue2u4d" path="res://Assets/boiler-room.png" id="4_e8w7a"]
 [ext_resource type="Script" path="res://Interaction/InteractionArea.gd" id="7_53ave"]
 [ext_resource type="Texture2D" uid="uid://bktlg1e0mqj16" path="res://Assets/furniture_boiler_room.png" id="8_1yf3l"]
 [ext_resource type="Script" path="res://Scenes/Second floor rooms/Boiler Room/tool_drawer.gd" id="8_7mv85"]
@@ -91,6 +92,10 @@ tile_set = ExtResource("3_obose")
 [node name="Layer0" type="TileMapLayer" parent="Background"]
 use_parent_material = true
 tile_set = ExtResource("3_obose")
+
+[node name="Boiler-room" type="Sprite2D" parent="Background"]
+position = Vector2(152, 84)
+texture = ExtResource("4_e8w7a")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("4_62ril")]
 position = Vector2(230, 129)

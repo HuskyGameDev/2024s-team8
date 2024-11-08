@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=4 uid="uid://daise62ngs48s"]
+[gd_scene load_steps=21 format=4 uid="uid://daise62ngs48s"]
 
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Mess Hall/mess_hall.gd" id="1_5lmt6"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="2_onope"]
 [ext_resource type="PackedScene" uid="uid://ny55otxbs0t" path="res://Scenes/tile_map.tscn" id="3_nky0x"]
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="4_s8k3y"]
 [ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="5_1jw8f"]
+[ext_resource type="Texture2D" uid="uid://dkfwbsqpi85hs" path="res://Assets/mess-hall.png" id="6_swi32"]
 [ext_resource type="Texture2D" uid="uid://ifwjxa6vj0ji" path="res://Assets/Steam Particles/steam-partical-atlas.png" id="8_01uox"]
 [ext_resource type="Script" path="res://Interaction/InteractionArea.gd" id="8_ebb8r"]
 [ext_resource type="Texture2D" uid="uid://cjuq6xa28ar70" path="res://Assets/mess-tables-2.png" id="9_oe7el"]
@@ -12,6 +13,7 @@
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Mess Hall/freezer_door.gd" id="11_eb2pe"]
 [ext_resource type="Texture2D" uid="uid://c3yut4ccqyuxs" path="res://Assets/mess-freezer_door_closed.png" id="11_s5d1m"]
 [ext_resource type="Texture2D" uid="uid://chlcdlsomb42k" path="res://Assets/mess-freezer_door_open.png" id="12_6labj"]
+[ext_resource type="Texture2D" uid="uid://ujhqiaueh73g" path="res://Assets/mess-hall-stains.png" id="14_vel54"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iba8r"]
 size = Vector2(24, 5)
@@ -48,6 +50,22 @@ use_parent_material = true
 tile_map_data = PackedByteArray("AAAbAA4AAQAQAAAAAAAJAA4AAQAQAAAAAAAIAA4AAQAQAAAAAAAHAA4AAQAQAAAAAAAGAA4AAQAQAAAAAAAFAA4AAQAQAAAAAAAEAA8AAQAQAAAAAAABABQAAQAQAAAAAAACABQAAQAQAAAAAAADABQAAQAQAAAAAAAEABQAAQAQAAAAAAAFABQAAQAQAAAAAAAGABQAAQAQAAAAAAAHABQAAQAQAAAAAAAIABQAAQAQAAAAAAAJABQAAQAQAAAAAAAKABQAAQAQAAAAAAALABQAAQAQAAAAAAAMABQAAQAQAAAAAAANABQAAQAQAAAAAAAOABQAAQAQAAAAAAAPABQAAQAQAAAAAAAQABQAAQAQAAAAAAARABQAAQAQAAAAAAASABQAAQAQAAAAAAATABQAAQAQAAAAAAAUABQAAQAQAAAAAAAVABQAAQAQAAAAAAAWABQAAQAQAAAAAAAXABQAAQAQAAAAAAAYABQAAQAQAAAAAAAZABQAAQAQAAAAAAAaABQAAQAQAAAAAAAbABQAAQAQAAAAAAAcABQAAQAQAAAAAAAdABQAAQAQAAAAAAAeABQAAQAQAAAAAAAfABQAAQAQAAAAAAAgABQAAQAQAAAAAAAhABQAAQAQAAAAAAAiABQAAQAQAAAAAAAjABQAAQAQAAAAAAAkABQAAQAQAAAAAAAlABQAAQAQAAAAAAAhABAAAQAEAAAAAAAiABEAAQAEAAAAAAAjABIAAQAEAAAAAAAkABMAAQAEAAAAAAAfAA4AAQAQAAAAAAAeAA4AAQAQAAAAAAAdAA4AAQAQAAAAAAAcAA4AAQAQAAAAAAAhAA8AAQAQAAAAAAAiABAAAQAQAAAAAAAjABEAAQAQAAAAAAAkABIAAQAQAAAAAAAlABMAAQAQAAAAAAABABIAAQAQAAAAAAACABEAAQAQAAAAAAADABAAAQAQAAAAAAAAABMAAQAQAAAAAAAfAA8AAQAQAAAAAAAgAA8AAQAQAAAAAAAbAA8AAQAQAAAAAAAaAA8AAQAQAAAAAAAZAA8AAQAQAAAAAAAYAA8AAQAQAAAAAAAXAA8AAQAQAAAAAAAWAA8AAQAQAAAAAAAVAA8AAQAQAAAAAAAUAA8AAQAQAAAAAAATAA8AAQAQAAAAAAASAA8AAQAQAAAAAAARAA8AAQAQAAAAAAAQAA8AAQAQAAAAAAAPAA8AAQAQAAAAAAAOAA8AAQAQAAAAAAANAA8AAQAQAAAAAAAMAA8AAQAQAAAAAAALAA8AAQAQAAAAAAAKAA8AAQAQAAAAAAAJAA8AAQAQAAAAAAAFAA8AAQAQAAAAAAABABMAAQAIAAAAAAACABIAAQAIAAAAAAADABEAAQAIAAAAAAAEABAAAQAIAAAAAAA=")
 tile_set = ExtResource("2_onope")
 
+[node name="ServingAreaLeft" type="Node2D" parent="Collision"]
+unique_name_in_owner = true
+position = Vector2(95, 136)
+
+[node name="Sprite2D" type="Sprite2D" parent="Collision/ServingAreaLeft"]
+position = Vector2(57, -52)
+texture = ExtResource("10_02a38")
+
+[node name="Collision" type="StaticBody2D" parent="Collision/ServingAreaLeft"]
+position = Vector2(-95, -136)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Collision/ServingAreaLeft/Collision"]
+position = Vector2(152, 84)
+build_mode = 1
+polygon = PackedVector2Array(-48, 36, -55, 43, -61, 49, -69, 57, -72, 60, -72, 68, -57, 68, -55, 66, -33, 44, -33, 38, -34, 36, -42, 36)
+
 [node name="background" parent="." instance=ExtResource("3_nky0x")]
 tile_set = ExtResource("4_s8k3y")
 
@@ -57,9 +75,14 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAQAAAAAAAAAAEAAAAQAAAAAAAAAAIAAAAQAAA
 tile_set = ExtResource("4_s8k3y")
 
 [node name="background detail" type="TileMapLayer" parent="background"]
+visible = false
 use_parent_material = true
 tile_map_data = PackedByteArray("AAAhAAQAAAAIAAAAAAAiAAMAAAAIAAAAAAAjAAIAAAAIAAAAAAAkAAEAAAAIAAAAAAAEAAQAAAAEAAAAAAADAAMAAAAEAAAAAAACAAIAAAAEAAAAAAABAAEAAAAEAAAAAAAhABAAAAADAAAAAAAiABEAAAADAAAAAAAjABIAAAADAAAAAAAkABMAAAADAAAAAAAeAA8AAAAHAAAAAAAdAA8AAAATAAAAAAAGAA8AAAAJAAAAAAABABMAAAAJAAAAAAACABIAAAAJAAAAAAADABEAAAAJAAAAAAAEABAAAAAJAAAAAAA=")
 tile_set = ExtResource("4_s8k3y")
+
+[node name="Mess-hall" type="Sprite2D" parent="background"]
+position = Vector2(152, 84)
+texture = ExtResource("6_swi32")
 
 [node name="doors" type="TileMap" parent="."]
 visible = false
@@ -97,22 +120,6 @@ position = Vector2(0, 5)
 position = Vector2(-24, -49)
 build_mode = 1
 polygon = PackedVector2Array(0, 35, -15, 35, -19, 42, -21, 43, -23, 39, -23, 53, -30, 53, -30, 67, -26, 67, -23, 67, -20, 67, -15, 67, -11, 67, -10, 67, -9, 62, -6, 61, -3, 56, -1, 52, 0, 52, 1, 52, 5, 50, 7, 54, 9, 58, 9, 62, 12, 63, 12, 67, 14, 67, 18, 67, 23, 67, 25, 67, 27, 67, 28, 67, 30, 67, 30, 64, 30, 60, 32, 51, 38, 51, 40, 51, 40, 54, 42, 56, 42, 58, 42, 60, 45, 61, 47, 61, 50, 61, 50, 58, 50, 58, 50, 67, 51, 67, 57, 67, 62, 67, 66, 67, 68, 67, 68, 54, 70, 52, 68, 50, 63, 50, 63, 39, 60, 37, 64, 33.7, 61.5, 32.6, 58.6, 35.5, 57, 33.3, 57, 31, 38.4, 31, 33, 34.2, 30, 32.7, 30, 31, 11.3, 31, 6.8, 34.3, 3, 32.7, 3, 36)
-
-[node name="ServingAreaLeft" type="Node2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(95, 136)
-
-[node name="Sprite2D" type="Sprite2D" parent="ServingAreaLeft"]
-position = Vector2(57, -52)
-texture = ExtResource("10_02a38")
-
-[node name="Collision" type="StaticBody2D" parent="ServingAreaLeft"]
-position = Vector2(-95, -136)
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="ServingAreaLeft/Collision"]
-position = Vector2(152, 84)
-build_mode = 1
-polygon = PackedVector2Array(-48, 36, -55, 43, -61, 49, -69, 57, -72, 60, -72, 68, -57, 68, -55, 66, -33, 44, -33, 38, -34, 36, -42, 36)
 
 [node name="ServingAreaRight" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -249,6 +256,12 @@ shape = SubResource("RectangleShape2D_8bff8")
 [node name="CanvasLayer" type="CanvasLayer" parent="." groups=["CanvasLayer"]]
 scale = Vector2(5, 5)
 transform = Transform2D(5, 0, 0, 5, 0, 0)
+
+[node name="Stains" type="Node2D" parent="."]
+
+[node name="Mess-hall-stains" type="Sprite2D" parent="Stains"]
+position = Vector2(152, 84)
+texture = ExtResource("14_vel54")
 
 [connection signal="body_entered" from="To_Main" to="." method="_on_to_main_body_entered"]
 [connection signal="body_entered" from="To_Main/To_Main_Left" to="." method="_on_to_main_left_body_entered"]
