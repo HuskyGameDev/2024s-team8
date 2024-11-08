@@ -17,6 +17,7 @@ var PipeVersion = 0
 var Act = 0
 var HasOpenedTutorial = false
 var OpenedAirlock = false
+var ViewedWallMap = false
 var ConfigLoaded = false
 var SecurityEnabled = true
 var hasCode = false

@@ -3,11 +3,17 @@ extends Node2D
 @onready var interaction_area: InteractionArea = $InteractionArea
 @onready var player = get_tree().get_first_node_in_group("Player")
 @onready var speech_sound = preload("res://Assets/voice_sans.mp3")
+@onready var speech_sound2 = preload("res://Assets/Dialogue blip5.mp3")
 
 const lines: Array[String] = [
 	"This vent is located right above the power room, but it's bolted shut.",
 	"I might be able to open it with some kind of tool..."
 ]
+
+const lines2: Array[String] = [
+	"An ordinary vent. It feels kind of warm..."
+]
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,9 +33,14 @@ func _on_interact():
 		StageManager.changeCamera(304)
 		StageManager.on_first_floor = false
 		PositionManager.PrevPosition = Vector2(220, 130)
-	elif (!PositionManager.HasCrowbar):#runs if player doesn't have crowbar
+	elif (!PositionManager.HasCrowbar) && PositionManager.ViewedWallMap: #runs if player doesn't have crowbar
 		player._swap_attention()
 		DialogManager.start_dialog(global_position, lines, speech_sound, false)
+		await DialogManager.dialog_finished
+		player._swap_attention()
+	elif (!PositionManager.HasCrowbar) && !PositionManager.ViewedWallMap:
+		player._swap_attention()
+		DialogManager.start_dialog(global_position, lines2, speech_sound2, false)
 		await DialogManager.dialog_finished
 		player._swap_attention()
 		
