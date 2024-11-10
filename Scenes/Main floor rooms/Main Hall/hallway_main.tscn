@@ -233,6 +233,7 @@ rotation = 1.5708
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect10" type="ColorRect" parent="FixLines"]
+visible = false
 offset_left = 88.0
 offset_top = 80.0
 offset_right = 128.0
@@ -241,6 +242,7 @@ rotation = 1.5708
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect11" type="ColorRect" parent="FixLines"]
+visible = false
 offset_left = 232.0
 offset_top = 80.0
 offset_right = 272.0
@@ -249,6 +251,7 @@ rotation = 1.5708
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect12" type="ColorRect" parent="FixLines"]
+visible = false
 offset_left = 408.0
 offset_top = 80.0
 offset_right = 448.0
@@ -359,6 +362,9 @@ tile_set = ExtResource("3_eku0h")
 use_parent_material = true
 tile_map_data = PackedByteArray("AAASAA8AAAASAAAAAAATAA8AAAASAAAAAAAPAA8AAAAPAAAAAAAQAA8AAAATAAAAAAARAA8AAAATAAAAAAAbAAoAAAAQAAAAAAAcAAoAAAAQAAAAAAAbAAsAAAAQAAAAAAAbAAwAAAAQAAAAAAAbAA0AAAAQAAAAAAAbAA4AAAAQAAAAAAAcAA4AAAAQAAAAAAAcAA0AAAAQAAAAAAAcAAwAAAAQAAAAAAAcAAsAAAAQAAAAAAA=")
 tile_set = ExtResource("3_eku0h")
+
+[node name="Flower" parent="." instance=ExtResource("16_skyul")]
+position = Vector2(408, 144)
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("4_iar2e")]
 z_index = 1
@@ -746,10 +752,6 @@ maxBright = 0.9
 [node name="CollisionShape2D" type="CollisionShape2D" parent="To_Research_Right"]
 position = Vector2(412, 166.5)
 shape = SubResource("RectangleShape2D_h7vbu")
-
-[node name="Flower" parent="." instance=ExtResource("16_skyul")]
-visible = false
-position = Vector2(408, 144)
 
 [node name="FlowerPath" type="Line2D" parent="."]
 top_level = true
