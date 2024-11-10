@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://cgyqxujimmsm6"]
+[gd_scene load_steps=51 format=4 uid="uid://cgyqxujimmsm6"]
 
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="1_add43"]
 [ext_resource type="Script" path="res://Scenes/Second floor rooms/Greenhouse/greenhouse.gd" id="1_wbr31"]
@@ -14,14 +14,37 @@
 [ext_resource type="Texture2D" uid="uid://b64doeqvowr0m" path="res://Assets/paper_note_sprite.png" id="12_5juqx"]
 [ext_resource type="Texture2D" uid="uid://d4d03qafd6snc" path="res://Assets/Room Backgrounds/greenhouse-flowers.png" id="14_0absl"]
 [ext_resource type="Texture2D" uid="uid://b8wr5eexv7o4n" path="res://Assets/Room Backgrounds/greenhouse-table.png" id="15_1da53"]
+[ext_resource type="Script" path="res://Scenes/Second floor rooms/Greenhouse/old_helianth.gd" id="15_pnj6q"]
 [ext_resource type="Texture2D" uid="uid://j5iec5jw5bat" path="res://Assets/Room Backgrounds/greenhouse-stuff.png" id="16_kvsln"]
+[ext_resource type="Script" path="res://Scenes/Second floor rooms/Greenhouse/shears.gd" id="16_p0f07"]
 [ext_resource type="Texture2D" uid="uid://dtkeb50nbdbwc" path="res://Assets/star_background.png" id="16_qajh1"]
+[ext_resource type="Script" path="res://Scenes/Second floor rooms/Greenhouse/triple.gd" id="16_ul6yp"]
+[ext_resource type="Script" path="res://Scenes/Second floor rooms/Greenhouse/blue_flower.gd" id="17_8ghmx"]
+[ext_resource type="Script" path="res://Scenes/Second floor rooms/Greenhouse/hand_shovel.gd" id="17_axix3"]
+[ext_resource type="Script" path="res://Scenes/Second floor rooms/Greenhouse/tentacle_flower.gd" id="18_pbaeu"]
+[ext_resource type="Script" path="res://Scenes/Second floor rooms/Greenhouse/watering_can.gd" id="18_thagh"]
+[ext_resource type="Script" path="res://Scenes/Second floor rooms/Greenhouse/fire_flower.gd" id="19_l8hrl"]
+[ext_resource type="Script" path="res://Scenes/Second floor rooms/Greenhouse/chompy.gd" id="20_1kwt3"]
+[ext_resource type="Script" path="res://Scenes/Second floor rooms/Greenhouse/dirt_pile.gd" id="22_423e3"]
+[ext_resource type="Texture2D" uid="uid://dgriuy2b4mbc5" path="res://Assets/Room Backgrounds/DirtFlower.png" id="23_b8wq4"]
+[ext_resource type="Script" path="res://Scenes/Second floor rooms/Greenhouse/wall_vines.gd" id="23_hl3yj"]
+
+[sub_resource type="GDScript" id="GDScript_ijx1d"]
+script/source = "extends ParallaxBackground
+
+
+@export var scrollingSpeed = 40
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	scroll_base_offset.x -= delta * scrollingSpeed
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_veavu"]
 size = Vector2(6, 9)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fh8x5"]
-size = Vector2(7, 15)
+size = Vector2(5.5, 6)
 
 [sub_resource type="Animation" id="Animation_1ofjw"]
 resource_name = "DecoyInteract"
@@ -450,6 +473,18 @@ radius = 4.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_ey540"]
 radius = 5.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_337q2"]
+size = Vector2(11, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8nxuf"]
+size = Vector2(7.5, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1xwvm"]
+size = Vector2(4, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vjt8p"]
+size = Vector2(7, 20)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ifehp"]
 size = Vector2(168, 7)
 
@@ -457,21 +492,33 @@ size = Vector2(168, 7)
 radius = 13.0
 height = 38.0
 
-[sub_resource type="GDScript" id="GDScript_ijx1d"]
-script/source = "extends ParallaxBackground
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y8b6v"]
+size = Vector2(32.25, 14.75)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iq4pa"]
+size = Vector2(15.5, 29)
 
-@export var scrollingSpeed = 40
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	scroll_base_offset.x -= delta * scrollingSpeed
-"
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xnucm"]
+size = Vector2(10, 4)
 
 [node name="Greenhouse" type="Node2D"]
 y_sort_enabled = true
 texture_filter = 1
 script = ExtResource("1_wbr31")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scale = Vector2(0.16, 0.16)
+transform = Transform2D(0.16, 0, 0, 0.16, 0, 0)
+script = SubResource("GDScript_ijx1d")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(4, 4)
+motion_mirroring = Vector2(1920.26, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(962.5, 543.75)
+scale = Vector2(8.001, 6.748)
+texture = ExtResource("16_qajh1")
 
 [node name="FixLines" type="Node2D" parent="."]
 
@@ -509,6 +556,9 @@ offset_bottom = 185.0
 rotation = 1.5708
 color = Color(0, 0, 0, 1)
 
+[node name="Screen Shake" type="Node2D" parent="."]
+script = ExtResource("2_cpr6j")
+
 [node name="Marker2D" type="Marker2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(147, 120)
@@ -516,9 +566,6 @@ position = Vector2(147, 120)
 [node name="Marker2D2" type="Marker2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(87, 121)
-
-[node name="Screen Shake" type="Node2D" parent="."]
-script = ExtResource("2_cpr6j")
 
 [node name="RoomCollision" type="Node2D" parent="."]
 
@@ -592,7 +639,7 @@ position = Vector2(-6, -31)
 script = ExtResource("5_2sqyx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HelianthGreenhouse/InteractionArea"]
-position = Vector2(6, 28)
+position = Vector2(6.75, 13)
 shape = SubResource("RectangleShape2D_fh8x5")
 
 [node name="MonsterPlayer" type="AnimationPlayer" parent="HelianthGreenhouse"]
@@ -628,7 +675,6 @@ metadata/_edit_group_ = true
 texture = ExtResource("12_5juqx")
 
 [node name="InteractionArea" type="Area2D" parent="CodeHintDocument"]
-visible = false
 script = ExtResource("5_2sqyx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CodeHintDocument/InteractionArea"]
@@ -657,6 +703,66 @@ shape = SubResource("CircleShape2D_rjmva")
 position = Vector2(167, 119)
 shape = SubResource("CircleShape2D_ey540")
 
+[node name="OldHelianth" type="Node2D" parent="Flowers"]
+script = ExtResource("15_pnj6q")
+
+[node name="InteractionArea" type="Area2D" parent="Flowers/OldHelianth"]
+script = ExtResource("5_2sqyx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flowers/OldHelianth/InteractionArea"]
+position = Vector2(120, 92)
+shape = SubResource("RectangleShape2D_337q2")
+
+[node name="TripleBlue" type="Node2D" parent="Flowers"]
+script = ExtResource("16_ul6yp")
+
+[node name="InteractionArea" type="Area2D" parent="Flowers/TripleBlue"]
+script = ExtResource("5_2sqyx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flowers/TripleBlue/InteractionArea"]
+position = Vector2(152, 92)
+shape = SubResource("RectangleShape2D_337q2")
+
+[node name="BlueFlower" type="Node2D" parent="Flowers"]
+script = ExtResource("17_8ghmx")
+
+[node name="InteractionArea" type="Area2D" parent="Flowers/BlueFlower"]
+script = ExtResource("5_2sqyx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flowers/BlueFlower/InteractionArea"]
+position = Vector2(184, 93)
+shape = SubResource("RectangleShape2D_337q2")
+
+[node name="TentacleFlower" type="Node2D" parent="Flowers"]
+script = ExtResource("18_pbaeu")
+
+[node name="InteractionArea" type="Area2D" parent="Flowers/TentacleFlower"]
+script = ExtResource("5_2sqyx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flowers/TentacleFlower/InteractionArea"]
+position = Vector2(100.25, 102.5)
+shape = SubResource("RectangleShape2D_8nxuf")
+
+[node name="FireFlower" type="Node2D" parent="Flowers"]
+script = ExtResource("19_l8hrl")
+
+[node name="InteractionArea" type="Area2D" parent="Flowers/FireFlower"]
+script = ExtResource("5_2sqyx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flowers/FireFlower/InteractionArea"]
+position = Vector2(136, 101.5)
+shape = SubResource("RectangleShape2D_1xwvm")
+
+[node name="Chompy" type="Node2D" parent="Flowers"]
+script = ExtResource("20_1kwt3")
+
+[node name="InteractionArea" type="Area2D" parent="Flowers/Chompy"]
+script = ExtResource("5_2sqyx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flowers/Chompy/InteractionArea"]
+position = Vector2(167.5, 102)
+shape = SubResource("RectangleShape2D_vjt8p")
+
 [node name="Table" type="Node2D" parent="."]
 z_index = 2
 
@@ -671,9 +777,34 @@ position = Vector2(156, 156.5)
 shape = SubResource("RectangleShape2D_ifehp")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Table/Collision"]
-position = Vector2(215, 146)
+position = Vector2(217, 152)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_uxrof")
+
+[node name="DirtPile" type="Node2D" parent="Table"]
+script = ExtResource("22_423e3")
+
+[node name="Sprite2D" type="Sprite2D" parent="Table/DirtPile"]
+z_index = 3
+position = Vector2(211, 143)
+texture = ExtResource("23_b8wq4")
+
+[node name="InteractionArea" type="Area2D" parent="Table/DirtPile"]
+script = ExtResource("5_2sqyx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table/DirtPile/InteractionArea"]
+position = Vector2(214.125, 145.375)
+shape = SubResource("RectangleShape2D_y8b6v")
+
+[node name="WallVines" type="Node2D" parent="Table"]
+script = ExtResource("23_hl3yj")
+
+[node name="InteractionArea" type="Area2D" parent="Table/WallVines"]
+script = ExtResource("5_2sqyx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table/WallVines/InteractionArea"]
+position = Vector2(218.75, 99.5)
+shape = SubResource("RectangleShape2D_iq4pa")
 
 [node name="TableObjects" type="Node2D" parent="."]
 z_index = 2
@@ -682,19 +813,35 @@ z_index = 2
 position = Vector2(152, 84)
 texture = ExtResource("16_kvsln")
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-scale = Vector2(0.16, 0.16)
-transform = Transform2D(0.16, 0, 0, 0.16, 0, 0)
-script = SubResource("GDScript_ijx1d")
+[node name="Shears" type="Node2D" parent="TableObjects"]
+script = ExtResource("16_p0f07")
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(4, 4)
-motion_mirroring = Vector2(1920.26, 0)
+[node name="InteractionArea" type="Area2D" parent="TableObjects/Shears"]
+script = ExtResource("5_2sqyx")
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(962.5, 543.75)
-scale = Vector2(8.001, 6.748)
-texture = ExtResource("16_qajh1")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TableObjects/Shears/InteractionArea"]
+position = Vector2(84, 154)
+shape = SubResource("RectangleShape2D_xnucm")
+
+[node name="HandShovel" type="Node2D" parent="TableObjects"]
+script = ExtResource("17_axix3")
+
+[node name="InteractionArea" type="Area2D" parent="TableObjects/HandShovel"]
+script = ExtResource("5_2sqyx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TableObjects/HandShovel/InteractionArea"]
+position = Vector2(99, 154)
+shape = SubResource("RectangleShape2D_xnucm")
+
+[node name="WateringCan" type="Node2D" parent="TableObjects"]
+script = ExtResource("18_thagh")
+
+[node name="InteractionArea" type="Area2D" parent="TableObjects/WateringCan"]
+script = ExtResource("5_2sqyx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TableObjects/WateringCan/InteractionArea"]
+position = Vector2(125, 154)
+shape = SubResource("RectangleShape2D_xnucm")
 
 [connection signal="area_entered" from="HelianthGreenhouse/InteractionArea" to="HelianthGreenhouse/InteractionArea" method="_on_area_entered"]
 [connection signal="area_exited" from="HelianthGreenhouse/InteractionArea" to="HelianthGreenhouse/InteractionArea" method="_on_area_exited"]
@@ -702,3 +849,25 @@ texture = ExtResource("16_qajh1")
 [connection signal="body_entered" from="To_Hallway" to="." method="_on_to_hallway_body_entered"]
 [connection signal="area_entered" from="CodeHintDocument/InteractionArea" to="CodeHintDocument/InteractionArea" method="_on_area_entered"]
 [connection signal="area_exited" from="CodeHintDocument/InteractionArea" to="CodeHintDocument/InteractionArea" method="_on_area_exited"]
+[connection signal="area_entered" from="Flowers/OldHelianth/InteractionArea" to="Flowers/OldHelianth/InteractionArea" method="_on_area_entered"]
+[connection signal="area_exited" from="Flowers/OldHelianth/InteractionArea" to="Flowers/OldHelianth/InteractionArea" method="_on_area_exited"]
+[connection signal="area_entered" from="Flowers/TripleBlue/InteractionArea" to="Flowers/TripleBlue/InteractionArea" method="_on_area_entered"]
+[connection signal="area_exited" from="Flowers/TripleBlue/InteractionArea" to="Flowers/TripleBlue/InteractionArea" method="_on_area_exited"]
+[connection signal="area_entered" from="Flowers/BlueFlower/InteractionArea" to="Flowers/BlueFlower/InteractionArea" method="_on_area_entered"]
+[connection signal="area_exited" from="Flowers/BlueFlower/InteractionArea" to="Flowers/BlueFlower/InteractionArea" method="_on_area_exited"]
+[connection signal="area_entered" from="Flowers/TentacleFlower/InteractionArea" to="Flowers/TentacleFlower/InteractionArea" method="_on_area_entered"]
+[connection signal="area_exited" from="Flowers/TentacleFlower/InteractionArea" to="Flowers/TentacleFlower/InteractionArea" method="_on_area_exited"]
+[connection signal="area_entered" from="Flowers/FireFlower/InteractionArea" to="Flowers/FireFlower/InteractionArea" method="_on_area_entered"]
+[connection signal="area_exited" from="Flowers/FireFlower/InteractionArea" to="Flowers/FireFlower/InteractionArea" method="_on_area_exited"]
+[connection signal="area_entered" from="Flowers/Chompy/InteractionArea" to="Flowers/Chompy/InteractionArea" method="_on_area_entered"]
+[connection signal="area_exited" from="Flowers/Chompy/InteractionArea" to="Flowers/Chompy/InteractionArea" method="_on_area_exited"]
+[connection signal="area_entered" from="Table/DirtPile/InteractionArea" to="Table/DirtPile/InteractionArea" method="_on_area_entered"]
+[connection signal="area_exited" from="Table/DirtPile/InteractionArea" to="Table/DirtPile/InteractionArea" method="_on_area_exited"]
+[connection signal="area_entered" from="Table/WallVines/InteractionArea" to="Table/WallVines/InteractionArea" method="_on_area_entered"]
+[connection signal="area_exited" from="Table/WallVines/InteractionArea" to="Table/WallVines/InteractionArea" method="_on_area_exited"]
+[connection signal="area_entered" from="TableObjects/Shears/InteractionArea" to="TableObjects/Shears/InteractionArea" method="_on_area_entered"]
+[connection signal="area_exited" from="TableObjects/Shears/InteractionArea" to="TableObjects/Shears/InteractionArea" method="_on_area_exited"]
+[connection signal="area_entered" from="TableObjects/HandShovel/InteractionArea" to="TableObjects/HandShovel/InteractionArea" method="_on_area_entered"]
+[connection signal="area_exited" from="TableObjects/HandShovel/InteractionArea" to="TableObjects/HandShovel/InteractionArea" method="_on_area_exited"]
+[connection signal="area_entered" from="TableObjects/WateringCan/InteractionArea" to="TableObjects/WateringCan/InteractionArea" method="_on_area_entered"]
+[connection signal="area_exited" from="TableObjects/WateringCan/InteractionArea" to="TableObjects/WateringCan/InteractionArea" method="_on_area_exited"]

@@ -18,9 +18,9 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	#print(player.animMove)
-	if PositionManager.hasActivatedHeli && !PositionManager.hasEscapedGreenhouse:
-		if Input.is_action_just_pressed("MENU"):
-			leave_room()
+	#if PositionManager.hasActivatedHeli && !PositionManager.hasEscapedGreenhouse:
+		#if Input.is_action_just_pressed("MENU"):
+			#leave_room()
 	if !usingMarker2:
 		x = marker.position.x - player.position.x
 		y = marker.position.y - player.position.y

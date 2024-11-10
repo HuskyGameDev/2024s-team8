@@ -31,37 +31,43 @@ func ConvertDegrees(degrees):
 		newDegrees = 360 + newDegrees
 	return newDegrees
 
+func ConvertDegrees2(degrees, distance):
+	var newDegrees = abs(degrees - distance)
+	if newDegrees > 180:
+		newDegrees = abs(newDegrees - 360)
+	return newDegrees
+	
+
 func _process(_delta):
 	RotateValve()
 	var Valve1Rotation = ConvertDegrees(ValveArray[0].rotation_degrees)
 	var Valve2Rotation = ConvertDegrees(ValveArray[1].rotation_degrees)
 	var Valve3Rotation = ConvertDegrees(ValveArray[2].rotation_degrees)
-	var Valve1Steam = (abs(Valve1Solution / 15 - float(Valve1Rotation) / 15))
-	var Valve2Steam = (abs(Valve2Solution / 15 - float(Valve2Rotation) / 15))
-	var Valve3Steam = (abs(Valve3Solution / 15 - float(Valve3Rotation) / 15))
-	Steam1.explosiveness = 1 - (float(Valve1Steam) / float(16))
-	Steam2.explosiveness = 1 - (float(Valve2Steam) / float(16))
-	Steam3.explosiveness = 1 - (float(Valve3Steam) / float(16))
 	
-	Steam1.explosiveness = 1 - (float(Valve1Steam) / float(16))
-	Steam2.explosiveness = 1 - (float(Valve2Steam) / float(16))
-	Steam3.explosiveness = 1 - (float(Valve3Steam) / float(16))
+	var Valve1Steam = ConvertDegrees2(Valve1Rotation, Valve1Solution)
+	var Valve2Steam = ConvertDegrees2(Valve2Rotation, Valve2Solution)
+	var Valve3Steam = ConvertDegrees2(Valve3Rotation, Valve3Solution)
 	
-	if Valve1Steam > 1 :
-		Steam1.emitting = true
-	else:
+	Steam1.explosiveness = 1 - (float(Valve1Steam) / float(180))
+	Steam2.explosiveness = 1 - (float(Valve2Steam) / float(180))
+	Steam3.explosiveness = 1 - (float(Valve3Steam) / float(180))
+	
+	
+	if Valve1Rotation > Valve1Solution - 16 && Valve1Rotation < Valve1Solution + 16:
 		Steam1.emitting = false
-		
-	if Valve2Steam > 1:
-		Steam2.emitting = true
 	else:
+		Steam1.emitting = true
+		
+	if Valve2Rotation >  Valve2Solution - 16 && Valve2Rotation <  Valve2Solution + 16:
 		Steam2.emitting = false
-		
-	if Valve3Steam > 1:
-		Steam3.emitting = true
 	else:
+		Steam2.emitting = true
+		
+	if Valve3Rotation >  Valve3Solution - 16 && Valve3Rotation <  Valve3Solution + 16:
 		Steam3.emitting = false
-	
+	else:
+		Steam3.emitting = true
+	#
 	if Valve1Rotation > Valve1Solution - 16 && Valve1Rotation < Valve1Solution + 16:
 		if Valve2Rotation >  Valve2Solution - 16 && Valve2Rotation <  Valve2Solution + 16:
 			if Valve3Rotation >  Valve3Solution - 16 && Valve3Rotation <  Valve3Solution + 16:
