@@ -31,7 +31,7 @@ func _ready():
 	
 
 func _process(_delta):
-	if Input.is_action_just_pressed("MENU") && $AnimationPlayer.current_animation == "ShipMoving":
+	if Input.is_action_just_pressed("Escape") or Input.is_action_just_pressed("MENU") && $AnimationPlayer.current_animation == "ShipMoving":
 		_on_animation_player_animation_finished("ShipMoving")
 	if Input.is_action_just_pressed("INTERACT"):
 		if !swap:

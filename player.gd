@@ -89,7 +89,7 @@ func _process(_delta):
 			CodeNotif.visible = false
 	if hasAttention:
 		
-		if Input.is_action_just_pressed("MENU"):
+		if Input.is_action_just_pressed("Escape") or Input.is_action_just_pressed("MENU"):
 			pause = pauseMenu.instantiate()
 			$PauseLayer.add_child(pause)
 			pause.tree_exited.connect(_swap_attention)
