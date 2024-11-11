@@ -477,7 +477,7 @@ radius = 5.0
 size = Vector2(11, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8nxuf"]
-size = Vector2(7.5, 17)
+size = Vector2(10.5, 17)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1xwvm"]
 size = Vector2(4, 19)
@@ -740,7 +740,7 @@ script = ExtResource("18_pbaeu")
 script = ExtResource("5_2sqyx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Flowers/TentacleFlower/InteractionArea"]
-position = Vector2(100.25, 102.5)
+position = Vector2(101.75, 102.5)
 shape = SubResource("RectangleShape2D_8nxuf")
 
 [node name="FireFlower" type="Node2D" parent="Flowers"]
