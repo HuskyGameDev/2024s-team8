@@ -1,9 +1,11 @@
-[gd_scene load_steps=14 format=4 uid="uid://dc66p0riko4pb"]
+[gd_scene load_steps=16 format=4 uid="uid://dc66p0riko4pb"]
 
 [ext_resource type="Script" path="res://Scenes/Second floor rooms/Security Room/security_room.gd" id="1_wl5uw"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="2_womnn"]
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="3_0q0sd"]
 [ext_resource type="Script" path="res://Scenes/Second floor rooms/Security Room/Security Button.gd" id="4_8bcfp"]
+[ext_resource type="Texture2D" uid="uid://435kb37phfsm" path="res://Assets/security-room.png" id="4_vkkfe"]
+[ext_resource type="Texture2D" uid="uid://fcs76mhytmd4" path="res://Assets/security-room-furniture.png" id="5_eeoos"]
 [ext_resource type="Texture2D" uid="uid://cikswv1ej5ew5" path="res://Assets/button_pedestal_sprites.png" id="5_waj32"]
 [ext_resource type="Script" path="res://Interaction/InteractionArea.gd" id="6_8opok"]
 [ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="7_y8wyt"]
@@ -50,6 +52,10 @@ use_parent_material = true
 tile_map_data = PackedByteArray("AAAbAAUAAAANAAAAAAAbAA8AAAAHAAAAAAAcAAQAAAANAAAAAAAcABAAAAAHAAAAAAAdAAMAAAANAAAAAAAeAAIAAAANAAAAAAAfAAEAAAANAAAAAAAfABMAAAAHAAAAAAAGAAEAAAABAAAAAAAGABMAAAAJAAAAAAAHAAIAAAABAAAAAAAHABIAAAAJAAAAAAAIAAMAAAABAAAAAAAIABEAAAAJAAAAAAAJAAQAAAABAAAAAAAJABAAAAAJAAAAAAAKAAUAAAABAAAAAAAKAA8AAAAJAAAAAAAeABEAAAAEAAAAAAAeAA0AAAAAAAAAAAAdAAwAAAACAAAAAAA=")
 tile_set = ExtResource("3_0q0sd")
 
+[node name="Security-room" type="Sprite2D" parent="Background"]
+position = Vector2(152, 88)
+texture = ExtResource("4_vkkfe")
+
 [node name="doors" type="TileMapLayer" parent="Background"]
 use_parent_material = true
 tile_set = ExtResource("3_0q0sd")
@@ -60,6 +66,10 @@ position = Vector2(204, 164)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="To Top Hallway"]
 position = Vector2(-64, 2)
 shape = SubResource("RectangleShape2D_v05b3")
+
+[node name="Security-room-furniture" type="Sprite2D" parent="."]
+position = Vector2(152, 88)
+texture = ExtResource("5_eeoos")
 
 [node name="Security Button" type="Node2D" parent="."]
 position = Vector2(118, 129)

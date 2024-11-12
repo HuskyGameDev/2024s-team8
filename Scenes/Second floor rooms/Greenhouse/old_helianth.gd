@@ -6,7 +6,7 @@ extends Node2D
 @onready var speech_sound = preload("res://Assets/Dialogue blip5.mp3")
 
 const lines: Array[String] = [
-	"A venus fly trap mixed with a sunflower... eerie."
+	"A venus fly trap mixed with a sunflower... eerie... but also cute."
 ]
 
 # Called when the node enters the scene tree for the first time.

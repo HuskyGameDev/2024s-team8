@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=4 uid="uid://ffehrbd27s8d"]
+[gd_scene load_steps=10 format=4 uid="uid://ffehrbd27s8d"]
 
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="1_30vsc"]
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Stairs/stairs.gd" id="1_qh87w"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="2_c5c5u"]
 [ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="2_p6e2w"]
+[ext_resource type="Texture2D" uid="uid://bji21yyh6q724" path="res://Assets/stairs.png" id="4_is66i"]
 [ext_resource type="PackedScene" uid="uid://koortbv6bmhv" path="res://theHelianth.tscn" id="5_5skrl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_omm81"]
@@ -44,6 +45,10 @@ tile_set = ExtResource("1_30vsc")
 [node name="line detail" type="TileMapLayer" parent="background"]
 use_parent_material = true
 tile_set = ExtResource("1_30vsc")
+
+[node name="Stairs" type="Sprite2D" parent="background"]
+position = Vector2(152, 88)
+texture = ExtResource("4_is66i")
 
 [node name="Player" parent="." instance=ExtResource("2_p6e2w")]
 position = Vector2(202, 142)
