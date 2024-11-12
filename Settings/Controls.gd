@@ -38,7 +38,7 @@ func create_action_remap_items() -> void:
 		button.action = action
 		if(i != 0):
 			button.focus_neighbor_top = previous_item.get_path()
-			previous_item.focus_neighbor_bottom = button.get_path()
+			#previous_item.focus_neighbor_bottom = button.get_path()
 		previous_item = button
 		
 		control_grid_container.add_child(button)
