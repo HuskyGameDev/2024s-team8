@@ -34,7 +34,6 @@ const lines4: Array[String] = [
 
 #turns off the monitoring of the toPod area when airlock is closed
 func _ready():
-	
 	if PositionManager.HasDefeatedMonster && !PositionManager.HasReadEscapeText2:
 		if player.hasAttention:
 			player._swap_attention()
@@ -102,7 +101,7 @@ func _on_to_pod_body_entered(body):
 					animPlayer.play("opening") 
 					await animPlayer.animation_finished
 					StageManager.player_facing = Vector2(0,-1)
-					StageManager.changeScene(POD, 148, 136, true)
+					StageManager.changeScene(POD, 148, 136, false)
 					StageManager.changeCamera(304)
 				elif !PositionManager.HasDefeatedMonster:
 					player._swap_attention()

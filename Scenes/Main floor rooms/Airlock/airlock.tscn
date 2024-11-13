@@ -138,7 +138,17 @@ offset_bottom = 197.0
 rotation = 1.5708
 color = Color(0, 0, 0, 1)
 
+[node name="ColorRect5" type="ColorRect" parent="FixLines"]
+z_index = -1
+offset_left = 168.0
+offset_top = 80.0
+offset_right = 200.0
+offset_bottom = 104.0
+rotation = 1.5708
+color = Color(0, 0, 0, 1)
+
 [node name="Collision" type="TileMap" parent="."]
+visible = false
 tile_set = ExtResource("2_sam63")
 format = 2
 
@@ -148,6 +158,8 @@ tile_map_data = PackedByteArray("AAAIABIAAQAQAAAAAAAJABIAAQAQAAAAAAAKABIAAQAQAAA
 tile_set = ExtResource("2_sam63")
 
 [node name="background" type="TileMap" parent="."]
+visible = false
+z_index = -1
 tile_set = ExtResource("3_277va")
 format = 2
 
@@ -167,6 +179,7 @@ tile_map_data = PackedByteArray("AAASAA0AAAATAAAAAAATAA0AAAATAAAAAAAUAA0AAAATAAA
 tile_set = ExtResource("3_277va")
 
 [node name="background2" type="TileMap" parent="."]
+visible = false
 tile_set = ExtResource("3_277va")
 format = 2
 
@@ -192,6 +205,7 @@ metadata/_edit_group_ = true
 texture = ExtResource("5_u1h4e")
 
 [node name="Airlock Door" type="StaticBody2D" parent="." groups=["Security Door"]]
+z_index = -1
 position = Vector2(156, 96)
 metadata/_edit_group_ = true
 
@@ -290,7 +304,7 @@ script = ExtResource("7_iopdc")
 shape = SubResource("CircleShape2D_x4c7k")
 
 [node name="AirlockDocument" type="Node2D" parent="."]
-position = Vector2(119, 95)
+position = Vector2(113, 95)
 script = ExtResource("8_ldlo2")
 
 [node name="Sprite2D" type="Sprite2D" parent="AirlockDocument"]

@@ -41,6 +41,42 @@ size = Vector2(12, 31)
 y_sort_enabled = true
 script = ExtResource("1_5lmt6")
 
+[node name="FixLines" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="FixLines"]
+z_index = 5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 176.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="FixLines"]
+z_index = 5
+offset_left = 296.0
+offset_top = -8.0
+offset_right = 313.0
+offset_bottom = 176.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="FixLines"]
+z_index = 5
+offset_left = 312.0
+offset_top = 160.0
+offset_right = 328.0
+offset_bottom = 480.0
+rotation = 1.5708
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="FixLines"]
+z_index = 5
+offset_left = 313.0
+offset_top = -8.0
+offset_right = 329.0
+offset_bottom = 311.0
+rotation = 1.5708
+color = Color(0, 0, 0, 1)
+
 [node name="Collision" type="TileMap" parent="."]
 tile_set = ExtResource("2_onope")
 format = 2
@@ -91,7 +127,7 @@ position = Vector2(64.25, 120)
 shape = SubResource("RectangleShape2D_80vr4")
 
 [node name="Tables" type="Node2D" parent="."]
-position = Vector2(176, 128)
+position = Vector2(175, 129)
 
 [node name="Sprite2D" type="Sprite2D" parent="Tables"]
 position = Vector2(-24, -44)
