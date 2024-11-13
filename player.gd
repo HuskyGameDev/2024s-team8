@@ -143,12 +143,12 @@ func _physics_process(_delta):
 				playerSpeed = 50
 				PositionManager.RetainPlayerSpeed = false
 		if hasAttention:
-			if Input.is_action_pressed("DOWN"):
+			if Input.is_action_pressed("DOWN") and !onStairs:
 				velocity.y += 1
 				InteractionParent.rotation_degrees = 270
 				InteractionParent.get_child(0).rotation_degrees = 270
 				
-			if Input.is_action_pressed("UP"):
+			if Input.is_action_pressed("UP") and !onStairs:
 				velocity.y -= 1
 				InteractionParent.rotation_degrees = 90
 				InteractionParent.get_child(0).rotation_degrees = 90

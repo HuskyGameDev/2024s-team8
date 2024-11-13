@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://dc66p0riko4pb"]
+[gd_scene load_steps=18 format=4 uid="uid://dc66p0riko4pb"]
 
 [ext_resource type="Script" path="res://Scenes/Second floor rooms/Security Room/security_room.gd" id="1_wl5uw"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="2_womnn"]
@@ -6,10 +6,10 @@
 [ext_resource type="Script" path="res://Scenes/Second floor rooms/Security Room/Security Button.gd" id="4_8bcfp"]
 [ext_resource type="Texture2D" uid="uid://435kb37phfsm" path="res://Assets/security-room.png" id="4_vkkfe"]
 [ext_resource type="Texture2D" uid="uid://fcs76mhytmd4" path="res://Assets/security-room-furniture.png" id="5_eeoos"]
-[ext_resource type="Texture2D" uid="uid://cikswv1ej5ew5" path="res://Assets/button_pedestal_sprites.png" id="5_waj32"]
 [ext_resource type="Script" path="res://Interaction/InteractionArea.gd" id="6_8opok"]
 [ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="7_y8wyt"]
 [ext_resource type="Script" path="res://Scenes/Second floor rooms/Security Room/SecurityRoomPoster.gd" id="8_a3wlt"]
+[ext_resource type="Texture2D" uid="uid://c8s24fgsflhwe" path="res://Assets/Room Backgrounds/Security Chair.png" id="9_meyak"]
 [ext_resource type="Texture2D" uid="uid://7h3gnmd8xbdb" path="res://Assets/info_poster_sprite.png" id="9_nrfna"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v05b3"]
@@ -19,7 +19,13 @@ size = Vector2(24, 4)
 size = Vector2(8, 21)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7sgkc"]
-size = Vector2(8, 9)
+size = Vector2(9.19238, 33.234)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_88lkx"]
+size = Vector2(13.5, 11.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j3y0s"]
+size = Vector2(10, 5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3h1ou"]
 size = Vector2(16, 20)
@@ -28,6 +34,42 @@ size = Vector2(16, 20)
 y_sort_enabled = true
 script = ExtResource("1_wl5uw")
 metadata/_edit_vertical_guides_ = [-91.0]
+
+[node name="FixLines" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="FixLines"]
+z_index = 5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 48.0
+offset_bottom = 176.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="FixLines"]
+z_index = 5
+offset_left = 256.0
+offset_top = -8.0
+offset_right = 313.0
+offset_bottom = 176.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="FixLines"]
+z_index = 5
+offset_left = 272.0
+offset_top = 168.0
+offset_right = 280.0
+offset_bottom = 439.0
+rotation = 1.5708
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="FixLines"]
+z_index = 5
+offset_left = 294.0
+offset_top = -8.0
+offset_right = 310.0
+offset_bottom = 261.0
+rotation = 1.5708
+color = Color(0, 0, 0, 1)
 
 [node name="Collision" type="TileMap" parent="."]
 tile_set = ExtResource("2_womnn")
@@ -71,32 +113,52 @@ shape = SubResource("RectangleShape2D_v05b3")
 position = Vector2(152, 88)
 texture = ExtResource("5_eeoos")
 
-[node name="Security Button" type="Node2D" parent="."]
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("7_y8wyt")]
+position = Vector2(199, 123)
+
+[node name="Security Table" type="Node2D" parent="."]
 position = Vector2(118, 129)
 script = ExtResource("4_8bcfp")
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Security Button"]
-texture = ExtResource("5_waj32")
-
-[node name="InteractionArea" type="Area2D" parent="Security Button"]
+[node name="InteractionArea" type="Area2D" parent="Security Table"]
+position = Vector2(-41, -7)
 script = ExtResource("6_8opok")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Security Button/InteractionArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Security Table/InteractionArea"]
 position = Vector2(0, 5.5)
 shape = SubResource("RectangleShape2D_2t1wb")
 
-[node name="Collision" type="StaticBody2D" parent="Security Button"]
+[node name="Collision" type="StaticBody2D" parent="Security Table"]
+position = Vector2(-51, -10)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Security Button/Collision"]
-position = Vector2(0, 8.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Security Table/Collision"]
+position = Vector2(9.99999, 17.5)
+rotation = 0.785398
 shape = SubResource("RectangleShape2D_7sgkc")
 
-[node name="Player" parent="." groups=["Player"] instance=ExtResource("7_y8wyt")]
-position = Vector2(199, 123)
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Security Table/Collision"]
+position = Vector2(-4.75, 26.25)
+shape = SubResource("RectangleShape2D_88lkx")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Security Table/Collision"]
+position = Vector2(18, 4)
+shape = SubResource("RectangleShape2D_88lkx")
+
+[node name="Chair" type="Node2D" parent="."]
+position = Vector2(97, 132)
+
+[node name="Sprite2D" type="Sprite2D" parent="Chair"]
+texture = ExtResource("9_meyak")
+
+[node name="Collision" type="StaticBody2D" parent="Chair"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chair/Collision"]
+position = Vector2(1, 10.5)
+shape = SubResource("RectangleShape2D_j3y0s")
 
 [node name="SecurityRoomPoster" type="Node2D" parent="."]
-position = Vector2(166, 101)
+position = Vector2(136, 101)
 script = ExtResource("8_a3wlt")
 
 [node name="Sprite2D" type="Sprite2D" parent="SecurityRoomPoster"]
@@ -115,7 +177,7 @@ transform = Transform2D(5, 0, 0, 5, 0, 0)
 
 [connection signal="body_entered" from="To Top Hallway" to="." method="_on_to_top_hallway_body_entered"]
 [connection signal="body_exited" from="To Top Hallway" to="." method="_on_to_top_hallway_body_exited"]
-[connection signal="area_entered" from="Security Button/InteractionArea" to="Security Button/InteractionArea" method="_on_area_entered"]
-[connection signal="area_exited" from="Security Button/InteractionArea" to="Security Button/InteractionArea" method="_on_area_exited"]
+[connection signal="area_entered" from="Security Table/InteractionArea" to="Security Table/InteractionArea" method="_on_area_entered"]
+[connection signal="area_exited" from="Security Table/InteractionArea" to="Security Table/InteractionArea" method="_on_area_exited"]
 [connection signal="area_entered" from="SecurityRoomPoster/InteractionArea" to="SecurityRoomPoster/InteractionArea" method="_on_area_entered"]
 [connection signal="area_exited" from="SecurityRoomPoster/InteractionArea" to="SecurityRoomPoster/InteractionArea" method="_on_area_exited"]
