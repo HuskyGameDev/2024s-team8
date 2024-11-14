@@ -10,7 +10,7 @@ func _ready():
 
 #closes map popup if M or ESC is pressed and calls scene checker
 func _process(_delta):
-	if Input.is_action_just_pressed("MAP") or Input.is_action_just_pressed("Escape") or Input.is_action_just_pressed("MENU"):
+	if Input.is_action_just_pressed("MAP") or Input.is_action_just_pressed("ESCAPE") or Input.is_action_just_pressed("MENU"):
 		queue_free()
 	var currentScene = get_tree().current_scene.name
 	sceneChecker(currentScene)
