@@ -102,15 +102,15 @@ func remove_objective(objective: String):
 		i += 1
 
 func play_notification(type: String):
-	var notification = notificationScene.instantiate()
+	var notification1 = notificationScene.instantiate()
 	if type == "Objective":
-		notification.get_child(0).get_child(0).text = "Objectives Updated"
+		notification1.get_child(0).get_child(0).text = "Objectives Updated"
 	elif type == "Document":
-		notification.get_child(0).get_child(0).text = "New Document Added"
+		notification1.get_child(0).get_child(0).text = "New Document Added"
 	if Canvas != null:
 		if Canvas.get_child_count() > 0:
 			Canvas.get_child(0).queue_free()
-		Canvas.add_child(notification)
+		Canvas.add_child(notification1)
 
 
 func getDirection(rotation : float):

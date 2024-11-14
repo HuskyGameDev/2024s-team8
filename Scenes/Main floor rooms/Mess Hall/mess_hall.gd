@@ -10,7 +10,7 @@ func _ready():
 	
 
 
-func _process(delta):
+func _process(_delta):
 	if player.position.x < 90:
 		serveAreaLeft.visible = true
 		serveAreaRight.visible = false

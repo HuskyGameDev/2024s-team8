@@ -208,6 +208,7 @@ layout_mode = 2
 [node name="ResetSound" type="Button" parent="TabContainer/Sound"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("5_xhqac")
 theme_override_font_sizes/font_size = 50
 text = "Reset to Default"
 
@@ -241,6 +242,7 @@ layout_mode = 2
 [node name="ResetControls" type="Button" parent="TabContainer/Controls"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("5_xhqac")
 theme_override_font_sizes/font_size = 50
 text = "Reset to Default"
 
@@ -318,6 +320,7 @@ layout_mode = 2
 [node name="ResetGameplay" type="Button" parent="TabContainer/Gameplay"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("5_xhqac")
 theme_override_font_sizes/font_size = 50
 text = "Reset to Default"
 

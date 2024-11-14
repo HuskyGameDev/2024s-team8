@@ -74,10 +74,9 @@ offset_right = 1500.0
 offset_bottom = 930.0
 theme_override_fonts/font = ExtResource("4_73prb")
 theme_override_font_sizes/font_size = 30
-current_tab = 1
+current_tab = 0
 
 [node name="Objectives" type="VBoxContainer" parent="TabContainer" groups=["Objectives"]]
-visible = false
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/separation = 65
@@ -133,6 +132,7 @@ theme_override_font_sizes/font_size = 37
 text = " - Explore the ship."
 
 [node name="Documents" type="VBoxContainer" parent="TabContainer" groups=["Documents"]]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 

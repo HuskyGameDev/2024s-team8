@@ -25,11 +25,11 @@ func create_action_remap_items() -> void:
 	var previous_item = control_grid_container.get_child(control_grid_container.get_child_count() - 1)
 	
 	# For each action in action_items
-	var range = action_items.size()
+	var range1 = action_items.size()
 	if FileAccess.file_exists("settings.ini"):
-		range -= 1
+		range1 -= 1
 	
-	for i in range(range):
+	for i in range(range1):
 		var action = action_items[i]    
 		var label = Label.new()
 		

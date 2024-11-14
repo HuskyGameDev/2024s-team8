@@ -231,7 +231,7 @@ tile_set = SubResource("TileSet_t474c")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("3_6cqsx")]
 unique_name_in_owner = true
-position = Vector2(153, 136)
+position = Vector2(152, 135)
 
 [node name="Spacesuit" type="Node2D" parent="."]
 position = Vector2(75, 119)
@@ -259,6 +259,7 @@ position = Vector2(75, 120)
 script = ExtResource("7_06b1p")
 
 [node name="InteractionArea" type="Area2D" parent="Bed"]
+visible = false
 script = ExtResource("8_jj0ge")
 
 [node name="SpaceSuitBedInteraction" type="CollisionShape2D" parent="Bed/InteractionArea"]
