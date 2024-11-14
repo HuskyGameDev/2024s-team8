@@ -14,8 +14,9 @@ func load_keybindings_from_settings():
 	action_items.clear()
 	var keybindings = ConfigManager.load_keybinding()
 	for action in keybindings.keys():
-		InputMap.action_add_event(action, keybindings[action])
-		action_items.append(action)
+		if action != "Escape":
+			InputMap.action_add_event(action, keybindings[action])
+			action_items.append(action)
 		
 	
 
@@ -24,7 +25,11 @@ func create_action_remap_items() -> void:
 	var previous_item = control_grid_container.get_child(control_grid_container.get_child_count() - 1)
 	
 	# For each action in action_items
-	for i in range(action_items.size()):
+	var range = action_items.size()
+	if FileAccess.file_exists("settings.ini"):
+		range -= 1
+	
+	for i in range(range):
 		var action = action_items[i]    
 		var label = Label.new()
 		

@@ -16,8 +16,9 @@ func _ready():
 func load_keybindings_from_settings():
 	var keybindings = ConfigManager.load_keybinding()
 	for action in keybindings.keys():
-		InputMap.action_erase_events(action)
-		InputMap.action_add_event(action, keybindings[action])
+		if action != "Escape":
+			InputMap.action_erase_events(action)
+			InputMap.action_add_event(action, keybindings[action])
 
 # If pressed, wait for input and release focus (so nothing else can happen until button is toggled)
 func _toggled(button_pressed):

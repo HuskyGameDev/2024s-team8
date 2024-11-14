@@ -7,7 +7,7 @@ func _ready() -> void:
 	animPlayer.play("flyAway")
 
 func _process(delta):
-	if Input.is_action_just_pressed("MENU"):
+	if Input.is_action_just_pressed("MENU") or Input.is_action_just_pressed("ESCAPE"):
 		_on_animation_player_animation_finished("flyAway")
 
 

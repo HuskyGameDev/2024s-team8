@@ -7,7 +7,7 @@
 [ext_resource type="FontFile" uid="uid://eakijihfas2k" path="res://Assets/SFPixelate-Bold.ttf" id="4_1q5f7"]
 [ext_resource type="Texture2D" uid="uid://cyjc1dmjpaw55" path="res://Assets/small_ship.png" id="6_srfy3"]
 [ext_resource type="Texture2D" uid="uid://0tik15ssrfpo" path="res://Assets/Circle.png" id="7_x76p5"]
-[ext_resource type="PackedScene" path="res://Assets/Screen Effect/crt_effect.tscn" id="8_ypyhu"]
+[ext_resource type="PackedScene" uid="uid://dvc265eeddex7" path="res://Assets/Screen Effect/crt_effect.tscn" id="8_ypyhu"]
 
 [sub_resource type="Gradient" id="Gradient_xpky2"]
 offsets = PackedFloat32Array(0.52, 1)

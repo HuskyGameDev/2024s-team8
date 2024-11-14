@@ -6,10 +6,10 @@
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="4_s8k3y"]
 [ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="5_1jw8f"]
 [ext_resource type="Texture2D" uid="uid://dkfwbsqpi85hs" path="res://Assets/Room Backgrounds/mess-hall.png" id="6_swi32"]
+[ext_resource type="Texture2D" uid="uid://ckae81um3x4gd" path="res://Assets/Room Backgrounds/Mess Hall Stain Tables.png" id="7_jieeo"]
 [ext_resource type="Texture2D" uid="uid://ifwjxa6vj0ji" path="res://Assets/Steam Particles/steam-partical-atlas.png" id="8_01uox"]
 [ext_resource type="Texture2D" uid="uid://dyt3ipa41twqq" path="res://Assets/Room Backgrounds/Mess Hall Counter.png" id="8_e3gmx"]
 [ext_resource type="Script" path="res://Interaction/InteractionArea.gd" id="8_ebb8r"]
-[ext_resource type="Texture2D" uid="uid://cjuq6xa28ar70" path="res://Assets/mess-tables-2.png" id="9_oe7el"]
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Mess Hall/freezer_door.gd" id="11_eb2pe"]
 [ext_resource type="Texture2D" uid="uid://c3yut4ccqyuxs" path="res://Assets/mess-freezer_door_closed.png" id="11_s5d1m"]
 [ext_resource type="Texture2D" uid="uid://chlcdlsomb42k" path="res://Assets/mess-freezer_door_open.png" id="12_6labj"]
@@ -130,8 +130,8 @@ shape = SubResource("RectangleShape2D_80vr4")
 position = Vector2(175, 129)
 
 [node name="Sprite2D" type="Sprite2D" parent="Tables"]
-position = Vector2(-24, -44)
-texture = ExtResource("9_oe7el")
+position = Vector2(-1, 2)
+texture = ExtResource("7_jieeo")
 
 [node name="Collision2" type="StaticBody2D" parent="Tables"]
 position = Vector2(0, 5)
@@ -139,7 +139,7 @@ position = Vector2(0, 5)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tables/Collision2"]
 position = Vector2(-24, -49)
 build_mode = 1
-polygon = PackedVector2Array(0, 35, -15, 35, -19, 42, -21, 43, -23, 39, -23, 53, -30, 53, -30, 67, -26, 67, -23, 67, -20, 67, -15, 67, -11, 67, -10, 67, -9, 62, -6, 61, -3, 56, -1, 52, 0, 52, 1, 52, 5, 50, 7, 54, 9, 58, 9, 62, 12, 63, 12, 67, 14, 67, 18, 67, 23, 67, 25, 67, 27, 67, 28, 67, 30, 67, 30, 64, 30, 60, 32, 51, 38, 51, 40, 51, 40, 54, 42, 56, 42, 58, 42, 60, 45, 61, 47, 61, 50, 61, 50, 58, 50, 58, 50, 67, 51, 67, 57, 67, 62, 67, 66, 67, 68, 67, 68, 54, 70, 52, 68, 50, 63, 50, 63, 39, 60, 37, 64, 33.7, 61.5, 32.6, 58.6, 35.5, 57, 33.3, 57, 31, 38.4, 31, 33, 34.2, 30, 32.7, 30, 31, 11.3, 31, 6.8, 34.3, 3, 32.7, 3, 36)
+polygon = PackedVector2Array(0, 35, -15, 35, -19, 42, -21, 43, -23, 39, -23, 53, -29, 53, -29, 65, -26, 65, -23, 65, -20, 65, -15, 65, -11, 65, -10, 65, -9, 62, -6, 61, -3, 56, -1, 52, 0, 52, 1, 52, 5, 50, 7, 54, 9, 58, 9, 62, 12, 63, 12, 65, 14, 65, 18, 65, 23, 65, 25, 65, 27, 65, 28, 65, 30, 65, 30, 64, 30, 60, 32, 51, 38, 51, 40, 51, 40, 54, 42, 56, 42, 58, 42, 60, 45, 61, 47, 61, 50, 61, 50, 58, 50, 58, 50, 65, 52, 65, 57, 65, 62, 65, 67, 65, 68, 65, 68, 54, 70, 52, 68, 50, 63, 50, 63, 39, 60, 37, 64, 33.7, 61.5, 32.6, 58.6, 35.5, 57, 33.3, 57, 31, 38.4, 31, 33, 34.2, 30, 32.7, 30, 31, 11.3, 31, 6.8, 34.3, 3, 32.7, 3, 36)
 
 [node name="ServingAreaLeft" type="Node2D" parent="."]
 unique_name_in_owner = true

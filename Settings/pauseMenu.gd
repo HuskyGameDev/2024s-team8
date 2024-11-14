@@ -13,7 +13,7 @@ func _on_quit_pressed():
 
 func _process(_delta):
 	
-	if Input.is_action_just_pressed("Escape") or Input.is_action_just_pressed("MENU"):
+	if Input.is_action_just_pressed("ESCAPE") or Input.is_action_just_pressed("MENU"):
 		if(focus == true):
 			_on_resume_pressed()
 

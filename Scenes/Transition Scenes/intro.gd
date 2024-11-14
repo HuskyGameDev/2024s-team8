@@ -28,7 +28,7 @@ func _ready():
 	
 
 func _process(_delta):
-	if Input.is_action_just_pressed("Escape") or Input.is_action_just_pressed("MENU"):
+	if Input.is_action_just_pressed("ESCAPE") or Input.is_action_just_pressed("MENU"):
 		_on_animation_player_animation_finished("")
 	
 func _on_animation_player_animation_finished(_anim_name):

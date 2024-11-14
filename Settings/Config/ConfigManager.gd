@@ -39,8 +39,9 @@ func save_keybinding(action: StringName, event : InputEvent):
 	elif event is InputEventMouseButton:
 		event_str = "mouse_" + str(event.button_index)
 	
-	config.set_value("keybinding", action, event_str)
-	config.save(SETTINGS_FILE_PATH)
+	if action != "ESCAPE":
+		config.set_value("keybinding", action, event_str)
+		config.save(SETTINGS_FILE_PATH)
 
 
 func load_keybinding():

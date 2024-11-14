@@ -109,7 +109,7 @@ func _input(event):
 			dialog_finished.emit()
 			return
 	if (
-		(event.is_action_pressed("Escape") or event.is_action_pressed("MENU")) &&
+		(event.is_action_pressed("ESCAPE") or event.is_action_pressed("MENU")) &&
 		is_dialog_active && !is_tutorial
 	):
 		if !is_automated:

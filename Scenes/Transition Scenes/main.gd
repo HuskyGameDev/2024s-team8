@@ -31,7 +31,7 @@ func _ready():
 	
 
 func _process(_delta):
-	if Input.is_action_just_pressed("Escape") or Input.is_action_just_pressed("MENU") && $AnimationPlayer.current_animation == "ShipMoving":
+	if (Input.is_action_just_pressed("ESCAPE") or Input.is_action_just_pressed("MENU")) && $AnimationPlayer.current_animation == "ShipMoving":
 		_on_animation_player_animation_finished("ShipMoving")
 	if Input.is_action_just_pressed("INTERACT"):
 		if !swap:
@@ -76,8 +76,9 @@ func _on_settings_pressed():
 func load_keybindings_from_settings():
 	var keybindings = ConfigManager.load_keybinding()
 	for action in keybindings.keys():
-		InputMap.action_erase_events(action)
-		InputMap.action_add_event(action, keybindings[action])
+		if action != "Escape":
+			InputMap.action_erase_events(action)
+			InputMap.action_add_event(action, keybindings[action])
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:

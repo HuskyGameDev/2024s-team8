@@ -18,10 +18,10 @@ func _ready():
 func _process(_delta):
 	
 	# Closes settings Menu if "MENU" is pressed
-	if (Input.is_action_just_pressed("Escape") or (Input.is_action_just_pressed("MENU") or Input.is_action_just_pressed("OBJECTIVE"))) && !documentOpened:
+	if (Input.is_action_just_pressed("ESCAPE") or (Input.is_action_just_pressed("MENU") or Input.is_action_just_pressed("OBJECTIVE"))) && !documentOpened:
 		_on_exit_button_pressed()
 	
-	if (Input.is_action_just_pressed("Escape") or (Input.is_action_just_pressed("MENU") or Input.is_action_just_pressed("OBJECTIVE"))) && documentOpened:
+	if (Input.is_action_just_pressed("ESCAPE") or (Input.is_action_just_pressed("MENU") or Input.is_action_just_pressed("OBJECTIVE"))) && documentOpened:
 		$CanvasLayer.get_child(0)._on_document_exit_pressed()
 
 # Closes settingsMenu if exit button is pressed
