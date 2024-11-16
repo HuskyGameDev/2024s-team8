@@ -32,6 +32,7 @@ var StartFromBeginning = false
 var hasClearedPipe = false
 var HasClearedValve = false
 var hasClearedDial = false
+var HasRemovedVines = false
 var hasActivatedHeli = false
 var hasEscapedGreenhouse = false
 var heliDistracted = false
@@ -44,6 +45,7 @@ var HasSpaceSuit = false
 var HasHeatLamp = false
 var HasMeat = false
 var HasShears = false
+var HasKeycard = false
 
 #Default Settings
 var masterVolume = 0.5

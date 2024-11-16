@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3ajerr0rm07g"
-path="res://.godot/imported/PipePuzzlePNG.png-eda39e8e8fac8952f3a844a4b72f434b.ctex"
+uid="uid://by17s8an005nh"
+path="res://.godot/imported/Hallway2Vines.png-b5f72f9daf0e278af6da4197c8fb1f06.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/PipePuzzlePNG.png"
-dest_files=["res://.godot/imported/PipePuzzlePNG.png-eda39e8e8fac8952f3a844a4b72f434b.ctex"]
+source_file="res://Assets/Room Backgrounds/Hallway2Vines.png"
+dest_files=["res://.godot/imported/Hallway2Vines.png-b5f72f9daf0e278af6da4197c8fb1f06.ctex"]
 
 [params]
 

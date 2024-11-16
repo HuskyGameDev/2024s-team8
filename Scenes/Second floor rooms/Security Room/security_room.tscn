@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://dc66p0riko4pb"]
+[gd_scene load_steps=26 format=4 uid="uid://dc66p0riko4pb"]
 
 [ext_resource type="Script" path="res://Scenes/Second floor rooms/Security Room/security_room.gd" id="1_wl5uw"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="2_womnn"]
@@ -12,7 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://c8s24fgsflhwe" path="res://Assets/Room Backgrounds/Security Chair.png" id="9_meyak"]
 [ext_resource type="Texture2D" uid="uid://7h3gnmd8xbdb" path="res://Assets/info_poster_sprite.png" id="9_nrfna"]
 [ext_resource type="Script" path="res://Scenes/Second floor rooms/Security Room/sleeping_bag.gd" id="12_spp0k"]
+[ext_resource type="Script" path="res://Scenes/Second floor rooms/Security Room/dead_body.gd" id="13_5awcv"]
 [ext_resource type="Script" path="res://Scenes/Second floor rooms/Security Room/wall_photos.gd" id="13_hhfpo"]
+[ext_resource type="Texture2D" uid="uid://dsav7uwsib2vs" path="res://Assets/meatsuit.png" id="13_hio6i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v05b3"]
 size = Vector2(24, 4)
@@ -33,10 +35,16 @@ size = Vector2(10, 5)
 size = Vector2(16, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ofs08"]
-size = Vector2(33, 5)
+size = Vector2(27, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gid5v"]
+size = Vector2(35, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v0pph"]
+size = Vector2(38, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d7k0k"]
-size = Vector2(31, 12)
+size = Vector2(40, 4)
 
 [node name="Security_Room" type="Node2D"]
 y_sort_enabled = true
@@ -186,11 +194,35 @@ position = Vector2(181, 121)
 script = ExtResource("12_spp0k")
 
 [node name="InteractionArea" type="Area2D" parent="Sleeping Bag"]
+position = Vector2(-5, -2)
 script = ExtResource("6_8opok")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sleeping Bag/InteractionArea"]
-position = Vector2(8.5, 5)
+position = Vector2(5.5, 5)
 shape = SubResource("RectangleShape2D_ofs08")
+
+[node name="Dead Body" type="Node2D" parent="."]
+position = Vector2(8, 18)
+script = ExtResource("13_5awcv")
+
+[node name="Sprite2D" type="Sprite2D" parent="Dead Body"]
+position = Vector2(213, 132)
+texture = ExtResource("13_hio6i")
+
+[node name="InteractionArea" type="Area2D" parent="Dead Body"]
+position = Vector2(-1, -16)
+script = ExtResource("6_8opok")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dead Body/InteractionArea"]
+position = Vector2(212.5, 148)
+shape = SubResource("RectangleShape2D_gid5v")
+
+[node name="Collision2" type="StaticBody2D" parent="Dead Body"]
+position = Vector2(-1, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dead Body/Collision2"]
+position = Vector2(216, 151)
+shape = SubResource("RectangleShape2D_v0pph")
 
 [node name="Wall Photos" type="Node2D" parent="."]
 position = Vector2(184, 102)
@@ -200,7 +232,7 @@ script = ExtResource("13_hhfpo")
 script = ExtResource("6_8opok")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall Photos/InteractionArea"]
-position = Vector2(5.5, -1)
+position = Vector2(5, -5)
 shape = SubResource("RectangleShape2D_d7k0k")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." groups=["CanvasLayer"]]
@@ -216,5 +248,7 @@ transform = Transform2D(5, 0, 0, 5, 0, 0)
 [connection signal="area_exited" from="SecurityRoomPoster/InteractionArea" to="SecurityRoomPoster/InteractionArea" method="_on_area_exited"]
 [connection signal="area_entered" from="Sleeping Bag/InteractionArea" to="Sleeping Bag/InteractionArea" method="_on_area_entered"]
 [connection signal="area_exited" from="Sleeping Bag/InteractionArea" to="Sleeping Bag/InteractionArea" method="_on_area_exited"]
+[connection signal="area_entered" from="Dead Body/InteractionArea" to="Dead Body/InteractionArea" method="_on_area_entered"]
+[connection signal="area_exited" from="Dead Body/InteractionArea" to="Dead Body/InteractionArea" method="_on_area_exited"]
 [connection signal="area_entered" from="Wall Photos/InteractionArea" to="Wall Photos/InteractionArea" method="_on_area_entered"]
 [connection signal="area_exited" from="Wall Photos/InteractionArea" to="Wall Photos/InteractionArea" method="_on_area_exited"]

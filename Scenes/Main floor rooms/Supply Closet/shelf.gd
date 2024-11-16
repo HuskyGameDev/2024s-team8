@@ -6,7 +6,7 @@ extends Node2D
 @onready var speech_sound = preload("res://Assets/Dialogue blip5.mp3")
 
 const lines: Array[String] = [
-	"For some reason, the shelf is compeltely empty..."
+	"For some reason, the shelf is completely empty..."
 ]
 
 # Called when the node enters the scene tree for the first time.

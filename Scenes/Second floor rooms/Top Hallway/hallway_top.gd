@@ -34,7 +34,7 @@ func _ready():
 		animPlayer.play("closed")
 	
 	if !PositionManager.SecurityEnabled:
-		StairsDoor.queue_free()
+		$"Stairs Door".queue_free()
 		PositionManager.paused = false
 		flower.position = path.points[PositionManager.destOrder[PositionManager.dest]] - PositionManager.HelianthRelativePosition
 		if PositionManager.destOrder[PositionManager.dest] > 3:
