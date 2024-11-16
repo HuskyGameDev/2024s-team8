@@ -263,7 +263,7 @@ skew = -0.785398
 shape = SubResource("RectangleShape2D_53vpq")
 
 [node name="Powered Door" type="StaticBody2D" parent="." groups=["P-Door"]]
-position = Vector2(284, 120)
+position = Vector2(284, 120.505)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Powered Door"]

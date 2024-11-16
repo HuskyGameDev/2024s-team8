@@ -25,11 +25,6 @@ var HasNote = false
 var HasReadEscapeText = false
 var HasReadEscapeText2 = false
 var HasPoem = false
-var HasCrowbar = false
-var HasOrb = false
-var HasSpaceSuit = false
-var HasHeatLamp = false
-var HasMeat = false
 var hasDecoy = false
 var performingDecoy = false
 var HasOpenedVent = false
@@ -41,6 +36,14 @@ var hasActivatedHeli = false
 var hasEscapedGreenhouse = false
 var heliDistracted = false
 var HasDefeatedMonster = false
+
+#Items
+var HasCrowbar = false
+var HasOrb = false
+var HasSpaceSuit = false
+var HasHeatLamp = false
+var HasMeat = false
+var HasShears = false
 
 #Default Settings
 var masterVolume = 0.5

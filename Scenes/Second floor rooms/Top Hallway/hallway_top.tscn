@@ -636,7 +636,6 @@ y_sort_enabled = true
 script = ExtResource("1_js6sa")
 
 [node name="FixLines" type="Node2D" parent="."]
-z_index = -1
 
 [node name="ColorRect" type="ColorRect" parent="FixLines"]
 offset_left = -8.0

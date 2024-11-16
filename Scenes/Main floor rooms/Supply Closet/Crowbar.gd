@@ -25,4 +25,3 @@ func _on_interact():
 	player._swap_attention()
 	queue_free()
 	PositionManager.HasCrowbar = true
-	pass
