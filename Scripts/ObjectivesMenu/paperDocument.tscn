@@ -1,0 +1,430 @@
+[gd_scene load_steps=8 format=3 uid="uid://u2ckrwnxp00x"]
+
+[ext_resource type="Script" path="res://Scripts/ObjectivesMenu/document.gd" id="1_dbv6k"]
+[ext_resource type="FontFile" uid="uid://eakijihfas2k" path="res://Assets/SFPixelate-Bold.ttf" id="2_1ov4b"]
+[ext_resource type="Texture2D" uid="uid://xedf5es1uqvk" path="res://Assets/arrow.png" id="3_c8cdb"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ntveb"]
+
+[sub_resource type="Animation" id="Animation_f2360"]
+resource_name = "Popup"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Document:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_udd60"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Document:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_poax8"]
+_data = {
+"Popup": SubResource("Animation_f2360"),
+"RESET": SubResource("Animation_udd60")
+}
+
+[node name="PaperDocument" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dbv6k")
+
+[node name="Background" type="TextureRect" parent="."]
+self_modulate = Color(0.0627451, 0.0627451, 0.0627451, 0.431373)
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = SubResource("CanvasTexture_ntveb")
+
+[node name="Document" type="Control" parent="."]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = 950.0
+offset_top = 494.0
+offset_right = 990.0
+offset_bottom = 534.0
+
+[node name="ColorRect" type="ColorRect" parent="Document"]
+layout_mode = 0
+offset_left = -318.0
+offset_top = -390.0
+offset_right = 357.0
+offset_bottom = 483.529
+color = Color(0.886261, 0.886262, 0.886261, 1)
+
+[node name="PaperLines" type="Control" parent="Document"]
+anchors_preset = 0
+offset_top = 24.0
+offset_right = 40.0
+offset_bottom = 64.0
+
+[node name="Line" type="ColorRect" parent="Document/PaperLines"]
+layout_mode = 0
+offset_left = -317.985
+offset_top = -311.0
+offset_right = 357.005
+offset_bottom = -307.0
+color = Color(0.65098, 0.733333, 0.843137, 1)
+
+[node name="Line2" type="ColorRect" parent="Document/PaperLines"]
+layout_mode = 0
+offset_left = -318.0
+offset_top = -271.555
+offset_right = 356.99
+offset_bottom = -267.555
+color = Color(0.65098, 0.733333, 0.843137, 1)
+
+[node name="Line3" type="ColorRect" parent="Document/PaperLines"]
+layout_mode = 0
+offset_left = -317.985
+offset_top = -272.0
+offset_right = 357.005
+offset_bottom = -268.0
+color = Color(0.65098, 0.733333, 0.843137, 1)
+
+[node name="Line4" type="ColorRect" parent="Document/PaperLines"]
+layout_mode = 0
+offset_left = -318.0
+offset_top = -232.475
+offset_right = 356.99
+offset_bottom = -228.475
+color = Color(0.65098, 0.733333, 0.843137, 1)
+
+[node name="Line5" type="ColorRect" parent="Document/PaperLines"]
+layout_mode = 0
+offset_left = -317.985
+offset_top = -232.0
+offset_right = 357.005
+offset_bottom = -228.0
+color = Color(0.65098, 0.733333, 0.843137, 1)
+
+[node name="Line6" type="ColorRect" parent="Document/PaperLines"]
+layout_mode = 0
+offset_left = -318.0
+offset_top = -192.555
+offset_right = 356.99
+offset_bottom = -188.555
+color = Color(0.65098, 0.733333, 0.843137, 1)
+
+[node name="Line7" type="ColorRect" parent="Document/PaperLines"]
+layout_mode = 0
+offset_left = -317.985
+offset_top = -193.0
+offset_right = 357.005
+offset_bottom = -189.0
+color = Color(0.65098, 0.733333, 0.843137, 1)
+
+[node name="Line8" type="ColorRect" parent="Document/PaperLines"]
+layout_mode = 0
+offset_left = -318.0
+offset_top = -153.8
+offset_right = 356.99
+offset_bottom = -149.8
+color = Color(0.65098, 0.733333, 0.843137, 1)
+
+[node name="Line9" type="ColorRect" parent="Document/PaperLines"]
+layout_mode = 0
+offset_left = -317.985
+offset_top = -154.0
+offset_right = 357.005
+offset_bottom = -150.0
+color = Color(0.65098, 0.733333, 0.843137, 1)
+
+[node name="Line10" type="ColorRect" parent="Document/PaperLines"]
+layout_mode = 0
+offset_left = -318.0
+offset_top = -114.555
+offset_right = 356.99
+offset_bottom = -110.555
+color = Color(0.65098, 0.733333, 0.843137, 1)
+
+[node name="Line11" type="ColorRect" parent="Document/PaperLines"]
+layout_mode = 0
+offset_left = -317.985
+offset_top = -115.0
+offset_right = 357.005
+offset_bottom = -111.0
+color = Color(0.65098, 0.733333, 0.843137, 1)
+
+[node name="Line12" type="ColorRect" parent="Document/PaperLines"]
+layout_mode = 0
+offset_left = -318.0
+offset_top = -75.475
+offset_right = 356.99
+offset_bottom = -71.475
+color = Color(0.65098, 0.733333, 0.843137, 1)
+
+[node name="Line13" type="ColorRect" parent="Document/PaperLines"]
+layout_mode = 0
+offset_left = -317.985
+offset_top = -75.0
+offset_right = 357.005
+offset_bottom = -71.0
+color = Color(0.65098, 0.733333, 0.843137, 1)
+
+[node name="Line14" type="ColorRect" parent="Document/PaperLines"]
+layout_mode = 0
+offset_left = -318.0
+offset_top = -35.555
+offset_right = 356.99
+offset_bottom = -31.555
+color = Color(0.65098, 0.733333, 0.843137, 1)
+
+[node name="Line15" type="ColorRect" parent="Document/PaperLines"]
+layout_mode = 0
+offset_left = -317.985
+offset_top = -36.0
+offset_right = 357.005
+offset_bottom = -32.0
+color = Color(0.65098, 0.733333, 0.843137, 1)
+
+[node name="Line16" type="ColorRect" parent="Document/PaperLines"]
+layout_mode = 0
+offset_left = -318.0
+offset_top = 3.2
+offset_right = 356.99
+offset_bottom = 7.2
+color = Color(0.65098, 0.733333, 0.843137, 1)
+
+[node name="Line17" type="ColorRect" parent="Document/PaperLines"]
+layout_mode = 0
+offset_left = -317.985
+offset_top = 3.0
+offset_right = 357.005
+offset_bottom = 7.0
+color = Color(0.65098, 0.733333, 0.843137, 1)
+
+[node name="Line18" type="ColorRect" parent="Document/PaperLines"]
+layout_mode = 0
+offset_left = -318.0
+offset_top = 42.445
+offset_right = 356.99
+offset_bottom = 46.445
+color = Color(0.65098, 0.733333, 0.843137, 1)
+
+[node name="Line19" type="ColorRect" parent="Document/PaperLines"]
+layout_mode = 0
+offset_left = -317.985
+offset_top = 42.0
+offset_right = 357.005
+offset_bottom = 46.0
+color = Color(0.65098, 0.733333, 0.843137, 1)
+
+[node name="Line20" type="ColorRect" parent="Document/PaperLines"]
+layout_mode = 0
+offset_left = -318.0
+offset_top = 81.525
+offset_right = 356.99
+offset_bottom = 85.525
+color = Color(0.65098, 0.733333, 0.843137, 1)
+
+[node name="Line21" type="ColorRect" parent="Document/PaperLines"]
+layout_mode = 0
+offset_left = -317.985
+offset_top = 82.0
+offset_right = 357.005
+offset_bottom = 86.0
+color = Color(0.65098, 0.733333, 0.843137, 1)
+
+[node name="Line22" type="ColorRect" parent="Document/PaperLines"]
+layout_mode = 0
+offset_left = -318.0
+offset_top = 121.445
+offset_right = 356.99
+offset_bottom = 125.445
+color = Color(0.65098, 0.733333, 0.843137, 1)
+
+[node name="Line23" type="ColorRect" parent="Document/PaperLines"]
+layout_mode = 0
+offset_left = -317.985
+offset_top = 121.0
+offset_right = 357.005
+offset_bottom = 125.0
+color = Color(0.65098, 0.733333, 0.843137, 1)
+
+[node name="Line24" type="ColorRect" parent="Document/PaperLines"]
+layout_mode = 0
+offset_left = -318.0
+offset_top = 160.2
+offset_right = 356.99
+offset_bottom = 164.2
+color = Color(0.65098, 0.733333, 0.843137, 1)
+
+[node name="Line25" type="ColorRect" parent="Document/PaperLines"]
+layout_mode = 0
+offset_left = -317.985
+offset_top = 160.0
+offset_right = 357.005
+offset_bottom = 164.0
+color = Color(0.65098, 0.733333, 0.843137, 1)
+
+[node name="Line26" type="ColorRect" parent="Document/PaperLines"]
+layout_mode = 0
+offset_left = -318.0
+offset_top = 199.445
+offset_right = 356.99
+offset_bottom = 203.445
+color = Color(0.65098, 0.733333, 0.843137, 1)
+
+[node name="Line27" type="ColorRect" parent="Document/PaperLines"]
+layout_mode = 0
+offset_left = -317.985
+offset_top = 199.0
+offset_right = 357.005
+offset_bottom = 203.0
+color = Color(0.65098, 0.733333, 0.843137, 1)
+
+[node name="Line28" type="ColorRect" parent="Document/PaperLines"]
+layout_mode = 0
+offset_left = -318.0
+offset_top = 238.525
+offset_right = 356.99
+offset_bottom = 242.525
+color = Color(0.65098, 0.733333, 0.843137, 1)
+
+[node name="Line29" type="ColorRect" parent="Document/PaperLines"]
+layout_mode = 0
+offset_left = -317.985
+offset_top = 239.0
+offset_right = 357.005
+offset_bottom = 243.0
+color = Color(0.65098, 0.733333, 0.843137, 1)
+
+[node name="Line30" type="ColorRect" parent="Document/PaperLines"]
+layout_mode = 0
+offset_left = -318.0
+offset_top = 278.445
+offset_right = 356.99
+offset_bottom = 282.445
+color = Color(0.65098, 0.733333, 0.843137, 1)
+
+[node name="Line31" type="ColorRect" parent="Document/PaperLines"]
+layout_mode = 0
+offset_left = -317.985
+offset_top = 278.0
+offset_right = 357.005
+offset_bottom = 282.0
+color = Color(0.65098, 0.733333, 0.843137, 1)
+
+[node name="Line32" type="ColorRect" parent="Document/PaperLines"]
+layout_mode = 0
+offset_left = -318.0
+offset_top = 317.2
+offset_right = 356.99
+offset_bottom = 321.2
+color = Color(0.65098, 0.733333, 0.843137, 1)
+
+[node name="Line33" type="ColorRect" parent="Document/PaperLines"]
+layout_mode = 0
+offset_left = -317.985
+offset_top = 317.0
+offset_right = 357.005
+offset_bottom = 321.0
+color = Color(0.65098, 0.733333, 0.843137, 1)
+
+[node name="Line34" type="ColorRect" parent="Document/PaperLines"]
+layout_mode = 0
+offset_left = -318.0
+offset_top = 356.445
+offset_right = 356.99
+offset_bottom = 360.445
+color = Color(0.65098, 0.733333, 0.843137, 1)
+
+[node name="Line35" type="ColorRect" parent="Document/PaperLines"]
+layout_mode = 0
+offset_left = -317.985
+offset_top = 356.0
+offset_right = 357.005
+offset_bottom = 360.0
+color = Color(0.65098, 0.733333, 0.843137, 1)
+
+[node name="Line36" type="ColorRect" parent="Document/PaperLines"]
+layout_mode = 0
+offset_left = -318.0
+offset_top = 395.2
+offset_right = 356.99
+offset_bottom = 399.2
+color = Color(0.65098, 0.733333, 0.843137, 1)
+
+[node name="Vertical Line" type="ColorRect" parent="Document"]
+layout_mode = 0
+offset_left = -263.355
+offset_top = -390.0
+offset_right = -259.355
+offset_bottom = 483.55
+color = Color(0.847059, 0.596078, 0.611765, 1)
+
+[node name="TextLabel" type="Label" parent="Document"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -245.0
+offset_top = -310.0
+offset_right = 1207.0
+offset_bottom = 1657.0
+scale = Vector2(0.4, 0.4)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 32
+theme_override_fonts/font = ExtResource("2_1ov4b")
+theme_override_font_sizes/font_size = 70
+autowrap_mode = 3
+
+[node name="DocumentExit" type="TextureButton" parent="Document"]
+layout_mode = 0
+offset_left = 302.0
+offset_top = -383.0
+offset_right = 350.0
+offset_bottom = -335.0
+texture_normal = ExtResource("3_c8cdb")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Document/DocumentExit"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -14.0
+offset_right = 29.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("2_1ov4b")
+theme_override_font_sizes/font_size = 50
+text = "X
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_poax8")
+}
+autoplay = "Popup"
+
+[connection signal="pressed" from="Document/DocumentExit" to="." method="_on_document_exit_pressed"]

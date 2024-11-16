@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var Fog = get_tree().get_first_node_in_group("Fog")
 @onready var note = get_tree().get_first_node_in_group("Note")
+@onready var boilerInteract = get_tree().get_first_node_in_group("BoilerInteraction")
 
 var count = 0
 
@@ -10,6 +11,7 @@ func _ready():
 		note.queue_free()
 	if PositionManager.HasClearedValve:
 		Fog.queue_free()
+		boilerInteract.get_child(0).disabled = false
 
 
 func _on_to_bottom_hallway_body_entered(_body):
@@ -25,3 +27,4 @@ func _on_to_bottom_hallway_body_entered(_body):
 
 func _on_valve_clear_fog() -> void:
 	Fog.queue_free()
+	boilerInteract.get_child(0).disabled = false

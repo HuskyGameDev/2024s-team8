@@ -45,6 +45,42 @@ radius = 6.0
 y_sort_enabled = true
 script = ExtResource("1_0dtoi")
 
+[node name="FixLines" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="FixLines"]
+z_index = -1
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 313.0
+offset_bottom = 176.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="FixLines"]
+z_index = 5
+offset_left = 216.0
+offset_top = -8.0
+offset_right = 313.0
+offset_bottom = 176.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="FixLines"]
+z_index = 5
+offset_left = 312.0
+offset_top = 160.0
+offset_right = 328.0
+offset_bottom = 480.0
+rotation = 1.5708
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="FixLines"]
+z_index = 5
+offset_left = 313.0
+offset_top = -8.0
+offset_right = 329.0
+offset_bottom = 311.0
+rotation = 1.5708
+color = Color(0, 0, 0, 1)
+
 [node name="Collision" type="TileMap" parent="."]
 tile_set = ExtResource("2_tomo4")
 format = 2
@@ -55,6 +91,7 @@ tile_map_data = PackedByteArray("AAALABEAAQAQAAAAAAAMABEAAQAQAAAAAAANABEAAQAQAAA
 tile_set = ExtResource("2_tomo4")
 
 [node name="Background" type="TileMap" parent="."]
+visible = false
 tile_set = ExtResource("3_lwea3")
 format = 2
 

@@ -74,9 +74,10 @@ offset_right = 1500.0
 offset_bottom = 930.0
 theme_override_fonts/font = ExtResource("4_73prb")
 theme_override_font_sizes/font_size = 30
-current_tab = 0
+current_tab = 1
 
 [node name="Objectives" type="VBoxContainer" parent="TabContainer" groups=["Objectives"]]
+visible = false
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/separation = 65
@@ -132,7 +133,6 @@ theme_override_font_sizes/font_size = 37
 text = " - Explore the ship."
 
 [node name="Documents" type="VBoxContainer" parent="TabContainer" groups=["Documents"]]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -162,32 +162,28 @@ visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_73prb")
 theme_override_font_sizes/font_size = 36
-text = "Document 4
-"
+text = "Document 4"
 
 [node name="Document 5" type="Button" parent="TabContainer/Documents"]
 visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_73prb")
 theme_override_font_sizes/font_size = 36
-text = "Document 5
-"
+text = "Document 5"
 
 [node name="Document 6" type="Button" parent="TabContainer/Documents"]
 visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_73prb")
 theme_override_font_sizes/font_size = 36
-text = "Document 6
-"
+text = "Document 6"
 
 [node name="Document 7" type="Button" parent="TabContainer/Documents"]
 visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_73prb")
 theme_override_font_sizes/font_size = 36
-text = "Document 7
-"
+text = "Document 7"
 
 [node name="Document 8" type="Button" parent="TabContainer/Documents"]
 visible = false
@@ -209,6 +205,55 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("4_73prb")
 theme_override_font_sizes/font_size = 36
 text = "Document 10"
+
+[node name="Document 11" type="Button" parent="TabContainer/Documents"]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_73prb")
+theme_override_font_sizes/font_size = 36
+text = "Document 11"
+
+[node name="Document 12" type="Button" parent="TabContainer/Documents"]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_73prb")
+theme_override_font_sizes/font_size = 36
+text = "Document 12"
+
+[node name="Document 13" type="Button" parent="TabContainer/Documents"]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_73prb")
+theme_override_font_sizes/font_size = 36
+text = "Document 13"
+
+[node name="Document 14" type="Button" parent="TabContainer/Documents"]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_73prb")
+theme_override_font_sizes/font_size = 36
+text = "Document 14"
+
+[node name="Document 15" type="Button" parent="TabContainer/Documents"]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_73prb")
+theme_override_font_sizes/font_size = 36
+text = "Document 15"
+
+[node name="Document 16" type="Button" parent="TabContainer/Documents"]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_73prb")
+theme_override_font_sizes/font_size = 36
+text = "Document 16"
+
+[node name="Document 17" type="Button" parent="TabContainer/Documents"]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_73prb")
+theme_override_font_sizes/font_size = 36
+text = "Document 17"
 
 [node name="Inventory" type="VBoxContainer" parent="TabContainer"]
 visible = false
@@ -410,4 +455,11 @@ position = Vector2(1546, 35)
 [connection signal="pressed" from="TabContainer/Documents/Document 8" to="." method="_on_document_button_pressed" binds= [8]]
 [connection signal="pressed" from="TabContainer/Documents/Document 9" to="." method="_on_document_button_pressed" binds= [9]]
 [connection signal="pressed" from="TabContainer/Documents/Document 10" to="." method="_on_document_button_pressed" binds= [10]]
+[connection signal="pressed" from="TabContainer/Documents/Document 11" to="." method="_on_document_button_pressed" binds= [11]]
+[connection signal="pressed" from="TabContainer/Documents/Document 12" to="." method="_on_document_button_pressed" binds= [12]]
+[connection signal="pressed" from="TabContainer/Documents/Document 13" to="." method="_on_document_button_pressed" binds= [13]]
+[connection signal="pressed" from="TabContainer/Documents/Document 14" to="." method="_on_document_button_pressed" binds= [14]]
+[connection signal="pressed" from="TabContainer/Documents/Document 15" to="." method="_on_document_button_pressed" binds= [15]]
+[connection signal="pressed" from="TabContainer/Documents/Document 16" to="." method="_on_document_button_pressed" binds= [16]]
+[connection signal="pressed" from="TabContainer/Documents/Document 17" to="." method="_on_document_button_pressed" binds= [17]]
 [connection signal="child_exiting_tree" from="CanvasLayer" to="." method="_on_canvas_layer_child_exiting_tree"]

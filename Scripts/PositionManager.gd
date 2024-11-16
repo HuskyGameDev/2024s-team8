@@ -57,6 +57,7 @@ var Objectives = []
 var ObjectivesText = []
 var Documents = []
 var DocumentsText = []
+var DocumentsPaper = []
 var Inventory = []
 var InventoryText = []
 var InventorySprite = []
@@ -79,11 +80,12 @@ func _process(_delta):
 
 
 #turns arrays that contain text to strings
-func array_to_string(arr: Array, skipLines: int = 0) -> String:
+func array_to_string(arr: Array, skipLines: int = 0, skipLines2: int = 0) -> String:
 	var string = ""
-	for i in range(skipLines, arr.size()):
+	for i in range(skipLines, arr.size() - skipLines2):
 		string += str(arr[i])
 		string += " "
+	string = string.replace("'", "")
 	return string
 
 

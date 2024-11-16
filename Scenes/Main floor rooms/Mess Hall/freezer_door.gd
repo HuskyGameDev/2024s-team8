@@ -13,11 +13,11 @@ extends Node2D
 
 
 const lines: Array[String] = [
-	"A solid, metallic door leading to the mess hall freezer."
+	"A solid, metallic door leading to the industrial freezer."
 ]
 
 const lines2: Array[String] = [
-	"In it lies a single piece of frozen meat. It hasn't been opened yet..."
+	"It is well-stocked with meat and vegetables."
 ]
 
 const lines3: Array[String] = [
@@ -52,6 +52,9 @@ func _on_interact():
 	freezerDoorOpen.visible = true
 	freezerDoorClosed.visible = false
 	
+	DialogManager.start_dialog(global_position, lines2, speech_sound, false)
+	await DialogManager.dialog_finished
+	
 	if PositionManager.Act == 3 && !PositionManager.HasMeat:
 		PositionManager.HasMeat = true
 		PositionManager.Inventory.append("Meat")
@@ -61,13 +64,7 @@ func _on_interact():
 		await DialogManager.dialog_finished
 		DialogManager.start_dialog(global_position, lines3, speech_sound, false)
 		await DialogManager.dialog_finished
-	elif !PositionManager.HasMeat:
-		DialogManager.start_dialog(global_position, lines2, speech_sound, false)
-		await DialogManager.dialog_finished
-	else:
-		DialogManager.start_dialog(global_position, lines4, speech_sound, false)
-		await DialogManager.dialog_finished
-	
+		
 	if PositionManager.HasMeat && PositionManager.HasSpaceSuit && PositionManager.HasHeatLamp:
 		DialogManager.start_dialog(global_position, lines5, speech_sound2, false)
 		await DialogManager.dialog_finished

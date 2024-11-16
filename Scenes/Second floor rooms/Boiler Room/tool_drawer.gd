@@ -7,7 +7,7 @@ extends Node2D
 
 
 const lines: Array[String] = [
-	"A large tool cabinet, filled to the brim with maintenance equipment."
+	"A large tool cabinet filled with an assortment of tools."
 ]
 
 const lines2: Array[String] = [

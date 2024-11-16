@@ -6,7 +6,7 @@ extends Node2D
 
 
 const lines: Array[String] = [
-	"'Power Outage Protocol'",
+	"'Power Outage Protocol:'",
 	"'Complete the power grid by connecting the pipes to form a continuous flow of electricity.'",
 	"'If a successful connection is made, then the power should be restored.'"
 ]
@@ -24,6 +24,7 @@ func _on_interact():
 	if PositionManager.Documents.find("Power Room Document") == -1:
 		PositionManager.Documents.append("Power Room Document")
 		PositionManager.DocumentsText.append(PositionManager.array_to_string(lines))
+		PositionManager.DocumentsPaper.append(false)
 		PositionManager.play_notification("Document")
 	player._swap_attention()
 

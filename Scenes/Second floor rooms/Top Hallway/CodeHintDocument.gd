@@ -8,7 +8,7 @@ extends Node2D
 const lines: Array[String] = [
 	"A handwritten note sits on the ground.",
 	"'Note to self: Up, North, East...'",
-	"The rest of the note seems to be cut off, I wonder what it could be to."
+	"The rest of the note seems to be cut off, I wonder what it could be."
 ]
 
 # Called when the node enters the scene tree for the first time.
@@ -25,7 +25,8 @@ func _on_interact():
 	await DialogManager.dialog_finished
 	if PositionManager.Documents.find("Handwritten Note") == -1:
 		PositionManager.Documents.append("Handwritten Note")
-		PositionManager.DocumentsText.append(PositionManager.array_to_string(lines))
+		PositionManager.DocumentsText.append(PositionManager.array_to_string(lines, 1, 1))
+		PositionManager.DocumentsPaper.append(false)
 		PositionManager.play_notification("Document")
 		queue_free()
 	player._swap_attention()

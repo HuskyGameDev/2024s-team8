@@ -6,9 +6,10 @@ extends Node2D
 
 @onready var FullMapScene = preload("res://Minimap/Full_Map.tscn")
 
-#const lines: Array[String] = [
-	#"You picked up the cool orb lying on the ground."
-#]
+const lines: Array[String] = [
+	"A map of the ship hangs on the wall.",
+	"The edges are tattered, and the color has faded."
+]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,6 +19,8 @@ func _ready():
 
 func _on_interact():
 	player._swap_attention()
+	DialogManager.start_dialog(global_position, lines, speech_sound, false)
+	await DialogManager.dialog_finished
 	var fullMap = FullMapScene.instantiate()
 	get_parent().get_node("CanvasLayer2").add_child(fullMap)
 	#$"%Paper Sound".play()

@@ -6,15 +6,16 @@ extends Node2D
 
 
 const lines: Array[String] = [
-	"You press the button...",
-	"Something happens!"
+	"END SECURITY LOCKDOWN?",
+	"WARNING: THREAT DETECTED IN SECTION: [GREENHOUSE]. DO YOU WISH TO PROCEED?",
+	"PLEASE CONFIRM CREDENTIALS.",
+	"SECURITY LOCKDOWN ENDED. SHIP OPERATIONS RETURNING TO NORMAL."
 ]
 
 const lines2: Array[String] = [
-	"You press the button...",
-	"Nothing happens!"
+	"The security room maintenance system.",
+	"You notice several of the screens are cracked and dirty."
 ]
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,9 +26,11 @@ func _on_interact():
 	if PositionManager.SecurityEnabled:
 		PositionManager.SecurityEnabled = false
 		PositionManager.Act = 3
-		GlobalAudioManager.door_SFX() # Plays door opening SFX
 		DialogManager.start_dialog(global_position, lines, speech_sound, false)
 		await DialogManager.dialog_finished
+		if PositionManager.Objectives.find("Investigate Greenhouse") == -1:
+			PositionManager.add_objective("Investigate Greenhouse", "Investigate Greenhouse for any threats.")
+		GlobalAudioManager.door_SFX() # Plays door opening SFX
 	else:
 		DialogManager.start_dialog(global_position, lines2, speech_sound, false)
 		await DialogManager.dialog_finished

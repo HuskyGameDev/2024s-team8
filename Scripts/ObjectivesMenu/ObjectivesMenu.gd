@@ -4,6 +4,7 @@ extends Control
 @onready var Documents = get_tree().get_first_node_in_group("Documents")
 @onready var TabContain = get_tree().get_first_node_in_group("TabContainer")
 @onready var documentScene = preload("res://Scripts/ObjectivesMenu/document.tscn")
+@onready var paperScene = preload("res://Scripts/ObjectivesMenu/paperDocument.tscn")
 
 var documentOpened = false
 
@@ -29,7 +30,11 @@ func _on_exit_button_pressed():
 	queue_free()
 
 func _on_document_button_pressed(extra_arg_0: int) -> void:
-	var document = documentScene.instantiate()
+	var document
+	if PositionManager.DocumentsPaper[extra_arg_0-1]:
+		document = paperScene.instantiate()
+	else:
+		document = documentScene.instantiate()
 	document.get_node("Document").get_node("TextLabel").text = PositionManager.DocumentsText[extra_arg_0-1]
 	$CanvasLayer.add_child(document)
 	$"%Paper Sound".play()
@@ -69,5 +74,5 @@ func setDocuments():
 
 
 func _on_canvas_layer_child_exiting_tree(node: Node) -> void:
-	if node.name == "Documents":
+	if node.name == "Documents" or node.name == "PaperDocument":
 		documentOpened = false

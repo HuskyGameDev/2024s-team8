@@ -17,12 +17,11 @@ const lines2: Array[String] = [
 	I don’t fully understand.
 	In this dim moist basement, I don’t see any stars.
 	All there is here is metal and must.       	           	
-	I’ve heard the sun rises in the east
-	so maybe you can guide me
+	I’ve heard the sun rises in the east, so maybe you can guide me
 	back to you.
-	These incandescent bulbs have brought me down
+	These incandescent bulbs have brought me down,
 	but your light will lift me up.
-	For now, I keep your picture in my left pocket
+	For now, I keep your picture in my left pocket,
 	and await our reunion."
 ]
 
@@ -41,6 +40,7 @@ func _on_interact():
 	if PositionManager.Documents.find("Poem") == -1:
 		PositionManager.Documents.append("Poem")
 		PositionManager.DocumentsText.append(PositionManager.array_to_string(lines2))
+		PositionManager.DocumentsPaper.append(true)
 		PositionManager.play_notification("Document")
 		PositionManager.HasPoem = true
 		queue_free()

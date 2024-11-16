@@ -31,6 +31,7 @@ func _on_interact():
 	if PositionManager.Documents.find("Airlock Document") == -1:
 		PositionManager.Documents.append("Airlock Document")
 		PositionManager.DocumentsText.append(PositionManager.array_to_string(lines))
+		PositionManager.DocumentsPaper.append(false)
 		PositionManager.play_notification("Document")
 	player._swap_attention()
 	
