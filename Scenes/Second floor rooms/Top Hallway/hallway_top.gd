@@ -197,5 +197,9 @@ func _on_to_greenhouse_body_entered(body: Node2D) -> void:
 func _on_helianth_cutscene_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "MonsterRunPast":
 		cutsceneMonster.queue_free()
+		if PositionManager.Objectives.find("Remove Threat") == -1:
+			PositionManager.add_objective("Remove Threat", "Find a way to remove the threat.")
+		if PositionManager.Objectives.find("Investigate Greenhouse") != -1:
+			PositionManager.remove_objective("Investigate Greenhouse")
 		PositionManager.hasEscapedGreenhouse = true
 		

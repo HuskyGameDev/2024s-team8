@@ -37,8 +37,11 @@ func _on_interact():
 			PositionManager.Act = 3
 			DialogManager.start_dialog(global_position, lines, speech_sound, false)
 			await DialogManager.dialog_finished
-			if PositionManager.Objectives.find("Investigate Greenhouse") == -1:
-				PositionManager.add_objective("Investigate Greenhouse", "Investigate Greenhouse for any threats.")
+			if PositionManager.Objectives.find("Remove Security Lockdown") != -1:
+				PositionManager.remove_objective("Remove Security Lockdown")
+			if !PositionManager.hasActivatedHeli:
+				if PositionManager.Objectives.find("Investigate Greenhouse") == -1:
+					PositionManager.add_objective("Investigate Greenhouse", "Investigate Greenhouse for any threats.")
 			GlobalAudioManager.door_SFX() # Plays door opening SFX
 		else:
 			DialogManager.start_dialog(global_position, lines3, speech_sound, false)

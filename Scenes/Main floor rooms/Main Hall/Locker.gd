@@ -40,6 +40,8 @@ func _on_interact():
 		
 	if player.hiding:
 		if Input.is_action_just_pressed("INTERACT"):
+			if PositionManager.hasActivatedHeli and !PositionManager.hasEscapedGreenhouse:
+				return
 			DialogManager.start_dialog(global_position, lines2, speech_sound, false)
 			await DialogManager.dialog_finished
 			player.get_node("AnimationTree").set("parameters/Idle/blend_position", -PositionManager.getDirection(player.get_node("InteractionParent").rotation_degrees))

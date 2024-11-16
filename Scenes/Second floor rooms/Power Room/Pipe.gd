@@ -33,5 +33,8 @@ func _on_interact():
 func _on_cleared():
 	PositionManager.hasClearedPipe = true
 	PositionManager.Act = 2
+	if PositionManager.Objectives.find("Turn Power On") != -1:
+		PositionManager.remove_objective("Turn Power On")
+	PositionManager.add_objective("Remove Security Lockdown", "Deactivate Security Lockdown Scenario.")
 	opening.emit()
 	PipePuzzle.queue_free()
