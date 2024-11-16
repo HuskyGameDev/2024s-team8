@@ -8,7 +8,7 @@ extends Node2D
 const lines: Array[String] = [
 	"A crew member lies on the ground, cold and lifeless.",
 	"The body looks malnourished... how long were they in here?",
-	"You notice a security keycard with the name 'Dave A.' imprinted.",
+	"You notice a security keycard with the name 'Dave A.' imprinted on it.",
 	"You picked up the keycard."
 ]
 
