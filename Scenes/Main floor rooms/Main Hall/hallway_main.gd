@@ -28,7 +28,7 @@ func _ready():
 	
 	PositionManager.hasDecoy = PositionManager.HasMeat and PositionManager.HasSpaceSuit and PositionManager.HasHeatLamp
 	
-	if PositionManager.Objectives.find("Explore Ship") != -1 && PositionManager.Objectives.find("Turn Power On") == -1:
+	if PositionManager.Objectives.find("Turn Power On") == -1 && PositionManager.Act != 3:
 		PositionManager.add_objective("Turn Power On", "Find out how to turn the power back on.")
 	
 	
