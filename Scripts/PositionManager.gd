@@ -14,6 +14,7 @@ var valveCode := [9,6,3]
 var PipeVersion = 0
 
 #Game Progression
+var doorHasOpened = false
 var Act = 0
 var HasOpenedTutorial = false
 var OpenedAirlock = false

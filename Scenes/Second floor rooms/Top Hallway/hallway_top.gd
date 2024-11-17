@@ -92,7 +92,7 @@ func _on_to_security_room_body_entered(body):
 			if !player.hasAttention:
 				player._swap_attention()
 			return
-	if body.name == "Player" && Input.is_action_pressed("UP") && PositionManager.hasClearedDial:
+	if body.name == "Player" && Input.is_action_pressed("UP") && PositionManager.hasClearedDial && PositionManager.doorHasOpened:
 		var SECURITY_ROOM = load("res://Scenes/Second floor rooms/Security Room/security_room.tscn")
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false)
@@ -130,6 +130,7 @@ func _on_dial_door_open_door() -> void:
 	GlobalAudioManager.door_SFX() # Plays door opening SFX
 	animPlayer.play("opening")
 	await animPlayer.animation_finished
+	PositionManager.doorHasOpened = true
 	animPlayer.play("open")
 
 
