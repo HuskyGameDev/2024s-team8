@@ -55,7 +55,7 @@ func _on_interact():
 		DialogManager.start_dialog(global_position, lines4, speech_sound2, false)
 		await DialogManager.dialog_finished
 	
-	if PositionManager.HasMeat && PositionManager.HasSpaceSuit && PositionManager.HasHeatLamp:
+	if PositionManager.hasDecoy:
 		DialogManager.start_dialog(global_position, lines5, speech_sound2, false)
 		await DialogManager.dialog_finished
 	

@@ -24,10 +24,6 @@ const lines3: Array[String] = [
 	"You picked up the meat."
 ]
 
-const lines4: Array[String] = [
-	"There's nothing in it."
-]
-
 const lines5: Array[String] = [
 	"Now that I have all of the components for the decoy, I can go to the pod and lure the monster in!"
 ]
@@ -65,7 +61,7 @@ func _on_interact():
 		DialogManager.start_dialog(global_position, lines3, speech_sound, false)
 		await DialogManager.dialog_finished
 		
-	if PositionManager.HasMeat && PositionManager.HasSpaceSuit && PositionManager.HasHeatLamp:
+	if PositionManager.hasDecoy:
 		DialogManager.start_dialog(global_position, lines5, speech_sound2, false)
 		await DialogManager.dialog_finished
 		

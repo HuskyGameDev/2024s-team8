@@ -83,6 +83,7 @@ var lastKnownPos = Vector2.ZERO
 
 func _process(_delta):
 	Canvas = GlobalCanvasLayer.get_child(0)
+	hasDecoy = PositionManager.HasMeat and PositionManager.HasSpaceSuit and PositionManager.HasHeatLamp
 
 
 #turns arrays that contain text to strings

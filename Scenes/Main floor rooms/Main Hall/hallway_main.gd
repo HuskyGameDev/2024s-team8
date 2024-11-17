@@ -18,19 +18,18 @@ const lines2: Array[String] = [
 
 const lines3: Array[String] = [
 	"I need to find a way to get rid of that monster!",
-	"Maybe I can make a decoy suit filled with warm meat, then lure it to the pod and eject it!",
-	"I'm pretty sure the heating lamp is in the boiler room.",
-	"And the frozen meat must be in the mess hall freezer.",
-	"And I think the spare spacesuit will be in the bunks!"
-	]
+	"If I can lure it to the pod, I could lock the doors and then eject the threat.",
+	"But what would lure it?"
+]
 
 # Called when the node enters the scene tree for the first time.
 
 func _ready():
 	
+	PositionManager.hasDecoy = PositionManager.HasMeat and PositionManager.HasSpaceSuit and PositionManager.HasHeatLamp
+	
 	if PositionManager.Objectives.find("Explore Ship") != -1 && PositionManager.Objectives.find("Turn Power On") == -1:
 		PositionManager.add_objective("Turn Power On", "Find out how to turn the power back on.")
-	
 	
 	
 	path.visible = false
@@ -46,7 +45,7 @@ func _ready():
 	else:
 		flower.visible = false
 	
-	PositionManager.hasDecoy = PositionManager.HasMeat and PositionManager.HasSpaceSuit and PositionManager.HasHeatLamp
+	
 	#sets camera limit
 	StageManager.changeCamera(304)
 	
@@ -63,6 +62,7 @@ func _ready():
 		PositionManager.HasReadEscapeText = true
 		DialogManager.start_dialog(global_position, lines3, speech_sound, false, false)
 		await DialogManager.dialog_finished
+		PositionManager.add_objective("Create Decoy", "Construct a decoy capable of luring\n the monster.")
 		Player.hasAttention = true
 		Player.animationTree.set("active", Player.hasAttention)
 		
