@@ -38,6 +38,7 @@ func _on_interact():
 	if PositionManager.HasCrowbar && get_node("Sprite2D") != null: #runs if not queue_free() and player has crowbar
 		DialogManager.start_dialog(global_position, lines3, speech_sound2, false)
 		await DialogManager.dialog_finished
+		player._swap_attention()
 		PositionManager.HasOpenedVent = true
 		get_node("Sprite2D").queue_free()
 		StageManager.player_facing = Vector2(-1, 0)

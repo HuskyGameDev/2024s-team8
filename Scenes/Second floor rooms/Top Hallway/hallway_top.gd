@@ -11,6 +11,7 @@ extends Node2D
 @onready var path = $FlowerPath
 @onready var flower = $Flower
 @onready var speech_sound = preload("res://Assets/voice_sans.mp3")
+@onready var speech_sound2 = preload("res://Assets/Dialogue blip5.mp3")
 @onready var player = get_node("Player")
 @onready var monsterCutscene = $"%HelianthCutscene"
 @onready var cutsceneMonster = $"%CutsceneMonster"
@@ -21,6 +22,10 @@ const lines: Array[String] = [
 
 const lines2: Array[String] = [
 	"What am I doing? I need to hide from that monster!"
+]
+
+const lines3: Array[String] = [
+	"You feel like you're forgetting something..."
 ]
 
 
@@ -112,6 +117,14 @@ func _on_to_stairs_body_entered(body):
 			if !player.hasAttention:
 				player._swap_attention()
 			return
+		elif !PositionManager.hasActivatedHeli:
+			if player.hasAttention:
+				player._swap_attention()
+			DialogManager.start_dialog(global_position, lines3, speech_sound2, false)
+			await DialogManager.dialog_finished
+			if !player.hasAttention:
+				player._swap_attention()
+			return
 	if body.name == "Player" && Input.is_action_pressed("UP") && !PositionManager.SecurityEnabled:
 		var STAIRS = load("res://Scenes/Main floor rooms/Stairs/stairs.tscn")
 		$Player.hasAttention = false
@@ -199,7 +212,7 @@ func _on_helianth_cutscene_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "MonsterRunPast":
 		cutsceneMonster.queue_free()
 		if PositionManager.Objectives.find("Remove Threat") == -1:
-			PositionManager.add_objective("Remove Threat", "Find a way to remove the threat.")
+			PositionManager.add_objective("Remove Threat", "Remove the threat.")
 		if PositionManager.Objectives.find("Investigate Greenhouse") != -1:
 			PositionManager.remove_objective("Investigate Greenhouse")
 		PositionManager.hasEscapedGreenhouse = true

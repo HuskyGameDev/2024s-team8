@@ -54,6 +54,8 @@ func _ready():
 	#Opens stairs when SecturityEnabled is true
 	if !PositionManager.SecurityEnabled:
 		StairsDoor.queue_free()
+		$"Command Door".queue_free()
+		$"Door areas/Bridge".monitoring = true
 		
 	#checks if its not act 1 or 0 and if the player hasn't read the escape text
 	if PositionManager.Act != 1 && PositionManager.Act != 0 && !PositionManager.HasReadEscapeText:
@@ -67,10 +69,10 @@ func _ready():
 		Player.animationTree.set("active", Player.hasAttention)
 		
 	
-	if PositionManager.HasDefeatedMonster:
-		#opens the commands door
-		CommandDoor.queue_free()
-		$"Door areas/Bridge".monitoring = true
+	#if PositionManager.HasDefeatedMonster:
+		##opens the commands door
+		#CommandDoor.queue_free()
+		#$"Door areas/Bridge".monitoring = true
 	
 func _process(_delta):
 	if PositionManager.Act == 3:
@@ -211,7 +213,7 @@ func _on_stairs_body_entered(body):
 
 #switches to the command deck scene
 func _on_bridge_body_entered(body):
-	if Input.is_action_pressed("RIGHT"):
+	if Input.is_action_pressed("RIGHT") && body.name == "Player":
 		var COMMAND_DECK = load("res://Scenes/Main floor rooms/Command Deck/command_deck.tscn")
 		if body.name == "Player":
 			PositionManager.paused = true

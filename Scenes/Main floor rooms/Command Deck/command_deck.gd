@@ -2,14 +2,29 @@ extends Node2D
 
 
 @onready var interaction_area: InteractionArea = $InteractionArea
+@onready var Canvas = get_tree().get_first_node_in_group("CanvasLayer")
+@onready var player = get_tree().get_first_node_in_group("Player")
+@onready var speech_sound = preload("res://Assets/Dialogue blip5.mp3")
+
 const engineHumming = preload("res://Assets/Audio/Music/BED_shipengine_LP.wav")
+
+const lines: Array[String] = [
+	"You are still being hunted by the creature.",
+	"Any attempt to pilot the ship is ill-advised..."
+]
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	interaction_area.interact = Callable(self, "_on_interact")
 	StageManager.changeCamera(488)
-
+	
+	if player.hasAttention:
+		player.hasAttention = false
+	DialogManager.start_dialog(global_position, lines, speech_sound, false, false)
+	await DialogManager.dialog_finished
+	if !player.hasAttention:
+		player.hasAttention = true
 
 
 

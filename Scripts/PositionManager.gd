@@ -34,6 +34,7 @@ var hasClearedPipe = false
 var HasClearedValve = false
 var hasClearedDial = false
 var HasRemovedVines = false
+var HasRemovedCommandDeckVines = false
 var hasActivatedHeli = false
 var hasEscapedGreenhouse = false
 var heliDistracted = false

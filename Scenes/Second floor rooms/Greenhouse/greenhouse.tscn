@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://cgyqxujimmsm6"]
+[gd_scene load_steps=54 format=4 uid="uid://cgyqxujimmsm6"]
 
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="1_add43"]
 [ext_resource type="Script" path="res://Scenes/Second floor rooms/Greenhouse/greenhouse.gd" id="1_wbr31"]
@@ -499,6 +499,12 @@ size = Vector2(32.25, 14.75)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iq4pa"]
 size = Vector2(15.5, 29)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4dtjf"]
+size = Vector2(14, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3j6wy"]
+size = Vector2(7, 4)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xnucm"]
 size = Vector2(10, 4)
 
@@ -825,8 +831,8 @@ texture = ExtResource("27_mlm56")
 script = ExtResource("5_2sqyx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TableObjects/Shears/InteractionArea"]
-position = Vector2(84, 154)
-shape = SubResource("RectangleShape2D_xnucm")
+position = Vector2(83, 154)
+shape = SubResource("RectangleShape2D_4dtjf")
 
 [node name="HandShovel" type="Node2D" parent="TableObjects"]
 script = ExtResource("17_axix3")
@@ -835,8 +841,8 @@ script = ExtResource("17_axix3")
 script = ExtResource("5_2sqyx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TableObjects/HandShovel/InteractionArea"]
-position = Vector2(99, 154)
-shape = SubResource("RectangleShape2D_xnucm")
+position = Vector2(99.5, 154)
+shape = SubResource("RectangleShape2D_3j6wy")
 
 [node name="WateringCan" type="Node2D" parent="TableObjects"]
 script = ExtResource("18_thagh")

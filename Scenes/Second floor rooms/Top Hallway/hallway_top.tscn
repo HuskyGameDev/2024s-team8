@@ -703,7 +703,7 @@ script = ExtResource("7_51fjl")
 position = Vector2(-2, -14)
 shape = SubResource("RectangleShape2D_wrbx8")
 
-[node name="Collision" type="StaticBody2D" parent="RemovableVines" groups=["Stairs Door"]]
+[node name="Collision" type="StaticBody2D" parent="RemovableVines"]
 position = Vector2(-3, 7)
 metadata/_edit_group_ = true
 
