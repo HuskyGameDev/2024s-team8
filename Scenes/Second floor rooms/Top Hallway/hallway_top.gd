@@ -16,7 +16,6 @@ var move = true
 @onready var speech_sound2 = preload("res://Assets/Dialogue blip5.mp3")
 @onready var player = get_node("Player")
 @onready var monsterCutscene = $"%HelianthCutscene"
-@onready var cutsceneMonster = $"%CutsceneMonster"
 @onready var timer = $Timer
 const lines: Array[String] = [
 	"I need to find somewhere to hide!"
@@ -60,9 +59,6 @@ func _ready():
 		await DialogManager.dialog_finished
 		if !player.hasAttention:
 			player._swap_attention()
-	
-	if PositionManager.hasActivatedHeli && PositionManager.hasEscapedGreenhouse:
-		cutsceneMonster.queue_free()
 
 func _process(_delta):
 	if !PositionManager.SecurityEnabled:
@@ -74,9 +70,13 @@ func _process(_delta):
 			flower.dir = Vector2.ZERO
 	
 	if PositionManager.hasActivatedHeli && !PositionManager.hasEscapedGreenhouse:
+		await DialogManager.dialog_finished
+		timer.start()
 		if (player.hiding && !monsterCutscene.is_playing()) or (timer.timeout && !monsterCutscene.is_playing()):
-			timer.start()
+			
 			await get_tree().create_timer(1).timeout
+			flower.show()
+			flower.get_node("AnimationPlayer").play("run_left")
 			monsterCutscene.play("MonsterRunPast")
 
 func moving():
@@ -216,7 +216,7 @@ func _on_to_greenhouse_body_entered(body: Node2D) -> void:
 
 func _on_helianth_cutscene_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "MonsterRunPast":
-		cutsceneMonster.queue_free()
+		flower.hide()
 		if PositionManager.Objectives.find("Remove Threat") == -1:
 			PositionManager.add_objective("Remove Threat", "Remove the threat.")
 		if PositionManager.Objectives.find("Investigate Greenhouse") != -1:
