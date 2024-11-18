@@ -548,10 +548,8 @@ debug_color = Color(0.57, 0.52744, 0.4788, 0.435294)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2
-follow_viewport_enabled = true
 
 [node name="Node2D" parent="CanvasLayer" instance=ExtResource("3_c2dju")]
-visible = false
 position = Vector2(128, 82)
 scale = Vector2(3, 3)
 
