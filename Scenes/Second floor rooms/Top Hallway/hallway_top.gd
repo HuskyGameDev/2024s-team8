@@ -67,9 +67,7 @@ func _ready():
 func _process(_delta):
 	if !PositionManager.SecurityEnabled:
 		if !PositionManager.paused:
-			if move:
-				moving()
-				move = false
+			moving()
 		else:
 			flower.dir = Vector2.ZERO
 	
@@ -83,15 +81,13 @@ func moving():
 	
 	var destCoord = path.points[PositionManager.destOrder[PositionManager.dest]]
 	PositionManager.HelianthRelativePosition = destCoord - flower.position
-	if PositionManager.HelianthRelativePosition.length() < 1:
+	if PositionManager.HelianthRelativePosition.length() < 2:
 		if PositionManager.destOrder[PositionManager.dest] == 3:
 			flower.visible = !flower.visible
 		PositionManager.dest += 1
 		PositionManager.dest = PositionManager.dest % PositionManager.destOrder.size()
 		
 	flower.dir = PositionManager.HelianthRelativePosition
-	
-	move = true
 
 func _on_to_security_room_body_entered(body):
 	if body.name == "Player":

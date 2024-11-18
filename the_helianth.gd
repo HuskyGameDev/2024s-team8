@@ -5,7 +5,6 @@ const RUN = 120.0
 
 
 signal touched
-signal charging
 
 var playing = true
 
@@ -53,7 +52,7 @@ func _physics_process(_delta: float) -> void:
 		move_and_slide()
 
 func _on_body_area_body_entered(body: Node2D) -> void:
-	if body.name == "Player" and visible and !body.hiding and ((body.position - position).length() < 100):
+	if body.name == "Player" and visible and !body.hiding and ((body.position - position).length() < 100) and false:
 		playing = false
 		animPlayer.stop()
 		touched.emit()
@@ -69,6 +68,17 @@ func _on_body_area_body_entered(body: Node2D) -> void:
 
 func _on_vision_cone_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
+		$VisionCone.monitoring = false
+		if walkin:
+			playing = false
+			if velocity.x > 0:
+				animPlayer.play("spot_right")
+			elif velocity.x < 0:
+				animPlayer.play("spot_left")
+			await animPlayer.animation_finished
+			playing = true
+		$VisionCone.monitoring = true
 		walkin = false
-		charging.emit()
+		await get_tree().create_timer(5.0).timeout
+		walkin = true
 		
