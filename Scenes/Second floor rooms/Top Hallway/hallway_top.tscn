@@ -1094,7 +1094,6 @@ rotation = 2.35619
 shape = SubResource("RectangleShape2D_jfg7a")
 
 [node name="Flower" parent="." instance=ExtResource("14_ra4c5")]
-visible = false
 z_index = 1
 position = Vector2(400, 144)
 
@@ -1114,7 +1113,6 @@ position = Vector2(268, 144)
 position = Vector2(268, 124)
 
 [node name="FlowerPath" type="Line2D" parent="."]
-visible = false
 top_level = true
 z_index = 3
 points = PackedVector2Array(400, 144, 88, 144, 268, 144, 268, 136, 268, 132, 212, 132, 148, 76, 84, 76, 84, 80, 84, 88, 32, 88, 368, 88)

@@ -120,11 +120,10 @@ points = PackedVector2Array(376, 160, 64, 160, 244, 160, 244, 152, 244, 148, 188
 width = 1.0
 
 [node name="Flower" parent="." instance=ExtResource("5_5skrl")]
-visible = false
 position = Vector2(188, 148)
 
-[connection signal="body_entered" from="to_first_floor" to="." method="_on_to_first_floor_body_entered"]
 [connection signal="body_entered" from="to_first_floor" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="to_first_floor" to="." method="_on_to_first_floor_body_entered"]
 [connection signal="body_entered" from="to_second_floor" to="." method="_on_to_second_floor_body_entered"]
 [connection signal="body_entered" from="Starea" to="." method="_on_starea_body_entered"]
 [connection signal="body_exited" from="Starea" to="." method="_on_starea_body_exited"]

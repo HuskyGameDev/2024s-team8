@@ -358,7 +358,7 @@ visible = false
 position = Vector2(148, 120)
 texture = ExtResource("19_tv182")
 hframes = 5
-vframes = 5
+vframes = 7
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." groups=["CanvasLayer"]]
 unique_name_in_owner = true

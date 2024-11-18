@@ -5,8 +5,10 @@ const RUN = 120.0
 
 
 signal touched
+signal charging
 
 var playing = true
+
 @onready var animPlayer = $AnimationPlayer
 @onready var pCollide = $PhysicsCollision
 @export var dir := Vector2()
@@ -63,3 +65,10 @@ func _on_body_area_body_entered(body: Node2D) -> void:
 		await scare.scareDone
 		get_tree().change_scene_to_file("res://Scenes/Transition Scenes/deathScreen.tscn")
 		StageManager.scene_change = true
+
+
+func _on_vision_cone_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		walkin = false
+		charging.emit()
+		

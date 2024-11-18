@@ -326,11 +326,7 @@ libraries = {
 [node name="Lamp4" parent="." instance=ExtResource("12_kokgf")]
 z_index = 1
 position = Vector2(156, 76)
-
-[node name="Bulb" parent="Lamp4" index="1"]
-position = Vector2(0, 0)
-scale = Vector2(9, 3)
-energy = 0.5
+scale = Vector2(0.1, 0.1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." groups=["CanvasLayer"]]
 unique_name_in_owner = true
@@ -349,5 +345,3 @@ transform = Transform2D(5, 0, 0, 5, 0, 0)
 [connection signal="area_exited" from="Eject Button/InteractionArea" to="Eject Button/InteractionArea" method="_on_area_exited"]
 [connection signal="area_entered" from="AirlockDocument/InteractionArea" to="AirlockDocument/InteractionArea" method="_on_area_entered"]
 [connection signal="area_exited" from="AirlockDocument/InteractionArea" to="AirlockDocument/InteractionArea" method="_on_area_exited"]
-
-[editable path="Lamp4"]

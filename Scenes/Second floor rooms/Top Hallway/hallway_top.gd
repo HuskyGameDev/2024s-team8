@@ -1,5 +1,7 @@
 extends Node2D
 
+var move = true
+
 @onready var Lock = get_tree().get_first_node_in_group("Combo Lock")
 @onready var SecurityDoor = get_node("dialDoor")
 @onready var StairsDoor = get_tree().get_first_node_in_group("Stairs Door")
@@ -32,6 +34,7 @@ const lines3: Array[String] = [
 func _ready():
 	
 	path.visible = false
+	flower.visible = false
 	if PositionManager.hasClearedDial:
 		if SecurityDoor != null:
 			SecurityDoor.queue_free()
@@ -64,7 +67,9 @@ func _ready():
 func _process(_delta):
 	if !PositionManager.SecurityEnabled:
 		if !PositionManager.paused:
-			moving()
+			if move:
+				moving()
+				move = false
 		else:
 			flower.dir = Vector2.ZERO
 	
@@ -85,7 +90,7 @@ func moving():
 		
 	flower.dir = PositionManager.HelianthRelativePosition
 	
-	await get_tree().create_timer(1.0).timeout
+	move = true
 
 func _on_to_security_room_body_entered(body):
 	if body.name == "Player":

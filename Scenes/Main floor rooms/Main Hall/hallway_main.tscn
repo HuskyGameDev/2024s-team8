@@ -750,7 +750,6 @@ monitoring = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door areas/Bridge"]
 position = Vector2(469.482, 135.982)
 rotation = 0.785398
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_7mqcl")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." groups=["CanvasLayer"]]

@@ -16,6 +16,7 @@ const lines: Array[String] = [
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	path.visible = false
+	flower.visible = false
 	flower.position = path.points[PositionManager.destOrder[PositionManager.dest]] - PositionManager.HelianthRelativePosition
 	PositionManager.paused = false
 	if PositionManager.destOrder[PositionManager.dest] > 8 or PositionManager.destOrder[PositionManager.dest] < 3:

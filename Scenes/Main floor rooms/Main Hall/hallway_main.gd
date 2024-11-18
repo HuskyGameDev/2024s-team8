@@ -33,6 +33,7 @@ func _ready():
 	
 	
 	path.visible = false
+	flower.visible = false
 	if PositionManager.Act == 3:
 		PositionManager.paused = false
 		%Lamps.hide()
