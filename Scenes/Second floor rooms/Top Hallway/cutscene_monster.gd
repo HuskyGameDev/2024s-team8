@@ -21,8 +21,9 @@ func _process(_delta: float) -> void:
 	
 
 func _on_body_area_body_entered(body: Node2D) -> void:
-	if body.name == "Player" and visible and !body.hiding:
+	if body.name == "Player" and visible and !body.hiding and ((body.position - position).length() < 100):
 		playing = false
+		print("balls")
 		touched.emit()
 		body.hasAttention = false
 		body.find_child("AnimationTree").set("active", false)
