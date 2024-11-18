@@ -17,7 +17,7 @@ var move = true
 @onready var player = get_node("Player")
 @onready var monsterCutscene = $"%HelianthCutscene"
 @onready var cutsceneMonster = $"%CutsceneMonster"
-
+@onready var timer = $Timer
 const lines: Array[String] = [
 	"I need to find somewhere to hide!"
 ]
@@ -74,7 +74,8 @@ func _process(_delta):
 			flower.dir = Vector2.ZERO
 	
 	if PositionManager.hasActivatedHeli && !PositionManager.hasEscapedGreenhouse:
-		if player.hiding && !monsterCutscene.is_playing():
+		if (player.hiding && !monsterCutscene.is_playing()) or (timer.timeout && !monsterCutscene.is_playing()):
+			timer.start()
 			await get_tree().create_timer(1).timeout
 			monsterCutscene.play("MonsterRunPast")
 

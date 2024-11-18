@@ -231,7 +231,7 @@ loop_mode = 1
 step = 1.0
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("FlowerSprite:flip_h")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
@@ -239,7 +239,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -447,7 +447,7 @@ loop_mode = 1
 step = 1.0
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("FlowerSprite:flip_h")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
@@ -455,7 +455,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
