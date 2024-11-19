@@ -1,10 +1,12 @@
-[gd_scene load_steps=13 format=4 uid="uid://1bfbt5f8oky"]
+[gd_scene load_steps=15 format=4 uid="uid://1bfbt5f8oky"]
 
 [ext_resource type="PackedScene" uid="uid://ny55otxbs0t" path="res://Scenes/tile_map.tscn" id="1_1c61v"]
 [ext_resource type="Texture2D" uid="uid://db5cscw8pfccj" path="res://Assets/room_tilemap_modular.png" id="1_6aj05"]
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Research/research1.gd" id="1_44mdm"]
 [ext_resource type="TileSet" uid="uid://vy7wx3h42jmo" path="res://Scenes/background tileset.tres" id="2_17khl"]
 [ext_resource type="PackedScene" uid="uid://d3smthgcyvtgq" path="res://Scenes/player.tscn" id="3_xppy5"]
+[ext_resource type="Texture2D" uid="uid://d3wj01oeb1141" path="res://Assets/Room Backgrounds/research-lab.png" id="5_1iahj"]
+[ext_resource type="Texture2D" uid="uid://b0yhr0e5rhbfb" path="res://Assets/research-lab-stuff.png" id="7_43bos"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g4i8w"]
 texture = ExtResource("1_6aj05")
@@ -113,6 +115,10 @@ use_parent_material = true
 tile_map_data = PackedByteArray("AAAIAA8AAAAKAAAAAAA=")
 tile_set = ExtResource("2_17khl")
 
+[node name="Research-lab" type="Sprite2D" parent="background"]
+position = Vector2(152, 84)
+texture = ExtResource("5_1iahj")
+
 [node name="doors" type="TileMap" parent="."]
 tile_set = ExtResource("2_17khl")
 format = 2
@@ -140,6 +146,10 @@ transform = Transform2D(6, 0, 0, 6, 0, 0)
 libraries = {
 "": SubResource("AnimationLibrary_880gr")
 }
+
+[node name="Research-lab-stuff" type="Sprite2D" parent="."]
+position = Vector2(152, 84)
+texture = ExtResource("7_43bos")
 
 [node name="To_Hall_Right" type="Area2D" parent="."]
 
