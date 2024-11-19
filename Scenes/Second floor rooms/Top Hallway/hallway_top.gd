@@ -74,8 +74,10 @@ func _process(_delta):
 			
 			await get_tree().create_timer(1).timeout
 			flower.show()
-			flower.get_node("AnimationPlayer").play("run_left")
+			flower.monitoring = true
 			monsterCutscene.play("MonsterRunPast")
+			await monsterCutscene.animation_finished
+			flower.monitoring = false
 
 func moving():
 	
