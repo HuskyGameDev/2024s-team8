@@ -150,7 +150,7 @@ struct fnl_state
 
     // The octave weighting for all none Domaain Warp fractal types.
     // @remark Default: 0.0
-    // @remark 
+    // @remark
     float weighted_strength;
 
     // The strength of the fractal ping pong effect.
@@ -220,7 +220,7 @@ const float _fnl_lib__GRADIENTS_2D[] =
     -0.38268343236509f, -0.923879532511287f, -0.923879532511287f, -0.38268343236509f, -0.923879532511287f, 0.38268343236509f, -0.38268343236509f, 0.923879532511287f
 };
 
-const float _fnl_lib__RAND_VECS_2D[] = 
+const float _fnl_lib__RAND_VECS_2D[] =
 {
     -0.2700222198f, -0.9628540911f, 0.3863092627f, -0.9223693152f, 0.04444859006f, -0.999011673f, -0.5992523158f, -0.8005602176f, -0.7819280288f, 0.6233687174f, 0.9464672271f, 0.3227999196f, -0.6514146797f, -0.7587218957f, 0.9378472289f, 0.347048376f,
     -0.8497875957f, -0.5271252623f, -0.879042592f, 0.4767432447f, -0.892300288f, -0.4514423508f, -0.379844434f, -0.9250503802f, -0.9951650832f, 0.0982163789f, 0.7724397808f, -0.6350880136f, 0.7573283322f, -0.6530343002f, -0.9928004525f, -0.119780055f,
@@ -276,7 +276,7 @@ const float _fnl_lib__GRADIENTS_3D[] =
     1.f, 1.f, 0.f, 0.f,  0.f,-1.f, 1.f, 0.f, -1.f, 1.f, 0.f, 0.f,  0.f,-1.f,-1.f, 0.f
 };
 
-const float _fnl_lib__RAND_VECS_3D[] = 
+const float _fnl_lib__RAND_VECS_3D[] =
 {
     -0.7292736885f, -0.6618439697f, 0.1735581948f, 0.f, 0.790292081f, -0.5480887466f, -0.2739291014f, 0.f, 0.7217578935f, 0.6226212466f, -0.3023380997f, 0.f, 0.565683137f, -0.8208298145f, -0.0790000257f, 0.f, 0.760049034f, -0.5555979497f, -0.3370999617f, 0.f, 0.3713945616f, 0.5011264475f, 0.7816254623f, 0.f, -0.1277062463f, -0.4254438999f, -0.8959289049f, 0.f, -0.2881560924f, -0.5815838982f, 0.7607405838f, 0.f,
     0.5849561111f, -0.662820239f, -0.4674352136f, 0.f, 0.3307171178f, 0.0391653737f, 0.94291689f, 0.f, 0.8712121778f, -0.4113374369f, -0.2679381538f, 0.f, 0.580981015f, 0.7021915846f, 0.4115677815f, 0.f, 0.503756873f, 0.6330056931f, -0.5878203852f, 0.f, 0.4493712205f, 0.601390195f, 0.6606022552f, 0.f, -0.6878403724f, 0.09018890807f, -0.7202371714f, 0.f, -0.5958956522f, -0.6469350577f, 0.475797649f, 0.f,
@@ -314,7 +314,7 @@ const float _fnl_lib__RAND_VECS_3D[] =
 //endregion
 
 //region FastNoiseLiteCode
-// WARNING! 
+// WARNING!
 // This section was created with "gcc -E before.c -o after.c" command
 // To reduce pressure on shader compiller.
 // (all vars was prefixed with "_fnl_lib__" using #define #undef directives)
@@ -676,7 +676,7 @@ float _fnlSingleSimplex2D(int _fnl_lib__seed, FNLfloat _fnl_lib__x, FNLfloat _fn
 }
 float _fnlSingleOpenSimplex23D(int _fnl_lib__seed, FNLfloat _fnl_lib__x, FNLfloat _fnl_lib__y, FNLfloat _fnl_lib__z)
 {
-	
+
     int _fnl_lib_i = int(round(_fnl_lib__x));
     int _fnl_lib_j = int(round(_fnl_lib__y));
     int _fnl_lib_k = int(round(_fnl_lib__z));
@@ -832,7 +832,7 @@ float _fnlSingleOpenSimplex2S2D(int _fnl_lib__seed, FNLfloat _fnl_lib__x, FNLflo
 
 float _fnlSingleOpenSimplex2S3D(int _fnl_lib__seed, FNLfloat _fnl_lib__x, FNLfloat _fnl_lib__y, FNLfloat _fnl_lib__z)
 {
-	
+
     int _fnl_lib_i = int(floor(_fnl_lib__x));
     int _fnl_lib_j = int(floor(_fnl_lib__y));
     int _fnl_lib_k = int(floor(_fnl_lib__z));
@@ -2216,7 +2216,7 @@ void _fnlDoSingleDomainWarp3D(fnl_state _fnl_lib__state, int _fnl_lib__seed, flo
 #endif
 void _fnlDoSingleDomainWarp2D(fnl_state _fnl_lib__state, int _fnl_lib__seed, float _fnl_lib__amp, float _fnl_lib__freq, FNLfloat _fnl_lib__x, FNLfloat _fnl_lib__y, inout FNLfloat _fnl_lib__xp, inout FNLfloat _fnl_lib__yp)
 {
-	
+
     #if SELECTED_DOMAIN_WARP_TYPE ==  FNL_DOMAIN_WARP_OPENSIMPLEX2_REDUCED
         _fnlSingleDomainWarpSimplexGradient(_fnl_lib__seed, _fnl_lib__amp * 16.f, _fnl_lib__freq, _fnl_lib__x, _fnl_lib__y, _fnl_lib__xp, _fnl_lib__yp, true);
     #elif SELECTED_DOMAIN_WARP_TYPE ==  FNL_DOMAIN_WARP_BASICGRID
