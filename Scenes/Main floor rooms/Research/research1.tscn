@@ -252,7 +252,6 @@ script = ExtResource("7_a81cx")
 z_index = 1
 position = Vector2(18, 136)
 rotation = 0.785398
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_l21g7")
 
 [node name="Flask" type="Node2D" parent="Left Table"]
@@ -265,7 +264,6 @@ script = ExtResource("7_a81cx")
 z_index = 1
 position = Vector2(28.4645, 119.964)
 rotation = 0.785398
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_5g105")
 
 [node name="Tubes" type="Node2D" parent="Left Table"]
@@ -278,7 +276,6 @@ script = ExtResource("7_a81cx")
 z_index = 1
 position = Vector2(39.5, 111.5)
 rotation = 0.785398
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_uud3w")
 
 [node name="Middle Table" type="Node2D" parent="."]
@@ -387,7 +384,6 @@ script = ExtResource("7_a81cx")
 z_index = 1
 position = Vector2(262.036, 108.964)
 rotation = 0.785398
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_k6pyr")
 
 [node name="Fancy Object" type="Node2D" parent="Right Table"]
@@ -400,7 +396,6 @@ script = ExtResource("7_a81cx")
 z_index = 1
 position = Vector2(282.536, 131.536)
 rotation = 0.785398
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_jnhi7")
 
 [node name="Door_to_Hallway" type="Area2D" parent="."]

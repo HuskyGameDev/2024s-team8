@@ -17,6 +17,7 @@ var move = true
 @onready var player = get_node("Player")
 @onready var monsterCutscene = $"%HelianthCutscene"
 @onready var timer = $Timer
+
 const lines: Array[String] = [
 	"I need to find somewhere to hide!"
 ]
@@ -42,6 +43,8 @@ func _ready():
 	
 	if !PositionManager.SecurityEnabled:
 		$"Stairs Door".queue_free()
+	
+	if PositionManager.hasEscapedGreenhouse:
 		PositionManager.paused = false
 		flower.position = path.points[PositionManager.destOrder[PositionManager.dest]] - PositionManager.HelianthRelativePosition
 		if PositionManager.destOrder[PositionManager.dest] > 3:
@@ -61,7 +64,7 @@ func _ready():
 			player._swap_attention()
 
 func _process(_delta):
-	if !PositionManager.SecurityEnabled:
+	if PositionManager.hasEscapedGreenhouse:
 		if !PositionManager.paused:
 			moving()
 		else:
@@ -71,13 +74,12 @@ func _process(_delta):
 		await DialogManager.dialog_finished
 		timer.start()
 		if (player.hiding && !monsterCutscene.is_playing()) or (timer.timeout && !monsterCutscene.is_playing()):
-			
+			PositionManager.hasEscapedGreenhouse = true
 			await get_tree().create_timer(1).timeout
 			flower.show()
 			flower.monitoring = true
 			monsterCutscene.play("MonsterRunPast")
 			await monsterCutscene.animation_finished
-			flower.monitoring = false
 
 func moving():
 	
@@ -214,10 +216,13 @@ func _on_to_greenhouse_body_entered(body: Node2D) -> void:
 
 func _on_helianth_cutscene_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "MonsterRunPast":
-		flower.hide()
 		if PositionManager.Objectives.find("Remove Threat") == -1:
 			PositionManager.add_objective("Remove Threat", "Remove the threat.")
 		if PositionManager.Objectives.find("Investigate Greenhouse") != -1:
 			PositionManager.remove_objective("Investigate Greenhouse")
+		PositionManager.paused = false
 		PositionManager.hasEscapedGreenhouse = true
-		
+		flower.position = path.points[PositionManager.destOrder[PositionManager.dest]] - PositionManager.HelianthRelativePosition
+		flower.visible = true
+		flower.monitoring = true
+		flower.playing = true
