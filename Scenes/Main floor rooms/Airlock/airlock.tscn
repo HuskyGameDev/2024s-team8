@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://wj0r171hbpc6"]
+[gd_scene load_steps=31 format=4 uid="uid://wj0r171hbpc6"]
 
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Airlock/airlock.gd" id="1_tr7se"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="2_sam63"]
@@ -12,9 +12,10 @@
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Airlock/AirlockDocument.gd" id="8_ldlo2"]
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Airlock/AirlockButton2.gd" id="8_wptix"]
 [ext_resource type="Texture2D" uid="uid://7h3gnmd8xbdb" path="res://Assets/info_poster_sprite.png" id="10_6y7qf"]
+[ext_resource type="Texture2D" uid="uid://bv0hsjpdtm4t8" path="res://Assets/eject-button.png" id="12_di4n0"]
 [ext_resource type="PackedScene" uid="uid://coym0lkppx1o7" path="res://lamp.tscn" id="12_kokgf"]
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Airlock/eject_button.gd" id="13_22k51"]
-[ext_resource type="Texture2D" uid="uid://ojw71hga2euh" path="res://Assets/Spotlight.png" id="13_re4lm"]
+[ext_resource type="Texture2D" uid="uid://dlmxxta87wwcq" path="res://Assets/eject-button-open.png" id="13_vieha"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2wqav"]
 size = Vector2(24, 32)
@@ -293,11 +294,22 @@ occluder = SubResource("OccluderPolygon2D_6r7ue")
 position = Vector2(182, 98)
 script = ExtResource("13_22k51")
 
-[node name="Sprite2D" type="Sprite2D" parent="Eject Button"]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("13_re4lm")
+[node name="EjectClosed" type="Sprite2D" parent="Eject Button"]
+unique_name_in_owner = true
+position = Vector2(-1, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_di4n0")
+
+[node name="EjectOpen" type="Sprite2D" parent="Eject Button"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(-1, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("13_vieha")
 
 [node name="InteractionArea" type="Area2D" parent="Eject Button"]
+visible = false
+position = Vector2(-1, 0)
 script = ExtResource("7_iopdc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Eject Button/InteractionArea"]

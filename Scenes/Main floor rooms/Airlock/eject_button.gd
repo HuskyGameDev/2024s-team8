@@ -22,25 +22,37 @@ const lines4: Array[String] = [
 	"The pod has already been ejected. Let's get out of here!"
 ]
 
+const lines5: Array[String] = [
+	"The pod ejection button.",
+	"You open up the cover."
+]
+
 
 func _ready():
 	interaction_area.interact = Callable(self, "_on_interact")
-	pass # Replace with function body.
+	if PositionManager.ejectionOpened:
+		$EjectOpen.show()
 
 
 func _on_interact():
 	player._swap_attention()
 	
 	if PositionManager.heliDistracted and !PositionManager.HasDefeatedMonster and PositionManager.OpenedAirlock:
-		PositionManager.lastKnownPos.x = player.position.x
-		PositionManager.lastKnownPos.y = player.position.y
-		get_tree().change_scene_to_file("res://defeat.tscn")
-		StageManager.scene_change = true
+		if PositionManager.ejectionOpened:
+			PositionManager.lastKnownPos.x = player.position.x
+			PositionManager.lastKnownPos.y = player.position.y
+			get_tree().change_scene_to_file("res://defeat.tscn")
+			StageManager.scene_change = true
+		else:
+			PositionManager.ejectionOpened = true
+			DialogManager.start_dialog(global_position, lines5, speech_sound, false)
+			await DialogManager.dialog_finished
+			$EjectOpen.show()
+			
 	elif PositionManager.heliDistracted && !PositionManager.HasDefeatedMonster && !PositionManager.OpenedAirlock:
-		
-		DialogManager.start_dialog(global_position, lines3, speech_sound2, false)
-		await DialogManager.dialog_finished
-		
+			DialogManager.start_dialog(global_position, lines3, speech_sound2, false)
+			await DialogManager.dialog_finished
+			
 	elif PositionManager.HasDefeatedMonster:
 		
 		DialogManager.start_dialog(global_position, lines4, speech_sound2, false)

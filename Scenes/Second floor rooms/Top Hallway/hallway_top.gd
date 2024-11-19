@@ -101,7 +101,7 @@ func _on_to_security_room_body_entered(body):
 			if !player.hasAttention:
 				player._swap_attention()
 			return
-	if body.name == "Player" && Input.is_action_pressed("UP") && PositionManager.hasClearedDial && PositionManager.doorHasOpened:
+	if body.name == "Player" && Input.is_action_pressed("UP") && PositionManager.hasClearedDial:
 		var SECURITY_ROOM = load("res://Scenes/Second floor rooms/Security Room/security_room.tscn")
 		$Player.hasAttention = false
 		$Player/AnimationTree.set("active", false)

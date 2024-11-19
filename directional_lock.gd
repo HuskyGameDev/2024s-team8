@@ -9,14 +9,14 @@ var previousIndex = -1
 @onready var documentScene = preload("res://Scripts/ObjectivesMenu/document.tscn")
 @onready var person = get_tree().get_first_node_in_group("Player")
 @onready var player = get_node("AnimationPlayer")
-@onready var state = get_node("Backplate/Outline/LockState")
 
 signal solved()
 
 var instructionsOpened = false
 
 func _ready() -> void:
-	state.modulate = "FF2222"
+	#state.modulate = "FF2222"
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -48,18 +48,21 @@ func lockProcess() -> void:
 		
 	if currentIndex == poemCode.size():
 		if lockStates.all(func(element): return element == 0):
-			print("Success!")
-			state.modulate = "22FF22"
+			#print("Success!")
+			%Correct.show()
 			await get_tree().create_timer(1).timeout
 			solved.emit()
 			person._swap_attention()
 			queue_free()
 		else:
-			print("You suck")
+			#print("You suck")
+			$Incorrect.show()
 			userInput.clear()
 			lockStates.clear()
 			currentIndex = 0
 			previousIndex = -1
+			await get_tree().create_timer(1).timeout
+			$Incorrect.hide()
 
 func playAnim(anim: String) -> void:
 	player.play(anim)

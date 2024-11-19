@@ -38,6 +38,7 @@ var HasRemovedCommandDeckVines = false
 var hasActivatedHeli = false
 var hasEscapedGreenhouse = false
 var heliDistracted = false
+var ejectionOpened = false
 var HasDefeatedMonster = false
 
 #Items

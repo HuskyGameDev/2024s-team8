@@ -29,7 +29,7 @@ func _on_interact():
 		PositionManager.HasKeycard = true
 		PositionManager.Inventory.append("Keycard")
 		PositionManager.InventoryText.append("A security keycard for 'Dave A.'")
-		PositionManager.InventorySprite.append("res://Assets/dial.png")
+		PositionManager.InventorySprite.append("res://Assets/Inventory Icons/keycard.png")
 	else:
 		DialogManager.start_dialog(global_position, lines2, speech_sound, false, false)
 		await DialogManager.dialog_finished
