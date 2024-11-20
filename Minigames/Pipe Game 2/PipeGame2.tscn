@@ -162,12 +162,12 @@ texture = ExtResource("4_e2ejq")
 [node name="Sprite2D12" type="Sprite2D" parent="Row3"]
 position = Vector2(130, 90)
 scale = Vector2(2, 2)
-texture = ExtResource("3_ypfwj")
+texture = ExtResource("7_ap7ei")
 
 [node name="Sprite2D13" type="Sprite2D" parent="Row3"]
 position = Vector2(160, 90)
 scale = Vector2(2, 2)
-texture = ExtResource("7_ap7ei")
+texture = ExtResource("3_ypfwj")
 
 [node name="Sprite2D14" type="Sprite2D" parent="Row3"]
 position = Vector2(190, 90)
