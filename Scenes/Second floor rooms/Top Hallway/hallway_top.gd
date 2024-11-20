@@ -54,6 +54,10 @@ func _ready():
 			flower.monitoring = true
 	else:
 		flower.visible = false
+	if PositionManager.heliDistracted:
+		flower.visible = false
+	if PositionManager.HasDefeatedMonster:
+		flower.visible = false
 	
 	if PositionManager.hasActivatedHeli && !PositionManager.hasEscapedGreenhouse:
 		if player.hasAttention:

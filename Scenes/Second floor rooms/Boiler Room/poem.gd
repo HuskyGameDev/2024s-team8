@@ -6,7 +6,7 @@ extends Node2D
 
 const lines: Array[String] = [
 	"It's a poem the mechanic wrote to his wife, I wonder why he left it here?",
-	"Maybe this relates somehow to the code to the Security room, I'm going to put this in my Documents."
+	"I'm going to put this in my Documents."
 ]
 
 const lines2: Array[String] = [

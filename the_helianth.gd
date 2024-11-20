@@ -52,7 +52,7 @@ func _physics_process(_delta: float) -> void:
 		move_and_slide()
 
 func _on_body_area_body_entered(body: Node2D) -> void:
-	if body.name == "Player" and visible and !body.hiding and ((body.position - position).length() < 100) and false:
+	if body.name == "Player" and visible and !body.hiding and ((body.position - position).length() < 100):
 		playing = false
 		animPlayer.stop()
 		touched.emit()

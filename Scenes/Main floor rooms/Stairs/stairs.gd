@@ -24,6 +24,10 @@ func _ready():
 	else:
 		flower.visible = true
 		flower.monitoring = true
+	if PositionManager.heliDistracted:
+		flower.visible = false
+	if PositionManager.HasDefeatedMonster:
+		flower.visible = false
 	StageManager.changeCamera(488)
 	
 

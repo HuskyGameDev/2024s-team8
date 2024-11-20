@@ -45,6 +45,10 @@ func _ready():
 			flower.monitoring = true
 	else:
 		flower.visible = false
+	if PositionManager.heliDistracted:
+		flower.visible = false
+	if PositionManager.HasDefeatedMonster:
+		flower.visible = false
 	
 	
 	#sets camera limit
