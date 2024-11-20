@@ -65,10 +65,12 @@ func _ready():
 	#checks if its not act 1 or 0 and if the player hasn't read the escape text
 	if PositionManager.Act != 1 && PositionManager.Act != 0 && !PositionManager.HasReadEscapeText:
 		Player.hasAttention = false
+		PositionManager.paused = true
 		Player.animationTree.set("active", Player.hasAttention)
 		PositionManager.HasReadEscapeText = true
 		DialogManager.start_dialog(global_position, lines3, speech_sound, false, false)
 		await DialogManager.dialog_finished
+		PositionManager.paused = false
 		PositionManager.add_objective("Create Decoy", "Construct a decoy capable of luring\n the monster.")
 		Player.hasAttention = true
 		Player.animationTree.set("active", Player.hasAttention)
