@@ -77,7 +77,7 @@ func _process(_delta):
 	if PositionManager.hasActivatedHeli && !PositionManager.hasEscapedGreenhouse:
 		await DialogManager.dialog_finished
 		timer.start()
-		if (player.hiding && !monsterCutscene.is_playing()) or (timer.timeout && !monsterCutscene.is_playing()):
+		if (player.hiding && !monsterCutscene.is_playing()) or (timer.is_stopped() && !monsterCutscene.is_playing()):
 			PositionManager.hasEscapedGreenhouse = true
 			await get_tree().create_timer(1).timeout
 			flower.show()

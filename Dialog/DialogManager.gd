@@ -75,7 +75,8 @@ func _input(event):
 			can_advance_line && !skippingDialogue
 		):
 			if !is_interactable:
-				text_box.queue_free()
+				if text_box != null:
+					text_box.queue_free()
 				
 				current_line_index += 1
 				if current_line_index >= dialog_lines.size():

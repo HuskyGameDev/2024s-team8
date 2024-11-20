@@ -683,7 +683,7 @@ points = PackedVector2Array(400, 144, 88, 144, 268, 144, 268, 136, 268, 132, 212
 width = 1.0
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 6.0
 one_shot = true
 
 [connection signal="area_entered" from="RemovableVines/InteractionArea" to="RemovableVines/InteractionArea" method="_on_area_entered"]

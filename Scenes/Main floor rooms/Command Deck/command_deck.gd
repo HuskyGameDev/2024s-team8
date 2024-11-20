@@ -24,13 +24,13 @@ const lines2: Array[String] = [
 func _ready():
 	interaction_area.interact = Callable(self, "_on_interact")
 	StageManager.changeCamera(488)
-	
-	if player.hasAttention:
-		player.hasAttention = false
-	DialogManager.start_dialog(global_position, lines, speech_sound, false, false)
-	await DialogManager.dialog_finished
-	if !player.hasAttention:
-		player.hasAttention = true
+	if !PositionManager.HasDefeatedMonster:
+		if player.hasAttention:
+			player.hasAttention = false
+		DialogManager.start_dialog(global_position, lines, speech_sound, false, false)
+		await DialogManager.dialog_finished
+		if !player.hasAttention:
+			player.hasAttention = true
 
 
 

@@ -39,15 +39,13 @@ func _physics_process(_delta: float) -> void:
 				animPlayer.play("walk_right")
 			elif velocity.x < 0:
 				animPlayer.play("walk_left")
-			else:
-				animPlayer.stop()
+			
 		else:
 			if velocity.x > 0:
 				animPlayer.play("run_right")
 			elif velocity.x < 0:
 				animPlayer.play("run_left")
-			else:
-				animPlayer.stop()
+			
 
 		move_and_slide()
 
@@ -79,6 +77,6 @@ func _on_vision_cone_body_entered(body: Node2D) -> void:
 			playing = true
 		$VisionCone.monitoring = true
 		walkin = false
-		await get_tree().create_timer(5.0).timeout
+		await get_tree().create_timer(3.0).timeout
 		walkin = true
 		
