@@ -15,7 +15,7 @@ func _ready():
 		config.set_value("keybinding", "MENU", "Escape")
 		config.set_value("keybinding", "MAP", "M")
 		config.set_value("keybinding", "OBJECTIVE", "G")
-		config.set_value("keybinding", "SHIFT", "Shift")
+		config.set_value("keybinding", "SPRINT", "Shift")
 		
 		config.set_value("audio", "master_volume", 0.5)
 		config.set_value("audio", "music_volume", 0.5)

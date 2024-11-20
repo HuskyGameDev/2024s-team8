@@ -136,10 +136,10 @@ func _physics_process(_delta):
 		
 		velocity = Vector2.ZERO
 		
-		if Input.is_action_just_pressed("SHIFT") or PositionManager.RetainPlayerSpeed:
+		if Input.is_action_just_pressed("SPRINT") or PositionManager.RetainPlayerSpeed:
 				playerSpeed = 90
 				PositionManager.RetainPlayerSpeed = true
-		if Input.is_action_just_released("SHIFT"):
+		if Input.is_action_just_released("SPRINT"):
 				playerSpeed = 50
 				PositionManager.RetainPlayerSpeed = false
 		if hasAttention:
