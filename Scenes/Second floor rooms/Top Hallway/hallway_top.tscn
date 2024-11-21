@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://b0u5oq1ep04bc"]
+[gd_scene load_steps=42 format=4 uid="uid://b0u5oq1ep04bc"]
 
 [ext_resource type="Script" path="res://Scenes/Second floor rooms/Top Hallway/hallway_top.gd" id="1_js6sa"]
 [ext_resource type="TileSet" uid="uid://clwqjap3ihiu" path="res://Scenes/collision tileset.tres" id="1_wa6ms"]
@@ -15,7 +15,6 @@
 [ext_resource type="Script" path="res://Scenes/Main floor rooms/Main Hall/Locker.gd" id="7_yxck1"]
 [ext_resource type="Script" path="res://dial_door.gd" id="8_mom2l"]
 [ext_resource type="Texture2D" uid="uid://h4sy0m4qq4k" path="res://Assets/locker_sprites.png" id="8_oq6w7"]
-[ext_resource type="TileSet" uid="uid://b57dw6av5xyw3" path="res://door_icon_tileset.tres" id="9_4cxew"]
 [ext_resource type="PackedScene" uid="uid://koortbv6bmhv" path="res://theHelianth.tscn" id="14_ra4c5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wrbx8"]
@@ -591,12 +590,6 @@ shape = SubResource("RectangleShape2D_23g7b")
 [node name="Sprite2D" type="Sprite2D" parent="Stairs Door"]
 texture = ExtResource("5_b7ej4")
 offset = Vector2(0, 2)
-
-[node name="Door Icons" type="TileMapLayer" parent="."]
-z_index = 1
-use_parent_material = true
-tile_map_data = PackedByteArray("AAAyAAgAAAADAAAAAAAKAAgAAAAEAAAAAAAhAAgAAAAAAAAAAAA=")
-tile_set = ExtResource("9_4cxew")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("3_j2e1i")]
 z_index = 1
