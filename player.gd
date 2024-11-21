@@ -64,6 +64,7 @@ func _swap_attention():
 	hasAttention = !hasAttention
 	PositionManager.paused = !hasAttention
 	animationTree.set("active", hasAttention)
+	$"World collision".disabled = !hasAttention
 
 
 

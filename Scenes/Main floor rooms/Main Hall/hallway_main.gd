@@ -31,10 +31,10 @@ func _ready():
 	if PositionManager.Objectives.find("Turn Power On") == -1 && PositionManager.Act != 3:
 		PositionManager.add_objective("Turn Power On", "Find out how to turn the power back on.")
 	
-	
 	path.visible = false
-	flower.visible = false
-	if PositionManager.Act == 3:
+	
+	if PositionManager.Act == 3 and !PositionManager.HasDefeatedMonster:
+		flower.visible = false
 		PositionManager.paused = false
 		%Lamps.hide()
 		flower.position = path.points[PositionManager.destOrder[PositionManager.dest]] - PositionManager.HelianthRelativePosition
@@ -43,12 +43,9 @@ func _ready():
 		else:
 			flower.visible = true
 			flower.monitoring = true
-	else:
+	elif PositionManager.Act != 3:
 		flower.visible = false
-	if PositionManager.heliDistracted:
-		flower.visible = false
-	if PositionManager.HasDefeatedMonster:
-		flower.visible = false
+	
 	
 	
 	#sets camera limit
@@ -82,7 +79,7 @@ func _ready():
 		#$"Door areas/Bridge".monitoring = true
 	
 func _process(_delta):
-	if PositionManager.Act == 3:
+	if PositionManager.Act == 3 and !PositionManager.HasDefeatedMonster:
 		if !PositionManager.paused:
 			moving()
 		else:

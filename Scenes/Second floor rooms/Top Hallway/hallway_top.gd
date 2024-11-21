@@ -18,6 +18,8 @@ var move = true
 @onready var monsterCutscene = $"%HelianthCutscene"
 @onready var timer = $Timer
 
+var timerStopped = false
+
 const lines: Array[String] = [
 	"I need to find somewhere to hide!"
 ]
@@ -34,7 +36,8 @@ const lines3: Array[String] = [
 func _ready():
 	
 	path.visible = false
-	flower.visible = false
+	if !PositionManager.HasDefeatedMonster:
+		flower.visible = false
 	if PositionManager.hasClearedDial:
 		if SecurityDoor != null:
 			SecurityDoor.queue_free()
@@ -44,7 +47,7 @@ func _ready():
 	if !PositionManager.SecurityEnabled:
 		$"Stairs Door".queue_free()
 	
-	if PositionManager.hasEscapedGreenhouse:
+	if PositionManager.hasEscapedGreenhouse and !PositionManager.HasDefeatedMonster:
 		PositionManager.paused = false
 		flower.position = path.points[PositionManager.destOrder[PositionManager.dest]] - PositionManager.HelianthRelativePosition
 		if PositionManager.destOrder[PositionManager.dest] > 3:
@@ -52,11 +55,7 @@ func _ready():
 		else:
 			flower.visible = true
 			flower.monitoring = true
-	else:
-		flower.visible = false
-	if PositionManager.heliDistracted:
-		flower.visible = false
-	if PositionManager.HasDefeatedMonster:
+	elif !PositionManager.hasEscapedGreenhouse:
 		flower.visible = false
 	
 	if PositionManager.hasActivatedHeli && !PositionManager.hasEscapedGreenhouse:
@@ -64,20 +63,20 @@ func _ready():
 			player._swap_attention()
 		DialogManager.start_dialog(global_position, lines, speech_sound, false)
 		await DialogManager.dialog_finished
+		timer.start()
 		if !player.hasAttention:
 			player._swap_attention()
 
 func _process(_delta):
-	if PositionManager.hasEscapedGreenhouse:
+	
+	if PositionManager.hasEscapedGreenhouse and !PositionManager.HasDefeatedMonster:
 		if !PositionManager.paused:
 			moving()
 		else:
 			flower.dir = Vector2.ZERO
-	
+
 	if PositionManager.hasActivatedHeli && !PositionManager.hasEscapedGreenhouse:
-		await DialogManager.dialog_finished
-		timer.start()
-		if (player.hiding && !monsterCutscene.is_playing()) or (timer.is_stopped() && !monsterCutscene.is_playing()):
+		if (player.hiding && !monsterCutscene.is_playing()) or (timerStopped && !monsterCutscene.is_playing()):
 			PositionManager.hasEscapedGreenhouse = true
 			await get_tree().create_timer(1).timeout
 			flower.show()
@@ -230,3 +229,7 @@ func _on_helianth_cutscene_animation_finished(anim_name: StringName) -> void:
 		flower.visible = true
 		flower.monitoring = true
 		flower.playing = true
+
+
+func _on_timer_timeout() -> void:
+	timerStopped = true

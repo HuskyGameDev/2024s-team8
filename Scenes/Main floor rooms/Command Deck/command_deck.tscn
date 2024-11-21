@@ -325,7 +325,6 @@ position = Vector2(0, -24)
 texture = ExtResource("3_26o2c")
 hframes = 5
 vframes = 7
-frame = 22
 
 [node name="BodyArea" type="Area2D" parent="CutsceneMonster/FlowerSprite"]
 collision_layer = 2

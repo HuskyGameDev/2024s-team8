@@ -14,13 +14,18 @@ var playing = true
 @export var walkin = true
 @export var monitoring = false
 
+var erased = false
+
 func _process(_delta: float) -> void:
 	if visible:
 		pCollide.disabled = false
 	else:
 		pCollide.disabled = true
 	$FlowerSprite/BodyArea.monitoring = monitoring
-		
+	
+	if PositionManager.HasDefeatedMonster and !erased:
+		erased = true
+		queue_free()
 
 func _physics_process(_delta: float) -> void:
 	
@@ -51,6 +56,8 @@ func _physics_process(_delta: float) -> void:
 
 func _on_body_area_body_entered(body: Node2D) -> void:
 	if body.name == "Player" and visible and !body.hiding and ((body.position - position).length() < 100):
+		if DialogManager.is_dialog_active:
+			Input.action_press("ESCAPE")
 		playing = false
 		animPlayer.stop()
 		touched.emit()
@@ -66,7 +73,7 @@ func _on_body_area_body_entered(body: Node2D) -> void:
 
 func _on_vision_cone_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
-		$VisionCone.monitoring = false
+		$VisionCone.set_deferred("monitoring", false)
 		if walkin:
 			playing = false
 			if velocity.x > 0:

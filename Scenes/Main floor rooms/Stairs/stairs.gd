@@ -16,18 +16,16 @@ const lines: Array[String] = [
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	path.visible = false
-	flower.visible = false
-	flower.position = path.points[PositionManager.destOrder[PositionManager.dest]] - PositionManager.HelianthRelativePosition
+	if !PositionManager.HasDefeatedMonster:
+		flower.visible = false
+		flower.position = path.points[PositionManager.destOrder[PositionManager.dest]] - PositionManager.HelianthRelativePosition
 	PositionManager.paused = false
-	if PositionManager.destOrder[PositionManager.dest] > 8 or PositionManager.destOrder[PositionManager.dest] < 3:
+	if PositionManager.destOrder[PositionManager.dest] > 8 or PositionManager.destOrder[PositionManager.dest] < 3 and !PositionManager.HasDefeatedMonster:
 		flower.visible = false
 	else:
 		flower.visible = true
 		flower.monitoring = true
-	if PositionManager.heliDistracted:
-		flower.visible = false
-	if PositionManager.HasDefeatedMonster:
-		flower.visible = false
+	
 	StageManager.changeCamera(488)
 	
 
@@ -35,10 +33,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	
-	if !PositionManager.paused:
-		moving()
-	else:
-		flower.dir = Vector2.ZERO
+	if !PositionManager.HasDefeatedMonster:
+		if !PositionManager.paused:
+			moving()
+		else:
+			flower.dir = Vector2.ZERO
 
 
 func moving():

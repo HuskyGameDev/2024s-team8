@@ -56,8 +56,7 @@ func _on_interact():
 		PositionManager.Inventory.append("Meat")
 		PositionManager.InventoryText.append("A piece of raw meat")
 		PositionManager.InventorySprite.append("res://Assets/Inventory Icons/inventory-meat.png")
-		DialogManager.start_dialog(global_position, lines2, speech_sound, false)
-		await DialogManager.dialog_finished
+		
 		DialogManager.start_dialog(global_position, lines3, speech_sound, false)
 		await DialogManager.dialog_finished
 		
