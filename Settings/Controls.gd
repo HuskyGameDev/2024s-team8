@@ -22,7 +22,9 @@ func load_keybindings_from_settings():
 
 # Creates control menu buttons and labels
 func create_action_remap_items() -> void:
-	var previous_item = control_grid_container.get_child(control_grid_container.get_child_count() - 1)
+	var previous_item
+	if control_grid_container.get_child_count() != 0:
+		previous_item = control_grid_container.get_child(control_grid_container.get_child_count() - 1)
 	
 	# For each action in action_items
 	var range1 = action_items.size()
