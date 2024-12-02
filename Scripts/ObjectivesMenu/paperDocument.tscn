@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://u2ckrwnxp00x"]
+[gd_scene load_steps=9 format=3 uid="uid://u2ckrwnxp00x"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectivesMenu/document.gd" id="1_dbv6k"]
 [ext_resource type="FontFile" uid="uid://eakijihfas2k" path="res://Assets/SFPixelate-Bold.ttf" id="2_1ov4b"]
 [ext_resource type="Texture2D" uid="uid://xedf5es1uqvk" path="res://Assets/arrow.png" id="3_c8cdb"]
+[ext_resource type="AudioStream" uid="uid://dneoxljbweo6l" path="res://Assets/Audio/Sound Effects/Paper Note Pickup.mp3" id="4_7rxgn"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_ntveb"]
 
@@ -426,5 +427,10 @@ libraries = {
 "": SubResource("AnimationLibrary_poax8")
 }
 autoplay = "Popup"
+
+[node name="PaperSound" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_7rxgn")
+autoplay = true
 
 [connection signal="pressed" from="Document/DocumentExit" to="." method="_on_document_exit_pressed"]

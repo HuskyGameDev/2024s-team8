@@ -6,6 +6,8 @@ extends Node2D
 @onready var minigameScene2 = load("res://Minigames/Pipe Game 2/PipeGame2.tscn")
 @onready var Canvas = %CanvasLayer2
 @onready var PipePuzzle = get_tree().get_first_node_in_group("PipePuzzle")
+@onready var GeneratorOn = %GeneratorOn
+@onready var BuzzingLights = %BuzzingLights
 
 var minigame = null
 
@@ -36,4 +38,6 @@ func _on_cleared():
 	PositionManager.remove_objective("Turn Power On")
 	PositionManager.add_objective("Remove Security Lockdown", "Deactivate Security Lockdown Scenario.")
 	opening.emit()
+	GeneratorOn.play()
+	BuzzingLights.play()
 	PipePuzzle.queue_free()

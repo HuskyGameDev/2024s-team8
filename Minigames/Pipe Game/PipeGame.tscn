@@ -251,6 +251,7 @@ material = SubResource("ShaderMaterial_rr05t")
 mesh = SubResource("QuadMesh_07lkm")
 
 [node name="Info Button" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 255.763
 offset_top = 14.4068
 offset_right = 271.763

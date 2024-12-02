@@ -3,6 +3,7 @@ extends Node2D
 @onready var animPlayer = $AnimationPlayer
 @onready var poweredDoor = get_tree().get_first_node_in_group("P-Door")
 @onready var door = $Door
+@onready var BuzzingLights = $"%BuzzingLights"
 
 func _ready():
 	StageManager.changeCamera(488)
@@ -20,6 +21,7 @@ func _ready():
 			$Player._swap_attention()
 	
 	if PositionManager.hasClearedPipe:
+		BuzzingLights.play()
 		if poweredDoor != null:
 			poweredDoor.queue_free()
 			door.monitoring = true

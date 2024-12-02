@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bbwi0ak4q4l6d"
+path="res://.godot/imported/Player_Heartbeat1_FOL_DealFast.mp3-2de157f643a6851cb93af8557c165e30.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Sound Effects/Player_Heartbeat1_FOL_DealFast.mp3"
+dest_files=["res://.godot/imported/Player_Heartbeat1_FOL_DealFast.mp3-2de157f643a6851cb93af8557c165e30.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

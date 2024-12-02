@@ -11,6 +11,7 @@ extends CharacterBody2D
 @onready var InteractionParent = get_tree().get_first_node_in_group("InteractionParent")
 @onready var CanvasModulateObject = get_tree().get_first_node_in_group("CanvasModulate") #Red filter canvas modulate (just CanvasModulate)
 @onready var NoiseModulateObject = get_tree().get_first_node_in_group("NoiseModulate")
+@onready var heartbeat = $Heartbeat
 @export var playerSpeed = 50
 @export var pauseMenu : PackedScene
 @export var mini_map : PackedScene
@@ -80,6 +81,11 @@ func _swap_attention():
 #switches player to pause menu when they press esc and to the map depending which floor they are on 
 #when they press m 
 func _process(_delta):
+	if hiding and !heartbeat.playing:
+		heartbeat.play()
+	
+	if !hiding and heartbeat.playing:
+		heartbeat.stop()
 	
 	if PositionManager.hasEscapedGreenhouse and !PositionManager.HasDefeatedMonster and !helianthPresent:
 		if !PositionManager.paused:
