@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://d3smthgcyvtgq"]
+[gd_scene load_steps=58 format=3 uid="uid://d3smthgcyvtgq"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_8m3b3"]
 [ext_resource type="PackedScene" uid="uid://bba3405jkew8f" path="res://Settings/pauseMenu.tscn" id="2_li7mv"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://dohvmfct5tpvg" path="res://Assets/Character Poses/char_face_walk2_sil.png" id="20_cm4x0"]
 [ext_resource type="Texture2D" uid="uid://mu7q6tehyygx" path="res://Assets/Character Poses/char_left_walk_sil.png" id="22_458yd"]
 [ext_resource type="Texture2D" uid="uid://dffatps2amrdh" path="res://Assets/Character Poses/char_right_walk_sil.png" id="24_aa4so"]
+[ext_resource type="Script" path="res://Scenes/flower_tracker.gd" id="26_ausrp"]
 [ext_resource type="Script" path="res://Scenes/metallic_walking.gd" id="26_oio5y"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hv4va"]
@@ -511,11 +512,14 @@ states/Start/position = Vector2(259, 100)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_bjibm"), "Idle", "Moving", SubResource("AnimationNodeStateMachineTransition_6j82b"), "Moving", "Idle", SubResource("AnimationNodeStateMachineTransition_ohsen"), "Idle", "End", SubResource("AnimationNodeStateMachineTransition_3gqdm"), "Moving", "End", SubResource("AnimationNodeStateMachineTransition_lijnx")]
 graph_offset = Vector2(-295.061, 53.955)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_310n3"]
+radius = 6.0
+height = 34.0
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_8m3b3")
-playerSpeed = 50
 pauseMenu = ExtResource("2_li7mv")
 mini_map = ExtResource("3_si0d5")
 mini_map_2nd_floor = ExtResource("4_w4vrd")
@@ -623,3 +627,22 @@ autowrap_mode = 1
 [node name="MetallicWalking" type="AudioStreamPlayer2D" parent="."]
 bus = &"SFX"
 script = ExtResource("26_oio5y")
+
+[node name="FlowerTracker" type="CharacterBody2D" parent="."]
+visible = false
+position = Vector2(408, 144)
+script = ExtResource("26_ausrp")
+
+[node name="PhysicsCollision" type="CollisionShape2D" parent="FlowerTracker"]
+position = Vector2(-9, 2)
+rotation = 1.5708
+scale = Vector2(1, -1)
+shape = SubResource("CapsuleShape2D_310n3")
+disabled = true
+
+[node name="FlowerPath" type="Line2D" parent="."]
+visible = false
+top_level = true
+z_index = 8
+points = PackedVector2Array(448, 200, 136, 200, 316, 200, 316, 192, 316, 188, 260, 188, 196, 132, 132, 132, 132, 136, 132, 144, 80, 144, 416, 144)
+width = 1.0

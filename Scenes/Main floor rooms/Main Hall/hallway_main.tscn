@@ -370,6 +370,7 @@ position = Vector2(408, 144)
 z_index = 1
 position = Vector2(329, 133)
 playerSpeed = 60
+helianthPresent = true
 metadata/_edit_group_ = true
 
 [node name="LightOccluder2D" parent="Player/Lighting" index="2" groups=["LightOccluder"]]
@@ -745,6 +746,7 @@ position = Vector2(412, 166.5)
 shape = SubResource("RectangleShape2D_h7vbu")
 
 [node name="FlowerPath" type="Line2D" parent="."]
+visible = false
 top_level = true
 z_index = 8
 points = PackedVector2Array(448, 200, 136, 200, 316, 200, 316, 192, 316, 188, 260, 188, 196, 132, 132, 132, 132, 136, 132, 144, 80, 144, 416, 144)

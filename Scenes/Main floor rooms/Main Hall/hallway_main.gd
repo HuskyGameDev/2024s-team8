@@ -84,6 +84,7 @@ func _process(_delta):
 			moving()
 		else:
 			flower.dir = Vector2.ZERO
+			print("Stopped")
 
 func moving():
 	

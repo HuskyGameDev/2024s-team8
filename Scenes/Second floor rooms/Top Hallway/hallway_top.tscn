@@ -594,6 +594,7 @@ offset = Vector2(0, 2)
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("3_j2e1i")]
 z_index = 1
 position = Vector2(122, 120)
+helianthPresent = true
 
 [node name="To Security Room" type="Area2D" parent="." groups=["Security Door"]]
 position = Vector2(88, 119)

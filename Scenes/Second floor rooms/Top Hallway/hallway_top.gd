@@ -86,15 +86,27 @@ func _process(_delta):
 
 func moving():
 	
-	var destCoord = path.points[PositionManager.destOrder[PositionManager.dest]]
-	PositionManager.HelianthRelativePosition = destCoord - flower.position
-	if PositionManager.HelianthRelativePosition.length() < 2:
-		if PositionManager.destOrder[PositionManager.dest] == 3:
-			flower.visible = !flower.visible
-		PositionManager.dest += 1
-		PositionManager.dest = PositionManager.dest % PositionManager.destOrder.size()
+	if PositionManager.SecurityEnabled:
 		
-	flower.dir = PositionManager.HelianthRelativePosition
+		var destCoord = path.points[PositionManager.destOrderSecurityEnabled[PositionManager.dest]]
+		PositionManager.HelianthRelativePosition = destCoord - flower.position
+		if PositionManager.HelianthRelativePosition.length() < 2:
+			PositionManager.dest += 1
+			PositionManager.dest = PositionManager.dest % PositionManager.destOrderSecurityEnabled.size()
+			
+		flower.dir = PositionManager.HelianthRelativePosition
+		
+	else:
+	
+		var destCoord = path.points[PositionManager.destOrder[PositionManager.dest]]
+		PositionManager.HelianthRelativePosition = destCoord - flower.position
+		if PositionManager.HelianthRelativePosition.length() < 2:
+			if PositionManager.destOrder[PositionManager.dest] == 3:
+				flower.visible = !flower.visible
+			PositionManager.dest += 1
+			PositionManager.dest = PositionManager.dest % PositionManager.destOrder.size()
+			
+		flower.dir = PositionManager.HelianthRelativePosition
 
 func _on_to_security_room_body_entered(body):
 	if body.name == "Player":

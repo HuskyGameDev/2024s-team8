@@ -79,6 +79,7 @@ var pinkLamp = "f187ff8c"
 var paused = false
 @onready var dest = 0
 @onready var destOrder = [1, 0, 1, 0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 10, 11, 9, 8, 7, 6, 5, 4, 3, 2, 0]
+@onready var destOrderSecurityEnabled = [1, 0]
 
 var lastKnownPos = Vector2.ZERO
 

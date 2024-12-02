@@ -4,12 +4,14 @@ extends CharacterBody2D
 @onready var animationTree = $AnimationTree
 @onready var lights = $Lighting/CanvasModulate
 @onready var CodeNotif = $PauseLayer/TextEdit
+@onready var path = $FlowerPath
+@onready var flowerTracker = $FlowerTracker
 @onready var animationState = animationTree.get("parameters/playback")
 @onready var objectiveMenu = preload("res://Scripts//ObjectivesMenu/ObjectivesMenu.tscn")
 @onready var InteractionParent = get_tree().get_first_node_in_group("InteractionParent")
 @onready var CanvasModulateObject = get_tree().get_first_node_in_group("CanvasModulate") #Red filter canvas modulate (just CanvasModulate)
 @onready var NoiseModulateObject = get_tree().get_first_node_in_group("NoiseModulate")
-@export var playerSpeed = 350
+@export var playerSpeed = 50
 @export var pauseMenu : PackedScene
 @export var mini_map : PackedScene
 @export var mini_map_2nd_floor : PackedScene
@@ -19,6 +21,7 @@ extends CharacterBody2D
 @export var animVec = Vector2.ZERO
 @export var hiding = false
 @export var backingUp = false
+@export var helianthPresent = false
 var screen_size
 var pause
 var ValveMinigame = false
@@ -56,8 +59,13 @@ func _ready():
 		
 		if !hasAttention:
 			hasAttention = true
-		
-	playerSpeed = 50
+	
+	# New Stuff
+	
+	path.visible = false
+	if PositionManager.hasEscapedGreenhouse and !PositionManager.HasDefeatedMonster and !helianthPresent:
+		flowerTracker.position = path.points[PositionManager.destOrder[PositionManager.dest]] - PositionManager.HelianthRelativePosition
+	PositionManager.paused = false
 
 #swaps the players attention to stop the player from moving and stops animations
 func _swap_attention():
@@ -72,6 +80,12 @@ func _swap_attention():
 #switches player to pause menu when they press esc and to the map depending which floor they are on 
 #when they press m 
 func _process(_delta):
+	
+	if PositionManager.hasEscapedGreenhouse and !PositionManager.HasDefeatedMonster and !helianthPresent:
+		if !PositionManager.paused:
+			moving()
+		else:
+			flowerTracker.dir = Vector2.ZERO
 	
 	if $Sprite2D.visible:
 		$"World collision".disabled = false
@@ -186,3 +200,25 @@ func _physics_process(_delta):
 	
 	move_and_slide() # Doesn't use delta, might cause differences between fps
 	#position = position.clamp(Vector2.ZERO, screen_size)
+
+func moving():
+	
+	if PositionManager.SecurityEnabled:
+		
+		var destCoord = path.points[PositionManager.destOrderSecurityEnabled[PositionManager.dest]]
+		PositionManager.HelianthRelativePosition = destCoord - flowerTracker.position
+		if PositionManager.HelianthRelativePosition.length() < 2:
+			PositionManager.dest += 1
+			PositionManager.dest = PositionManager.dest % PositionManager.destOrderSecurityEnabled.size()
+			
+		flowerTracker.dir = PositionManager.HelianthRelativePosition
+		
+	else:
+	
+		var destCoord = path.points[PositionManager.destOrder[PositionManager.dest]]
+		PositionManager.HelianthRelativePosition = destCoord - flowerTracker.position
+		if PositionManager.HelianthRelativePosition.length() < 2:
+			PositionManager.dest += 1
+			PositionManager.dest = PositionManager.dest % PositionManager.destOrder.size()
+			
+		flowerTracker.dir = PositionManager.HelianthRelativePosition
